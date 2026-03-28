@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en" data-wf-page="" data-wf-site="">
+<head>
+  <meta charset="utf-8">
+  <title>Join iGroup | Free Contractor Intelligence Platform</title>
+  <meta name="description" content="Join iGroup for free. £250 welcome bonus, AI rate intelligence, compliance passport, and career support — all from day one.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/normalize.css" rel="stylesheet">
+  <link href="css/webflow.css" rel="stylesheet">
+  <link href="css/ig2-c49518.webflow.css" rel="stylesheet">
+  <link href="css/pages.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <style>
+    .join-hero {
+      background: linear-gradient(135deg, #0D7377 0%, #0a5255 50%, #1A1A2E 100%);
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      padding: 160px 48px 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    .join-hero::before {
+      content: '✦';
+      position: absolute;
+      font-size: 40rem;
+      opacity: 0.03;
+      right: -100px;
+      top: -100px;
+      line-height: 1;
+      color: #fff;
+    }
+    @media (max-width: 767px) { .join-hero { padding: 120px 20px 80px; } }
+
+    .join-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; max-width: 1280px; margin: 0 auto; }
+    @media (max-width: 991px) { .join-layout { grid-template-columns: 1fr; gap: 48px; } }
+
+    .join-form-section { background: #fff; padding: 100px 48px; }
+    @media (max-width: 767px) { .join-form-section { padding: 64px 20px; } }
+
+    .join-checklist-section { background: #F5F0E8; padding: 100px 48px; }
+    @media (max-width: 767px) { .join-checklist-section { padding: 64px 20px; } }
+
+    .step-bar { display: flex; gap: 0; margin-bottom: 48px; }
+    .step-bar-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; position: relative; }
+    .step-bar-item::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      right: -50%;
+      height: 2px;
+      background: #e3e8f0;
+    }
+    .step-bar-item:last-child::before { display: none; }
+    .step-bar-num {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: #0D7377;
+      color: #fff;
+      font-size: 0.9rem; font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; z-index: 1;
+    }
+    .step-bar-label { font-size: 0.8rem; font-weight: 500; color: #1A1A2E; }
+    .step-bar-desc { font-size: 0.75rem; color: #888; }
+
+    .trust-strip {
+      background: #1A1A2E;
+      padding: 32px 48px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 48px;
+      align-items: center;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.9rem; font-weight: 500; color: rgba(255,255,255,0.75);
+    }
+    .trust-item svg { color: #0D7377; }
+    @media (max-width: 767px) { .trust-strip { padding: 24px 20px; gap: 24px; } }
+
+    .pg-card-prep {
+      background: linear-gradient(135deg, #0D7377, #0a4d50);
+      border-radius: 20px;
+      padding: 40px;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(13,115,119,0.4);
+    }
+    .pg-card-prep::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 160px; height: 160px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+    }
+    .pg-card-prep::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -30px;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+    }
+    .card-chip {
+      width: 40px; height: 28px;
+      background: linear-gradient(135deg, #f5c842, #e8a800);
+      border-radius: 6px;
+      margin-bottom: 24px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      padding: 4px;
+    }
+    .card-chip-row { background: rgba(0,0,0,0.15); border-radius: 2px; }
+  </style>
+</head>
+<body class="body">
+
+  <!-- ── NAVBAR ── -->
+  <div data-animation="default" class="navbar w-nav" data-easing2="ease-in-quart" data-easing="ease-out-quart" data-collapse="medium" role="banner" data-no-scroll="1" data-duration="400">
+    <div class="navbar-inner">
+      <div class="w-layout-blockcontainer global-container w-container">
+        <div class="navbar-island">
+          <div class="navbar-wrapper">
+            <div class="navbar-left">
+              <a aria-label="iGroup" href="index.html" class="navbar-brand w-nav-brand"><span style="font-family:'Manrope',sans-serif;font-weight:800;font-size:22px;color:#0D7377;letter-spacing:-0.5px">iGroup</span></a>
+            </div>
+            <nav role="navigation" class="navbar-center w-nav-menu">
+              <ul role="list" class="nav-menu w-list-unstyled">
+                <li class="nav-menu-item"><a href="about.html" class="nav-link w-inline-block"><div class="nav-link-text">About</div></a></li>
+                <li class="nav-menu-item"><a href="services.html" class="nav-link w-inline-block"><div class="nav-link-text">Services</div></a></li>
+                <li class="nav-menu-item"><a href="index.html#section-blogs" class="nav-link w-inline-block"><div class="nav-link-text">Insights</div></a></li>
+                <li class="nav-menu-item"><a href="index.html#section-contact" class="nav-link w-inline-block"><div class="nav-link-text">Contact</div></a></li>
+                <li class="nav-menu-item hide-lg">
+                  <div class="nav-button-wrapper">
+                    <a href="join.html" class="button w-inline-block" style="color:#fff">
+                      <div class="button-inner">
+                        <div class="button-text">Join iGroup</div>
+                        <div class="button-icon-container"><img src="images/icon_right_white.svg" loading="lazy" alt="Arrow" class="button-icon"><img src="images/icon_right_white.svg" loading="lazy" alt="Arrow" class="button-icon"></div>
+                      </div>
+                    </a>
+                  </div>
+                </li>
+              </ul>
+            </nav>
+            <div class="navbar-right">
+              <div class="nav-button-wrapper hide-sm">
+                <a href="join.html" class="button special w-inline-block">
+                  <div class="button-second-layer"><div class="button-second-layer-background"></div></div>
+                  <div class="button-inner">
+                    <div class="button-text">Join iGroup</div>
+                    <div class="button-icon-wrapper">
+                      <div class="button-icon-container"><img src="images/icon_right_green.svg" loading="lazy" alt="Arrow" class="button-icon"><img src="images/icon_right_green.svg" loading="lazy" alt="Arrow" class="button-icon"></div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="navbar-menu-button w-nav-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="line-icon">
+                <path d="M1.04346 5.73927H22.9565C23.5328 5.73927 24 5.2721 24 4.69581C24 4.11951 23.5328 3.65234 22.9565 3.65234H1.04346C0.467168 3.65234 0 4.11951 0 4.69581C0 5.2721 0.467168 5.73927 1.04346 5.73927Z" fill="currentColor" class="line-icon-top"></path>
+                <path d="M22.9565 10.957H1.04346C0.467168 10.957 0 11.4242 0 12.0005C0 12.5768 0.467168 13.044 1.04346 13.044H22.9565C23.5328 13.044 24 12.5768 24 12.0005C24 11.4242 23.5328 10.957 22.9565 10.957Z" fill="currentColor" class="line-icon-center"></path>
+                <path d="M22.9565 18.2607H1.04346C0.467168 18.2607 0 18.728 0 19.3043C0 19.8806 0.467168 20.3477 1.04346 20.3477H22.9565C23.5328 20.3477 24 19.8806 24 19.3043C24 18.728 23.5328 18.2607 22.9565 18.2607Z" fill="currentColor" class="line-icon-bottom"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── HERO ── -->
+  <section class="join-hero">
+    <div style="max-width:1280px; margin:0 auto; width:100%; position:relative; z-index:1;">
+      <div style="max-width:680px;">
+        <span class="pg-eyebrow pg-eyebrow--white fade-up">Join iGroup</span>
+        <h1 class="pg-h1 fade-up" style="color:#ffffff; margin-top:8px;">Welcome to the Smart Side of Contracting.</h1>
+        <p class="pg-body pg-body--white fade-up">Free to join. Activate your £250 welcome bonus. AI-powered intelligence from day one.</p>
+        <div class="pg-buttons fade-up">
+          <a href="#join-form" class="pg-btn pg-btn--dark pg-btn--lg">Start Your Application
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+        <p class="fade-up" style="font-size:0.9rem; color:rgba(255,255,255,0.6); margin-top:16px;">Join 500+ contractors already on the platform</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHAT YOU GET + HOW IT WORKS ── -->
+  <section style="background:#F5F0E8; padding:100px 48px;">
+    <div class="pg-container">
+      <div class="pg-grid-2" style="gap:80px; align-items:start;">
+        <!-- What You Get -->
+        <div>
+          <span class="pg-section-badge fade-up">What You Get</span>
+          <h2 class="pg-h2 fade-up" style="margin-top:12px;">Everything You Need. From Day One.</h2>
+          <ul class="pg-checklist fade-up" style="margin-top:32px;">
+            <li>Personalised rate intelligence report <span style="color:#888; font-size:0.85em;">(within 48 hours)</span></li>
+            <li>Compliance Passport setup initiated</li>
+            <li>Full access to the Contractor Portal</li>
+            <li><strong>£250 welcome bonus</strong> on a pre-paid card</li>
+            <li>Dedicated relationship manager</li>
+            <li>Group insurance rates — up to 35% less</li>
+            <li>Weekly market intelligence briefings</li>
+            <li>Career strategy consultation</li>
+          </ul>
+        </div>
+        <!-- How It Works -->
+        <div>
+          <span class="pg-section-badge fade-up">How It Works</span>
+          <h2 class="pg-h2 fade-up" style="margin-top:12px;">Up and Running in Three Steps.</h2>
+          <div style="margin-top:40px; display:flex; flex-direction:column; gap:32px;">
+            <div class="pg-card pg-card--border fade-up" style="display:flex; gap:24px; align-items:flex-start;">
+              <div class="pg-step-num" style="width:48px; height:48px; min-width:48px; font-size:1rem;">1</div>
+              <div>
+                <h4 class="pg-h4" style="margin-bottom:8px;">Apply</h4>
+                <p class="pg-body--sm" style="color:var(--text-secondary); margin:0;">Complete our 2-minute application form. We only need the basics to get started.</p>
+              </div>
+            </div>
+            <div class="pg-card pg-card--border fade-up" style="display:flex; gap:24px; align-items:flex-start;">
+              <div class="pg-step-num" style="width:48px; height:48px; min-width:48px; font-size:1rem;">2</div>
+              <div>
+                <h4 class="pg-h4" style="margin-bottom:8px;">Welcome Call</h4>
+                <p class="pg-body--sm" style="color:var(--text-secondary); margin:0;">We schedule a 30-minute welcome call to understand your career, goals, and situation.</p>
+              </div>
+            </div>
+            <div class="pg-card pg-card--border fade-up" style="display:flex; gap:24px; align-items:flex-start;">
+              <div class="pg-step-num" style="width:48px; height:48px; min-width:48px; font-size:1rem;">3</div>
+              <div>
+                <h4 class="pg-h4" style="margin-bottom:8px;">Intelligence Activated</h4>
+                <p class="pg-body--sm" style="color:var(--text-secondary); margin:0;">Your rate report lands. Portal access opens. Compliance Passport starts building. You're live.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── £250 BONUS CALLOUT ── -->
+  <section style="background:#ffffff; padding:80px 48px;">
+    <div class="pg-container">
+      <div style="max-width:800px; margin:0 auto;">
+        <div class="pg-bonus-card fade-up">
+          <div style="position:relative; z-index:1;">
+            <div class="card-chip">
+              <div class="card-chip-row"></div>
+              <div class="card-chip-row"></div>
+              <div class="card-chip-row"></div>
+              <div class="card-chip-row"></div>
+            </div>
+            <h3 class="pg-h3" style="color:#fff; margin-bottom:12px;">Your £250 Welcome Bonus</h3>
+            <p style="font-size:1.1rem; color:rgba(255,255,255,0.85); max-width:500px; margin:0 0 28px; line-height:1.6;">Loaded onto a pre-paid card within 7 days of your first assignment through the iGroup network. Our way of saying thank you for choosing intelligent contracting.</p>
+            <div style="display:flex; gap:32px; flex-wrap:wrap;">
+              <div>
+                <div style="font-size:1.5rem; font-weight:600; color:#fff;">£250</div>
+                <div style="font-size:0.8rem; color:rgba(255,255,255,0.65);">Welcome bonus</div>
+              </div>
+              <div>
+                <div style="font-size:1.5rem; font-weight:600; color:#fff;">7 days</div>
+                <div style="font-size:0.8rem; color:rgba(255,255,255,0.65);">After first assignment</div>
+              </div>
+              <div>
+                <div style="font-size:1.5rem; font-weight:600; color:#fff;">Pre-paid</div>
+                <div style="font-size:0.8rem; color:rgba(255,255,255,0.65);">Mastercard</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── APPLICATION FORM ── -->
+  <section id="join-form" style="background:#1A1A2E; padding:100px 48px;">
+    <div class="pg-container">
+      <div style="max-width:720px; margin:0 auto;">
+        <div style="text-align:center; margin-bottom:56px;">
+          <span class="pg-section-badge pg-section-badge--dark fade-up" style="display:inline-flex;">Apply Now</span>
+          <h2 class="pg-h2 fade-up" style="color:#fff; margin-top:16px;">Start Your Application</h2>
+          <p class="pg-body pg-body--white fade-up">2 minutes. No commitment. We'll call you within 24 hours.</p>
+        </div>
+        <form class="pg-form fade-up" id="join-application" onsubmit="handleJoinSubmit(event)">
+          <div class="pg-grid-2" style="gap:20px;">
+            <div class="pg-form-group">
+              <label for="full-name" style="color:rgba(255,255,255,0.8);">Full Name *</label>
+              <input type="text" id="full-name" name="full_name" placeholder="Sarah Mitchell" required style="background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.15); color:#fff;">
+            </div>
+            <div class="pg-form-group">
+              <label for="email" style="color:rgba(255,255,255,0.8);">Email Address *</label>
+              <input type="email" id="email" name="email" placeholder="sarah@mitchelltechltd.com" required style="background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.15); color:#fff;">
+            </div>
+          </div>
+          <div class="pg-form-group">
+            <label for="phone" style="color:rgba(255,255,255,0.8);">Phone Number *</label>
+            <input type="tel" id="phone" name="phone" placeholder="+44 7700 000000" required style="background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.15); color:#fff;">
+          </div>
+          <div class="pg-grid-2" style="gap:20px;">
+            <div class="pg-form-group">
+              <label for="status" style="color:rgba(255,255,255,0.8);">Current Status *</label>
+              <select id="status" name="status" required style="background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.15); color:#fff;">
+                <option value="" disabled selected>Select your situation</option>
+                <option value="umbrella">Contracting via umbrella</option>
+                <option value="psc">Contracting via PSC</option>
+                <option value="considering">Permanent — considering contracting</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="pg-form-group">
+              <label for="sector" style="color:rgba(255,255,255,0.8);">Primary Sector *</label>
+              <select id="sector" name="sector" required style="background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.15); color:#fff;">
+                <option value="" disabled selected>Select your sector</option>
+                <option value="it">IT &amp; Technology</option>
+                <option value="engineering">Engineering</option>
+                <option value="finance">Finance &amp; Accounting</option>
+                <option value="energy">Energy &amp; Utilities</option>
+                <option value="construction">Construction</option>
+                <option value="pharma">Pharma &amp; Life Sciences</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="pg-form-group">
+            <label for="day-rate" style="color:rgba(255,255,255,0.8);">Current Day Rate <span style="color:rgba(255,255,255,0.4); font-weight:400;">(optional — helps us prepare your rate report)</span></label>
+            <input type="text" id="day-rate" name="day_rate" placeholder="e.g. £450/day" style="background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.15); color:#fff;">
+          </div>
+          <div class="pg-form-group">
+            <label for="referral" style="color:rgba(255,255,255,0.8);">How did you hear about us?</label>
+            <select id="referral" name="referral" style="background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.15); color:#fff;">
+              <option value="" disabled selected>Select an option</option>
+              <option value="linkedin">LinkedIn</option>
+              <option value="google">Google search</option>
+              <option value="referral">Referred by a contractor</option>
+              <option value="agency">Via an agency</option>
+              <option value="social">Social media</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <button type="submit" class="pg-btn pg-btn--teal pg-btn--lg" style="width:100%; justify-content:center; margin-top:8px;">
+            Submit Application — It's Free
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+          <p style="text-align:center; font-size:0.85rem; color:rgba(255,255,255,0.45); margin:12px 0 0;">No commitment. No obligation. We'll call within 24 hours.</p>
+        </form>
+        <div id="join-success" style="display:none; text-align:center; padding:48px 0;">
+          <div style="width:64px; height:64px; border-radius:50%; background:#0D7377; display:flex; align-items:center; justify-content:center; margin:0 auto 24px;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h3 class="pg-h3" style="color:#fff; margin-bottom:12px;">Application Received!</h3>
+          <p style="color:rgba(255,255,255,0.7); font-size:1.1rem;">We'll be in touch within 24 hours to schedule your welcome call.<br>Check your inbox for a confirmation email.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TRUST SIGNALS ── -->
+  <div class="trust-strip">
+    <div class="trust-item">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      GDPR Compliant
+    </div>
+    <div class="trust-item">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      Data Encrypted
+    </div>
+    <div class="trust-item">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      No Hidden Fees
+    </div>
+    <div class="trust-item">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+      Cancel Anytime
+    </div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <section class="footer">
+    <div class="section-inner">
+      <div class="section-box foreground">
+        <div class="w-layout-blockcontainer global-container w-container">
+          <div class="footer-wrapper">
+            <div class="footer-upper">
+              <div class="w-layout-grid footer-upper-wrapper">
+                <a aria-label="iGroup" href="index.html" class="footer-logo-link w-inline-block"><span style="font-family:'Manrope',sans-serif;font-weight:800;font-size:26px;color:#ffffff;letter-spacing:-0.5px">iGroup</span></a>
+                <div class="footer-upper-left">
+                  <p class="footer-paragraph">Professional contractor management — intelligence, compliance, and career strategy.</p>
+                  <div class="footer-social-wrapper">
+                    <div class="footer-subtitle">Follow us for more :</div>
+                    <div class="footer-social-list">
+                      <a href="https://www.instagram.com/" target="_blank" class="footer-menu w-inline-block"><img src="images/social_instagram.svg" loading="lazy" width="20" height="20" alt="Instagram" class="footer-social-icon"></a>
+                      <a href="https://x.com/" target="_blank" class="footer-menu w-inline-block"><img src="images/social_twitter.svg" loading="lazy" width="21" height="19" alt="Twitter" class="footer-social-icon"></a>
+                      <a href="https://www.facebook.com/" target="_blank" class="footer-menu w-inline-block"><img src="images/social_facebook.svg" loading="lazy" width="20" height="20" alt="Facebook" class="footer-social-icon"></a>
+                      <a href="https://www.linkedin.com/" target="_blank" class="footer-menu w-inline-block"><img src="images/social_linkedin.svg" loading="lazy" width="20" height="20" alt="LinkedIn" class="footer-social-icon"></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="footer-menus">
+                  <div class="footer-subtitle">Quick Links</div>
+                  <a href="about.html" class="footer-menu">About Us</a>
+                  <a href="services.html" class="footer-menu">Services</a>
+                  <a href="join.html" class="footer-menu">Join iGroup</a>
+                  <a href="index.html#section-blogs" class="footer-menu">Insights</a>
+                  <a href="index.html#section-contact" class="footer-menu">Contact Us</a>
+                </div>
+                <div class="footer-menus">
+                  <div class="footer-subtitle">Services</div>
+                  <a href="#" class="footer-menu">Rate Intelligence</a>
+                  <a href="#" class="footer-menu">Compliance Passport</a>
+                  <a href="#" class="footer-menu">Company Formation</a>
+                  <a href="#" class="footer-menu">Insurance</a>
+                  <a href="#" class="footer-menu">Contractor Portal</a>
+                </div>
+                <div class="footer-form">
+                  <div class="subs-form-block w-form">
+                    <form id="footer-form" name="footer-form" method="get" class="subs-form">
+                      <label for="footer-email" class="subs-form-label">Subscribe to our newsletter</label>
+                      <div class="subs-form-flex"><input class="subs-form-input w-input" maxlength="256" name="email" placeholder="Write your email here" type="email" id="footer-email"><input type="submit" class="button white w-button" value="Subscribe"></div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="footer-lower">
+              <div class="footer-footnote">
+                <div class="footer-foot-text">©2026. iGroup All Rights Reserved</div>
+              </div>
+              <img src="images/footer_mega_text.svg" loading="lazy" width="1308" height="192" alt="iGroup" class="footer-mega-text">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/ScrollTrigger.min.js"></script>
+  <script src="js/pages.js"></script>
+  <script>
+    function handleJoinSubmit(e) {
+      e.preventDefault();
+      document.getElementById('join-application').style.display = 'none';
+      document.getElementById('join-success').style.display = 'block';
+      if (typeof gsap !== 'undefined') {
+        gsap.from('#join-success', { opacity: 0, y: 20, duration: 0.6, ease: 'power2.out' });
+      }
+    }
+    // Form input focus glow
+    document.querySelectorAll('.pg-form input, .pg-form select').forEach(function(el) {
+      el.addEventListener('focus', function() {
+        this.style.borderColor = '#0D7377';
+        this.style.boxShadow = '0 0 0 3px rgba(13,115,119,0.15)';
+      });
+      el.addEventListener('blur', function() {
+        this.style.borderColor = 'rgba(255,255,255,0.15)';
+        this.style.boxShadow = 'none';
+      });
+    });
+  </script>
+</body>
+</html>

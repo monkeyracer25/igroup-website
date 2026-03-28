@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en" data-wf-page="" data-wf-site="">
+<head>
+  <meta charset="utf-8">
+  <title>About iGroup | Global Contractor Intelligence Platform</title>
+  <meta name="description" content="Founded by contractors, for contractors. iGroup provides AI-powered rate intelligence, compliance management, and career support across 4 global offices.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/normalize.css" rel="stylesheet">
+  <link href="css/webflow.css" rel="stylesheet">
+  <link href="css/ig2-c49518.webflow.css" rel="stylesheet">
+  <link href="css/pages.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <style>
+    .about-hero {
+      min-height: 80vh;
+      background-image: url('images/hero-it-developer-london.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      padding: 160px 48px 100px;
+      position: relative;
+    }
+    .about-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(26,26,46,0.92) 0%, rgba(13,115,119,0.55) 100%);
+    }
+    .about-hero > * { position: relative; z-index: 1; }
+    @media (max-width: 767px) { .about-hero { padding: 120px 20px 80px; min-height: 70vh; } }
+
+    .mission-banner {
+      background: #0D7377;
+      padding: 100px 48px;
+      text-align: center;
+    }
+    @media (max-width: 767px) { .mission-banner { padding: 64px 20px; } }
+
+    .about-timeline { position: relative; max-width: 720px; margin: 0 auto; }
+    .about-timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 8px; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, #0D7377, rgba(13,115,119,0.1));
+    }
+    .timeline-item {
+      padding: 0 0 48px 48px;
+      position: relative;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -6px;
+      top: 8px;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: #0D7377;
+      border: 3px solid #fff;
+      box-shadow: 0 0 0 3px rgba(13,115,119,0.25);
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-year {
+      font-size: 0.8rem; font-weight: 600;
+      color: #0D7377;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .timeline-item h4 { font-size: 1.15rem; font-weight: 500; margin: 0 0 6px; color: #1A1A2E; }
+    .timeline-item p { font-size: 0.95rem; color: rgba(26,26,46,0.65); margin: 0; line-height: 1.6; }
+
+    .about-story-img {
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: #e8f4f4;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .about-story-img img { width: 100%; height: 100%; object-fit: cover; }
+
+    .global-map {
+      background: #0f1020;
+      border-radius: 20px;
+      padding: 48px;
+      position: relative;
+      overflow: hidden;
+      min-height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .global-map::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: 
+        radial-gradient(circle at 20% 55%, rgba(13,115,119,0.15) 0%, transparent 50%),
+        radial-gradient(circle at 75% 45%, rgba(13,115,119,0.1) 0%, transparent 40%),
+        radial-gradient(circle at 55% 65%, rgba(13,115,119,0.08) 0%, transparent 35%);
+    }
+    .map-pin {
+      position: absolute;
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+    }
+    .map-pin-dot {
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: #0D7377;
+      box-shadow: 0 0 0 4px rgba(13,115,119,0.25), 0 0 0 8px rgba(13,115,119,0.1);
+      animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+    @keyframes ping {
+      0% { box-shadow: 0 0 0 4px rgba(13,115,119,0.3), 0 0 0 8px rgba(13,115,119,0.15); }
+      75%, 100% { box-shadow: 0 0 0 8px rgba(13,115,119,0.1), 0 0 0 16px rgba(13,115,119,0); }
+    }
+    .map-pin-label {
+      font-size: 0.7rem; font-weight: 600;
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      white-space: nowrap;
+      background: rgba(13,115,119,0.3);
+      padding: 3px 8px;
+      border-radius: 100vw;
+    }
+
+    .values-icon { font-size: 2rem; margin-bottom: 16px; display: block; }
+
+    @media (max-width: 767px) { .global-map { padding: 32px 20px; } }
+  </style>
+</head>
+<body class="body">
+
+  <!-- ── NAVBAR ── -->
+  <div data-animation="default" class="navbar w-nav" data-easing2="ease-in-quart" data-easing="ease-out-quart" data-collapse="medium" role="banner" data-no-scroll="1" data-duration="400">
+    <div class="navbar-inner">
+      <div class="w-layout-blockcontainer global-container w-container">
+        <div class="navbar-island">
+          <div class="navbar-wrapper">
+            <div class="navbar-left">
+              <a aria-label="iGroup" href="index.html" class="navbar-brand w-nav-brand"><span style="font-family:'Manrope',sans-serif;font-weight:800;font-size:22px;color:#0D7377;letter-spacing:-0.5px">iGroup</span></a>
+            </div>
+            <nav role="navigation" class="navbar-center w-nav-menu">
+              <ul role="list" class="nav-menu w-list-unstyled">
+                <li class="nav-menu-item"><a href="about.html" class="nav-link w-inline-block" style="color:#0D7377"><div class="nav-link-text">About</div></a></li>
+                <li class="nav-menu-item"><a href="services.html" class="nav-link w-inline-block"><div class="nav-link-text">Services</div></a></li>
+                <li class="nav-menu-item"><a href="index.html#section-blogs" class="nav-link w-inline-block"><div class="nav-link-text">Insights</div></a></li>
+                <li class="nav-menu-item"><a href="index.html#section-contact" class="nav-link w-inline-block"><div class="nav-link-text">Contact</div></a></li>
+                <li class="nav-menu-item hide-lg">
+                  <div class="nav-button-wrapper">
+                    <a href="join.html" class="button w-inline-block">
+                      <div class="button-inner">
+                        <div class="button-text">Join iGroup</div>
+                        <div class="button-icon-container"><img src="images/icon_right_white.svg" loading="lazy" alt="Arrow" class="button-icon"><img src="images/icon_right_white.svg" loading="lazy" alt="Arrow" class="button-icon"></div>
+                      </div>
+                    </a>
+                  </div>
+                </li>
+              </ul>
+            </nav>
+            <div class="navbar-right">
+              <div class="nav-button-wrapper hide-sm">
+                <a href="join.html" class="button special w-inline-block">
+                  <div class="button-second-layer"><div class="button-second-layer-background"></div></div>
+                  <div class="button-inner">
+                    <div class="button-text">Join iGroup</div>
+                    <div class="button-icon-wrapper">
+                      <div class="button-icon-container"><img src="images/icon_right_green.svg" loading="lazy" alt="Arrow" class="button-icon"><img src="images/icon_right_green.svg" loading="lazy" alt="Arrow" class="button-icon"></div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="navbar-menu-button w-nav-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="line-icon">
+                <path d="M1.04346 5.73927H22.9565C23.5328 5.73927 24 5.2721 24 4.69581C24 4.11951 23.5328 3.65234 22.9565 3.65234H1.04346C0.467168 3.65234 0 4.11951 0 4.69581C0 5.2721 0.467168 5.73927 1.04346 5.73927Z" fill="currentColor" class="line-icon-top"></path>
+                <path d="M22.9565 10.957H1.04346C0.467168 10.957 0 11.4242 0 12.0005C0 12.5768 0.467168 13.044 1.04346 13.044H22.9565C23.5328 13.044 24 12.5768 24 12.0005C24 11.4242 23.5328 10.957 22.9565 10.957Z" fill="currentColor" class="line-icon-center"></path>
+                <path d="M22.9565 18.2607H1.04346C0.467168 18.2607 0 18.728 0 19.3043C0 19.8806 0.467168 20.3477 1.04346 20.3477H22.9565C23.5328 20.3477 24 19.8806 24 19.3043C24 18.728 23.5328 18.2607 22.9565 18.2607Z" fill="currentColor" class="line-icon-bottom"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── HERO ── -->
+  <section class="about-hero">
+    <div style="max-width:1280px; margin:0 auto; width:100%; padding:0 0;">
+      <div style="max-width:680px;">
+        <span class="pg-eyebrow pg-eyebrow--white fade-up">Our Story</span>
+        <h1 class="pg-h1 fade-up" style="color:#ffffff; margin-top:8px;">Built by Contractors,<br>for Contractors.</h1>
+        <p class="pg-body pg-body--white fade-up" style="max-width:520px;">We've been where you are. That's why we built something better.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── OUR STORY ── -->
+  <section class="pg-section pg-section--white">
+    <div class="pg-container">
+      <div class="pg-grid-2" style="gap:80px; align-items:center;">
+        <div>
+          <span class="pg-section-badge fade-up">Our Story</span>
+          <h2 class="pg-h2 fade-up" style="margin-top:12px;">We Started as Contractors Ourselves.</h2>
+          <div class="fade-up">
+            <p class="pg-body" style="margin-bottom:20px;">iGroup was founded by professionals who spent years working as independent contractors across sectors from technology to engineering to financial services. We negotiated blind, overpaid for insurance, and navigated IR35 without guidance. We watched talented people leave money on the table — every single assignment.</p>
+            <p class="pg-body" style="margin-bottom:20px;">So we built the platform we always wished existed. One that treats contractors like the skilled professionals they are — not as commodities to be placed and forgotten. One backed by real data, real expertise, and real care for long-term career outcomes.</p>
+            <p class="pg-body">Today, iGroup serves contractors across 15+ sectors and 4 global offices. But our purpose hasn't changed: give every contractor the intelligence and support that Fortune 500 companies give their permanent workforce.</p>
+          </div>
+        </div>
+        <div class="fade-up">
+          <div class="about-story-img">
+            <img src="images/hero-arab-businessman.jpg" alt="iGroup — Professional Contractors" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MISSION BANNER ── -->
+  <section class="mission-banner">
+    <div class="pg-container">
+      <p class="pg-quote fade-up">"Every contractor deserves the same intelligence and support that Fortune 500 companies give their permanent workforce."</p>
+      <p class="pg-quote-attr fade-up">— The iGroup Mission</p>
+    </div>
+  </section>
+
+  <!-- ── TIMELINE ── -->
+  <section class="pg-section pg-section--cream">
+    <div class="pg-container">
+      <div class="pg-text-center">
+        <span class="pg-section-badge">Our Journey</span>
+        <h2 class="pg-h2 fade-up">From Idea to Intelligence Platform</h2>
+        <p class="pg-body fade-up">Every milestone marks a step toward our mission: a world where every contractor can build a brilliant career.</p>
+      </div>
+      <div class="about-timeline fade-up">
+        <div class="timeline-item">
+          <div class="timeline-year">The Beginning</div>
+          <h4>The Idea is Born</h4>
+          <p>Founded by contractors who saw the intelligence gap — talented professionals negotiating blind, over-insured and under-supported.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">Early Days</div>
+          <h4>First 100 Contractors</h4>
+          <p>Our first cohort of members validated the concept. Rate intelligence identified £1.2M in undervalued contracts in the first quarter.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">Platform Launch</div>
+          <h4>AI Rate Intelligence Goes Live</h4>
+          <p>The Contractor Portal launches with AI-powered rate benchmarking across 50+ job boards and 15 sectors.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">Global Expansion</div>
+          <h4>Four Offices, One Platform</h4>
+          <p>Offices open in Isle of Man (HQ), London, Guernsey, and Dubai — serving contractors wherever they work.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">The Future</div>
+          <h4>10,000 Contractors — and Growing</h4>
+          <p>Our goal: every professional contractor in the world has access to the intelligence and support they deserve.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── VALUES ── -->
+  <section class="pg-section pg-section--white">
+    <div class="pg-container">
+      <div class="pg-text-center">
+        <span class="pg-section-badge">What We Stand For</span>
+        <h2 class="pg-h2 fade-up">Six Values. One Purpose.</h2>
+        <p class="pg-body fade-up">Everything we do is shaped by the principles that make iGroup different — and the people we serve.</p>
+      </div>
+      <div class="pg-values-grid stagger-up">
+        <div class="pg-card pg-card--border">
+          <span class="values-icon">🔓</span>
+          <h4 class="pg-h4">Independence</h4>
+          <p class="pg-body--sm" style="color:var(--text-secondary); margin:0;">We champion the contractor's right to work on their own terms. Everything we do strengthens, not compromises, your independence.</p>
+        </div>
+        <div class="pg-card pg-card--border">
+          <span class="values-icon">🧠</span>
+          <h4 class="pg-h4">Intelligence</h4>
+          <p class="pg-body--sm" style="color:var(--text-secondary); margin:0;">Data beats gut feel. We put market intelligence in contractors' hands so every decision — rate, contract, career — is made with clarity.</p>
+        </div>
+        <div class="pg-card pg-card--border">
+          <span class="values-icon">⚖️</span>
+          <h4 class="pg-h4">Integrity</h4>
+          <p class="pg-body--sm" style="color:var(--text-secondary); margin:0;">We don't hide fees, obscure our interests, or benefit from your contracts. We work for contractors — full stop.</p>
+        </div>
+        <div class="pg-card pg-card--border">
+          <span class="values-icon">💡</span>
+          <h4 class="pg-h4">Innovation</h4>
+          <p class="pg-body--sm" style="color:var(--text-secondary); margin:0;">We're building tools that didn't exist before — AI rate benchmarking, verified compliance credentials, career modelling. The future of contracting starts here.</p>
+        </div>
+        <div class="pg-card pg-card--border">
+          <span class="values-icon">🤝</span>
+          <h4 class="pg-h4">Inclusion</h4>
+          <p class="pg-body--sm" style="color:var(--text-secondary); margin:0;">Brilliant contractors come from every background, sector, and geography. Our platform is built to serve all of them equally.</p>
+        </div>
+        <div class="pg-card pg-card--border">
+          <span class="values-icon">📈</span>
+          <h4 class="pg-h4">Impact</h4>
+          <p class="pg-body--sm" style="color:var(--text-secondary); margin:0;">We measure success by the careers we improve, the rates we help raise, and the contractors who retire comfortably because of the work we do together.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── GLOBAL PRESENCE ── -->
+  <section class="pg-section pg-section--dark">
+    <div class="pg-container">
+      <div class="pg-text-center">
+        <span class="pg-section-badge pg-section-badge--dark">Global Presence</span>
+        <h2 class="pg-h2 fade-up" style="color:#fff;">Four Offices. One Platform.</h2>
+        <p class="pg-body pg-body--white fade-up">Wherever your contracting career takes you, iGroup is there.</p>
+      </div>
+
+      <!-- Stylised map / pulse visualization -->
+      <div class="global-map fade-up" style="margin-bottom:48px;">
+        <div style="width:100%; max-width:800px; position:relative; height:280px;">
+          <!-- Isle of Man - positioned roughly NW -->
+          <div class="map-pin" style="left:22%; top:28%;">
+            <div class="map-pin-dot"></div>
+            <div class="map-pin-label">Isle of Man</div>
+          </div>
+          <!-- London -->
+          <div class="map-pin" style="left:28%; top:38%;">
+            <div class="map-pin-dot" style="animation-delay:0.4s;"></div>
+            <div class="map-pin-label">London</div>
+          </div>
+          <!-- Guernsey -->
+          <div class="map-pin" style="left:24%; top:50%;">
+            <div class="map-pin-dot" style="animation-delay:0.8s;"></div>
+            <div class="map-pin-label">Guernsey</div>
+          </div>
+          <!-- Dubai -->
+          <div class="map-pin" style="left:62%; top:52%;">
+            <div class="map-pin-dot" style="animation-delay:1.2s;"></div>
+            <div class="map-pin-label">Dubai</div>
+          </div>
+          <!-- Connecting lines (decorative SVG) -->
+          <svg width="100%" height="100%" viewBox="0 0 800 280" style="position:absolute;inset:0;pointer-events:none;" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#0D7377;stop-opacity:0.4"/>
+                <stop offset="100%" style="stop-color:#0D7377;stop-opacity:0.1"/>
+              </linearGradient>
+            </defs>
+            <path d="M 180 78 Q 250 120 224 105" stroke="url(#lineGrad)" stroke-width="1" fill="none" stroke-dasharray="4 4"/>
+            <path d="M 224 105 Q 280 160 192 140" stroke="url(#lineGrad)" stroke-width="1" fill="none" stroke-dasharray="4 4"/>
+            <path d="M 224 105 Q 450 150 496 146" stroke="url(#lineGrad)" stroke-width="1.5" fill="none" stroke-dasharray="6 4"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Office cards -->
+      <div class="pg-grid-4 stagger-up">
+        <div class="pg-office-card">
+          <div style="text-align:center;">
+            <div class="pg-office-pin">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="pg-office-badge">HQ</div>
+            <h5>Isle of Man</h5>
+            <p>iGroup House<br>Douglas, Isle of Man<br>IM1 3LQ</p>
+          </div>
+        </div>
+        <div class="pg-office-card">
+          <div style="text-align:center;">
+            <div class="pg-office-pin">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <h5>London</h5>
+            <p>22 Bishopsgate<br>London, EC2N 4AJ<br>United Kingdom</p>
+          </div>
+        </div>
+        <div class="pg-office-card">
+          <div style="text-align:center;">
+            <div class="pg-office-pin">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <h5>Guernsey</h5>
+            <p>St Peter Port<br>Guernsey, GY1 4AF<br>Channel Islands</p>
+          </div>
+        </div>
+        <div class="pg-office-card">
+          <div style="text-align:center;">
+            <div class="pg-office-pin">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <h5>Dubai</h5>
+            <p>DIFC Gate Village<br>Dubai, UAE</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats row -->
+      <div style="display:flex; gap:64px; justify-content:center; flex-wrap:wrap; margin-top:64px; padding-top:48px; border-top:1px solid rgba(255,255,255,0.1);" class="fade-up">
+        <div style="text-align:center;">
+          <div class="pg-stat-num pg-stat-num--white" style="font-size:3rem;" data-target="500" data-suffix="+" class="pg-counter">500+</div>
+          <div class="pg-stat-label pg-stat-label--white">Active contractors</div>
+        </div>
+        <div style="text-align:center;">
+          <div class="pg-stat-num pg-stat-num--white" style="font-size:3rem;" data-target="15" data-suffix="+" class="pg-counter">15+</div>
+          <div class="pg-stat-label pg-stat-label--white">Sectors covered</div>
+        </div>
+        <div style="text-align:center;">
+          <div class="pg-stat-num pg-stat-num--white" style="font-size:3rem;" data-target="4" class="pg-counter">4</div>
+          <div class="pg-stat-label pg-stat-label--white">Global offices</div>
+        </div>
+        <div style="text-align:center;">
+          <div class="pg-stat-num pg-stat-num--white" style="font-size:3rem;" data-target="98" data-suffix="%" class="pg-counter">98%</div>
+          <div class="pg-stat-label pg-stat-label--white">Member satisfaction</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="pg-cta">
+    <div class="pg-container">
+      <span class="pg-section-badge pg-section-badge--dark fade-up" style="display:inline-flex; margin-bottom:24px;">Join iGroup</span>
+      <h2 class="pg-h2 fade-up" style="color:#fff; margin-bottom:16px;">Your Career Is the Constant.<br>Let Us Handle the Rest.</h2>
+      <p class="pg-body pg-body--white fade-up" style="max-width:520px; margin:0 auto 40px;">Free to join. Intelligence activated from day one. Your £250 welcome bonus is waiting.</p>
+      <div class="pg-buttons fade-up" style="justify-content:center;">
+        <a href="join.html" class="pg-btn pg-btn--teal pg-btn--lg">Join iGroup — It's Free
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="services.html" class="pg-btn pg-btn--outline-white">Explore Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <section class="footer">
+    <div class="section-inner">
+      <div class="section-box foreground">
+        <div class="w-layout-blockcontainer global-container w-container">
+          <div class="footer-wrapper">
+            <div class="footer-upper">
+              <div class="w-layout-grid footer-upper-wrapper">
+                <a aria-label="iGroup" href="index.html" class="footer-logo-link w-inline-block"><span style="font-family:'Manrope',sans-serif;font-weight:800;font-size:26px;color:#ffffff;letter-spacing:-0.5px">iGroup</span></a>
+                <div class="footer-upper-left">
+                  <p class="footer-paragraph">Professional contractor management — intelligence, compliance, and career strategy.</p>
+                  <div class="footer-social-wrapper">
+                    <div class="footer-subtitle">Follow us for more :</div>
+                    <div class="footer-social-list">
+                      <a href="https://www.instagram.com/" target="_blank" class="footer-menu w-inline-block"><img src="images/social_instagram.svg" loading="lazy" width="20" height="20" alt="Instagram" class="footer-social-icon"></a>
+                      <a href="https://x.com/" target="_blank" class="footer-menu w-inline-block"><img src="images/social_twitter.svg" loading="lazy" width="21" height="19" alt="Twitter" class="footer-social-icon"></a>
+                      <a href="https://www.facebook.com/" target="_blank" class="footer-menu w-inline-block"><img src="images/social_facebook.svg" loading="lazy" width="20" height="20" alt="Facebook" class="footer-social-icon"></a>
+                      <a href="https://www.linkedin.com/" target="_blank" class="footer-menu w-inline-block"><img src="images/social_linkedin.svg" loading="lazy" width="20" height="20" alt="LinkedIn" class="footer-social-icon"></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="footer-menus">
+                  <div class="footer-subtitle">Quick Links</div>
+                  <a href="about.html" class="footer-menu">About Us</a>
+                  <a href="services.html" class="footer-menu">Services</a>
+                  <a href="join.html" class="footer-menu">Join iGroup</a>
+                  <a href="index.html#section-blogs" class="footer-menu">Insights</a>
+                  <a href="index.html#section-contact" class="footer-menu">Contact Us</a>
+                </div>
+                <div class="footer-menus">
+                  <div class="footer-subtitle">Services</div>
+                  <a href="#" class="footer-menu">Rate Intelligence</a>
+                  <a href="#" class="footer-menu">Compliance Passport</a>
+                  <a href="#" class="footer-menu">Company Formation</a>
+                  <a href="#" class="footer-menu">Insurance</a>
+                  <a href="#" class="footer-menu">Contractor Portal</a>
+                </div>
+                <div class="footer-form">
+                  <div class="subs-form-block w-form">
+                    <form id="footer-form" name="footer-form" method="get" class="subs-form">
+                      <label for="footer-email" class="subs-form-label">Subscribe to our newsletter</label>
+                      <div class="subs-form-flex"><input class="subs-form-input w-input" maxlength="256" name="email" placeholder="Write your email here" type="email" id="footer-email"><input type="submit" class="button white w-button" value="Subscribe"></div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="footer-lower">
+              <div class="footer-footnote">
+                <div class="footer-foot-text">©2026. iGroup All Rights Reserved</div>
+              </div>
+              <img src="images/footer_mega_text.svg" loading="lazy" width="1308" height="192" alt="iGroup" class="footer-mega-text">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/ScrollTrigger.min.js"></script>
+  <script src="js/pages.js"></script>
+</body>
+</html>

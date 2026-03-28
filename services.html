@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Services — iGroup | Professional Contractor Intelligence</title>
+  <meta name="description" content="From company formation to retirement planning — every service designed to make your contracting career more profitable, more secure, and more rewarding.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/ig2-c49518.webflow.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { font-family: 'Manrope', sans-serif; color: #1A1A2E; -webkit-font-smoothing: antialiased; }
+
+    /* ── Navbar override for pages ── */
+    .page-navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+    .page-navbar.scrolled { background: #fff !important; box-shadow: 0 1px 20px rgba(0,0,0,0.08); }
+    .page-navbar .navbar-inner { padding: 0 24px; }
+    .page-navbar .global-container { max-width: 1280px; margin: 0 auto; }
+    .page-navbar .navbar-island { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .page-navbar .navbar-left a { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 22px; color: #0D7377; letter-spacing: -0.5px; text-decoration: none; }
+    .page-navbar .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; margin: 0; padding: 0; }
+    .page-navbar .nav-links a { font-family: 'Manrope', sans-serif; font-size: 0.95rem; font-weight: 400; color: #1A1A2E; text-decoration: none; transition: color 0.2s; }
+    .page-navbar .nav-links a:hover { color: #0D7377; }
+    .page-navbar.on-dark .nav-links a { color: rgba(255,255,255,0.85); }
+    .page-navbar.on-dark .nav-links a:hover { color: #fff; }
+    .page-navbar.on-dark .navbar-left a { color: #fff; }
+    .page-navbar.scrolled .nav-links a { color: #1A1A2E; }
+    .page-navbar.scrolled .navbar-left a { color: #0D7377; }
+    .nav-cta { background: #0D7377; color: #fff !important; padding: 10px 22px; border-radius: 100vw; font-weight: 500 !important; font-size: 0.9rem !important; display: flex; align-items: center; gap: 6px; transition: background 0.2s, transform 0.2s !important; }
+    .nav-cta:hover { background: #0a5f63 !important; transform: translateY(-1px); }
+    .page-navbar.on-dark .nav-cta { background: #0D7377; color: #fff !important; }
+    .page-navbar.scrolled .nav-cta { background: #0D7377; color: #fff !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: currentColor; transition: 0.3s; }
+    .mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; background: #fff; padding: 20px 24px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); z-index: 999; }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a { display: block; padding: 12px 0; font-size: 1rem; color: #1A1A2E; text-decoration: none; border-bottom: 1px solid #f0f0f0; }
+    .mobile-menu a:last-child { border-bottom: none; }
+
+    /* ── HERO ── */
+    .services-hero {
+      position: relative; min-height: 80vh; display: flex; align-items: center;
+      background: #1A1A2E; overflow: hidden; padding-top: 72px;
+    }
+    .services-hero-bg {
+      position: absolute; inset: 0;
+      background: url('images/services-hero.jpg') center/cover no-repeat;
+      opacity: 0.25;
+    }
+    .services-hero-gradient {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(26,26,46,0.95) 50%, rgba(13,115,119,0.3) 100%);
+    }
+    .services-hero-inner {
+      position: relative; z-index: 2; width: 100%; max-width: 1280px; margin: 0 auto;
+      padding: 80px 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .hero-eyebrow {
+      font-size: 0.75rem; font-weight: 600; color: #0D7377; letter-spacing: 0.16em;
+      text-transform: uppercase; margin-bottom: 20px;
+    }
+    .services-hero h1 {
+      font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 500; color: #fff;
+      letter-spacing: -0.03em; line-height: 1.1; margin: 0 0 24px;
+    }
+    .services-hero p {
+      font-size: 1.2rem; color: rgba(255,255,255,0.75); line-height: 1.6; margin: 0 0 36px;
+    }
+    .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #0D7377; color: #fff; padding: 14px 28px;
+      border-radius: 100vw; font-family: 'Manrope', sans-serif; font-weight: 500; font-size: 0.95rem;
+      text-decoration: none; transition: background 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { background: #0a5f63; transform: translateY(-2px); }
+    .btn-outline-light {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1.5px solid rgba(255,255,255,0.5); color: #fff; padding: 14px 28px;
+      border-radius: 100vw; font-family: 'Manrope', sans-serif; font-weight: 500; font-size: 0.95rem;
+      text-decoration: none; transition: border-color 0.2s, transform 0.2s; background: transparent;
+    }
+    .btn-outline-light:hover { border-color: #fff; transform: translateY(-2px); }
+    .btn-outline-dark {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1.5px solid #1A1A2E; color: #1A1A2E; padding: 14px 28px;
+      border-radius: 100vw; font-family: 'Manrope', sans-serif; font-weight: 500; font-size: 0.95rem;
+      text-decoration: none; transition: all 0.2s; background: transparent;
+    }
+    .btn-outline-dark:hover { background: #1A1A2E; color: #fff; transform: translateY(-2px); }
+    .btn-white {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fff; color: #1A1A2E; padding: 14px 28px;
+      border-radius: 100vw; font-family: 'Manrope', sans-serif; font-weight: 500; font-size: 0.95rem;
+      text-decoration: none; transition: background 0.2s, transform 0.2s;
+    }
+    .btn-white:hover { background: #f0f0f0; transform: translateY(-2px); }
+    .btn-outline-white {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1.5px solid rgba(255,255,255,0.6); color: #fff; padding: 14px 28px;
+      border-radius: 100vw; font-family: 'Manrope', sans-serif; font-weight: 500; font-size: 0.95rem;
+      text-decoration: none; transition: all 0.2s; background: transparent;
+    }
+    .btn-outline-white:hover { border-color: #fff; background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+
+    /* Hero icon grid */
+    .hero-icon-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    }
+    .hero-icon-tile {
+      aspect-ratio: 1; border: 1.5px solid rgba(13,115,119,0.4);
+      border-radius: 16px; display: flex; align-items: center; justify-content: center;
+      background: rgba(13,115,119,0.08); transition: background 0.3s, border-color 0.3s;
+    }
+    .hero-icon-tile:hover { background: rgba(13,115,119,0.18); border-color: #0D7377; }
+    .hero-icon-tile svg { width: 32px; height: 32px; }
+    .hero-icon-label { font-size: 0.7rem; color: rgba(255,255,255,0.6); text-align: center; margin-top: 6px; font-weight: 500; }
+
+    /* ── SECTIONS ── */
+    .section-page { padding: 120px 48px; }
+    .section-cream { background: #F5F0E8; }
+    .section-white { background: #fff; }
+    .section-dark { background: #1A1A2E; }
+    .section-teal { background: #0D7377; }
+    .container { max-width: 1280px; margin: 0 auto; }
+
+    .section-number {
+      font-size: 5rem; font-weight: 700; color: #0D7377; line-height: 1;
+      opacity: 0.15; letter-spacing: -0.04em; margin-bottom: -20px;
+    }
+    .section-number-dark { color: #fff; opacity: 0.08; }
+    .section-label {
+      font-size: 0.75rem; font-weight: 600; color: #0D7377; letter-spacing: 0.14em;
+      text-transform: uppercase; margin-bottom: 12px;
+    }
+    .section-label-dark { color: rgba(255,255,255,0.6); }
+    .section-heading-text {
+      font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 500; color: #1A1A2E;
+      letter-spacing: -0.02em; line-height: 1.2; margin: 0 0 16px;
+    }
+    .section-heading-text.invert { color: #fff; }
+    .section-subtext { font-size: 1.2rem; color: #555; line-height: 1.6; max-width: 600px; }
+    .section-subtext.invert { color: rgba(255,255,255,0.7); }
+
+    .section-header { margin-bottom: 56px; }
+    .section-header-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; }
+
+    /* ── CARDS ── */
+    .card-grid-2x2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .card-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .card-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+
+    .service-card {
+      background: #fff; border-radius: 16px; padding: 32px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .service-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,0.12); }
+    .service-card.on-white { background: #F5F0E8; }
+    .service-card.on-dark {
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: none;
+    }
+    .service-card.on-dark:hover { background: rgba(255,255,255,0.08); transform: translateY(-4px); }
+
+    .card-icon {
+      width: 48px; height: 48px; background: rgba(13,115,119,0.1); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center; margin-bottom: 20px;
+    }
+    .card-icon.dark { background: rgba(255,255,255,0.1); }
+    .card-icon svg { width: 24px; height: 24px; }
+
+    .card-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(13,115,119,0.1); color: #0D7377; padding: 4px 12px;
+      border-radius: 100vw; font-size: 0.75rem; font-weight: 600; margin-bottom: 12px;
+    }
+    .card-title { font-size: 1.2rem; font-weight: 500; color: #1A1A2E; margin: 0 0 12px; letter-spacing: -0.01em; }
+    .card-title.invert { color: #fff; }
+    .card-body { font-size: 1rem; color: #666; line-height: 1.6; margin: 0; }
+    .card-body.invert { color: rgba(255,255,255,0.65); }
+
+    /* ── INTELLIGENCE SECTION WITH IMAGE ── */
+    .intelligence-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .intelligence-image { border-radius: 16px; overflow: hidden; }
+    .intelligence-image img { width: 100%; height: 480px; object-fit: cover; display: block; }
+
+    /* ── LIFECYCLE ── */
+    .lifecycle-timeline { display: flex; align-items: flex-start; gap: 0; position: relative; margin-top: 60px; }
+    .lifecycle-step { flex: 1; text-align: center; position: relative; }
+    .lifecycle-step::before {
+      content: ''; position: absolute; top: 24px; left: 50%; right: -50%;
+      height: 2px; background: #e3e8f0; z-index: 0;
+    }
+    .lifecycle-step:last-child::before { display: none; }
+    .lifecycle-dot {
+      width: 48px; height: 48px; border-radius: 50%; background: #0D7377;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px; position: relative; z-index: 1;
+    }
+    .lifecycle-dot svg { width: 22px; height: 22px; }
+    .lifecycle-step-title { font-size: 1rem; font-weight: 500; color: #1A1A2E; margin: 0 0 8px; }
+    .lifecycle-step-desc { font-size: 0.875rem; color: #777; line-height: 1.5; padding: 0 12px; }
+
+    /* ── COMPARISON TABLE ── */
+    .comparison-table { width: 100%; border-collapse: separate; border-spacing: 0; border-radius: 16px; overflow: hidden; }
+    .comparison-table th {
+      padding: 20px 24px; font-size: 1rem; font-weight: 600; text-align: left;
+      background: rgba(255,255,255,0.05);
+    }
+    .comparison-table th.col-igroup { background: rgba(13,115,119,0.2); color: #0D7377; }
+    .comparison-table th.col-alone { color: rgba(255,255,255,0.6); }
+    .comparison-table th.col-area { color: rgba(255,255,255,0.5); }
+    .comparison-table td { padding: 16px 24px; font-size: 0.95rem; border-top: 1px solid rgba(255,255,255,0.08); }
+    .comparison-table tr:hover td { background: rgba(255,255,255,0.03); }
+    .comparison-table td.col-area { color: rgba(255,255,255,0.6); font-weight: 500; }
+    .comparison-table td.col-alone { color: rgba(255,255,255,0.4); }
+    .comparison-table td.col-igroup { color: rgba(255,255,255,0.9); }
+    .check-teal { color: #0D7377; font-weight: 700; margin-right: 8px; }
+    .cross-grey { color: rgba(255,255,255,0.25); margin-right: 8px; }
+
+    /* ── TEAL CTA ── */
+    .cta-section { text-align: center; padding: 100px 48px; }
+    .cta-section h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 500; color: #fff; letter-spacing: -0.02em; margin: 0 0 40px; }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* ── FOOTER ── */
+    .page-footer { background: #1A1A2E; padding: 80px 48px 40px; position: relative; overflow: hidden; }
+    .footer-inner { max-width: 1280px; margin: 0 auto; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 60px; }
+    .footer-brand { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 26px; color: #fff; letter-spacing: -0.5px; text-decoration: none; display: block; margin-bottom: 16px; }
+    .footer-tagline { font-size: 0.95rem; color: rgba(255,255,255,0.5); line-height: 1.6; margin-bottom: 24px; }
+    .footer-social { display: flex; gap: 12px; }
+    .footer-social a { width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+    .footer-social a:hover { background: rgba(255,255,255,0.15); }
+    .footer-social img { width: 18px; height: 18px; }
+    .footer-col-title { font-size: 0.8rem; font-weight: 600; color: rgba(255,255,255,0.4); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; }
+    .footer-links { list-style: none; padding: 0; margin: 0; }
+    .footer-links li { margin-bottom: 12px; }
+    .footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.95rem; transition: color 0.2s; }
+    .footer-links a:hover { color: #fff; }
+    .footer-divider { height: 1px; background: rgba(255,255,255,0.08); margin-bottom: 32px; }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+    .footer-copy { font-size: 0.875rem; color: rgba(255,255,255,0.35); }
+    .footer-mega { position: absolute; bottom: 0; left: 0; right: 0; font-size: clamp(4rem, 12vw, 10rem); font-weight: 800; color: rgba(255,255,255,0.03); letter-spacing: -0.04em; text-align: center; line-height: 0.85; pointer-events: none; user-select: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 991px) {
+      .section-page { padding: 80px 32px; }
+      .services-hero-inner { grid-template-columns: 1fr; gap: 48px; padding: 60px 32px; }
+      .hero-icon-grid-wrap { display: none; }
+      .card-grid-2x2, .card-grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .intelligence-layout { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .lifecycle-timeline { flex-direction: column; gap: 32px; }
+      .lifecycle-step::before { display: none; }
+    }
+    @media (max-width: 767px) {
+      .section-page { padding: 60px 20px; }
+      .card-grid-2x2, .card-grid-3, .card-grid-4 { grid-template-columns: 1fr; }
+      .services-hero-inner { padding: 60px 20px; }
+      .hero-buttons { flex-direction: column; }
+      .comparison-table { font-size: 0.85rem; }
+      .comparison-table th, .comparison-table td { padding: 12px 16px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .cta-section { padding: 60px 20px; }
+    }
+    @media (max-width: 479px) {
+      .services-hero h1 { font-size: 1.8rem; }
+      .section-heading-text { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="page-navbar on-dark" id="pageNav">
+    <div class="navbar-inner">
+      <div class="global-container">
+        <div class="navbar-island">
+          <div class="navbar-left">
+            <a href="index.html">iGroup</a>
+          </div>
+          <ul class="nav-links">
+            <li><a href="about.html">About</a></li>
+            <li><a href="index.html#section-innovations">Technology</a></li>
+            <li><a href="services.html" style="color:#0D7377;font-weight:500">Services</a></li>
+            <li><a href="index.html#section-blogs">Blog</a></li>
+            <li><a href="index.html#section-contact">Contact Us</a></li>
+            <li><a href="join.html" class="nav-cta">Join iGroup <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></li>
+          </ul>
+          <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="about.html">About</a>
+    <a href="index.html#section-innovations">Technology</a>
+    <a href="services.html">Services</a>
+    <a href="index.html#section-blogs">Blog</a>
+    <a href="index.html#section-contact">Contact Us</a>
+    <a href="join.html" style="color:#0D7377;font-weight:600">Join iGroup →</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="services-hero hero-page">
+    <div class="services-hero-bg"></div>
+    <div class="services-hero-gradient"></div>
+    <div class="services-hero-inner">
+      <div class="hero-content">
+        <div class="hero-eyebrow animate-in">WHAT WE DO</div>
+        <h1 class="animate-in">Everything a Contractor Needs. Nothing They Don't.</h1>
+        <p class="animate-in">From company formation to retirement planning — every service designed to make your contracting career more profitable, more secure, and more rewarding.</p>
+        <div class="hero-buttons animate-in">
+          <a href="#intelligence" class="btn-primary">Explore Services <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
+          <a href="join.html" class="btn-outline-light">Join iGroup — It's Free <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+      <div class="hero-icon-grid-wrap animate-in">
+        <div class="hero-icon-grid">
+          <!-- Row 1 -->
+          <div class="hero-icon-tile">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0D7377" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </div>
+          <div class="hero-icon-tile">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0D7377" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="hero-icon-tile">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0D7377" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <!-- Row 2 -->
+          <div class="hero-icon-tile">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0D7377" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <div class="hero-icon-tile">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0D7377" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="hero-icon-tile">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0D7377" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <!-- Row 3 -->
+          <div class="hero-icon-tile">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0D7377" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+          </div>
+          <div class="hero-icon-tile">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0D7377" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="hero-icon-tile">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0D7377" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: INTELLIGENCE & ADVISORY (Cream) -->
+  <section id="intelligence" class="section-page section-cream">
+    <div class="container">
+      <div class="intelligence-layout">
+        <div>
+          <div class="section-header">
+            <div class="section-number animate-in">01</div>
+            <div class="section-label animate-in">INTELLIGENCE & ADVISORY</div>
+            <h2 class="section-heading-text animate-in">Data-driven decisions,<br>not gut feeling.</h2>
+            <p class="section-subtext animate-in">Our AI-powered advisory tools give you the market intelligence that was previously only available to large corporations.</p>
+          </div>
+          <div class="card-grid-2x2">
+            <div class="service-card animate-in">
+              <div class="card-badge">⭐ Featured</div>
+              <div class="card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0D7377" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+              </div>
+              <div class="card-title">Rate Intelligence</div>
+              <p class="card-body">AI analyses thousands of listings to deliver hyper-personalised rate benchmarks by sector, geography, and skill. Know your worth — precisely.</p>
+            </div>
+            <div class="service-card animate-in">
+              <div class="card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0D7377" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
+              </div>
+              <div class="card-title">Career Intelligence</div>
+              <p class="card-body">Skills gap analysis, market benchmarking, retirement modelling, and negotiation coaching — powered by data, not guesswork.</p>
+            </div>
+            <div class="service-card animate-in">
+              <div class="card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0D7377" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div class="card-title">Contract & Compliance Review</div>
+              <p class="card-body">Assignment terms reviewed before you accept. Onerous clauses flagged. Insurance and certifications monitored automatically.</p>
+            </div>
+            <div class="service-card animate-in">
+              <div class="card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0D7377" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              </div>
+              <div class="card-title">IR35 Support</div>
+              <p class="card-body">Understand your status determination. Challenge guidance. Working practices advisory to mitigate risk and keep you compliant.</p>
+            </div>
+          </div>
+        </div>
+        <div class="intelligence-image animate-in">
+          <img src="images/services-intelligence.jpg" alt="IT contractor at standing desk reviewing intelligence dashboard" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: BUSINESS & FORMATION (White) -->
+  <section class="section-page section-white">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-number animate-in">02</div>
+        <div class="section-label animate-in">BUSINESS & FORMATION</div>
+        <h2 class="section-heading-text animate-in">From incorporation to optimisation.</h2>
+        <p class="section-subtext animate-in">Everything you need to set up and run your contracting business efficiently — handled for you.</p>
+      </div>
+      <div class="card-grid-2x2">
+        <div class="service-card on-white animate-in">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0D7377" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <div class="card-title">Company Formation</div>
+          <p class="card-body">Limited company set up in days. Companies House, bank accounts, HMRC registrations — we handle all of it so you can focus on the work that pays.</p>
+        </div>
+        <div class="service-card on-white animate-in">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0D7377" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <div class="card-title">Income Optimisation</div>
+          <p class="card-body">Beyond salary vs dividend. Holistic income structuring factoring pension contributions, expenses, and allowances for maximum take-home.</p>
+        </div>
+        <div class="service-card on-white animate-in">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0D7377" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <div class="card-title">CV & Profile Services</div>
+          <p class="card-body">AI-assisted CV rewriting, PSC website generation, and LinkedIn optimisation based on what hiring managers actually search for.</p>
+        </div>
+        <div class="service-card on-white animate-in">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0D7377" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="card-title">Registered Office</div>
+          <p class="card-body">Professional Companies House address in Isle of Man, London, or Guernsey. Not your living room. Credibility from day one.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: PROTECTION & FINANCE (Dark) -->
+  <section class="section-page section-dark">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-number section-number-dark animate-in">03</div>
+        <div class="section-label section-label-dark animate-in">PROTECTION & FINANCE</div>
+        <h2 class="section-heading-text invert animate-in">Corporate-level cover at<br>contractor-level pricing.</h2>
+        <p class="section-subtext invert animate-in">Group buying power means you access rates that solo contractors simply can't. We negotiated them so you don't have to.</p>
+      </div>
+      <div class="card-grid-2x2">
+        <div class="service-card on-dark animate-in">
+          <div class="card-icon dark">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="card-title invert">Insurance & Protection</div>
+          <p class="card-body invert">Group PI, PL, income protection, cyber, health, and life insurance — all at rates you can't access alone. One policy, total cover.</p>
+        </div>
+        <div class="service-card on-dark animate-in">
+          <div class="card-icon dark">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="card-title invert">Mortgage & Finance</div>
+          <p class="card-body invert">Specialist contractor mortgage brokers who understand day rates. Approved where high street banks say no. Plus pension consolidation.</p>
+        </div>
+        <div class="service-card on-dark animate-in">
+          <div class="card-icon dark">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM12 6v6l4 2"/></svg>
+          </div>
+          <div class="card-title invert">Pension Planning</div>
+          <p class="card-body invert">Scattered pension pots from multiple umbrellas? We help you find them, consolidate them, and plan a retirement that actually works.</p>
+        </div>
+        <div class="service-card on-dark animate-in">
+          <div class="card-icon dark">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+          </div>
+          <div class="card-title invert">Banking Partnerships</div>
+          <p class="card-body invert">Preferential rates with contractor-friendly banks. Business accounts that actually work for how contractors earn — day rates, not PAYE.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: PLATFORM & COMMUNITY (Cream) -->
+  <section class="section-page section-cream">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-number animate-in">04</div>
+        <div class="section-label animate-in">PLATFORM & COMMUNITY</div>
+        <h2 class="section-heading-text animate-in">Technology and people,<br>working together.</h2>
+        <p class="section-subtext animate-in">The tools and the network to make every stage of your contracting career easier and more rewarding.</p>
+      </div>
+      <div class="card-grid-2x2">
+        <div class="service-card animate-in">
+          <div class="card-badge">⭐ Featured</div>
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0D7377" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          </div>
+          <div class="card-title">Contractor Portal</div>
+          <p class="card-body">Your entire contracting career in one dashboard. Rate intelligence, compliance tracking, CV management, and career strategy — all in one place.</p>
+        </div>
+        <div class="service-card animate-in">
+          <div class="card-badge">⭐ Featured</div>
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0D7377" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div class="card-title">Compliance Passport</div>
+          <p class="card-body">One verified credential proving right to work, insurance, certifications, and compliance status. Onboarding in minutes, not weeks.</p>
+        </div>
+        <div class="service-card animate-in">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0D7377" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+          </div>
+          <div class="card-title">Credibility Score</div>
+          <p class="card-body">Like a credit score for contracting. Builds over time with every completed assignment. Your professional trust signal — visible to clients who matter.</p>
+        </div>
+        <div class="service-card animate-in">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0D7377" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div class="card-title">Community</div>
+          <p class="card-body">Sector networking, mentorship matching, co-working partnerships, professional body memberships, and wellbeing support — for your whole career.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: CONTRACTOR LIFECYCLE (White) -->
+  <section class="section-page section-white">
+    <div class="container">
+      <div class="section-header" style="text-align:center">
+        <h2 class="section-heading-text animate-in" style="margin:0 auto 16px">With You at Every Stage</h2>
+        <p class="section-subtext animate-in" style="margin:0 auto">From your first limited company to your last pension contribution — iGroup is your constant.</p>
+      </div>
+      <div class="lifecycle-timeline" id="lifecycle">
+        <div class="lifecycle-step animate-in">
+          <div class="lifecycle-dot">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <div class="lifecycle-step-title">Formation</div>
+          <div class="lifecycle-step-desc">Company set up, bank accounts, HMRC registration — ready to contract in days.</div>
+        </div>
+        <div class="lifecycle-step animate-in">
+          <div class="lifecycle-dot">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="lifecycle-step-title">First Assignment</div>
+          <div class="lifecycle-step-desc">Rate benchmarking, contract review, and compliance passport ready before day one.</div>
+        </div>
+        <div class="lifecycle-step animate-in">
+          <div class="lifecycle-dot">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div class="lifecycle-step-title">Ongoing Management</div>
+          <div class="lifecycle-step-desc">Continuous compliance monitoring, insurance renewals, and income optimisation.</div>
+        </div>
+        <div class="lifecycle-step animate-in">
+          <div class="lifecycle-dot">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <div class="lifecycle-step-title">Growth & Strategy</div>
+          <div class="lifecycle-step-desc">Rate negotiations, career pivots, market intelligence, and sector expansion.</div>
+        </div>
+        <div class="lifecycle-step animate-in">
+          <div class="lifecycle-dot">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="lifecycle-step-title">Retirement Planning</div>
+          <div class="lifecycle-step-desc">Pension consolidation, wind-down strategy, and financial planning for what comes next.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: COMPARISON (Dark) -->
+  <section class="section-page section-dark">
+    <div class="container">
+      <div class="section-header" style="text-align:center;margin-bottom:48px">
+        <h2 class="section-heading-text invert animate-in">iGroup vs. Going It Alone</h2>
+        <p class="section-subtext invert animate-in" style="margin:0 auto">The difference between guessing and knowing.</p>
+      </div>
+      <div class="animate-in" style="overflow-x:auto">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th class="col-area">Area</th>
+              <th class="col-alone">Going It Alone</th>
+              <th class="col-igroup">With iGroup</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-area">Rate Negotiation</td>
+              <td class="col-alone"><span class="cross-grey">✗</span> Gut feeling, no data</td>
+              <td class="col-igroup"><span class="check-teal">✓</span> AI-powered benchmarks by postcode</td>
+            </tr>
+            <tr>
+              <td class="col-area">Compliance</td>
+              <td class="col-alone"><span class="cross-grey">✗</span> DIY paperwork, chase renewals</td>
+              <td class="col-igroup"><span class="check-teal">✓</span> Compliance Passport — one credential</td>
+            </tr>
+            <tr>
+              <td class="col-area">Career Strategy</td>
+              <td class="col-alone"><span class="cross-grey">✗</span> Reactive, ad hoc</td>
+              <td class="col-igroup"><span class="check-teal">✓</span> Data-driven, proactive</td>
+            </tr>
+            <tr>
+              <td class="col-area">Insurance</td>
+              <td class="col-alone"><span class="cross-grey">✗</span> Retail prices, admin yourself</td>
+              <td class="col-igroup"><span class="check-teal">✓</span> Group rates, we handle it</td>
+            </tr>
+            <tr>
+              <td class="col-area">Mortgage</td>
+              <td class="col-alone"><span class="cross-grey">✗</span> Rejected by high street banks</td>
+              <td class="col-igroup"><span class="check-teal">✓</span> Specialist broker, approved in weeks</td>
+            </tr>
+            <tr>
+              <td class="col-area">Company Setup</td>
+              <td class="col-alone"><span class="cross-grey">✗</span> Weeks of research</td>
+              <td class="col-igroup"><span class="check-teal">✓</span> Done in days, guided throughout</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA (Teal) -->
+  <section class="section-teal cta-section">
+    <div class="container">
+      <h2 class="animate-in">Ready to take control of your contracting career?</h2>
+      <div class="cta-buttons animate-in">
+        <a href="join.html" class="btn-white">Join iGroup — It's Free <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="index.html#section-contact" class="btn-outline-white">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="page-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="footer-brand">iGroup</a>
+          <p class="footer-tagline">Professional contractor management — intelligence, compliance, and career strategy.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/" target="_blank"><img src="images/social_instagram.svg" alt="Instagram" width="18" height="18"></a>
+            <a href="https://x.com/" target="_blank"><img src="images/social_twitter.svg" alt="Twitter" width="18" height="18"></a>
+            <a href="https://www.facebook.com/" target="_blank"><img src="images/social_facebook.svg" alt="Facebook" width="18" height="18"></a>
+            <a href="https://www.linkedin.com/" target="_blank"><img src="images/social_linkedin.svg" alt="LinkedIn" width="18" height="18"></a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Quick Links</div>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="join.html">Join iGroup</a></li>
+            <li><a href="index.html#section-blogs">Our Blog</a></li>
+            <li><a href="index.html#section-contact">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Services</div>
+          <ul class="footer-links">
+            <li><a href="services.html#intelligence">Rate Intelligence</a></li>
+            <li><a href="services.html">Company Formation</a></li>
+            <li><a href="services.html">Compliance Passport</a></li>
+            <li><a href="services.html">Insurance & Protection</a></li>
+            <li><a href="services.html">IR35 Support</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Utilities</div>
+          <ul class="footer-links">
+            <li><a href="utilities/styleguide.html">Styleguide</a></li>
+            <li><a href="utilities/licenses.html">Licenses</a></li>
+            <li><a href="utilities/changelog.html">Changelog</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-bottom">
+        <span class="footer-copy">©2026. iGroup All Rights Reserved</span>
+        <span class="footer-copy">Powered by <a href="https://webflow.com/" target="_blank" style="color:rgba(255,255,255,0.5)">Webflow</a></span>
+      </div>
+    </div>
+    <div class="footer-mega">iGROUP</div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/ScrollTrigger.min.js"></script>
+  <script>
+    // Mobile menu
+    document.getElementById('hamburger').addEventListener('click', function() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    });
+
+    // GSAP animations
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Navbar behaviour
+    const nav = document.getElementById('pageNav');
+    ScrollTrigger.create({
+      trigger: '.services-hero',
+      start: 'top top',
+      end: 'bottom top',
+      onLeave: () => {
+        nav.classList.remove('on-dark');
+        nav.classList.add('scrolled');
+      },
+      onEnterBack: () => {
+        nav.classList.add('on-dark');
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // Fade-up animations
+    gsap.utils.toArray('.animate-in').forEach(el => {
+      gsap.from(el, {
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 88%',
+          toggleActions: 'play none none none'
+        }
+      });
+    });
+
+    // Stagger service cards
+    document.querySelectorAll('.card-grid-2x2, .card-grid-3, .card-grid-4').forEach(grid => {
+      const cards = grid.querySelectorAll('.service-card');
+      if (cards.length) {
+        gsap.from(cards, {
+          opacity: 0,
+          y: 30,
+          duration: 0.6,
+          stagger: 0.12,
+          ease: 'power2.out',
+          scrollTrigger: { trigger: grid, start: 'top 82%' }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

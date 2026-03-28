@@ -3409,3 +3409,9 @@ figcaption {
     visibility: visible !important;
   }
 }
+
+/* Fix solution-track gap when ScrollTrigger pin doesn't fire */
+.solution-track:not(.pin-spacer) {
+  height: auto !important;
+  min-height: 100vh;
+}

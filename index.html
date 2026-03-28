@@ -1,1760 +1,1240 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iGroup — Modern Career Platform for Smart Contractors</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iGroup — Empowering Global Contractors with Intelligence</title>
+  <meta name="description" content="iGroup is a premium management consultancy exclusively serving professional contractors. IR35 compliance, rate intelligence, career strategy, and contract review — across borders.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          fontFamily: { inter: ['Inter', 'sans-serif'] },
           colors: {
-            lime: { 400: '#a3e635', 500: '#84cc16', 300: '#4ade80' },
+            teal: {
+              primary: '#0D7377',
+              light: '#14B8A6',
+              dark: '#0A5A5E',
+            },
+            navy: {
+              dark: '#0F172A',
+              charcoal: '#1A1A2E',
+            },
+            amber: {
+              accent: '#F59E0B',
+            },
+            slate: {
+              body: '#1E293B',
+            }
+          },
+          fontFamily: {
+            inter: ['Inter', 'sans-serif'],
           }
         }
       }
     }
   </script>
   <style>
-    * { font-family: 'Inter', sans-serif; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: #1E293B; overflow-x: hidden; }
 
-    /* Announcement bar */
-    .announcement-bar {
-      background: #0a0a0a;
-      color: #fff;
-      text-align: center;
-      padding: 10px 16px;
-      font-size: 13px;
+    /* ── NAV ── */
+    #main-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      transition: background 0.4s ease, box-shadow 0.4s ease, backdrop-filter 0.4s ease;
+      padding: 1.25rem 0;
+    }
+    #main-nav.scrolled {
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 24px rgba(0,0,0,0.08);
+    }
+    #main-nav.scrolled .nav-link { color: #1E293B; }
+    #main-nav.scrolled .nav-logo { color: #0D7377; }
+    .nav-link {
+      color: rgba(255,255,255,0.9);
       font-weight: 500;
+      font-size: 0.875rem;
+      text-decoration: none;
+      transition: color 0.2s;
       letter-spacing: 0.01em;
     }
+    .nav-link:hover { color: #F59E0B; }
+    #main-nav.scrolled .nav-link:hover { color: #0D7377; }
+    .nav-logo { color: white; font-weight: 800; font-size: 1.4rem; letter-spacing: -0.02em; }
 
-    /* Nav */
-    .nav-pill-btn {
-      background: #0a0a0a;
-      color: #fff;
-      border-radius: 999px;
-      padding: 9px 20px;
-      font-size: 14px;
-      font-weight: 600;
-      transition: all 0.2s;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      position: relative;
-      overflow: hidden;
+    /* Slide-up button */
+    .btn-slide {
+      display: inline-flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+      padding: 0.625rem 1.5rem; border-radius: 6px; font-weight: 600;
+      font-size: 0.875rem; cursor: pointer; text-decoration: none;
+      transition: box-shadow 0.3s ease;
     }
-    .nav-pill-btn:hover { background: #222; transform: translateY(-1px); }
+    .btn-slide .btn-text { display: block; transition: transform 0.3s ease; }
+    .btn-slide .btn-text-hover {
+      position: absolute; top: 100%; left: 0; right: 0;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform 0.3s ease;
+      padding: 0.625rem 1.5rem;
+    }
+    .btn-slide:hover .btn-text { transform: translateY(-100%); }
+    .btn-slide:hover .btn-text-hover { transform: translateY(-100%); }
 
-    /* Slide-up button effect */
-    .slide-btn {
-      position: relative;
-      overflow: hidden;
+    .btn-primary {
+      background: #0D7377; color: white;
+      box-shadow: 0 4px 16px rgba(13,115,119,0.3);
+    }
+    .btn-primary:hover { box-shadow: 0 6px 24px rgba(245,158,11,0.4); background: #0a5c60; }
+    .btn-primary .btn-text-hover { background: #F59E0B; color: white; top:0; transform:translateY(100%); }
+    .btn-primary:hover .btn-text { transform: translateY(-110%); }
+    .btn-primary:hover .btn-text-hover { transform: translateY(0); }
+
+    .btn-outline {
+      border: 1.5px solid rgba(255,255,255,0.7); color: white; background: transparent;
+    }
+    .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.1); }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative; height: 100vh; min-height: 680px;
+      display: flex; align-items: center; overflow: hidden;
+    }
+    .hero-bg-slide {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      opacity: 0; transition: opacity 1.2s ease;
+    }
+    .hero-bg-slide.active { opacity: 1; }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(100deg, rgba(10,20,40,0.82) 0%, rgba(10,20,40,0.55) 55%, rgba(10,20,40,0.1) 100%);
+      z-index: 1;
+    }
+    .hero-content { position: relative; z-index: 2; }
+
+    /* Letter reveal */
+    .letter-reveal .letter {
+      display: inline-block; opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .letter-reveal.revealed .letter { opacity: 1; transform: translateY(0); }
+
+    /* Word reveal */
+    .word-reveal .word {
+      display: inline-block; opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .word-reveal.revealed .word { opacity: 1; transform: translateY(0); }
+
+    /* Fade-up sections */
+    .fade-up {
+      opacity: 0; transform: translateY(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── TICKER ── */
+    .ticker-wrapper {
+      overflow: hidden; white-space: nowrap;
+      background: rgba(0,0,0,0.35); backdrop-filter: blur(4px);
+    }
+    .ticker-track {
+      display: inline-block; animation: ticker 22s linear infinite;
+    }
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ── STATS ── */
+    .stat-value { font-size: 2.75rem; font-weight: 800; line-height: 1; }
+
+    /* ── CARDS ── */
+    .card-lift {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card-lift:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    }
+
+    /* ── CAROUSEL ── */
+    .carousel-track {
+      display: flex; gap: 1.5rem;
+      overflow-x: auto; scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .carousel-track::-webkit-scrollbar { display: none; }
+    .carousel-card {
+      flex: 0 0 calc(33.333% - 1rem); scroll-snap-align: start;
+      min-width: 300px;
+    }
+
+    /* ── SOLUTIONS ACCORDION ── */
+    .solution-item {
+      border-bottom: 1px solid rgba(255,255,255,0.1);
       cursor: pointer;
     }
-    .slide-btn .btn-text-top,
-    .slide-btn .btn-text-bottom {
-      display: block;
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    .solution-body {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
     }
-    .slide-btn .btn-text-bottom {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
+    .solution-body.open { max-height: 200px; }
+    .solution-chevron {
+      transition: transform 0.3s ease;
+    }
+    .solution-item.open .solution-chevron { transform: rotate(180deg); }
+
+    /* ── FAQ ── */
+    .faq-body {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .faq-body.open { max-height: 300px; }
+    .faq-chevron { transition: transform 0.3s ease; }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+
+    /* ── FLOATING CARD ── */
+    .floating-card {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 16px;
+    }
+
+    /* ── VIDEO CARD ── */
+    .video-play {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .play-btn {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: rgba(255,255,255,0.95);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+    .play-btn:hover { transform: scale(1.1); box-shadow: 0 12px 48px rgba(0,0,0,0.4); }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em;
+      text-transform: uppercase; color: #0D7377;
+    }
+    .section-label-light { color: #14B8A6; }
+
+    /* ── FOOTER WATERMARK ── */
+    .footer-watermark {
+      font-size: clamp(4rem, 15vw, 12rem);
+      font-weight: 900; letter-spacing: -0.04em;
+      color: rgba(255,255,255,0.04);
+      line-height: 1; user-select: none;
+      position: absolute; bottom: -0.15em; left: 0; right: 0;
       text-align: center;
     }
-    .slide-btn:hover .btn-text-top { transform: translateY(-100%); }
-    .slide-btn:hover .btn-text-bottom { transform: translateY(-100%); }
 
-    /* Hero dashboard mockup */
-    .hero-dashboard {
-      background: #111;
-      border-radius: 20px;
-      border: 1px solid #222;
+    /* ── VALUE CARDS ── */
+    .value-card {
+      background: white; border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      border-left: 3px solid #0D7377;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .value-card:hover { transform: translateX(6px); box-shadow: 0 4px 24px rgba(0,0,0,0.1); }
+
+    /* ── STATS CARD (dark) ── */
+    .stat-card-dark {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px; padding: 1.5rem;
+      transition: background 0.3s ease;
+    }
+    .stat-card-dark:hover { background: rgba(255,255,255,0.08); }
+
+    /* ── INSIGHT CARDS ── */
+    .insight-card {
+      background: white; border-radius: 12px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
       overflow: hidden;
-      box-shadow: 0 40px 80px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex; flex-direction: column;
     }
-    .dashboard-header {
-      background: #1a1a1a;
-      padding: 12px 16px;
-      border-bottom: 1px solid #2a2a2a;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .dot { width: 10px; height: 10px; border-radius: 50%; }
-    .dot-red { background: #ff5f57; }
-    .dot-yellow { background: #ffbd2e; }
-    .dot-green { background: #28c840; }
+    .insight-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
 
-    /* Chart bars animation */
-    @keyframes growBar {
-      from { height: 0; }
-      to { height: var(--target-height); }
+    /* ── TAB PILLS ── */
+    .tab-pill {
+      padding: 0.4rem 1.1rem; border-radius: 999px;
+      font-size: 0.8rem; font-weight: 600; cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1.5px solid #e2e8f0;
+      color: #64748b; background: transparent;
     }
-    .chart-bar {
-      border-radius: 6px 6px 0 0;
-      animation: growBar 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      animation-delay: var(--delay, 0s);
-      height: 0;
+    .tab-pill.active {
+      background: #0D7377; color: white; border-color: #0D7377;
     }
 
-    /* Circular progress */
-    @keyframes drawCircle {
-      to { stroke-dashoffset: var(--target-offset); }
+    /* Mobile hamburger */
+    #mobile-menu {
+      display: none; position: fixed; inset: 0; background: rgba(15,23,42,0.97);
+      z-index: 99; flex-direction: column; align-items: center; justify-content: center;
+      gap: 2rem;
     }
-    .progress-ring-fill {
-      stroke-dasharray: 314;
-      stroke-dashoffset: 314;
-      animation: drawCircle 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      animation-delay: 0.3s;
+    #mobile-menu.open { display: flex; }
+    #mobile-menu a { color: white; font-size: 1.4rem; font-weight: 600; }
+
+    /* ── PARTNER LOGOS (greyscale placeholders) ── */
+    .logo-pill {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 8px; padding: 0.4rem 0.9rem;
+      font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.7);
+      letter-spacing: 0.05em;
     }
 
-    /* Count up animation */
-    .count-up {
-      display: inline-block;
+    /* Progress bar for solutions */
+    .solution-number {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+      color: #14B8A6;
     }
 
-    /* Trust bar scroll */
-    .marquee-wrapper {
-      overflow: hidden;
-      position: relative;
-    }
-    .marquee-track {
-      display: flex;
-      gap: 12px;
-      animation: marqueeLeft 30s linear infinite;
-      width: max-content;
-    }
-    .marquee-track-reverse {
-      animation: marqueeRight 30s linear infinite;
-    }
-    @keyframes marqueeLeft {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
-    }
-    @keyframes marqueeRight {
-      from { transform: translateX(-50%); }
-      to { transform: translateX(0); }
-    }
-    .marquee-wrapper:hover .marquee-track { animation-play-state: paused; }
-
-    /* Sector badges */
-    .sector-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #f5f5f5;
-      border: 1px solid #e5e5e5;
-      border-radius: 999px;
-      padding: 8px 18px;
-      font-size: 13px;
-      font-weight: 600;
-      color: #333;
-      white-space: nowrap;
-    }
-
-    /* Stat cards */
-    .stat-card {
-      background: #fff;
-      border: 1px solid #e8e8e8;
-      border-radius: 16px;
-      padding: 24px;
-      transition: all 0.3s;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-    }
-    .stat-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-    }
-    .stat-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #a3e635, #4ade80);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 16px;
-    }
-
-    /* Product cards dark */
-    .product-card {
-      background: #141414;
-      border: 1px solid #1f1f1f;
-      border-radius: 20px;
-      padding: 32px;
-      transition: all 0.3s;
-      overflow: hidden;
-    }
-    .product-card:hover {
-      border-color: #2a2a2a;
-      transform: translateY(-2px);
-    }
-    .learn-more-link {
-      color: #a3e635;
-      font-size: 14px;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: gap 0.2s;
-    }
-    .learn-more-link:hover { gap: 10px; }
-
-    /* Feature cards dark */
-    .feature-card {
-      background: #111;
-      border: 1px solid #1e1e1e;
-      border-radius: 16px;
-      padding: 28px 24px;
-      transition: all 0.3s;
-    }
-    .feature-card:hover {
-      border-color: #333;
-      background: #161616;
-    }
-    .feature-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      background: rgba(163, 230, 53, 0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 16px;
-      transition: background 0.3s;
-    }
-    .feature-card:hover .feature-icon {
-      background: rgba(163, 230, 53, 0.2);
-    }
-
-    /* Icon strip */
-    .app-icon {
-      width: 64px;
-      height: 64px;
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-      transition: transform 0.3s;
-    }
-    .app-icon:hover { transform: translateY(-4px) scale(1.05); }
-
-    /* Testimonials */
-    .testimonial-card {
-      background: #fff;
-      border: 1px solid #e8e8e8;
-      border-radius: 16px;
-      padding: 24px;
-      min-width: 300px;
-      max-width: 320px;
-      flex-shrink: 0;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-    }
-    .testimonial-marquee-row {
-      overflow: hidden;
-      margin-bottom: 16px;
-    }
-    .testimonial-track {
-      display: flex;
-      gap: 16px;
-      animation: marqueeLeft 40s linear infinite;
-      width: max-content;
-    }
-    .testimonial-track-rev {
-      animation: marqueeRight 45s linear infinite;
-    }
-    .testimonial-track-slow {
-      animation: marqueeLeft 50s linear infinite;
-    }
-
-    /* CTA gradient */
-    .cta-gradient {
-      background: linear-gradient(135deg, #a3e635 0%, #4ade80 50%, #22d3ee 100%);
-    }
-
-    /* Dashboard mockup large */
-    .large-dashboard {
-      background: #111;
-      border-radius: 20px;
-      border: 1px solid #222;
-      overflow: hidden;
-      box-shadow: 0 60px 120px rgba(0,0,0,0.5);
-    }
-    .dashboard-sidebar {
-      background: #0d0d0d;
-      border-right: 1px solid #1e1e1e;
-      padding: 20px 16px;
-      min-width: 160px;
-    }
-    .sidebar-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 12px;
-      border-radius: 10px;
-      font-size: 13px;
-      color: #666;
-      cursor: pointer;
-      margin-bottom: 4px;
-      transition: all 0.2s;
-    }
-    .sidebar-item.active {
-      background: rgba(163, 230, 53, 0.1);
-      color: #a3e635;
-    }
-    .sidebar-item:hover:not(.active) { background: #1a1a1a; color: #fff; }
-
-    /* Progress bars */
-    @keyframes growWidth {
-      from { width: 0; }
-      to { width: var(--target-width); }
-    }
-    .progress-bar-fill {
-      height: 100%;
-      border-radius: 999px;
-      background: linear-gradient(90deg, #a3e635, #4ade80);
-      animation: growWidth 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      animation-delay: var(--delay, 0.3s);
-      width: 0;
-    }
-
-    /* Mobile menu */
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: #fff;
-      z-index: 999;
-      padding: 80px 24px 24px;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a {
-      font-size: 18px;
-      font-weight: 600;
-      color: #111;
-      padding: 14px 0;
-      border-bottom: 1px solid #f0f0f0;
-    }
-
-    /* Gradient text */
-    .gradient-text {
-      background: linear-gradient(135deg, #a3e635, #4ade80);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    /* Label pill */
-    .section-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #f5f5f5;
-      border: 1px solid #e5e5e5;
-      border-radius: 999px;
-      padding: 6px 14px;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #555;
-      margin-bottom: 20px;
-    }
-    .section-label.dark {
-      background: rgba(163, 230, 53, 0.08);
-      border-color: rgba(163, 230, 53, 0.2);
-      color: #a3e635;
-    }
-
-    /* Small cards (dark bg) */
-    .small-product-card {
-      background: #141414;
-      border: 1px solid #1f1f1f;
-      border-radius: 16px;
-      padding: 28px;
-      transition: all 0.3s;
-    }
-    .small-product-card:hover {
-      border-color: rgba(163, 230, 53, 0.2);
-      transform: translateY(-2px);
-    }
-    .small-card-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: rgba(163, 230, 53, 0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 16px;
-    }
-
-    /* Floating illustration cards */
-    .float-card {
-      animation: float 4s ease-in-out infinite;
-    }
-    .float-card-2 {
-      animation: float 4s ease-in-out infinite;
-      animation-delay: 1s;
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-8px); }
-    }
-
-    /* Responsive */
     @media (max-width: 768px) {
-      .hero-grid { grid-template-columns: 1fr !important; }
-      .stats-grid { grid-template-columns: 1fr 1fr !important; }
-      .product-cards-top { grid-template-columns: 1fr !important; }
-      .product-cards-bottom { grid-template-columns: 1fr !important; }
-      .feature-cards-row { grid-template-columns: 1fr 1fr !important; }
-      .coverage-grid { grid-template-columns: 1fr !important; }
-      .footer-grid { grid-template-columns: 1fr 1fr !important; }
-      .nav-links { display: none; }
-      .nav-right-desktop { display: none !important; }
-      .hamburger { display: flex !important; }
-    }
-
-    /* Hamburger */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 6px;
-      z-index: 1000;
-    }
-    .hamburger span {
-      width: 22px;
-      height: 2px;
-      background: #111;
-      border-radius: 2px;
-      transition: all 0.3s;
-    }
-
-    /* Glow effect on hover for icons */
-    .icon-glow:hover {
-      filter: drop-shadow(0 0 8px rgba(163, 230, 53, 0.5));
-    }
-
-    /* CTA floating devices */
-    .cta-float-card {
-      background: rgba(255,255,255,0.9);
-      backdrop-filter: blur(20px);
-      border-radius: 20px;
-      padding: 24px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      .carousel-card { flex: 0 0 85%; }
+      .hero-right-card { display: none; }
+      .nav-links-desktop { display: none; }
     }
   </style>
 </head>
-<body class="bg-white text-gray-900">
+<body>
 
-<!-- ANNOUNCEMENT BAR -->
-<div class="announcement-bar">
-  🚀 Now supporting 500+ contractors across 15+ sectors &nbsp;·&nbsp; <a href="#" class="underline underline-offset-2">Learn more →</a>
-</div>
+<!-- ══════════════════════════════════ NAV ══════════════════════════════════ -->
+<nav id="main-nav">
+  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
 
-<!-- NAVIGATION -->
-<nav class="sticky top-0 z-50 bg-white border-b border-gray-100" style="backdrop-filter: blur(20px);">
-  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
     <!-- Logo -->
-    <a href="#" class="font-black text-2xl tracking-tight text-gray-900">i<span class="gradient-text">Group</span></a>
+    <a href="#" class="nav-logo flex items-center gap-2">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+        <rect width="28" height="28" rx="7" fill="#0D7377"/>
+        <path d="M7 14h14M14 7v14" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="14" cy="14" r="4" fill="white" opacity="0.3"/>
+      </svg>
+      <span>iGroup</span>
+    </a>
 
-    <!-- Nav links -->
-    <div class="nav-links flex items-center gap-8">
-      <a href="#services" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Services</a>
-      <a href="#about" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">About</a>
-      <a href="#resources" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Resources</a>
-      <a href="#contact" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
+    <!-- Nav links (desktop) -->
+    <div class="nav-links-desktop flex items-center gap-8">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#solutions" class="nav-link">Solutions</a>
+      <a href="#insights" class="nav-link">Insights</a>
+      <a href="#contact" class="nav-link">Contact Us</a>
     </div>
 
-    <!-- Right side -->
-    <div class="nav-right-desktop flex items-center gap-4">
-      <a href="#" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Log in</a>
-      <a href="#" class="nav-pill-btn slide-btn">
-        <span class="btn-text-top">Get Started →</span>
-        <span class="btn-text-bottom">Get Started →</span>
+    <!-- CTA + hamburger -->
+    <div class="flex items-center gap-4">
+      <a href="#contact" class="btn-slide btn-primary hidden md:inline-flex">
+        <span class="btn-text">Get Started Now &nbsp;→</span>
+        <span class="btn-text-hover">Get Started Now &nbsp;→</span>
       </a>
+      <button id="hamburger" class="md:hidden text-white" onclick="toggleMenu()">
+        <svg width="26" height="26" fill="none" viewBox="0 0 26 26">
+          <path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 7h18M4 13h18M4 19h18"/>
+        </svg>
+      </button>
     </div>
-
-    <!-- Hamburger -->
-    <button class="hamburger" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
   </div>
 </nav>
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu">
-  <button onclick="document.querySelector('.mobile-menu').classList.remove('open')" style="position:absolute;top:20px;right:20px;font-size:24px;background:none;border:none;cursor:pointer;">✕</button>
-  <a href="#services">Services</a>
-  <a href="#about">About</a>
-  <a href="#resources">Resources</a>
-  <a href="#contact">Contact</a>
-  <a href="#" style="margin-top:16px;">Log in</a>
-  <a href="#" class="nav-pill-btn" style="justify-content:center;">Get Started →</a>
+<!-- Mobile menu -->
+<div id="mobile-menu">
+  <button onclick="toggleMenu()" style="position:absolute;top:1.5rem;right:1.5rem;color:white;">
+    <svg width="28" height="28" fill="none" viewBox="0 0 28 28">
+      <path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M7 7l14 14M21 7L7 21"/>
+    </svg>
+  </button>
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#solutions" onclick="toggleMenu()">Solutions</a>
+  <a href="#insights" onclick="toggleMenu()">Insights</a>
+  <a href="#contact" onclick="toggleMenu()">Contact Us</a>
+  <a href="#contact" class="btn-slide btn-primary" onclick="toggleMenu()">
+    <span class="btn-text">Get Started →</span>
+    <span class="btn-text-hover">Get Started →</span>
+  </a>
 </div>
 
-<!-- HERO SECTION -->
-<section class="bg-white pt-20 pb-16 px-6 overflow-hidden">
-  <div class="max-w-7xl mx-auto grid hero-grid" style="grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;">
+<!-- ══════════════════════════════════ HERO ══════════════════════════════════ -->
+<section id="hero">
 
-    <!-- Left -->
-    <div>
-      <div class="section-label" style="display:inline-flex; margin-bottom: 28px;">
-        🚀 Intelligent, compliant, and contractor-first
-      </div>
-      <h1 class="text-5xl font-black leading-tight tracking-tight text-gray-900 mb-6" style="font-size: clamp(2.5rem, 5vw, 3.75rem); line-height: 1.05;">
-        Modern career<br>platform for<br><span class="gradient-text">smart contractors</span>
-      </h1>
-      <p class="text-lg text-gray-500 mb-10 leading-relaxed max-w-md">
-        Power your contracting career with smarter compliance, rate intelligence, and real-time career management.
-      </p>
-      <div class="flex flex-wrap gap-4">
-        <a href="#contact" class="slide-btn" style="background:#0a0a0a; color:#fff; border-radius:999px; padding:14px 28px; font-size:15px; font-weight:700; display:inline-flex; align-items:center; gap:6px; text-decoration:none; position:relative; overflow:hidden;">
-          <span class="btn-text-top">Request a Consultation</span>
-          <span class="btn-text-bottom">Request a Consultation</span>
-        </a>
-        <a href="#services" class="slide-btn" style="background:transparent; color:#111; border:2px solid #e0e0e0; border-radius:999px; padding:13px 28px; font-size:15px; font-weight:700; display:inline-flex; align-items:center; gap:6px; text-decoration:none; position:relative; overflow:hidden;">
-          <span class="btn-text-top">Learn More</span>
-          <span class="btn-text-bottom">Learn More</span>
-        </a>
-      </div>
-      <div class="flex items-center gap-8 mt-12">
-        <div>
-          <div class="text-2xl font-black text-gray-900">500+</div>
-          <div class="text-sm text-gray-400 font-medium">Active contractors</div>
-        </div>
-        <div style="width:1px; height:40px; background:#e5e5e5;"></div>
-        <div>
-          <div class="text-2xl font-black text-gray-900">15+</div>
-          <div class="text-sm text-gray-400 font-medium">Industry sectors</div>
-        </div>
-        <div style="width:1px; height:40px; background:#e5e5e5;"></div>
-        <div>
-          <div class="text-2xl font-black text-gray-900">98%</div>
-          <div class="text-sm text-gray-400 font-medium">Compliance rate</div>
-        </div>
-      </div>
-    </div>
+  <!-- Rotating background images -->
+  <div class="hero-bg-slide active" id="slide-0" style="background-image: url('images/hero-arab-businessman.jpg')"></div>
+  <div class="hero-bg-slide" id="slide-1" style="background-image: url('images/hero-oil-rig-manager.jpg')"></div>
+  <div class="hero-bg-slide" id="slide-2" style="background-image: url('images/hero-it-developer-london.jpg')"></div>
+  <div class="hero-bg-slide" id="slide-3" style="background-image: url('images/hero-engineer-woman.jpg')"></div>
 
-    <!-- Right: CSS Dashboard Mockup -->
-    <div class="relative" style="perspective: 1000px;">
-      <!-- Main dashboard card -->
-      <div class="hero-dashboard float-card" style="transform: rotateY(-3deg) rotateX(3deg);">
-        <div class="dashboard-header">
-          <div class="dot dot-red"></div>
-          <div class="dot dot-yellow"></div>
-          <div class="dot dot-green"></div>
-          <span style="font-size:12px; color:#666; margin-left:8px; font-weight:600;">iGroup Dashboard</span>
-        </div>
-        <div style="padding: 20px;">
-          <!-- Top stat row -->
-          <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 16px;">
-            <div style="background:#1a1a1a; border-radius:12px; padding:14px;">
-              <div style="font-size:10px; color:#555; text-transform:uppercase; letter-spacing:0.08em; font-weight:700; margin-bottom:6px;">Day Rate</div>
-              <div style="font-size:20px; font-weight:800; color:#fff;">£<span class="count-up" data-target="650">0</span></div>
-              <div style="font-size:10px; color:#4ade80; font-weight:600; margin-top:3px;">↑ 8.2%</div>
-            </div>
-            <div style="background:#1a1a1a; border-radius:12px; padding:14px;">
-              <div style="font-size:10px; color:#555; text-transform:uppercase; letter-spacing:0.08em; font-weight:700; margin-bottom:6px;">IR35 Score</div>
-              <div style="font-size:20px; font-weight:800; color:#a3e635;">98%</div>
-              <div style="font-size:10px; color:#4ade80; font-weight:600; margin-top:3px;">Compliant</div>
-            </div>
-            <div style="background:#1a1a1a; border-radius:12px; padding:14px;">
-              <div style="font-size:10px; color:#555; text-transform:uppercase; letter-spacing:0.08em; font-weight:700; margin-bottom:6px;">Contracts</div>
-              <div style="font-size:20px; font-weight:800; color:#fff;">12</div>
-              <div style="font-size:10px; color:#4ade80; font-weight:600; margin-top:3px;">Active</div>
-            </div>
-          </div>
-          <!-- Rate chart -->
-          <div style="background:#1a1a1a; border-radius:12px; padding:16px; margin-bottom:12px;">
-            <div style="font-size:11px; color:#888; font-weight:600; margin-bottom:12px;">Market Rate Intelligence — Q1 2026</div>
-            <div style="display:flex; align-items:flex-end; gap:8px; height:80px; padding:0 4px;">
-              <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:4px;">
-                <div class="chart-bar" style="--target-height:55px; --delay:0.1s; width:100%; background:linear-gradient(180deg, #a3e635, #4ade80);"></div>
-                <span style="font-size:9px; color:#555; font-weight:600;">Finance</span>
-              </div>
-              <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:4px;">
-                <div class="chart-bar" style="--target-height:72px; --delay:0.2s; width:100%; background:linear-gradient(180deg, #a3e635, #4ade80); opacity:0.9;"></div>
-                <span style="font-size:9px; color:#555; font-weight:600;">Tech</span>
-              </div>
-              <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:4px;">
-                <div class="chart-bar" style="--target-height:60px; --delay:0.3s; width:100%; background:linear-gradient(180deg, #a3e635, #4ade80); opacity:0.8;"></div>
-                <span style="font-size:9px; color:#555; font-weight:600;">Eng</span>
-              </div>
-              <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:4px;">
-                <div class="chart-bar" style="--target-height:68px; --delay:0.4s; width:100%; background:linear-gradient(180deg, #a3e635, #4ade80); opacity:0.7;"></div>
-                <span style="font-size:9px; color:#555; font-weight:600;">Life Sci</span>
-              </div>
-              <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:4px;">
-                <div class="chart-bar" style="--target-height:48px; --delay:0.5s; width:100%; background:linear-gradient(180deg, #a3e635, #4ade80); opacity:0.6;"></div>
-                <span style="font-size:9px; color:#555; font-weight:600;">Energy</span>
-              </div>
-              <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:4px;">
-                <div class="chart-bar" style="--target-height:65px; --delay:0.6s; width:100%; background:linear-gradient(180deg, #a3e635, #4ade80); opacity:0.85;"></div>
-                <span style="font-size:9px; color:#555; font-weight:600;">Defence</span>
-              </div>
-            </div>
-          </div>
-          <!-- Bottom row -->
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
-            <div style="background:#1a1a1a; border-radius:12px; padding:14px;">
-              <div style="font-size:10px; color:#555; font-weight:700; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.05em;">Career Health</div>
-              <div style="background:#222; border-radius:999px; height:6px; margin-bottom:6px; overflow:hidden;">
-                <div class="progress-bar-fill" style="--target-width:82%; --delay:0.8s;"></div>
-              </div>
-              <div style="font-size:11px; color:#4ade80; font-weight:700;">82 / 100</div>
-            </div>
-            <div style="background:#1a1a1a; border-radius:12px; padding:14px;">
-              <div style="font-size:10px; color:#555; font-weight:700; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.05em;">Tax Efficiency</div>
-              <div style="background:#222; border-radius:999px; height:6px; margin-bottom:6px; overflow:hidden;">
-                <div class="progress-bar-fill" style="--target-width:91%; --delay:0.9s;"></div>
-              </div>
-              <div style="font-size:11px; color:#4ade80; font-weight:700;">91 / 100</div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div class="hero-overlay"></div>
 
-      <!-- Floating compliance card -->
-      <div class="float-card-2" style="position:absolute; top: -20px; right: -30px; background:#fff; border:1px solid #e8e8e8; border-radius:14px; padding:14px 18px; box-shadow:0 8px 30px rgba(0,0,0,0.12); z-index:10;">
-        <div style="display:flex; align-items:center; gap:10px;">
-          <div style="width:36px; height:36px; border-radius:10px; background:linear-gradient(135deg,#a3e635,#4ade80); display:flex; align-items:center; justify-content:center;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="#111" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <div>
-            <div style="font-size:11px; color:#888; font-weight:600;">IR35 Status</div>
-            <div style="font-size:13px; font-weight:800; color:#111;">Outside IR35 ✓</div>
-          </div>
-        </div>
-      </div>
+  <div class="hero-content max-w-7xl mx-auto px-6 w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-      <!-- Floating rate alert card -->
-      <div class="float-card" style="position:absolute; bottom: -10px; left: -24px; background:#0a0a0a; border:1px solid #1e1e1e; border-radius:14px; padding:14px 18px; box-shadow:0 8px 30px rgba(0,0,0,0.3); z-index:10; animation-delay:0.5s;">
-        <div style="display:flex; align-items:center; gap:10px;">
-          <div style="width:36px; height:36px; border-radius:10px; background:rgba(163,230,53,0.1); display:flex; align-items:center; justify-content:center;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke="#a3e635" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <div>
-            <div style="font-size:11px; color:#666; font-weight:600;">Rate Alert</div>
-            <div style="font-size:13px; font-weight:800; color:#fff;">+£50/day in Tech ↑</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TRUST BAR / SECTOR SCROLL -->
-<section style="background:#f9f9f9; padding: 32px 0; border-top:1px solid #f0f0f0; border-bottom:1px solid #f0f0f0;">
-  <div class="max-w-7xl mx-auto px-6 mb-6">
-    <p class="text-center text-sm font-semibold text-gray-400 tracking-widest uppercase">Trusted by contractors across the UK's leading sectors</p>
-  </div>
-  <div class="marquee-wrapper">
-    <div class="marquee-track">
-      <!-- First set -->
-      <span class="sector-badge">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93V18c0-.55.45-1 1-1s1 .45 1 1v1.93A8.01 8.01 0 014.07 13H6c.55 0 1 .45 1 1s-.45 1-1 1H4.07A8.02 8.02 0 0111 19.93zM12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z" fill="#888"/></svg>
-        Finance
-      </span>
-      <span class="sector-badge">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="14" rx="2" stroke="#888" stroke-width="2"/><path d="M8 21h8M12 17v4" stroke="#888" stroke-width="2" stroke-linecap="round"/></svg>
-        Technology
-      </span>
-      <span class="sector-badge">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Engineering
-      </span>
-      <span class="sector-badge">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Life Sciences
-      </span>
-      <span class="sector-badge">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Energy
-      </span>
-      <span class="sector-badge">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Defence
-      </span>
-      <span class="sector-badge">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Government
-      </span>
-      <span class="sector-badge">Professional Services</span>
-      <span class="sector-badge">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.22 1.18 2 2 0 012.2 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.72 6.72l1.57-1.57a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Telecoms
-      </span>
-      <span class="sector-badge">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 22V12M12 12l5-5M12 12l-5-5M2 12h4M18 12h4M12 2v4M5.64 5.64l2.83 2.83M15.54 15.54l2.83 2.83M5.64 18.36l2.83-2.83M15.54 8.46l2.83-2.83" stroke="#888" stroke-width="2" stroke-linecap="round"/></svg>
-        Pharma
-      </span>
-      <!-- Duplicate for infinite scroll -->
-      <span class="sector-badge">Finance</span>
-      <span class="sector-badge">Technology</span>
-      <span class="sector-badge">Engineering</span>
-      <span class="sector-badge">Life Sciences</span>
-      <span class="sector-badge">Energy</span>
-      <span class="sector-badge">Defence</span>
-      <span class="sector-badge">Government</span>
-      <span class="sector-badge">Professional Services</span>
-      <span class="sector-badge">Telecoms</span>
-      <span class="sector-badge">Pharma</span>
-    </div>
-  </div>
-</section>
-
-<!-- COMPLETE COVERAGE SECTION -->
-<section id="services" class="bg-white py-24 px-6">
-  <div class="max-w-7xl mx-auto">
-    <div class="grid coverage-grid" style="grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;">
-      <!-- Left: stats cards -->
+      <!-- Left: Headline + CTA -->
       <div>
-        <div class="section-label">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#555" stroke-width="2"/><path d="M12 6v6l4 2" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg>
-          COMPLETE COVERAGE
+        <div class="inline-flex items-center gap-2 mb-6">
+          <span style="width:32px;height:2px;background:#F59E0B;display:block;"></span>
+          <span style="font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#F59E0B;">Premium Contractor Intelligence</span>
         </div>
-        <h2 class="text-4xl font-black tracking-tight text-gray-900 mb-5" style="line-height: 1.1;">
-          End-to-end contractor management,<br><span class="gradient-text">total peace of mind</span>
-        </h2>
-        <p class="text-gray-500 text-lg mb-10 leading-relaxed">
-          Experience a new era of contracting where compliance, rates, and career growth are all handled.
+
+        <h1 class="letter-reveal text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-6" style="letter-spacing:-0.02em;" id="hero-headline">
+          Empowering Global Contractors with Intelligence
+        </h1>
+
+        <p class="word-reveal text-lg text-white/80 mb-8 max-w-xl leading-relaxed" id="hero-sub">
+          Explore how iGroup is transforming professional contracting with cutting-edge compliance, rate intelligence, and career management solutions that work across borders.
         </p>
 
-        <div class="grid" style="grid-template-columns:1fr 1fr; gap:16px;">
-          <!-- Card 1 -->
-          <div class="stat-card">
-            <div class="stat-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="#111" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="flex flex-wrap gap-4 mb-10">
+          <a href="#services" class="btn-slide btn-primary">
+            <span class="btn-text">Explore Our Services &nbsp;→</span>
+            <span class="btn-text-hover">Explore Our Services &nbsp;→</span>
+          </a>
+          <a href="#about" class="btn-slide btn-outline">
+            <span class="btn-text">Learn More</span>
+            <span class="btn-text-hover">Learn More</span>
+          </a>
+        </div>
+
+        <!-- Partner / sector logos -->
+        <div class="flex flex-wrap gap-3">
+          <span class="logo-pill">⚡ Energy</span>
+          <span class="logo-pill">💻 Technology</span>
+          <span class="logo-pill">🏗 Engineering</span>
+          <span class="logo-pill">💰 Finance</span>
+          <span class="logo-pill">⚕ Healthcare</span>
+        </div>
+      </div>
+
+      <!-- Right: Floating card with video + stat -->
+      <div class="hero-right-card flex flex-col items-end gap-4">
+        <div class="floating-card p-1 w-full max-w-md relative" style="aspect-ratio:16/10; overflow:hidden; border-radius:16px;">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#0D7377 0%,#0F172A 100%);border-radius:15px; position:relative;">
+            <div class="video-play">
+              <div class="play-btn">
+                <svg width="22" height="22" fill="#0D7377" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </div>
             </div>
-            <h3 class="font-bold text-gray-900 text-base mb-2">IR35 Compliant</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">Full inside-IR35 compliance management and monitoring</p>
+            <div style="position:absolute;bottom:1rem;left:1rem;">
+              <span style="font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.6);">Watch our story</span>
+            </div>
           </div>
-          <!-- Card 2 -->
-          <div class="stat-card">
-            <div class="stat-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke="#111" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <h3 class="font-bold text-gray-900 text-base mb-2">Rate Optimised</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">AI-powered market rate analysis across all sectors</p>
+        </div>
+
+        <!-- Stat badge -->
+        <div class="floating-card p-4 flex items-center gap-4 w-auto">
+          <div style="background:#F59E0B;border-radius:10px;width:48px;height:48px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
           </div>
-          <!-- Card 3 -->
-          <div class="stat-card">
-            <div class="stat-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke="#111" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <h3 class="font-bold text-gray-900 text-base mb-2">Career Tracked</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">Long-term career planning with data-driven insights</p>
-          </div>
-          <!-- Card 4 -->
-          <div class="stat-card">
-            <div class="stat-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" stroke="#111" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <h3 class="font-bold text-gray-900 text-base mb-2">Contract Reviewed</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">Expert analysis of every contract before you sign</p>
+          <div>
+            <div style="font-size:1.6rem;font-weight:900;color:white;line-height:1;">500+</div>
+            <div style="font-size:0.75rem;color:rgba(255,255,255,0.7);max-width:160px;line-height:1.3;margin-top:2px;">Contractors trust iGroup for compliance and career intelligence</div>
           </div>
         </div>
       </div>
 
-      <!-- Right: illustration -->
-      <div class="relative" style="padding-top: 40px;">
-        <div style="background: linear-gradient(135deg, #f0fdf4, #ecfdf5); border-radius: 24px; padding: 32px; border: 1px solid #d1fae5;">
-          <!-- Summary stats at top -->
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:20px;">
-            <div style="background:#fff; border-radius:14px; padding:18px; box-shadow:0 2px 12px rgba(0,0,0,0.06);">
-              <div style="font-size:11px; color:#888; font-weight:700; text-transform:uppercase; letter-spacing:0.08em;">Compliance Score</div>
-              <div style="font-size:32px; font-weight:900; color:#111; line-height:1.1; margin-top:4px;"><span class="count-up" data-target="98">0</span>%</div>
-              <div style="font-size:12px; color:#22c55e; font-weight:700; margin-top:4px;">● All Clear</div>
-            </div>
-            <div style="background:#fff; border-radius:14px; padding:18px; box-shadow:0 2px 12px rgba(0,0,0,0.06);">
-              <div style="font-size:11px; color:#888; font-weight:700; text-transform:uppercase; letter-spacing:0.08em;">Market Rate</div>
-              <div style="font-size:32px; font-weight:900; color:#111; line-height:1.1; margin-top:4px;">£<span class="count-up" data-target="650">0</span></div>
-              <div style="font-size:12px; color:#22c55e; font-weight:700; margin-top:4px;">↑ +8.2% YoY</div>
-            </div>
-          </div>
-          <!-- Sector performance bars -->
-          <div style="background:#fff; border-radius:14px; padding:20px; box-shadow:0 2px 12px rgba(0,0,0,0.06);">
-            <div style="font-size:12px; font-weight:700; color:#111; margin-bottom:14px;">Sector Coverage</div>
-            <div style="display:flex; flex-direction:column; gap:10px;">
-              <div>
-                <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
-                  <span style="font-size:12px; color:#666; font-weight:600;">Technology</span>
-                  <span style="font-size:12px; color:#a3e635; font-weight:700;">£750/day</span>
-                </div>
-                <div style="background:#f0f0f0; border-radius:999px; height:6px; overflow:hidden;">
-                  <div class="progress-bar-fill" style="--target-width:88%; --delay:0.3s;"></div>
-                </div>
-              </div>
-              <div>
-                <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
-                  <span style="font-size:12px; color:#666; font-weight:600;">Finance</span>
-                  <span style="font-size:12px; color:#a3e635; font-weight:700;">£700/day</span>
-                </div>
-                <div style="background:#f0f0f0; border-radius:999px; height:6px; overflow:hidden;">
-                  <div class="progress-bar-fill" style="--target-width:82%; --delay:0.5s;"></div>
-                </div>
-              </div>
-              <div>
-                <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
-                  <span style="font-size:12px; color:#666; font-weight:600;">Engineering</span>
-                  <span style="font-size:12px; color:#a3e635; font-weight:700;">£600/day</span>
-                </div>
-                <div style="background:#f0f0f0; border-radius:999px; height:6px; overflow:hidden;">
-                  <div class="progress-bar-fill" style="--target-width:70%; --delay:0.7s;"></div>
-                </div>
-              </div>
-              <div>
-                <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
-                  <span style="font-size:12px; color:#666; font-weight:600;">Life Sciences</span>
-                  <span style="font-size:12px; color:#a3e635; font-weight:700;">£650/day</span>
-                </div>
-                <div style="background:#f0f0f0; border-radius:999px; height:6px; overflow:hidden;">
-                  <div class="progress-bar-fill" style="--target-width:76%; --delay:0.9s;"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Floating badge -->
-        <div class="float-card" style="position:absolute; top:-16px; right:-20px; background:#0a0a0a; border-radius:14px; padding:12px 16px; display:flex; align-items:center; gap:10px; box-shadow:0 8px 30px rgba(0,0,0,0.25);">
-          <div style="width:32px; height:32px; border-radius:8px; background:linear-gradient(135deg,#a3e635,#4ade80); display:flex; align-items:center; justify-content:center;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#111" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <div>
-            <div style="font-size:10px; color:#666; font-weight:600;">500+ contractors</div>
-            <div style="font-size:12px; color:#fff; font-weight:800;">Fully Protected</div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
+
+  <!-- Ticker strip at bottom -->
+  <div class="ticker-wrapper absolute bottom-0 left-0 right-0 py-3 z-10">
+    <div class="ticker-track">
+      <span style="color:rgba(255,255,255,0.5);font-size:0.75rem;font-weight:600;letter-spacing:0.1em;">
+        &nbsp;&nbsp;⚡ Energy &nbsp;|&nbsp; 💻 Technology &nbsp;|&nbsp; 🏗 Engineering &nbsp;|&nbsp; 💰 Finance &nbsp;|&nbsp; ⚕ Healthcare &nbsp;|&nbsp; 🌍 Global Mobility &nbsp;|&nbsp; 📋 IR35 Compliance &nbsp;|&nbsp; 📊 Rate Intelligence &nbsp;|&nbsp; 🎯 Career Strategy &nbsp;|&nbsp; 🔍 Contract Review &nbsp;|&nbsp;
+        &nbsp;&nbsp;⚡ Energy &nbsp;|&nbsp; 💻 Technology &nbsp;|&nbsp; 🏗 Engineering &nbsp;|&nbsp; 💰 Finance &nbsp;|&nbsp; ⚕ Healthcare &nbsp;|&nbsp; 🌍 Global Mobility &nbsp;|&nbsp; 📋 IR35 Compliance &nbsp;|&nbsp; 📊 Rate Intelligence &nbsp;|&nbsp; 🎯 Career Strategy &nbsp;|&nbsp; 🔍 Contract Review &nbsp;|&nbsp;
+      </span>
+    </div>
+  </div>
+
 </section>
 
-<!-- WHAT WE OFFER — Dark Product Cards Section -->
-<section style="background:#0a0a0a; padding:96px 24px;" id="about">
-  <div class="max-w-7xl mx-auto">
-    <div style="text-align:center; margin-bottom:60px;">
-      <div class="section-label dark" style="display:inline-flex; justify-content:center; margin-bottom:20px;">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="#a3e635" stroke-width="2"/><path d="M9 9h6M9 12h6M9 15h4" stroke="#a3e635" stroke-width="2" stroke-linecap="round"/></svg>
-        WHAT WE OFFER
-      </div>
-      <h2 style="font-size:clamp(2rem,4vw,3rem); font-weight:900; color:#fff; line-height:1.1; margin-bottom:16px;">Powering the next generation of<br><span class="gradient-text">professional contractors</span></h2>
-      <p style="color:#666; font-size:18px; max-width:520px; margin:0 auto; line-height:1.6;">Empowering contractors with the tools, intelligence, and support to thrive</p>
-    </div>
+<!-- ══════════════════════════════ ABOUT (01) ══════════════════════════════ -->
+<section id="about" style="background:white; padding:6rem 0;">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
-    <!-- Top row: 2 large cards -->
-    <div class="product-cards-top" style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:20px;">
-
-      <!-- Large card 1: Rate Intelligence -->
-      <div class="product-card">
-        <h3 style="font-size:22px; font-weight:800; color:#fff; margin-bottom:10px;">Rate Intelligence Dashboard</h3>
-        <p style="color:#666; font-size:15px; line-height:1.6; margin-bottom:20px;">AI-powered market rate analysis, benchmarking, and negotiation support across all sectors</p>
-        <a href="#" class="learn-more-link">Learn More →</a>
-        <!-- Animated bar chart -->
-        <div style="margin-top:28px; background:#1a1a1a; border-radius:16px; padding:20px;">
-          <div style="font-size:11px; color:#555; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:14px;">Average Daily Rates by Sector</div>
-          <div style="display:flex; align-items:flex-end; gap:12px; height:100px;">
-            <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:6px;">
-              <div id="rate1" style="font-size:10px; color:#a3e635; font-weight:700;">£0</div>
-              <div class="chart-bar" style="--target-height:57px; --delay:0.1s; width:100%; background:linear-gradient(180deg,#a3e635,#4ade80);"></div>
-              <span style="font-size:9px; color:#555; font-weight:600;">Finance</span>
-            </div>
-            <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:6px;">
-              <div id="rate2" style="font-size:10px; color:#a3e635; font-weight:700;">£0</div>
-              <div class="chart-bar" style="--target-height:71px; --delay:0.2s; width:100%; background:linear-gradient(180deg,#a3e635,#4ade80); opacity:0.9;"></div>
-              <span style="font-size:9px; color:#555; font-weight:600;">Tech</span>
-            </div>
-            <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:6px;">
-              <div id="rate3" style="font-size:10px; color:#a3e635; font-weight:700;">£0</div>
-              <div class="chart-bar" style="--target-height:57px; --delay:0.3s; width:100%; background:linear-gradient(180deg,#a3e635,#4ade80); opacity:0.8;"></div>
-              <span style="font-size:9px; color:#555; font-weight:600;">Eng</span>
-            </div>
-            <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:6px;">
-              <div id="rate4" style="font-size:10px; color:#a3e635; font-weight:700;">£0</div>
-              <div class="chart-bar" style="--target-height:64px; --delay:0.4s; width:100%; background:linear-gradient(180deg,#a3e635,#4ade80); opacity:0.7;"></div>
-              <span style="font-size:9px; color:#555; font-weight:600;">Life Sci</span>
-            </div>
-            <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:6px;">
-              <div id="rate5" style="font-size:10px; color:#a3e635; font-weight:700;">£0</div>
-              <div class="chart-bar" style="--target-height:50px; --delay:0.5s; width:100%; background:linear-gradient(180deg,#a3e635,#4ade80); opacity:0.6;"></div>
-              <span style="font-size:9px; color:#555; font-weight:600;">Energy</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Large card 2: Compliance Score -->
-      <div class="product-card">
-        <h3 style="font-size:22px; font-weight:800; color:#fff; margin-bottom:10px;">Compliance Score</h3>
-        <p style="color:#666; font-size:15px; line-height:1.6; margin-bottom:20px;">Real-time IR35 status monitoring, tax compliance tracking, and risk assessment</p>
-        <a href="#" class="learn-more-link">Learn More →</a>
-        <!-- Animated circular progress -->
-        <div style="margin-top:28px; background:#1a1a1a; border-radius:16px; padding:24px; display:flex; align-items:center; gap:28px;">
-          <div style="position:relative; width:120px; height:120px; flex-shrink:0;">
-            <svg width="120" height="120" style="transform:rotate(-90deg);" viewBox="0 0 120 120">
-              <circle cx="60" cy="60" r="50" fill="none" stroke="#222" stroke-width="8"/>
-              <circle class="progress-ring-fill" cx="60" cy="60" r="50" fill="none" stroke="url(#complianceGrad)" stroke-width="8" stroke-linecap="round" style="--target-offset: 20;"/>
-              <defs>
-                <linearGradient id="complianceGrad" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stop-color="#a3e635"/>
-                  <stop offset="100%" stop-color="#4ade80"/>
-                </linearGradient>
-              </defs>
-            </svg>
-            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); text-align:center;">
-              <div style="font-size:22px; font-weight:900; color:#fff; line-height:1;"><span class="count-up" data-target="98">0</span>%</div>
-              <div style="font-size:9px; color:#666; font-weight:600; text-transform:uppercase; letter-spacing:0.05em;">Score</div>
-            </div>
-          </div>
-          <div>
-            <div style="font-size:13px; color:#a3e635; font-weight:700; margin-bottom:10px;">● Compliant</div>
-            <div style="display:flex; flex-direction:column; gap:8px;">
-              <div>
-                <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
-                  <span style="font-size:11px; color:#888; font-weight:600;">IR35 Status</span>
-                  <span style="font-size:11px; color:#4ade80; font-weight:700;">Clear</span>
-                </div>
-                <div style="background:#222; border-radius:999px; height:4px; overflow:hidden;">
-                  <div class="progress-bar-fill" style="--target-width:98%; --delay:0.5s;"></div>
-                </div>
-              </div>
-              <div>
-                <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
-                  <span style="font-size:11px; color:#888; font-weight:600;">Tax Filings</span>
-                  <span style="font-size:11px; color:#4ade80; font-weight:700;">Up to date</span>
-                </div>
-                <div style="background:#222; border-radius:999px; height:4px; overflow:hidden;">
-                  <div class="progress-bar-fill" style="--target-width:100%; --delay:0.7s;"></div>
-                </div>
-              </div>
-              <div>
-                <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
-                  <span style="font-size:11px; color:#888; font-weight:600;">Risk Level</span>
-                  <span style="font-size:11px; color:#4ade80; font-weight:700;">Low</span>
-                </div>
-                <div style="background:#222; border-radius:999px; height:4px; overflow:hidden;">
-                  <div class="progress-bar-fill" style="--target-width:15%; --delay:0.9s; background:linear-gradient(90deg,#4ade80,#86efac) !important;"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Bottom row: 3 smaller cards -->
-    <div class="product-cards-bottom" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px;">
-      <div class="small-product-card">
-        <div class="small-card-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke="#a3e635" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <h3 style="font-size:18px; font-weight:800; color:#fff; margin-bottom:8px;">Career Intelligence</h3>
-        <p style="color:#666; font-size:14px; line-height:1.6; margin-bottom:16px;">Data-driven career planning with market trends and opportunity mapping</p>
-        <a href="#" class="learn-more-link">Learn More →</a>
-      </div>
-      <div class="small-product-card">
-        <div class="small-card-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" stroke="#a3e635" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <h3 style="font-size:18px; font-weight:800; color:#fff; margin-bottom:8px;">Contract Analysis</h3>
-        <p style="color:#666; font-size:14px; line-height:1.6; margin-bottom:16px;">Expert review of every contract with risk scoring and optimisation recommendations</p>
-        <a href="#" class="learn-more-link">Learn More →</a>
-      </div>
-      <div class="small-product-card">
-        <div class="small-card-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#a3e635" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <h3 style="font-size:18px; font-weight:800; color:#fff; margin-bottom:8px;">Tax Optimisation</h3>
-        <p style="color:#666; font-size:14px; line-height:1.6; margin-bottom:16px;">Legitimate tax efficiency strategies within your PSC structure</p>
-        <a href="#" class="learn-more-link">Learn More →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ALWAYS PROTECTED — Dark section -->
-<section style="background:#111111; padding:96px 24px; position:relative; overflow:hidden;">
-  <!-- Gradient overlay top -->
-  <div style="position:absolute; top:0; left:0; right:0; height:200px; background:linear-gradient(180deg, rgba(163,230,53,0.05) 0%, transparent 100%); pointer-events:none;"></div>
-  <div class="max-w-7xl mx-auto" style="position:relative;">
-    <div style="max-width:640px; margin:0 auto 64px; text-align:center;">
-      <div class="section-label dark" style="display:inline-flex; justify-content:center; margin-bottom:20px;">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#a3e635" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        ALWAYS PROTECTED
-      </div>
-      <h2 style="font-size:clamp(2rem,4vw,3rem); font-weight:900; color:#fff; line-height:1.1; margin-bottom:16px;">Professional compliance for<br><span class="gradient-text">every engagement</span></h2>
-      <p style="color:#666; font-size:18px; line-height:1.6; margin-bottom:32px;">Comprehensive protection ensuring you're compliant, optimised, and supported at every step</p>
-      <a href="#contact" class="slide-btn" style="display:inline-flex; align-items:center; gap:8px; background:linear-gradient(135deg,#a3e635,#4ade80); color:#111; border-radius:999px; padding:14px 28px; font-size:15px; font-weight:700; text-decoration:none; position:relative; overflow:hidden;">
-        <span class="btn-text-top">Get a Consultation →</span>
-        <span class="btn-text-bottom">Get a Consultation →</span>
-      </a>
-    </div>
-
-    <div class="feature-cards-row" style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:20px;">
-      <!-- IR35 Assessment -->
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke="#a3e635" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <h3 style="font-size:16px; font-weight:800; color:#fff; margin-bottom:8px;">IR35 Assessment</h3>
-        <p style="font-size:14px; color:#666; line-height:1.6; margin-bottom:16px;">Detailed status determination for every contract and engagement</p>
-        <a href="#" class="learn-more-link" style="font-size:13px;">Learn More →</a>
-      </div>
-      <!-- Tax Filing Support -->
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" stroke="#a3e635" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <h3 style="font-size:16px; font-weight:800; color:#fff; margin-bottom:8px;">Tax Filing Support</h3>
-        <p style="font-size:14px; color:#666; line-height:1.6; margin-bottom:16px;">Quarterly and annual filing assistance for your PSC</p>
-        <a href="#" class="learn-more-link" style="font-size:13px;">Learn More →</a>
-      </div>
-      <!-- Regulatory Alerts -->
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke="#a3e635" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <h3 style="font-size:16px; font-weight:800; color:#fff; margin-bottom:8px;">Regulatory Alerts</h3>
-        <p style="font-size:14px; color:#666; line-height:1.6; margin-bottom:16px;">Real-time updates on legislation changes that affect you</p>
-        <a href="#" class="learn-more-link" style="font-size:13px;">Learn More →</a>
-      </div>
-      <!-- Dispute Resolution -->
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" stroke="#a3e635" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <h3 style="font-size:16px; font-weight:800; color:#fff; margin-bottom:8px;">Dispute Resolution</h3>
-        <p style="font-size:14px; color:#666; line-height:1.6; margin-bottom:16px;">Expert support if HMRC queries your employment status</p>
-        <a href="#" class="learn-more-link" style="font-size:13px;">Learn More →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ALL-IN-ONE ICON STRIP -->
-<section class="bg-white py-20 px-6 overflow-hidden" id="resources">
-  <div class="max-w-7xl mx-auto text-center mb-12">
-    <h2 class="text-4xl font-black tracking-tight text-gray-900" style="line-height:1.1;">All-in-One<br><span class="gradient-text">Contractor Management</span></h2>
-  </div>
-  <div class="marquee-wrapper" style="margin-bottom:16px;">
-    <div class="marquee-track" style="animation-duration:20s;">
-      <!-- Icons row 1 -->
-      <div class="app-icon" style="background:linear-gradient(135deg,#a3e635,#4ade80);">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke="#111" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-      <div class="app-icon" style="background:linear-gradient(135deg,#0a0a0a,#1a1a1a);">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke="#a3e635" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-      <div class="app-icon" style="background:linear-gradient(135deg,#1e40af,#3b82f6);">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-      <div class="app-icon" style="background:linear-gradient(135deg,#7c3aed,#a78bfa);">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-      <div class="app-icon" style="background:linear-gradient(135deg,#dc2626,#f87171);">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-      <div class="app-icon" style="background:linear-gradient(135deg,#d97706,#fbbf24);">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke="#111" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-      <div class="app-icon" style="background:linear-gradient(135deg,#0891b2,#22d3ee);">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="#fff" stroke-width="2.5"/><path d="M3 9h18M9 21V9" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg>
-      </div>
-      <div class="app-icon" style="background:linear-gradient(135deg,#059669,#34d399);">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-      <!-- Duplicate -->
-      <div class="app-icon" style="background:linear-gradient(135deg,#a3e635,#4ade80);">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke="#111" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-      <div class="app-icon" style="background:linear-gradient(135deg,#0a0a0a,#1a1a1a);">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke="#a3e635" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-      <div class="app-icon" style="background:linear-gradient(135deg,#1e40af,#3b82f6);">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-      <div class="app-icon" style="background:linear-gradient(135deg,#7c3aed,#a78bfa);">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-      <div class="app-icon" style="background:linear-gradient(135deg,#dc2626,#f87171);">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-      <div class="app-icon" style="background:linear-gradient(135deg,#d97706,#fbbf24);">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke="#111" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-    </div>
-  </div>
-  <!-- Labels row -->
-  <div class="text-center mt-8">
-    <div style="display:flex; justify-content:center; flex-wrap:wrap; gap:12px; max-width:600px; margin:0 auto;">
-      <span style="font-size:13px; color:#888; font-weight:600;">Compliance</span>
-      <span style="color:#ddd;">·</span>
-      <span style="font-size:13px; color:#888; font-weight:600;">Rate Intelligence</span>
-      <span style="color:#ddd;">·</span>
-      <span style="font-size:13px; color:#888; font-weight:600;">Contracts</span>
-      <span style="color:#ddd;">·</span>
-      <span style="font-size:13px; color:#888; font-weight:600;">Tax</span>
-      <span style="color:#ddd;">·</span>
-      <span style="font-size:13px; color:#888; font-weight:600;">Career</span>
-      <span style="color:#ddd;">·</span>
-      <span style="font-size:13px; color:#888; font-weight:600;">Alerts</span>
-      <span style="color:#ddd;">·</span>
-      <span style="font-size:13px; color:#888; font-weight:600;">Dashboard</span>
-      <span style="color:#ddd;">·</span>
-      <span style="font-size:13px; color:#888; font-weight:600;">Support</span>
-    </div>
-  </div>
-</section>
-
-<!-- DASHBOARD SHOWCASE -->
-<section style="background:#0a0a0a; padding:96px 24px; overflow:hidden;">
-  <div class="max-w-7xl mx-auto text-center" style="margin-bottom:60px;">
-    <div class="section-label dark" style="display:inline-flex; justify-content:center; margin-bottom:20px;">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="#a3e635" stroke-width="2"/><path d="M3 9h18M9 21V9" stroke="#a3e635" stroke-width="2" stroke-linecap="round"/></svg>
-      YOUR COMMAND CENTRE
-    </div>
-    <h2 style="font-size:clamp(2rem,4vw,3rem); font-weight:900; color:#fff; line-height:1.1; margin-bottom:16px;">The master dashboard for<br><span class="gradient-text">informed career building</span></h2>
-    <p style="color:#666; font-size:18px; max-width:520px; margin:0 auto 32px; line-height:1.6;">Your central intelligence hub, delivering real-time performance insights</p>
-    <a href="#contact" class="slide-btn" style="display:inline-flex; align-items:center; gap:8px; background:linear-gradient(135deg,#a3e635,#4ade80); color:#111; border-radius:999px; padding:14px 28px; font-size:15px; font-weight:700; text-decoration:none; position:relative; overflow:hidden;">
-      <span class="btn-text-top">Get Started →</span>
-      <span class="btn-text-bottom">Get Started →</span>
-    </a>
-  </div>
-
-  <!-- Large CSS Dashboard Mockup -->
-  <div class="max-w-6xl mx-auto">
-    <div class="large-dashboard">
-      <!-- Top bar -->
-      <div style="background:#0d0d0d; padding:12px 20px; border-bottom:1px solid #1e1e1e; display:flex; align-items:center; justify-content:space-between;">
-        <div style="display:flex; align-items:center; gap:8px;">
-          <div class="dot dot-red"></div>
-          <div class="dot dot-yellow"></div>
-          <div class="dot dot-green"></div>
-          <span style="font-size:12px; color:#444; margin-left:12px; font-weight:600;">iGroup Platform — Contractor Dashboard</span>
-        </div>
-        <div style="display:flex; align-items:center; gap:12px;">
-          <div style="width:200px; height:24px; background:#1a1a1a; border-radius:6px; display:flex; align-items:center; padding:0 10px;">
-            <span style="font-size:11px; color:#444;">app.igroup.co.uk/dashboard</span>
-          </div>
-          <div style="width:24px; height:24px; border-radius:6px; background:linear-gradient(135deg,#a3e635,#4ade80); display:flex; align-items:center; justify-content:center;">
-            <span style="font-size:10px; font-weight:800; color:#111;">iG</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Main dashboard layout -->
-      <div style="display:flex; height:480px;">
-        <!-- Sidebar -->
-        <div class="dashboard-sidebar">
-          <div style="font-size:10px; color:#444; text-transform:uppercase; letter-spacing:0.1em; font-weight:700; margin-bottom:16px; padding:0 4px;">Navigation</div>
-          <div class="sidebar-item active">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/><path d="M3 9h18M9 21V9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-            Dashboard
-          </div>
-          <div class="sidebar-item">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Rates
-          </div>
-          <div class="sidebar-item">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Compliance
-          </div>
-          <div class="sidebar-item">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Contracts
-          </div>
-          <div class="sidebar-item">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Tax
-          </div>
-          <div class="sidebar-item">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Career
-          </div>
-          <div style="margin-top:auto; padding-top:20px;">
-            <div class="sidebar-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/></svg>
-              Settings
-            </div>
-          </div>
-        </div>
-
-        <!-- Main content -->
-        <div style="flex:1; padding:20px; overflow-y:auto; background:#111;">
-          <!-- Header row -->
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
-            <div>
-              <h3 style="font-size:18px; font-weight:800; color:#fff; margin-bottom:2px;">Good morning, Alex</h3>
-              <p style="font-size:12px; color:#555;">IT Contractor · Outside IR35 · Active</p>
-            </div>
-            <div style="display:flex; gap:10px;">
-              <div style="background:#1a1a1a; border:1px solid #222; border-radius:8px; padding:8px 14px; font-size:12px; color:#888; font-weight:600;">This Week</div>
-              <div style="background:linear-gradient(135deg,#a3e635,#4ade80); border-radius:8px; padding:8px 14px; font-size:12px; color:#111; font-weight:700;">+ New Contract</div>
-            </div>
-          </div>
-
-          <!-- KPI row -->
-          <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:12px; margin-bottom:16px;">
-            <div style="background:#1a1a1a; border:1px solid #1e1e1e; border-radius:12px; padding:14px;">
-              <div style="font-size:10px; color:#555; text-transform:uppercase; letter-spacing:0.08em; font-weight:700; margin-bottom:6px;">Day Rate</div>
-              <div style="font-size:22px; font-weight:900; color:#fff; line-height:1;">£650</div>
-              <div style="font-size:10px; color:#4ade80; font-weight:600; margin-top:4px;">↑ +£50 this qtr</div>
-            </div>
-            <div style="background:#1a1a1a; border:1px solid #1e1e1e; border-radius:12px; padding:14px;">
-              <div style="font-size:10px; color:#555; text-transform:uppercase; letter-spacing:0.08em; font-weight:700; margin-bottom:6px;">IR35</div>
-              <div style="font-size:22px; font-weight:900; color:#a3e635; line-height:1;">Outside</div>
-              <div style="font-size:10px; color:#4ade80; font-weight:600; margin-top:4px;">● Confirmed</div>
-            </div>
-            <div style="background:#1a1a1a; border:1px solid #1e1e1e; border-radius:12px; padding:14px;">
-              <div style="font-size:10px; color:#555; text-transform:uppercase; letter-spacing:0.08em; font-weight:700; margin-bottom:6px;">Tax Due</div>
-              <div style="font-size:22px; font-weight:900; color:#fff; line-height:1;">Jan 31</div>
-              <div style="font-size:10px; color:#f59e0b; font-weight:600; margin-top:4px;">⚠ 94 days</div>
-            </div>
-            <div style="background:#1a1a1a; border:1px solid #1e1e1e; border-radius:12px; padding:14px;">
-              <div style="font-size:10px; color:#555; text-transform:uppercase; letter-spacing:0.08em; font-weight:700; margin-bottom:6px;">Health</div>
-              <div style="font-size:22px; font-weight:900; color:#fff; line-height:1;">82/100</div>
-              <div style="font-size:10px; color:#4ade80; font-weight:600; margin-top:4px;">● Good</div>
-            </div>
-          </div>
-
-          <!-- Chart + side panel -->
-          <div style="display:grid; grid-template-columns:1fr 240px; gap:12px;">
-            <!-- Rate chart -->
-            <div style="background:#1a1a1a; border:1px solid #1e1e1e; border-radius:12px; padding:16px;">
-              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
-                <span style="font-size:12px; font-weight:700; color:#fff;">Rate Benchmark — Your Sector</span>
-                <span style="font-size:10px; color:#555; font-weight:600;">Last 6 months</span>
-              </div>
-              <!-- Simple line chart -->
-              <svg width="100%" height="100" viewBox="0 0 400 100" preserveAspectRatio="none" style="overflow:visible;">
-                <defs>
-                  <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#a3e635" stop-opacity="0.3"/>
-                    <stop offset="100%" stop-color="#a3e635" stop-opacity="0"/>
-                  </linearGradient>
-                </defs>
-                <!-- Fill area -->
-                <path d="M0,80 C40,75 80,65 120,60 C160,55 200,50 240,45 C280,40 320,35 400,30 L400,100 L0,100 Z" fill="url(#chartGrad)"/>
-                <!-- Line -->
-                <path d="M0,80 C40,75 80,65 120,60 C160,55 200,50 240,45 C280,40 320,35 400,30" fill="none" stroke="#a3e635" stroke-width="2.5" stroke-linecap="round"/>
-                <!-- Dots -->
-                <circle cx="0" cy="80" r="3" fill="#a3e635"/>
-                <circle cx="80" cy="65" r="3" fill="#a3e635"/>
-                <circle cx="160" cy="55" r="3" fill="#a3e635"/>
-                <circle cx="240" cy="45" r="3" fill="#a3e635"/>
-                <circle cx="320" cy="35" r="3" fill="#a3e635"/>
-                <circle cx="400" cy="30" r="4" fill="#a3e635" stroke="#111" stroke-width="2"/>
-              </svg>
-              <div style="display:flex; justify-content:space-between; margin-top:6px;">
-                <span style="font-size:9px; color:#444;">Jul</span>
-                <span style="font-size:9px; color:#444;">Aug</span>
-                <span style="font-size:9px; color:#444;">Sep</span>
-                <span style="font-size:9px; color:#444;">Oct</span>
-                <span style="font-size:9px; color:#444;">Nov</span>
-                <span style="font-size:9px; color:#444;">Dec</span>
-              </div>
-            </div>
-            <!-- Side: compliance + career -->
-            <div style="display:flex; flex-direction:column; gap:12px;">
-              <div style="background:#1a1a1a; border:1px solid #1e1e1e; border-radius:12px; padding:14px; flex:1;">
-                <div style="font-size:11px; font-weight:700; color:#888; margin-bottom:10px; text-transform:uppercase; letter-spacing:0.05em;">Compliance</div>
-                <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
-                  <div style="width:8px; height:8px; border-radius:50%; background:#4ade80;"></div>
-                  <span style="font-size:11px; color:#ccc; font-weight:600;">IR35 Status</span>
-                  <span style="font-size:11px; color:#4ade80; font-weight:700; margin-left:auto;">Clear</span>
-                </div>
-                <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
-                  <div style="width:8px; height:8px; border-radius:50%; background:#4ade80;"></div>
-                  <span style="font-size:11px; color:#ccc; font-weight:600;">VAT Returns</span>
-                  <span style="font-size:11px; color:#4ade80; font-weight:700; margin-left:auto;">Done</span>
-                </div>
-                <div style="display:flex; align-items:center; gap:10px;">
-                  <div style="width:8px; height:8px; border-radius:50%; background:#f59e0b;"></div>
-                  <span style="font-size:11px; color:#ccc; font-weight:600;">Self Assessment</span>
-                  <span style="font-size:11px; color:#f59e0b; font-weight:700; margin-left:auto;">Pending</span>
-                </div>
-              </div>
-              <div style="background:#1a1a1a; border:1px solid #1e1e1e; border-radius:12px; padding:14px; flex:1;">
-                <div style="font-size:11px; font-weight:700; color:#888; margin-bottom:10px; text-transform:uppercase; letter-spacing:0.05em;">Next Steps</div>
-                <div style="font-size:11px; color:#ccc; margin-bottom:6px; display:flex; align-items:center; gap:8px;">
-                  <span style="color:#a3e635;">→</span> Review new contract
-                </div>
-                <div style="font-size:11px; color:#ccc; margin-bottom:6px; display:flex; align-items:center; gap:8px;">
-                  <span style="color:#a3e635;">→</span> Submit Q3 expenses
-                </div>
-                <div style="font-size:11px; color:#ccc; display:flex; align-items:center; gap:8px;">
-                  <span style="color:#a3e635;">→</span> Rate review due
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="bg-white py-24 overflow-hidden" id="testimonials">
-  <div class="max-w-7xl mx-auto px-6 text-center mb-12">
-    <div class="section-label" style="display:inline-flex; margin-bottom:16px;">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      WHAT CONTRACTORS SAY
-    </div>
-    <h2 class="text-4xl font-black tracking-tight text-gray-900" style="line-height:1.1;">Trusted by contractors<br>across the UK</h2>
-  </div>
-
-  <!-- Row 1 -->
-  <div class="testimonial-marquee-row mb-4">
-    <div class="testimonial-track">
-      <div class="testimonial-card">
-        <div style="font-size:24px; color:#a3e635; font-weight:900; margin-bottom:8px;">"</div>
-        <p style="font-size:14px; color:#444; line-height:1.6; margin-bottom:16px;">iGroup completely transformed my approach to IR35. I sleep better knowing every contract is reviewed and my status is confirmed. Total peace of mind.</p>
-        <div style="display:flex; align-items:center; gap:10px;">
-          <div style="width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,#a3e635,#4ade80); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; color:#111;">JM</div>
-          <div>
-            <div style="font-size:13px; font-weight:700; color:#111;">James M.</div>
-            <div style="font-size:12px; color:#888;">Senior IT Contractor</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div style="font-size:24px; color:#a3e635; font-weight:900; margin-bottom:8px;">"</div>
-        <p style="font-size:14px; color:#444; line-height:1.6; margin-bottom:16px;">The rate intelligence tool showed me I was underbilling by £150/day in my sector. Within a month I'd renegotiated and now earn significantly more.</p>
-        <div style="display:flex; align-items:center; gap:10px;">
-          <div style="width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,#0a0a0a,#333); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; color:#a3e635;">SC</div>
-          <div>
-            <div style="font-size:13px; font-weight:700; color:#111;">Sarah C.</div>
-            <div style="font-size:12px; color:#888;">Finance Contractor</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div style="font-size:24px; color:#a3e635; font-weight:900; margin-bottom:8px;">"</div>
-        <p style="font-size:14px; color:#444; line-height:1.6; margin-bottom:16px;">As a defence contractor, compliance is critical. iGroup handles all of it — from status determinations to regulatory updates. I can focus on my work.</p>
-        <div style="display:flex; align-items:center; gap:10px;">
-          <div style="width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,#1e40af,#3b82f6); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; color:#fff;">RK</div>
-          <div>
-            <div style="font-size:13px; font-weight:700; color:#111;">Richard K.</div>
-            <div style="font-size:12px; color:#888;">Defence Contractor</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div style="font-size:24px; color:#a3e635; font-weight:900; margin-bottom:8px;">"</div>
-        <p style="font-size:14px; color:#444; line-height:1.6; margin-bottom:16px;">Career tracking showed me gaps in my skillset I hadn't noticed. Took their advice, upskilled in cloud architecture, and landed a contract at £800/day.</p>
-        <div style="display:flex; align-items:center; gap:10px;">
-          <div style="width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,#059669,#34d399); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; color:#fff;">PT</div>
-          <div>
-            <div style="font-size:13px; font-weight:700; color:#111;">Priya T.</div>
-            <div style="font-size:12px; color:#888;">Cloud Engineer</div>
-          </div>
-        </div>
-      </div>
-      <!-- Duplicate for scroll -->
-      <div class="testimonial-card">
-        <div style="font-size:24px; color:#a3e635; font-weight:900; margin-bottom:8px;">"</div>
-        <p style="font-size:14px; color:#444; line-height:1.6; margin-bottom:16px;">iGroup completely transformed my approach to IR35. I sleep better knowing every contract is reviewed and my status is confirmed. Total peace of mind.</p>
-        <div style="display:flex; align-items:center; gap:10px;">
-          <div style="width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,#a3e635,#4ade80); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; color:#111;">JM</div>
-          <div>
-            <div style="font-size:13px; font-weight:700; color:#111;">James M.</div>
-            <div style="font-size:12px; color:#888;">Senior IT Contractor</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div style="font-size:24px; color:#a3e635; font-weight:900; margin-bottom:8px;">"</div>
-        <p style="font-size:14px; color:#444; line-height:1.6; margin-bottom:16px;">The rate intelligence tool showed me I was underbilling by £150/day in my sector. Within a month I'd renegotiated and now earn significantly more.</p>
-        <div style="display:flex; align-items:center; gap:10px;">
-          <div style="width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,#0a0a0a,#333); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; color:#a3e635;">SC</div>
-          <div>
-            <div style="font-size:13px; font-weight:700; color:#111;">Sarah C.</div>
-            <div style="font-size:12px; color:#888;">Finance Contractor</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Row 2 (reverse) -->
-  <div class="testimonial-marquee-row mb-4">
-    <div class="testimonial-track testimonial-track-rev">
-      <div class="testimonial-card">
-        <div style="font-size:24px; color:#a3e635; font-weight:900; margin-bottom:8px;">"</div>
-        <p style="font-size:14px; color:#444; line-height:1.6; margin-bottom:16px;">The contract analysis caught a problematic substitution clause that would have put me inside IR35. Saved me thousands. Worth every penny.</p>
-        <div style="display:flex; align-items:center; gap:10px;">
-          <div style="width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,#7c3aed,#a78bfa); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; color:#fff;">MO</div>
-          <div>
-            <div style="font-size:13px; font-weight:700; color:#111;">Michael O.</div>
-            <div style="font-size:12px; color:#888;">Life Sciences Contractor</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div style="font-size:24px; color:#a3e635; font-weight:900; margin-bottom:8px;">"</div>
-        <p style="font-size:14px; color:#444; line-height:1.6; margin-bottom:16px;">Being an engineering contractor means constantly moving between clients. iGroup tracks all my engagements and keeps compliance seamless throughout.</p>
-        <div style="display:flex; align-items:center; gap:10px;">
-          <div style="width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,#d97706,#fbbf24); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; color:#111;">LH</div>
-          <div>
-            <div style="font-size:13px; font-weight:700; color:#111;">Laura H.</div>
-            <div style="font-size:12px; color:#888;">Engineering Contractor</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div style="font-size:24px; color:#a3e635; font-weight:900; margin-bottom:8px;">"</div>
-        <p style="font-size:14px; color:#444; line-height:1.6; margin-bottom:16px;">When HMRC came knocking, iGroup's dispute resolution team was incredible. They handled everything and I came out clean. Absolute lifesavers.</p>
-        <div style="display:flex; align-items:center; gap:10px;">
-          <div style="width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,#dc2626,#f87171); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; color:#fff;">DN</div>
-          <div>
-            <div style="font-size:13px; font-weight:700; color:#111;">David N.</div>
-            <div style="font-size:12px; color:#888;">Government IT Contractor</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div style="font-size:24px; color:#a3e635; font-weight:900; margin-bottom:8px;">"</div>
-        <p style="font-size:14px; color:#444; line-height:1.6; margin-bottom:16px;">The tax optimisation strategies within my PSC have been genuinely eye-opening. All legitimate, all compliant. My accountant was impressed.</p>
-        <div style="display:flex; align-items:center; gap:10px;">
-          <div style="width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,#0891b2,#22d3ee); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; color:#fff;">AW</div>
-          <div>
-            <div style="font-size:13px; font-weight:700; color:#111;">Anna W.</div>
-            <div style="font-size:12px; color:#888;">Telecoms Consultant</div>
-          </div>
-        </div>
-      </div>
-      <!-- Duplicate -->
-      <div class="testimonial-card">
-        <div style="font-size:24px; color:#a3e635; font-weight:900; margin-bottom:8px;">"</div>
-        <p style="font-size:14px; color:#444; line-height:1.6; margin-bottom:16px;">The contract analysis caught a problematic substitution clause that would have put me inside IR35. Saved me thousands. Worth every penny.</p>
-        <div style="display:flex; align-items:center; gap:10px;">
-          <div style="width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,#7c3aed,#a78bfa); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; color:#fff;">MO</div>
-          <div>
-            <div style="font-size:13px; font-weight:700; color:#111;">Michael O.</div>
-            <div style="font-size:12px; color:#888;">Life Sciences Contractor</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div style="font-size:24px; color:#a3e635; font-weight:900; margin-bottom:8px;">"</div>
-        <p style="font-size:14px; color:#444; line-height:1.6; margin-bottom:16px;">Being an engineering contractor means constantly moving between clients. iGroup tracks all my engagements and keeps compliance seamless throughout.</p>
-        <div style="display:flex; align-items:center; gap:10px;">
-          <div style="width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,#d97706,#fbbf24); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; color:#111;">LH</div>
-          <div>
-            <div style="font-size:13px; font-weight:700; color:#111;">Laura H.</div>
-            <div style="font-size:12px; color:#888;">Engineering Contractor</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Row 3 -->
-  <div class="testimonial-marquee-row">
-    <div class="testimonial-track testimonial-track-slow">
-      <div class="testimonial-card">
-        <div style="font-size:24px; color:#a3e635; font-weight:900; margin-bottom:8px;">"</div>
-        <p style="font-size:14px; color:#444; line-height:1.6; margin-bottom:16px;">Regulatory alerts kept me ahead of the April 2024 IR35 changes. I was prepared months in advance while my friends scrambled. iGroup is essential.</p>
-        <div style="display:flex; align-items:center; gap:10px;">
-          <div style="width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,#a3e635,#4ade80); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; color:#111;">BF</div>
-          <div>
-            <div style="font-size:13px; font-weight:700; color:#111;">Ben F.</div>
-            <div style="font-size:12px; color:#888;">Pharma Contractor</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div style="font-size:24px; color:#a3e635; font-weight:900; margin-bottom:8px;">"</div>
-        <p style="font-size:14px; color:#444; line-height:1.6; margin-bottom:16px;">I've been contracting for 12 years and iGroup is the first platform that genuinely understands contractors. The career planning tools are class-leading.</p>
-        <div style="display:flex; align-items:center; gap:10px;">
-          <div style="width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,#0a0a0a,#333); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; color:#a3e635;">TL</div>
-          <div>
-            <div style="font-size:13px; font-weight:700; color:#111;">Tom L.</div>
-            <div style="font-size:12px; color:#888;">Senior Finance Contractor</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div style="font-size:24px; color:#a3e635; font-weight:900; margin-bottom:8px;">"</div>
-        <p style="font-size:14px; color:#444; line-height:1.6; margin-bottom:16px;">Switched from a traditional umbrella and the difference is night and day. Proper outside IR35 support, expert contract reviews, all in one place.</p>
-        <div style="display:flex; align-items:center; gap:10px;">
-          <div style="width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,#059669,#34d399); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; color:#fff;">KR</div>
-          <div>
-            <div style="font-size:13px; font-weight:700; color:#111;">Karen R.</div>
-            <div style="font-size:12px; color:#888;">Energy Sector Contractor</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div style="font-size:24px; color:#a3e635; font-weight:900; margin-bottom:8px;">"</div>
-        <p style="font-size:14px; color:#444; line-height:1.6; margin-bottom:16px;">The dashboard gives me complete visibility over my contracting career. Rates, compliance, tax, contracts — everything in one beautifully designed platform.</p>
-        <div style="display:flex; align-items:center; gap:10px;">
-          <div style="width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,#7c3aed,#a78bfa); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; color:#fff;">CG</div>
-          <div>
-            <div style="font-size:13px; font-weight:700; color:#111;">Chris G.</div>
-            <div style="font-size:12px; color:#888;">Professional Services</div>
-          </div>
-        </div>
-      </div>
-      <!-- Duplicates for infinite scroll -->
-      <div class="testimonial-card">
-        <div style="font-size:24px; color:#a3e635; font-weight:900; margin-bottom:8px;">"</div>
-        <p style="font-size:14px; color:#444; line-height:1.6; margin-bottom:16px;">Regulatory alerts kept me ahead of the April 2024 IR35 changes. I was prepared months in advance while my friends scrambled. iGroup is essential.</p>
-        <div style="display:flex; align-items:center; gap:10px;">
-          <div style="width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,#a3e635,#4ade80); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; color:#111;">BF</div>
-          <div>
-            <div style="font-size:13px; font-weight:700; color:#111;">Ben F.</div>
-            <div style="font-size:12px; color:#888;">Pharma Contractor</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div style="font-size:24px; color:#a3e635; font-weight:900; margin-bottom:8px;">"</div>
-        <p style="font-size:14px; color:#444; line-height:1.6; margin-bottom:16px;">I've been contracting for 12 years and iGroup is the first platform that genuinely understands contractors. The career planning tools are class-leading.</p>
-        <div style="display:flex; align-items:center; gap:10px;">
-          <div style="width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,#0a0a0a,#333); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; color:#a3e635;">TL</div>
-          <div>
-            <div style="font-size:13px; font-weight:700; color:#111;">Tom L.</div>
-            <div style="font-size:12px; color:#888;">Senior Finance Contractor</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- BOTTOM CTA SECTION -->
-<section style="background:linear-gradient(135deg,#a3e635 0%,#4ade80 50%,#22d3ee 100%); padding:96px 24px; position:relative; overflow:hidden;" id="contact">
-  <!-- Background texture -->
-  <div style="position:absolute; inset:0; opacity:0.1; background-image:radial-gradient(circle at 25% 25%, #fff 2px, transparent 2px), radial-gradient(circle at 75% 75%, #fff 2px, transparent 2px); background-size:50px 50px; pointer-events:none;"></div>
-
-  <div class="max-w-6xl mx-auto" style="position:relative;">
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center;" class="hero-grid">
       <!-- Left -->
-      <div>
-        <h2 style="font-size:clamp(2.5rem,5vw,3.5rem); font-weight:900; color:#111; line-height:1.05; margin-bottom:20px;">Next-Gen Career Platform for<br>Modern Contractors</h2>
-        <p style="font-size:18px; color:rgba(0,0,0,0.6); line-height:1.6; margin-bottom:36px;">Fuel your contracting success with real-time intelligence, total compliance, and career visibility</p>
-        <div style="display:flex; flex-wrap:wrap; gap:12px;">
-          <a href="mailto:hello@igroup.co.uk" class="slide-btn" style="display:inline-flex; align-items:center; gap:8px; background:#111; color:#fff; border-radius:999px; padding:14px 28px; font-size:15px; font-weight:700; text-decoration:none; position:relative; overflow:hidden;">
-            <span class="btn-text-top">Get Started Today →</span>
-            <span class="btn-text-bottom">Get Started Today →</span>
-          </a>
-          <a href="mailto:hello@igroup.co.uk" class="slide-btn" style="display:inline-flex; align-items:center; gap:8px; background:rgba(0,0,0,0.1); color:#111; border:2px solid rgba(0,0,0,0.2); border-radius:999px; padding:13px 28px; font-size:15px; font-weight:700; text-decoration:none; position:relative; overflow:hidden;">
-            <span class="btn-text-top">Talk to an Expert</span>
-            <span class="btn-text-bottom">Talk to an Expert</span>
-          </a>
+      <div class="fade-up">
+        <div class="section-label mb-4">01 / About Us</div>
+        <h2 class="word-reveal text-4xl md:text-5xl font-black leading-tight mb-4" style="letter-spacing:-0.02em;color:#0F172A;" id="about-heading">
+          Powering the Future of Professional Contracting
+        </h2>
+        <p class="text-slate-500 text-lg mb-8">Helping contractors thrive globally — through intelligence, compliance, and strategic career support</p>
+
+        <!-- Tab pills -->
+        <div class="flex gap-3 mb-8" id="tab-group">
+          <button class="tab-pill active" onclick="setTab(this,'compliance')">Compliance</button>
+          <button class="tab-pill" onclick="setTab(this,'intelligence')">Intelligence</button>
+          <button class="tab-pill" onclick="setTab(this,'global')">Global</button>
+        </div>
+
+        <!-- Stats row -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+          <div>
+            <div class="stat-value text-teal-primary counter" data-target="500" data-suffix="+" style="color:#0D7377;">0</div>
+            <div class="text-xs font-600 text-slate-500 mt-1">Contractors</div>
+          </div>
+          <div>
+            <div class="stat-value text-teal-primary counter" data-target="15" data-suffix="+" style="color:#0D7377;">0</div>
+            <div class="text-xs font-600 text-slate-500 mt-1">Sectors</div>
+          </div>
+          <div>
+            <div class="stat-value text-teal-primary counter" data-target="98" data-suffix="%" style="color:#0D7377;">0</div>
+            <div class="text-xs font-600 text-slate-500 mt-1">Retention</div>
+          </div>
+          <div>
+            <div class="stat-value text-teal-primary counter" data-target="100" data-suffix="%" style="color:#0D7377;">0</div>
+            <div class="text-xs font-600 text-slate-500 mt-1">Compliance</div>
+          </div>
+        </div>
+
+        <p class="word-reveal text-slate-600 leading-relaxed" id="about-para">
+          iGroup delivers comprehensive contractor management solutions. We empower professional contractors to optimise their careers, maintain compliance, and maximise their earning potential across all sectors.
+        </p>
+      </div>
+
+      <!-- Right: Our Values -->
+      <div class="fade-up" style="transition-delay:0.15s;">
+        <div class="section-label mb-6">Our Values</div>
+        <div class="flex flex-col gap-4">
+
+          <div class="value-card card-lift">
+            <div class="flex items-start gap-3">
+              <div style="color:#0D7377;flex-shrink:0;margin-top:2px;">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+              </div>
+              <div>
+                <div class="font-700 text-sm mb-1" style="color:#0F172A;font-weight:700;">Compliance First</div>
+                <div class="text-sm text-slate-500 leading-relaxed">Dedicated compliance centres advancing contractor protection and ensuring every engagement meets regulatory standards.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="value-card card-lift">
+            <div class="flex items-start gap-3">
+              <div style="color:#0D7377;flex-shrink:0;margin-top:2px;">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-10 8H3V9h8v2zm0-4H3V5h8v2zm10 8H3v-2h18v2zm0-4h-8V9h8v2zm0-4h-8V5h8v2z"/></svg>
+              </div>
+              <div>
+                <div class="font-700 text-sm mb-1" style="color:#0F172A;font-weight:700;">Intelligence Driven</div>
+                <div class="text-sm text-slate-500 leading-relaxed">AI-powered rate analysis driving market-leading intelligence and real-time benchmarking across every sector.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="value-card card-lift">
+            <div class="flex items-start gap-3">
+              <div style="color:#0D7377;flex-shrink:0;margin-top:2px;">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+              </div>
+              <div>
+                <div class="font-700 text-sm mb-1" style="color:#0F172A;font-weight:700;">Global Reach</div>
+                <div class="text-sm text-slate-500 leading-relaxed">Operating across engineering, finance, IT, and energy sectors with multi-jurisdiction expertise and cross-border capability.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="value-card card-lift">
+            <div class="flex items-start gap-3">
+              <div style="color:#0D7377;flex-shrink:0;margin-top:2px;">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+              </div>
+              <div>
+                <div class="font-700 text-sm mb-1" style="color:#0F172A;font-weight:700;">Career First</div>
+                <div class="text-sm text-slate-500 leading-relaxed">Career-first approach — your growth is our mission. Strategic planning, market positioning, and long-term career support.</div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
-      <!-- Right: Floating cards -->
-      <div style="position:relative; height:300px;">
-        <!-- Card 1 -->
-        <div class="cta-float-card float-card" style="position:absolute; top:0; right:20px; width:220px;">
-          <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
-            <div style="width:36px; height:36px; border-radius:10px; background:#0a0a0a; display:flex; align-items:center; justify-content:center;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="#a3e635" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div>
-              <div style="font-size:11px; color:#888; font-weight:600;">Status</div>
-              <div style="font-size:13px; font-weight:800; color:#111;">Outside IR35 ✓</div>
-            </div>
-          </div>
-          <div style="background:#f5f5f5; border-radius:8px; height:6px; overflow:hidden; margin-bottom:6px;">
-            <div style="width:98%; height:100%; background:linear-gradient(90deg,#a3e635,#4ade80); border-radius:8px;"></div>
-          </div>
-          <div style="font-size:11px; color:#888; font-weight:600;">Compliance Score: 98/100</div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="cta-float-card float-card-2" style="position:absolute; bottom:20px; left:0; width:240px;">
-          <div style="font-size:11px; color:#888; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:12px;">Your Rate vs Market</div>
-          <div style="display:flex; align-items:flex-end; gap:8px; height:60px; margin-bottom:12px;">
-            <div style="flex:1; display:flex; flex-direction:column; gap:4px; align-items:center;">
-              <div style="width:100%; height:35px; background:#e5e5e5; border-radius:4px 4px 0 0;"></div>
-              <span style="font-size:9px; color:#888; font-weight:600;">Market</span>
-            </div>
-            <div style="flex:1; display:flex; flex-direction:column; gap:4px; align-items:center;">
-              <div style="width:100%; height:55px; background:linear-gradient(180deg,#a3e635,#4ade80); border-radius:4px 4px 0 0;"></div>
-              <span style="font-size:9px; color:#888; font-weight:600;">You</span>
-            </div>
-            <div style="flex:1; display:flex; flex-direction:column; gap:4px; align-items:center;">
-              <div style="width:100%; height:45px; background:#e5e5e5; border-radius:4px 4px 0 0;"></div>
-              <span style="font-size:9px; color:#888; font-weight:600;">Sector</span>
-            </div>
-          </div>
-          <div style="font-size:13px; font-weight:800; color:#111;">£650/day <span style="color:#22c55e; font-size:12px;">↑ Top 20%</span></div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer style="background:#0a0a0a; padding:64px 24px 32px;" id="footer">
-  <div class="max-w-7xl mx-auto">
-    <div class="footer-grid" style="display:grid; grid-template-columns:2fr 1fr 1fr 1fr 1fr; gap:48px; margin-bottom:48px;">
-      <!-- Brand -->
-      <div>
-        <div style="font-size:24px; font-weight:900; color:#fff; margin-bottom:16px;">i<span class="gradient-text">Group</span></div>
-        <p style="font-size:14px; color:#555; line-height:1.7; margin-bottom:20px; max-width:280px;">Modern career platform for smart contractors. Compliance, rates, and career intelligence in one platform.</p>
-        <a href="mailto:hello@igroup.co.uk" style="font-size:14px; color:#888; font-weight:600; text-decoration:none; display:flex; align-items:center; gap:8px; margin-bottom:16px;">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          hello@igroup.co.uk
-        </a>
-        <!-- Social icons -->
-        <div style="display:flex; gap:10px;">
-          <a href="#" style="width:36px; height:36px; border-radius:8px; background:#1a1a1a; border:1px solid #222; display:flex; align-items:center; justify-content:center; transition:all 0.2s;" onmouseover="this.style.background='#222'" onmouseout="this.style.background='#1a1a1a'">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-          <a href="#" style="width:36px; height:36px; border-radius:8px; background:#1a1a1a; border:1px solid #222; display:flex; align-items:center; justify-content:center; transition:all 0.2s;" onmouseover="this.style.background='#222'" onmouseout="this.style.background='#1a1a1a'">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="4" cy="4" r="2" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<!-- ══════════════════════════════ SERVICES (02) ══════════════════════════ -->
+<section id="services" style="background:#F8FAFC; padding:6rem 0;">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="fade-up mb-12">
+      <div class="section-label mb-4">02 / Our Services</div>
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+        <h2 class="text-4xl md:text-5xl font-black" style="letter-spacing:-0.02em;color:#0F172A;">Service Excellence in Contracting</h2>
+        <div class="flex gap-3">
+          <button onclick="carouselPrev()" style="width:44px;height:44px;border-radius:50%;border:1.5px solid #e2e8f0;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.background='#0D7377';this.style.borderColor='#0D7377';this.querySelector('svg').style.stroke='white'" onmouseout="this.style.background='transparent';this.style.borderColor='#e2e8f0';this.querySelector('svg').style.stroke='#1E293B'">
+            <svg width="18" height="18" fill="none" viewBox="0 0 18 18"><path stroke="#1E293B" stroke-width="1.8" stroke-linecap="round" d="M11 4L6 9l5 5"/></svg>
+          </button>
+          <button onclick="carouselNext()" style="width:44px;height:44px;border-radius:50%;background:#0D7377;border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.background='#F59E0B'" onmouseout="this.style.background='#0D7377'">
+            <svg width="18" height="18" fill="none" viewBox="0 0 18 18"><path stroke="white" stroke-width="1.8" stroke-linecap="round" d="M7 4l5 5-5 5"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-track fade-up" id="services-carousel" style="transition-delay:0.1s;">
+
+      <!-- Card 1 -->
+      <div class="carousel-card card-lift bg-white rounded-2xl overflow-hidden shadow-sm">
+        <div style="height:200px;background:linear-gradient(135deg,#0D7377 0%,#14B8A6 100%);position:relative;">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0.3;">
+            <svg width="80" height="80" fill="white" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+          </div>
+          <div style="position:absolute;bottom:1rem;left:1.25rem;">
+            <span style="background:rgba(255,255,255,0.2);backdrop-filter:blur(8px);border-radius:6px;padding:0.3rem 0.7rem;font-size:0.7rem;font-weight:700;color:white;letter-spacing:0.1em;">COMPLIANCE</span>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-800 mb-3" style="color:#0F172A;font-weight:800;">IR35 Compliance Management</h3>
+          <p class="text-slate-500 text-sm leading-relaxed mb-5">Complete inside-IR35 compliance handling, status determination, and ongoing monitoring for every engagement.</p>
+          <a href="#" style="color:#0D7377;font-weight:700;font-size:0.875rem;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;transition:gap 0.2s;" onmouseover="this.style.gap='0.75rem'" onmouseout="this.style.gap='0.5rem'">Read more details →</a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="carousel-card card-lift bg-white rounded-2xl overflow-hidden shadow-sm">
+        <div style="height:200px;background:linear-gradient(135deg,#1A1A2E 0%,#0D7377 100%);position:relative;">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0.3;">
+            <svg width="80" height="80" fill="white" viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6h-6z"/></svg>
+          </div>
+          <div style="position:absolute;bottom:1rem;left:1.25rem;">
+            <span style="background:rgba(255,255,255,0.2);backdrop-filter:blur(8px);border-radius:6px;padding:0.3rem 0.7rem;font-size:0.7rem;font-weight:700;color:white;letter-spacing:0.1em;">INTELLIGENCE</span>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-800 mb-3" style="color:#0F172A;font-weight:800;">Rate Intelligence & Benchmarking</h3>
+          <p class="text-slate-500 text-sm leading-relaxed mb-5">AI-powered market rate analysis, negotiation support, and benchmarking across all sectors and regions.</p>
+          <a href="#" style="color:#0D7377;font-weight:700;font-size:0.875rem;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;transition:gap 0.2s;" onmouseover="this.style.gap='0.75rem'" onmouseout="this.style.gap='0.5rem'">Read more details →</a>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="carousel-card card-lift bg-white rounded-2xl overflow-hidden shadow-sm">
+        <div style="height:200px;background:linear-gradient(135deg,#F59E0B 0%,#0D7377 100%);position:relative;">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0.3;">
+            <svg width="80" height="80" fill="white" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+          </div>
+          <div style="position:absolute;bottom:1rem;left:1.25rem;">
+            <span style="background:rgba(255,255,255,0.2);backdrop-filter:blur(8px);border-radius:6px;padding:0.3rem 0.7rem;font-size:0.7rem;font-weight:700;color:white;letter-spacing:0.1em;">STRATEGY</span>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-800 mb-3" style="color:#0F172A;font-weight:800;">Career Strategy & Advisory</h3>
+          <p class="text-slate-500 text-sm leading-relaxed mb-5">Long-term career planning, market trend analysis, and strategic positioning for professional contractors.</p>
+          <a href="#" style="color:#0D7377;font-weight:700;font-size:0.875rem;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;transition:gap 0.2s;" onmouseover="this.style.gap='0.75rem'" onmouseout="this.style.gap='0.5rem'">Read more details →</a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════ SOLUTIONS (03) ═════════════════════════ -->
+<section id="solutions" style="background:#0F172A; padding:6rem 0;">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+
+      <!-- Left: Accordion -->
+      <div class="fade-up">
+        <div class="section-label section-label-light mb-4">03 / Our Solutions</div>
+        <h2 class="text-4xl md:text-5xl font-black text-white mb-10" style="letter-spacing:-0.02em;">What are our solutions?</h2>
+
+        <div id="solutions-list">
+
+          <div class="solution-item open py-5 px-2" onclick="toggleSolution(this)">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-4">
+                <span class="solution-number">01</span>
+                <span class="text-white font-700" style="font-weight:700;">Contract Analysis & Review</span>
+              </div>
+              <svg class="solution-chevron" width="20" height="20" fill="none" viewBox="0 0 20 20" style="transform:rotate(180deg);">
+                <path stroke="rgba(255,255,255,0.5)" stroke-width="1.8" stroke-linecap="round" d="M5 8l5 5 5-5"/>
+              </svg>
+            </div>
+            <div class="solution-body open" style="max-height:200px;">
+              <p class="text-white/60 text-sm leading-relaxed pt-4 pb-2 pl-10">Expert review of every contract with risk scoring, optimisation recommendations, and compliance verification to protect your position.</p>
+            </div>
+          </div>
+
+          <div class="solution-item py-5 px-2" onclick="toggleSolution(this)">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-4">
+                <span class="solution-number">02</span>
+                <span class="text-white font-700" style="font-weight:700;">Tax Optimisation</span>
+              </div>
+              <svg class="solution-chevron" width="20" height="20" fill="none" viewBox="0 0 20 20">
+                <path stroke="rgba(255,255,255,0.5)" stroke-width="1.8" stroke-linecap="round" d="M5 8l5 5 5-5"/>
+              </svg>
+            </div>
+            <div class="solution-body">
+              <p class="text-white/60 text-sm leading-relaxed pt-4 pb-2 pl-10">Legitimate tax efficiency strategies within your PSC structure, quarterly filing support, and annual planning to maximise your take-home.</p>
+            </div>
+          </div>
+
+          <div class="solution-item py-5 px-2" onclick="toggleSolution(this)">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-4">
+                <span class="solution-number">03</span>
+                <span class="text-white font-700" style="font-weight:700;">Regulatory Monitoring</span>
+              </div>
+              <svg class="solution-chevron" width="20" height="20" fill="none" viewBox="0 0 20 20">
+                <path stroke="rgba(255,255,255,0.5)" stroke-width="1.8" stroke-linecap="round" d="M5 8l5 5 5-5"/>
+              </svg>
+            </div>
+            <div class="solution-body">
+              <p class="text-white/60 text-sm leading-relaxed pt-4 pb-2 pl-10">Real-time alerts on legislation changes, HMRC updates, and regulatory shifts that affect your contracting status — before they impact you.</p>
+            </div>
+          </div>
+
+          <div class="solution-item py-5 px-2" onclick="toggleSolution(this)">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-4">
+                <span class="solution-number">04</span>
+                <span class="text-white font-700" style="font-weight:700;">Dispute Resolution</span>
+              </div>
+              <svg class="solution-chevron" width="20" height="20" fill="none" viewBox="0 0 20 20">
+                <path stroke="rgba(255,255,255,0.5)" stroke-width="1.8" stroke-linecap="round" d="M5 8l5 5 5-5"/>
+              </svg>
+            </div>
+            <div class="solution-body">
+              <p class="text-white/60 text-sm leading-relaxed pt-4 pb-2 pl-10">Expert support and representation if HMRC queries your employment status or contractor arrangements. We stand with you throughout.</p>
+            </div>
+          </div>
+
+          <div class="solution-item py-5 px-2" onclick="toggleSolution(this)" style="border-bottom:none;">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-4">
+                <span class="solution-number">05</span>
+                <span class="text-white font-700" style="font-weight:700;">Global Mobility Support</span>
+              </div>
+              <svg class="solution-chevron" width="20" height="20" fill="none" viewBox="0 0 20 20">
+                <path stroke="rgba(255,255,255,0.5)" stroke-width="1.8" stroke-linecap="round" d="M5 8l5 5 5-5"/>
+              </svg>
+            </div>
+            <div class="solution-body">
+              <p class="text-white/60 text-sm leading-relaxed pt-4 pb-2 pl-10">Cross-border contracting support, international compliance, and multi-jurisdiction tax guidance for contractors working globally.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Right: Stats grid -->
+      <div class="fade-up" style="transition-delay:0.15s;">
+        <div class="grid grid-cols-2 gap-4 mt-24">
+
+          <div class="stat-card-dark card-lift">
+            <div class="text-4xl font-black mb-2" style="color:#14B8A6;font-weight:900;">500+</div>
+            <div class="text-white/60 text-sm leading-relaxed">Professional contractors trust iGroup for career management</div>
+          </div>
+
+          <div class="stat-card-dark card-lift">
+            <div class="text-4xl font-black mb-2" style="color:#F59E0B;font-weight:900;">£2M+</div>
+            <div class="text-white/60 text-sm leading-relaxed">Rate optimisation value delivered to contractors</div>
+          </div>
+
+          <div class="stat-card-dark card-lift">
+            <div class="text-4xl font-black mb-2" style="color:#14B8A6;font-weight:900;">15+</div>
+            <div class="text-white/60 text-sm leading-relaxed">Sectors covered across the UK and internationally</div>
+          </div>
+
+          <div class="stat-card-dark card-lift">
+            <div class="text-4xl font-black mb-2" style="color:#F59E0B;font-weight:900;">98%</div>
+            <div class="text-white/60 text-sm leading-relaxed">Client retention rate year-on-year — trust built through results</div>
+          </div>
+
+        </div>
+
+        <!-- Premium accent box -->
+        <div class="mt-6 rounded-2xl p-6" style="background:linear-gradient(135deg,#0D7377,#14B8A6);position:relative;overflow:hidden;">
+          <div style="position:absolute;top:-20px;right:-20px;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,0.08);"></div>
+          <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:0.5rem;">Trusted by contractors globally</div>
+          <div class="text-white text-2xl font-black mb-4" style="font-weight:800;">Ready to optimise your contracting career?</div>
+          <a href="#contact" class="btn-slide btn-primary" style="background:white;color:#0D7377;">
+            <span class="btn-text">Get Started →</span>
+            <span class="btn-text-hover" style="background:#F59E0B;color:white;">Get Started →</span>
           </a>
         </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ INSIGHTS (04) ═══════════════════════════ -->
+<section id="insights" style="background:white; padding:6rem 0;">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="fade-up mb-12">
+      <div class="section-label mb-4">04 / Latest Insights</div>
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <h2 class="text-4xl md:text-5xl font-black" style="letter-spacing:-0.02em;color:#0F172A;">Latest insights from us</h2>
+        <a href="#" style="color:#0D7377;font-weight:700;font-size:0.875rem;text-decoration:none;white-space:nowrap;">View all insights →</a>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 fade-up" style="transition-delay:0.1s;">
+
+      <!-- Insight 1 -->
+      <article class="insight-card card-lift">
+        <div style="height:6px;background:linear-gradient(90deg,#0D7377,#14B8A6);"></div>
+        <div class="p-5 flex flex-col flex-1">
+          <div class="flex items-center justify-between mb-4">
+            <span style="font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#0D7377;">IR35 Compliance</span>
+            <span style="font-size:0.65rem;color:#94a3b8;">Mar 2026</span>
+          </div>
+          <h3 class="font-800 mb-2 leading-snug" style="font-weight:800;color:#0F172A;font-size:0.95rem;">Understanding Inside-IR35: What Every Contractor Needs to Know</h3>
+          <p class="text-slate-500 text-xs leading-relaxed flex-1 mb-4">Essential guidance on navigating deemed employment rules and maintaining compliance throughout your contracting career.</p>
+          <a href="#" style="color:#0D7377;font-weight:700;font-size:0.8rem;text-decoration:none;display:inline-flex;align-items:center;gap:0.3rem;">Read more →</a>
+        </div>
+      </article>
+
+      <!-- Insight 2 -->
+      <article class="insight-card card-lift">
+        <div style="height:6px;background:linear-gradient(90deg,#F59E0B,#0D7377);"></div>
+        <div class="p-5 flex flex-col flex-1">
+          <div class="flex items-center justify-between mb-4">
+            <span style="font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#F59E0B;">Market Intelligence</span>
+            <span style="font-size:0.65rem;color:#94a3b8;">Feb 2026</span>
+          </div>
+          <h3 class="font-800 mb-2 leading-snug" style="font-weight:800;color:#0F172A;font-size:0.95rem;">Contractor Rate Trends: Q1 2026 Analysis</h3>
+          <p class="text-slate-500 text-xs leading-relaxed flex-1 mb-4">AI-powered analysis revealing rate movements across technology, engineering, and finance sectors in the first quarter.</p>
+          <a href="#" style="color:#0D7377;font-weight:700;font-size:0.8rem;text-decoration:none;display:inline-flex;align-items:center;gap:0.3rem;">Read more →</a>
+        </div>
+      </article>
+
+      <!-- Insight 3 -->
+      <article class="insight-card card-lift">
+        <div style="height:6px;background:linear-gradient(90deg,#14B8A6,#0D7377);"></div>
+        <div class="p-5 flex flex-col flex-1">
+          <div class="flex items-center justify-between mb-4">
+            <span style="font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#14B8A6;">Career Strategy</span>
+            <span style="font-size:0.65rem;color:#94a3b8;">Jan 2026</span>
+          </div>
+          <h3 class="font-800 mb-2 leading-snug" style="font-weight:800;color:#0F172A;font-size:0.95rem;">Building a Sustainable Contracting Career</h3>
+          <p class="text-slate-500 text-xs leading-relaxed flex-1 mb-4">Strategic approaches to long-term career growth, market positioning, and resilience through market shifts.</p>
+          <a href="#" style="color:#0D7377;font-weight:700;font-size:0.8rem;text-decoration:none;display:inline-flex;align-items:center;gap:0.3rem;">Read more →</a>
+        </div>
+      </article>
+
+      <!-- Insight 4 -->
+      <article class="insight-card card-lift">
+        <div style="height:6px;background:linear-gradient(90deg,#0F172A,#0D7377);"></div>
+        <div class="p-5 flex flex-col flex-1">
+          <div class="flex items-center justify-between mb-4">
+            <span style="font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#0F172A;">Legislation</span>
+            <span style="font-size:0.65rem;color:#94a3b8;">Mar 2026</span>
+          </div>
+          <h3 class="font-800 mb-2 leading-snug" style="font-weight:800;color:#0F172A;font-size:0.95rem;">Chapter 11 JSL: What It Means for Contractors</h3>
+          <p class="text-slate-500 text-xs leading-relaxed flex-1 mb-4">Breaking down the April 2026 joint and several liability changes and their impact on professional contractors.</p>
+          <a href="#" style="color:#0D7377;font-weight:700;font-size:0.8rem;text-decoration:none;display:inline-flex;align-items:center;gap:0.3rem;">Read more →</a>
+        </div>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════ FAQ ══════════════════════════════════ -->
+<section id="faq" style="background:#F8F5F0; padding:6rem 0;">
+  <div class="max-w-3xl mx-auto px-6">
+
+    <div class="fade-up text-center mb-12">
+      <div class="section-label mb-4 text-center" style="display:block;">Frequently Asked Questions</div>
+      <h2 class="text-4xl md:text-5xl font-black" style="letter-spacing:-0.02em;color:#0F172A;">Everything you need to know</h2>
+    </div>
+
+    <div class="fade-up" style="transition-delay:0.1s;">
+
+      <div class="faq-item" onclick="toggleFaq(this)" style="background:white;border-radius:12px;margin-bottom:0.75rem;overflow:hidden;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,0.05);">
+        <div class="flex items-center justify-between p-6">
+          <span class="font-700 text-sm md:text-base" style="color:#0F172A;font-weight:700;padding-right:1rem;">What is iGroup and how does it support professional contractors?</span>
+          <svg class="faq-chevron flex-shrink-0" width="20" height="20" fill="none" viewBox="0 0 20 20">
+            <path stroke="#0D7377" stroke-width="2" stroke-linecap="round" d="M5 8l5 5 5-5"/>
+          </svg>
+        </div>
+        <div class="faq-body">
+          <p class="text-slate-500 text-sm leading-relaxed px-6 pb-6">iGroup is a management consultancy exclusively serving professional contractors. We provide AI-powered rate intelligence, IR35 compliance management, career strategy, and contract review services — all designed to help you manage, optimise, and protect your contracting career.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)" style="background:white;border-radius:12px;margin-bottom:0.75rem;overflow:hidden;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,0.05);">
+        <div class="flex items-center justify-between p-6">
+          <span class="font-700 text-sm md:text-base" style="color:#0F172A;font-weight:700;padding-right:1rem;">How quickly can I get started with iGroup?</span>
+          <svg class="faq-chevron flex-shrink-0" width="20" height="20" fill="none" viewBox="0 0 20 20">
+            <path stroke="#0D7377" stroke-width="2" stroke-linecap="round" d="M5 8l5 5 5-5"/>
+          </svg>
+        </div>
+        <div class="faq-body">
+          <p class="text-slate-500 text-sm leading-relaxed px-6 pb-6">Most contractors are fully onboarded within 48 hours. We begin with a comprehensive assessment of your current situation, then build your personalised compliance framework and connect you to our intelligence platform.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)" style="background:white;border-radius:12px;margin-bottom:0.75rem;overflow:hidden;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,0.05);">
+        <div class="flex items-center justify-between p-6">
+          <span class="font-700 text-sm md:text-base" style="color:#0F172A;font-weight:700;padding-right:1rem;">What makes iGroup different from umbrella companies?</span>
+          <svg class="faq-chevron flex-shrink-0" width="20" height="20" fill="none" viewBox="0 0 20 20">
+            <path stroke="#0D7377" stroke-width="2" stroke-linecap="round" d="M5 8l5 5 5-5"/>
+          </svg>
+        </div>
+        <div class="faq-body">
+          <p class="text-slate-500 text-sm leading-relaxed px-6 pb-6">We're not an umbrella company. iGroup is a specialist management consultancy. We don't process your payroll — we provide the intelligence, compliance management, and career support that empowers you to make better decisions about your contracting career.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)" style="background:white;border-radius:12px;margin-bottom:0.75rem;overflow:hidden;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,0.05);">
+        <div class="flex items-center justify-between p-6">
+          <span class="font-700 text-sm md:text-base" style="color:#0F172A;font-weight:700;padding-right:1rem;">How does iGroup's rate intelligence work?</span>
+          <svg class="faq-chevron flex-shrink-0" width="20" height="20" fill="none" viewBox="0 0 20 20">
+            <path stroke="#0D7377" stroke-width="2" stroke-linecap="round" d="M5 8l5 5 5-5"/>
+          </svg>
+        </div>
+        <div class="faq-body">
+          <p class="text-slate-500 text-sm leading-relaxed px-6 pb-6">Our proprietary AI analyses market data across all major sectors, providing real-time benchmarking, negotiation insights, and trend analysis. This gives you the data to negotiate from a position of strength.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)" style="background:white;border-radius:12px;overflow:hidden;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,0.05);">
+        <div class="flex items-center justify-between p-6">
+          <span class="font-700 text-sm md:text-base" style="color:#0F172A;font-weight:700;padding-right:1rem;">Does iGroup support contractors working internationally?</span>
+          <svg class="faq-chevron flex-shrink-0" width="20" height="20" fill="none" viewBox="0 0 20 20">
+            <path stroke="#0D7377" stroke-width="2" stroke-linecap="round" d="M5 8l5 5 5-5"/>
+          </svg>
+        </div>
+        <div class="faq-body">
+          <p class="text-slate-500 text-sm leading-relaxed px-6 pb-6">Yes. We support contractors across multiple jurisdictions with cross-border compliance, international tax guidance, and global mobility support. Wherever your career takes you, iGroup is with you.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════ TESTIMONIAL / CTA ══════════════════════ -->
+<section id="contact" style="background:linear-gradient(135deg,#0D7377 0%,#0a5c60 40%,#1A1A2E 100%); padding:6rem 0; position:relative; overflow:hidden;">
+
+  <!-- BG decoration -->
+  <div style="position:absolute;top:-100px;right:-100px;width:400px;height:400px;border-radius:50%;background:rgba(20,184,166,0.08);pointer-events:none;"></div>
+  <div style="position:absolute;bottom:-80px;left:-80px;width:300px;height:300px;border-radius:50%;background:rgba(245,158,11,0.06);pointer-events:none;"></div>
+
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- Testimonial -->
+    <div class="fade-up text-center mb-16 max-w-3xl mx-auto">
+      <div style="font-size:3rem;color:rgba(20,184,166,0.4);line-height:1;margin-bottom:1rem;">"</div>
+      <blockquote class="text-2xl md:text-3xl font-700 text-white leading-relaxed mb-6" style="font-weight:700;">
+        iGroup has been transformational for my contracting career. The compliance peace of mind alone is worth it — but the rate intelligence has genuinely increased my earnings.
+      </blockquote>
+      <div class="flex items-center justify-center gap-3">
+        <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#14B8A6,#F59E0B);display:flex;align-items:center;justify-content:center;">
+          <span style="font-weight:800;color:white;font-size:1.1rem;">JT</span>
+        </div>
+        <div class="text-left">
+          <div style="color:white;font-weight:700;font-size:0.9rem;">James T.</div>
+          <div style="color:rgba(255,255,255,0.6);font-size:0.8rem;">Senior IT Contractor, London</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Box -->
+    <div class="fade-up max-w-2xl mx-auto" style="transition-delay:0.15s;">
+      <div style="background:rgba(255,255,255,0.08);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:2.5rem;">
+        <h3 class="text-2xl font-black text-white mb-2" style="font-weight:900;">Get in touch with iGroup</h3>
+        <p class="text-white/60 text-sm mb-6">Join hundreds of professional contractors already working with iGroup</p>
+
+        <!-- Stats mini row -->
+        <div class="flex gap-8 mb-6">
+          <div>
+            <div class="text-xl font-black text-white">15K+</div>
+            <div class="text-white/50 text-xs">Supported</div>
+          </div>
+          <div style="width:1px;background:rgba(255,255,255,0.1);"></div>
+          <div>
+            <div class="text-xl font-black text-white">500+</div>
+            <div class="text-white/50 text-xs">Active</div>
+          </div>
+        </div>
+
+        <form onsubmit="return false;" class="flex gap-3 flex-wrap">
+          <input type="email" placeholder="Your email address" style="flex:1;min-width:200px;padding:0.75rem 1rem;border-radius:8px;border:1.5px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.08);color:white;font-family:Inter,sans-serif;font-size:0.875rem;outline:none;" onfocus="this.style.borderColor='#14B8A6'" onblur="this.style.borderColor='rgba(255,255,255,0.2)'" />
+          <button type="submit" class="btn-slide btn-primary" style="background:#F59E0B;border:none;">
+            <span class="btn-text">Submit →</span>
+            <span class="btn-text-hover" style="background:#0D7377;">Submit →</span>
+          </button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════ FOOTER ══════════════════════════════════ -->
+<footer style="background:#0F172A; padding:4rem 0 0; position:relative; overflow:hidden;">
+
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- Top nav links -->
+    <div class="flex flex-wrap gap-6 justify-center mb-12" style="border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:2rem;">
+      <a href="#about" style="color:rgba(255,255,255,0.5);font-size:0.8rem;font-weight:600;letter-spacing:0.05em;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#14B8A6'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">About</a>
+      <a href="#services" style="color:rgba(255,255,255,0.5);font-size:0.8rem;font-weight:600;letter-spacing:0.05em;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#14B8A6'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Services</a>
+      <a href="#solutions" style="color:rgba(255,255,255,0.5);font-size:0.8rem;font-weight:600;letter-spacing:0.05em;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#14B8A6'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Solutions</a>
+      <a href="#insights" style="color:rgba(255,255,255,0.5);font-size:0.8rem;font-weight:600;letter-spacing:0.05em;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#14B8A6'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Insights</a>
+      <a href="#contact" style="color:rgba(255,255,255,0.5);font-size:0.8rem;font-weight:600;letter-spacing:0.05em;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#14B8A6'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Contact</a>
+    </div>
+
+    <!-- Middle columns -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+
+      <!-- Brand -->
+      <div class="col-span-2 md:col-span-1">
+        <div class="flex items-center gap-2 mb-4">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <rect width="28" height="28" rx="7" fill="#0D7377"/>
+            <path d="M7 14h14M14 7v14" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="14" cy="14" r="4" fill="white" opacity="0.3"/>
+          </svg>
+          <span style="color:white;font-weight:800;font-size:1.3rem;letter-spacing:-0.02em;">iGroup</span>
+        </div>
+        <p style="color:rgba(255,255,255,0.4);font-size:0.8rem;line-height:1.6;max-width:180px;">Transforming contracting with intelligence. Globally.</p>
       </div>
 
       <!-- Services -->
       <div>
-        <div style="font-size:12px; font-weight:700; color:#fff; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:16px;">Services</div>
-        <div style="display:flex; flex-direction:column; gap:10px;">
-          <a href="#" style="font-size:14px; color:#555; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#555'">IR35 Assessment</a>
-          <a href="#" style="font-size:14px; color:#555; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#555'">Rate Intelligence</a>
-          <a href="#" style="font-size:14px; color:#555; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#555'">Contract Analysis</a>
-          <a href="#" style="font-size:14px; color:#555; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#555'">Tax Optimisation</a>
-          <a href="#" style="font-size:14px; color:#555; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#555'">Career Planning</a>
+        <div style="color:rgba(255,255,255,0.3);font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;">Services</div>
+        <div class="flex flex-col gap-2">
+          <a href="#" style="color:rgba(255,255,255,0.55);font-size:0.8rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Compliance</a>
+          <a href="#" style="color:rgba(255,255,255,0.55);font-size:0.8rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Rate Intelligence</a>
+          <a href="#" style="color:rgba(255,255,255,0.55);font-size:0.8rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Career Strategy</a>
+          <a href="#" style="color:rgba(255,255,255,0.55);font-size:0.8rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Contract Review</a>
         </div>
       </div>
 
       <!-- Company -->
       <div>
-        <div style="font-size:12px; font-weight:700; color:#fff; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:16px;">Company</div>
-        <div style="display:flex; flex-direction:column; gap:10px;">
-          <a href="#" style="font-size:14px; color:#555; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#555'">About Us</a>
-          <a href="#" style="font-size:14px; color:#555; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#555'">Blog</a>
-          <a href="#" style="font-size:14px; color:#555; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#555'">Careers</a>
-          <a href="#" style="font-size:14px; color:#555; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#555'">Press</a>
-        </div>
-      </div>
-
-      <!-- Support -->
-      <div>
-        <div style="font-size:12px; font-weight:700; color:#fff; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:16px;">Support</div>
-        <div style="display:flex; flex-direction:column; gap:10px;">
-          <a href="#" style="font-size:14px; color:#555; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#555'">Help Centre</a>
-          <a href="#" style="font-size:14px; color:#555; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#555'">Contact Us</a>
-          <a href="#" style="font-size:14px; color:#555; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#555'">Book a Call</a>
-          <a href="mailto:hello@igroup.co.uk" style="font-size:14px; color:#555; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#555'">hello@igroup.co.uk</a>
+        <div style="color:rgba(255,255,255,0.3);font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;">Company</div>
+        <div class="flex flex-col gap-2">
+          <a href="#about" style="color:rgba(255,255,255,0.55);font-size:0.8rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">About</a>
+          <a href="#" style="color:rgba(255,255,255,0.55);font-size:0.8rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Careers</a>
+          <a href="#contact" style="color:rgba(255,255,255,0.55);font-size:0.8rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Contact</a>
         </div>
       </div>
 
       <!-- Legal -->
       <div>
-        <div style="font-size:12px; font-weight:700; color:#fff; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:16px;">Legal</div>
-        <div style="display:flex; flex-direction:column; gap:10px;">
-          <a href="#" style="font-size:14px; color:#555; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#555'">Privacy Policy</a>
-          <a href="#" style="font-size:14px; color:#555; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#555'">Terms of Service</a>
-          <a href="#" style="font-size:14px; color:#555; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#555'">Cookie Policy</a>
-          <a href="#" style="font-size:14px; color:#555; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#555'">Regulatory Info</a>
+        <div style="color:rgba(255,255,255,0.3);font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;">Legal</div>
+        <div class="flex flex-col gap-2">
+          <a href="#" style="color:rgba(255,255,255,0.55);font-size:0.8rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Privacy</a>
+          <a href="#" style="color:rgba(255,255,255,0.55);font-size:0.8rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Terms</a>
+          <a href="#" style="color:rgba(255,255,255,0.55);font-size:0.8rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Cookies</a>
         </div>
       </div>
+
     </div>
 
-    <!-- Footer bottom bar -->
-    <div style="border-top:1px solid #1a1a1a; padding-top:24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
-      <p style="font-size:13px; color:#444;">© 2026 iGroup. All rights reserved. Registered in England and Wales.</p>
-      <div style="display:flex; gap:20px;">
-        <a href="#" style="font-size:13px; color:#444; text-decoration:none;">Privacy</a>
-        <a href="#" style="font-size:13px; color:#444; text-decoration:none;">Terms</a>
-        <a href="#" style="font-size:13px; color:#444; text-decoration:none;">Cookies</a>
-      </div>
+    <!-- Bottom bar -->
+    <div style="border-top:1px solid rgba(255,255,255,0.06);padding:1.5rem 0;display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center;position:relative;z-index:1;">
+      <span style="color:rgba(255,255,255,0.3);font-size:0.75rem;">© 2026 iGroup. All Rights Reserved.</span>
+      <span style="color:rgba(255,255,255,0.2);font-size:0.7rem;font-weight:600;letter-spacing:0.1em;">Powered by Intelligence</span>
     </div>
+
   </div>
+
+  <!-- Massive watermark -->
+  <div class="footer-watermark">iGROUP</div>
+
+  <!-- Extra bottom padding for watermark -->
+  <div style="height:3rem;"></div>
+
 </footer>
 
+<!-- ══════════════════════════════ JAVASCRIPT ══════════════════════════════ -->
 <script>
-  // Count-up animation
-  function countUp(el, target, duration) {
-    let start = 0;
-    const step = (timestamp) => {
-      if (!start) start = timestamp;
-      const progress = Math.min((timestamp - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      el.textContent = Math.floor(eased * target);
-      if (progress < 1) requestAnimationFrame(step);
-      else el.textContent = target;
-    };
-    requestAnimationFrame(step);
-  }
+// ── HERO IMAGE CROSSFADE ──────────────────────────────────────────────────
+(function() {
+  const slides = document.querySelectorAll('.hero-bg-slide');
+  let current = 0;
+  setInterval(() => {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, 5000);
+})();
 
-  // Rate labels for product card chart
-  const rateTargets = [700, 750, 600, 650, 550];
-  const rateIds = ['rate1', 'rate2', 'rate3', 'rate4', 'rate5'];
+// ── NAV SCROLL ────────────────────────────────────────────────────────────
+const nav = document.getElementById('main-nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 60) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+}, { passive: true });
 
-  // Intersection Observer for count-up
-  const countObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const el = entry.target;
-        const target = parseInt(el.dataset.target);
-        countUp(el, target, 1500);
-        countObserver.unobserve(el);
-      }
-    });
-  }, { threshold: 0.3 });
+// ── MOBILE MENU ───────────────────────────────────────────────────────────
+function toggleMenu() {
+  document.getElementById('mobile-menu').classList.toggle('open');
+}
 
-  document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
-
-  // Rate label count-up
-  const rateObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        rateIds.forEach((id, i) => {
-          const el = document.getElementById(id);
-          if (el) {
-            setTimeout(() => {
-              countUp({ textContent: '0', set textContent(v) { el.textContent = '£' + v; } }, rateTargets[i], 1200);
-            }, i * 100);
-          }
-        });
-        rateObserver.disconnect();
-      }
-    });
-  }, { threshold: 0.3 });
-
-  const rateSection = document.getElementById('rate1');
-  if (rateSection) rateObserver.observe(rateSection.closest('section') || rateSection);
-
-  // Smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener('click', e => {
-      const target = document.querySelector(link.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        document.querySelector('.mobile-menu').classList.remove('open');
-      }
-    });
+// ── LETTER REVEAL ─────────────────────────────────────────────────────────
+function wrapLetters(el) {
+  const text = el.textContent;
+  el.innerHTML = '';
+  [...text].forEach((ch, i) => {
+    const span = document.createElement('span');
+    span.className = 'letter';
+    span.textContent = ch === ' ' ? '\u00A0' : ch;
+    span.style.transitionDelay = (i * 0.025) + 's';
+    el.appendChild(span);
   });
+}
+
+// ── WORD REVEAL ───────────────────────────────────────────────────────────
+function wrapWords(el) {
+  const text = el.textContent.trim();
+  const words = text.split(/\s+/);
+  el.innerHTML = '';
+  words.forEach((w, i) => {
+    const span = document.createElement('span');
+    span.className = 'word';
+    span.textContent = w;
+    span.style.transitionDelay = (i * 0.04) + 's';
+    el.appendChild(span);
+    if (i < words.length - 1) el.appendChild(document.createTextNode(' '));
+  });
+}
+
+// Initialise text elements
+document.querySelectorAll('.letter-reveal').forEach(wrapLetters);
+document.querySelectorAll('.word-reveal').forEach(wrapWords);
+
+// ── INTERSECTION OBSERVER ─────────────────────────────────────────────────
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      if (el.classList.contains('letter-reveal') || el.classList.contains('word-reveal')) {
+        requestAnimationFrame(() => el.classList.add('revealed'));
+      }
+      if (el.classList.contains('fade-up')) {
+        requestAnimationFrame(() => el.classList.add('visible'));
+      }
+      revealObs.unobserve(el);
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.letter-reveal, .word-reveal, .fade-up').forEach(el => revealObs.observe(el));
+
+// Trigger hero immediately
+setTimeout(() => {
+  document.querySelectorAll('#hero .letter-reveal, #hero .word-reveal').forEach(el => el.classList.add('revealed'));
+}, 300);
+
+// ── COUNTER ANIMATION ─────────────────────────────────────────────────────
+function animateCounter(el) {
+  const target = parseInt(el.dataset.target);
+  const suffix = el.dataset.suffix || '';
+  const duration = 1800;
+  const step = target / (duration / 16);
+  let current = 0;
+  const timer = setInterval(() => {
+    current = Math.min(current + step, target);
+    el.textContent = Math.floor(current) + suffix;
+    if (current >= target) clearInterval(timer);
+  }, 16);
+}
+
+const counterObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateCounter(entry.target);
+      counterObs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.counter').forEach(el => counterObs.observe(el));
+
+// ── SOLUTIONS ACCORDION ───────────────────────────────────────────────────
+function toggleSolution(item) {
+  const body = item.querySelector('.solution-body');
+  const isOpen = item.classList.contains('open');
+  // Close all
+  document.querySelectorAll('.solution-item').forEach(i => {
+    i.classList.remove('open');
+    i.querySelector('.solution-body').classList.remove('open');
+    i.querySelector('.solution-body').style.maxHeight = '0';
+  });
+  // Open clicked if it wasn't open
+  if (!isOpen) {
+    item.classList.add('open');
+    body.classList.add('open');
+    body.style.maxHeight = '200px';
+  }
+}
+
+// ── FAQ ACCORDION ─────────────────────────────────────────────────────────
+function toggleFaq(item) {
+  const body = item.querySelector('.faq-body');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => {
+    i.classList.remove('open');
+    i.querySelector('.faq-body').classList.remove('open');
+    i.querySelector('.faq-body').style.maxHeight = '0';
+  });
+  if (!isOpen) {
+    item.classList.add('open');
+    body.classList.add('open');
+    body.style.maxHeight = '300px';
+  }
+}
+
+// ── CAROUSEL ─────────────────────────────────────────────────────────────
+const carousel = document.getElementById('services-carousel');
+function carouselNext() {
+  carousel.scrollBy({ left: carousel.offsetWidth * 0.36, behavior: 'smooth' });
+}
+function carouselPrev() {
+  carousel.scrollBy({ left: -carousel.offsetWidth * 0.36, behavior: 'smooth' });
+}
+
+// ── TAB PILLS ─────────────────────────────────────────────────────────────
+function setTab(btn, tab) {
+  document.querySelectorAll('.tab-pill').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// ── SMOOTH SCROLL ─────────────────────────────────────────────────────────
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
 </script>
+
 </body>
 </html>

@@ -1784,7 +1784,7 @@ figcaption {
   grid-column-gap: var(--_sizing---spacing--spacing-lg);
   grid-row-gap: var(--_sizing---spacing--spacing-lg);
   border-radius: var(--_sizing---radius--radius-xl);
-  background-image: url('../images/cta_image.webp');
+  background-image: url('../images/cta_image_new.jpg');
   background-position: 50% 0;
   background-repeat: no-repeat;
   background-size: cover;
@@ -3391,3 +3391,21 @@ figcaption {
 }
 
 
+
+/* Force visibility for elements GSAP ScrollTrigger doesn't reach */
+@media (prefers-reduced-motion: no-preference) {
+  .about-chip-wrapper,
+  .about-section-left,
+  .section-chip-wrapper,
+  .cta-content,
+  .cta-testimonial,
+  .cta-image,
+  .cta-heading,
+  .cta-buttons,
+  .cta-description,
+  .blog-heading-wrapper > [style*="opacity"],
+  .faq-heading-wrapper > [style*="opacity"] {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}

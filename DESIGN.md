@@ -1,841 +1,382 @@
-# iGroup Design System v1.0
-
-> The complete design language for iGroup's multi-page website.
-> Every decision here serves one goal: make contractors feel like they've found their people.
+# iGroup Design System — As Built (v10)
+## Reference for all new pages — match this exactly
 
 ---
 
-## 1. Brand Overview
+## Overview
 
-### Positioning
-iGroup is a **global AI-powered workforce management platform** that works exclusively for contractors. Not an agency. Not an umbrella. Not a middleman. The "football agent for contractors" — a trusted advisor with real technology behind it.
+The iGroup website is built from a Verdentix Webflow export with surgical content/image replacement. The design language, animation system, and component library from the Webflow source are the design system. All new pages MUST match this aesthetic.
 
-### Brand Personality
-- **Authoritative** — We know the contractor world inside out
-- **Tech-forward** — AI, dashboards, data — not clipboards and cold calls
-- **Global** — London, Dubai, Isle of Man, Guernsey — and beyond
-- **Warm** — We work for YOU. This is personal.
-- **Premium** — Top-tier SaaS/fintech aesthetic, never recruitment-agency vibes
-
-### Tagline
-**"We work for YOU"**
-
-### Voice
-Direct. Confident. Jargon-light. Contractor-first. Every sentence answers "what's in it for me?"
+**DO NOT** use the iGroup Brand Guidelines document (BRAND-GUIDELINES.md) for the website. That's a separate exercise. The website design system is what's documented here — extracted from the live site.
 
 ---
 
-## 2. Colour Palette
+## Colour Palette (As Built)
 
-### Primary Colours
-
-| Token | Hex | Usage |
-|-------|-----|-------|
-| `--color-navy` | `#0A1628` | Primary dark backgrounds, hero sections, footer, nav |
-| `--color-navy-mid` | `#0D2040` | Secondary dark sections, alternating dark panels |
-| `--color-teal` | `#00C4B4` | Primary accent, CTAs, links, active states, data viz |
-| `--color-teal-light` | `#4DD9CC` | Hover states, secondary highlights, icon backgrounds |
-| `--color-gold` | `#F5A623` | Premium features, secondary CTAs, badges, star ratings |
-
-### Neutral Colours
-
-| Token | Hex | Usage |
-|-------|-----|-------|
-| `--color-bg` | `#F4F6F9` | Page background, light sections |
-| `--color-surface` | `#FFFFFF` | Cards, modals, form inputs |
-| `--color-border` | `#E2E6EC` | Card borders, dividers, input borders |
-| `--color-border-light` | `#F0F2F5` | Subtle separators |
-| `--color-text-primary` | `#0A1628` | Headings on light backgrounds |
-| `--color-text-secondary` | `#4A5568` | Body text, descriptions |
-| `--color-text-muted` | `#8896A6` | Captions, timestamps, helper text |
-| `--color-text-inverse` | `#FFFFFF` | Text on dark backgrounds |
-| `--color-text-inverse-muted` | `#A0B0C4` | Secondary text on dark backgrounds |
-
-### Semantic Colours
-
-| Token | Hex | Usage |
-|-------|-----|-------|
-| `--color-success` | `#10B981` | Compliance verified, positive metrics |
-| `--color-warning` | `#F59E0B` | Pending items, attention needed |
-| `--color-error` | `#EF4444` | Errors, expired documents |
-| `--color-info` | `#3B82F6` | Informational badges, tips |
-
-### Gradients
+### CSS Custom Properties
 
 ```css
-/* Hero gradient — navy to navy-mid with teal glow */
---gradient-hero: linear-gradient(135deg, #0A1628 0%, #0D2040 60%, #0A1628 100%);
-
-/* Teal accent gradient — for CTAs, feature highlights */
---gradient-teal: linear-gradient(135deg, #00C4B4 0%, #4DD9CC 100%);
-
-/* Gold premium gradient — for premium badges, special CTAs */
---gradient-gold: linear-gradient(135deg, #F5A623 0%, #FBBF24 100%);
-
-/* Dark section overlay — for video/image backgrounds */
---gradient-overlay: linear-gradient(180deg, rgba(10,22,40,0.85) 0%, rgba(13,32,64,0.95) 100%);
-
-/* Subtle radial glow — background decoration on dark sections */
---gradient-glow-teal: radial-gradient(ellipse at 30% 50%, rgba(0,196,180,0.08) 0%, transparent 60%);
---gradient-glow-gold: radial-gradient(ellipse at 70% 50%, rgba(245,166,35,0.06) 0%, transparent 60%);
+--_colors---background: #fff;
+--_colors---foreground: #1A1A2E;
+--_colors---brand-primary: #0D7377;        /* Deep teal — primary accent */
+--_colors---text-primary: #1A1A2E;         /* Dark navy/charcoal */
+--_colors---text-secondary: color-mix(in hsl, #1A1A2E 85%, #fff 15%);
 ```
 
-### Colour Usage Rules
-1. **Dark sections** (navy/navy-mid): Use for hero, major feature showcases, footer, alternating content breaks
-2. **Light sections** (bg/surface): Use for body content, service grids, forms, comparison tables
-3. **Teal**: Never use for body text. Reserve for interactive elements, accents, and data
-4. **Gold**: Use sparingly — premium features, sign-up bonus, special offers only
-5. **Contrast**: All text must meet WCAG AA minimum (4.5:1 body, 3:1 large text)
+### Colour Usage
+
+| Colour | Hex | Usage |
+|--------|-----|-------|
+| Deep Teal | `#0D7377` | Primary accent, CTAs, links, icons, badges, hover borders |
+| Dark Foreground | `#1A1A2E` | Headings, body text, dark section backgrounds |
+| White | `#FFFFFF` | Page background, card backgrounds, text on dark |
+| Cream/Off-White | `#F5F0E8` | Alternate section backgrounds, soft contrast |
+| Light Grey | `#f5f3f0` | Section backgrounds, card alt |
+| Border Grey | `#e3e8f0` | Borders, dividers |
+
+### Section Colour Pattern
+The homepage alternates:
+1. White sections (about, FAQ)
+2. Cream/off-white sections (innovations, blog)
+3. Dark navy (#1A1A2E) sections (solutions, CTA)
+
+New pages should follow this alternating light/dark rhythm.
 
 ---
 
-## 3. Typography
+## Typography
 
-### Font Stack
+### Fonts
 
 ```css
-/* Headings */
---font-heading: 'Be Vietnam Pro', system-ui, -apple-system, sans-serif;
-
-/* Body */
---font-body: 'Inter', system-ui, -apple-system, sans-serif;
-
-/* Mono (code, data, stats) */
---font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+--fonts--normal-font: Manrope, sans-serif;    /* Everything */
+--fonts--special-font: Manrope, sans-serif;   /* Mega headings (footer "iGROUP") */
 ```
 
-### Loading
-```html
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-```
+Manrope is loaded via Google Fonts (weights 300-700).
 
 ### Type Scale
 
-| Token | Size (desktop) | Size (mobile) | Weight | Font | Line Height | Letter Spacing |
-|-------|---------------|---------------|--------|------|-------------|----------------|
-| `--text-display` | 72px / 4.5rem | 40px / 2.5rem | 700 | Be Vietnam Pro | 1.05 | -0.02em |
-| `--text-h1` | 56px / 3.5rem | 32px / 2rem | 700 | Be Vietnam Pro | 1.1 | -0.02em |
-| `--text-h2` | 40px / 2.5rem | 28px / 1.75rem | 600 | Be Vietnam Pro | 1.15 | -0.01em |
-| `--text-h3` | 28px / 1.75rem | 22px / 1.375rem | 600 | Be Vietnam Pro | 1.25 | -0.01em |
-| `--text-h4` | 22px / 1.375rem | 18px / 1.125rem | 600 | Be Vietnam Pro | 1.3 | 0 |
-| `--text-h5` | 18px / 1.125rem | 16px / 1rem | 600 | Be Vietnam Pro | 1.4 | 0 |
-| `--text-body-lg` | 18px / 1.125rem | 16px / 1rem | 400 | Inter | 1.7 | 0 |
-| `--text-body` | 16px / 1rem | 16px / 1rem | 400 | Inter | 1.7 | 0 |
-| `--text-body-sm` | 14px / 0.875rem | 14px / 0.875rem | 400 | Inter | 1.6 | 0 |
-| `--text-caption` | 12px / 0.75rem | 12px / 0.75rem | 500 | Inter | 1.5 | 0.02em |
-| `--text-overline` | 13px / 0.8125rem | 12px / 0.75rem | 600 | Inter | 1.4 | 0.08em |
-| `--text-stat` | 48px / 3rem | 32px / 2rem | 800 | Be Vietnam Pro | 1.0 | -0.02em |
+| Level | Size (desktop) | Size (mobile) | Weight | Letter Spacing | Line Height |
+|-------|---------------|---------------|--------|---------------|-------------|
+| Mega | 12rem | 5rem | 500 | -0.03em | 0.85 |
+| H1 | 4rem | 2.5rem | 500 | -0.03em | 1.1 |
+| H2 | 2.5rem | 1.75rem | 500 | -0.02em | 1.2 |
+| H3 | 2rem | 1.5rem | 500 | -0.015em | 1.3 |
+| H4 | 1.5rem | 1.25rem | 500 | -0.01em | 1.3 |
+| H5 | 1.25rem | 1.125rem | 500 | -0.005em | 1.4 |
+| H6 | 1.125rem | 1rem | 500 | 0 | 1.5 |
+| Body | 1.25rem | 1rem | 400 | 0 | 1.5 |
+| Body Large | 1.375rem | 1.25rem | 400 | 0 | 1.5 |
+| Body Small | 1.125rem | 1rem | 400 | 0 | 1.5 |
 
-### Typography Rules
-1. **Headings on dark backgrounds**: `--color-text-inverse` (#FFFFFF), weight 700
-2. **Headings on light backgrounds**: `--color-navy` (#0A1628), weight 600–700
-3. **Body text**: Always `--color-text-secondary` (#4A5568) on light, `--color-text-inverse-muted` (#A0B0C4) on dark
-4. **Overline text**: Always uppercase, `--color-teal` on both light and dark
-5. **Stats/numbers**: Use `--text-stat` with `--font-mono` for data-heavy displays
-6. **Max line width**: 680px for body text (readability)
-7. **Heading hierarchy**: Never skip levels (h1 → h2 → h3)
+Font weight 500 (medium) is the standard heading weight — NOT bold (700).
 
 ---
 
-## 4. Spacing & Layout
+## Spacing & Sizing
 
-### Spacing Scale
-
-| Token | Value |
-|-------|-------|
-| `--space-1` | 4px |
-| `--space-2` | 8px |
-| `--space-3` | 12px |
-| `--space-4` | 16px |
-| `--space-5` | 20px |
-| `--space-6` | 24px |
-| `--space-8` | 32px |
-| `--space-10` | 40px |
-| `--space-12` | 48px |
-| `--space-16` | 64px |
-| `--space-20` | 80px |
-| `--space-24` | 96px |
-| `--space-32` | 128px |
-
-### Grid System
+### Section Padding
 
 ```css
-/* Container */
---container-max: 1280px;
---container-padding: 24px; /* mobile: 16px */
-
-/* Grid */
---grid-columns: 12;
---grid-gap: 24px; /* mobile: 16px */
+--_sizing---section--section-padding-y: 120px;   /* Desktop: 120px */
+--_sizing---section--section-padding-x: 48px;     /* Desktop: 48px */
+/* Mobile: 80px vertical, 20px horizontal */
 ```
 
-### Section Spacing
-- **Between major sections**: `--space-24` (96px) desktop, `--space-16` (64px) mobile
-- **Within sections**: `--space-12` (48px) desktop, `--space-8` (32px) mobile
-- **Card internal padding**: `--space-8` (32px) desktop, `--space-6` (24px) mobile
+### Spacing Tokens
+
+| Token | Desktop | Mobile |
+|-------|---------|--------|
+| spacing-xs | 4px | 4px |
+| spacing-sm | 16px | 12px |
+| spacing-md | 24px | 16px |
+| spacing-lg | 48px | 32px |
+| spacing-xl | 64px | 48px |
+| spacing-2xl | 96px | 64px |
+
+### Container Widths
+
+```css
+--_sizing---container--small: 1280px;
+--_sizing---container--large: 1440px;
+--_sizing---container--full: 100vw;
+```
+
+### Border Radius
+
+| Token | Desktop | Mobile |
+|-------|---------|--------|
+| radius-none | 0 | 0 |
+| radius-xs | 4px | 2px |
+| radius-sm | 8px | 6px |
+| radius-md | 12px | 8px |
+| radius-lg | 16px | 12px |
+| radius-xl | 24px | 20px |
+| radius-2xl | 32px | 24px |
+| radius-full | 100vw | 100vw |
 
 ---
 
-## 5. Component Library
+## Components (As Built)
 
-### 5.1 Buttons
+### Navigation (Sticky)
 
-#### Primary (Teal)
+- Height: ~72px
+- Background: transparent over hero → solid on scroll
+- Logo: "iGroup" text in Manrope 500, 22px, #0D7377, letter-spacing -0.5px
+- Nav links: Manrope 400, text-primary colour
+- 5 nav links + 1 CTA button
+- CTA button: teal background, white text, radius-full (pill), arrow icon
+- Mobile: hamburger toggle → vertical icon animation
+
+### Buttons
+
+**Primary (Teal Pill)**
 ```css
-.btn-primary {
-  background: var(--color-teal);
-  color: #FFFFFF;
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 15px;
-  padding: 14px 28px;
-  border-radius: 3px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-.btn-primary:hover {
-  background: var(--color-teal-light);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0,196,180,0.3);
-}
+background: #0D7377;
+color: white;
+border-radius: 100vw;   /* Full pill */
+padding: 14px 28px;
+font: Manrope 500 1rem;
+/* Hover: slight lighten, icon slides */
 ```
 
-#### Premium (Gold)
+**Dark Button**
 ```css
-.btn-gold {
-  background: var(--gradient-gold);
-  color: #0A1628;
-  /* Same sizing as primary */
-}
+background: #1A1A2E;
+color: white;
+border-radius: 100vw;
+/* Used in dark sections */
 ```
 
-#### Secondary (Outline)
+**Outline/Ghost**
 ```css
-.btn-secondary {
-  background: transparent;
-  color: var(--color-teal);
-  border: 1.5px solid var(--color-teal);
-  border-radius: 3px;
-  /* Same sizing as primary */
-}
-.btn-secondary:hover {
-  background: rgba(0,196,180,0.08);
-}
+background: transparent;
+border: 1.5px solid currentColor;
+border-radius: 100vw;
 ```
 
-#### Ghost (Dark backgrounds)
-```css
-.btn-ghost {
-  background: transparent;
-  color: #FFFFFF;
-  border: 1.5px solid rgba(255,255,255,0.25);
-  border-radius: 3px;
-}
-.btn-ghost:hover {
-  border-color: rgba(255,255,255,0.5);
-  background: rgba(255,255,255,0.05);
-}
-```
+All buttons use the Verdentix slide-up text reveal on hover + arrow-circle icon pattern.
 
-#### Button Sizes
-| Size | Padding | Font Size |
-|------|---------|-----------|
-| `sm` | 10px 20px | 13px |
-| `md` (default) | 14px 28px | 15px |
-| `lg` | 18px 36px | 16px |
+### Cards
 
-#### Button with Icon
-Icons sit left of label with 8px gap. Arrow icons sit right with 8px gap.
+**Service/Innovation Card**
+- Background: white or cream
+- Radius: radius-lg (16px)
+- Padding: 32px
+- Hover: translateY(-2px), subtle shadow increase
+- Number prefix: "01" "02" "03" in teal, large weight
 
-### 5.2 Cards
+**Solution Card (Dark)**
+- Background: dark section inline
+- Numbered list with teal numbers
+- Stats inline with icon circles
 
-#### Standard Card
-```css
-.card {
-  background: var(--color-surface);
-  border-radius: 12px;
-  padding: 32px;
-  box-shadow: 0 1px 3px rgba(10,22,40,0.06), 0 1px 2px rgba(10,22,40,0.04);
-  transition: all 0.3s ease;
-}
-.card:hover {
-  box-shadow: 0 4px 12px rgba(10,22,40,0.08), 0 2px 4px rgba(10,22,40,0.04);
-  transform: translateY(-2px);
-}
-```
+**Blog Card**
+- Image top (16:9), radius on top corners
+- Title, excerpt, date, read time
+- Hover: image slight zoom
 
-#### Feature Card (with icon)
-- 48px icon container top-left (teal background with 8px radius, icon in white)
-- H4 title
-- Body description
-- Optional "Learn more →" link in teal
+**Stats Card (Hero)**
+- Compact, overlaid on hero
+- Large number (teal), label below
+- Counter animation on scroll
 
-#### Stat Card
-- Large stat number (`--text-stat`, `--font-mono`, teal or gold)
-- Label below (`--text-caption`, `--color-text-muted`)
-- Optional trend indicator (↑ green, ↓ red)
+### Badges
 
-#### Testimonial Card
-- Quote in `--text-body-lg`, italic
-- Avatar (48px circle), name, role, company
-- Star rating in gold
-- Subtle left border in teal (3px)
+**Section Badge (Eyebrow)**
+- Small teal icon + text
+- Font: Manrope 500, small
+- Colour: teal
+- Used above section headings: "01", "02", etc.
 
-#### Service Card (clickable)
-- Icon + service name (H4)
-- One-line description
-- Right arrow indicator
-- Entire card is clickable link
-- Hover: teal left border appears (3px)
+### Accordion (FAQ)
 
-#### Dark Card (for use on light backgrounds to create contrast)
-- Background: `--color-navy`
-- Text: inverse colours
-- Good for "highlight" features within a light section
+- Question: Manrope 500, 1.25rem
+- Toggle: + / − icon, rotates on open
+- Answer: body text, fades in
+- Border-bottom divider between items
+- Smooth height transition
 
-### 5.3 Navigation
+### Footer
 
-#### Desktop Nav
-- Fixed top, `--color-navy` background with 95% opacity + backdrop-blur(12px)
-- Logo left, links center, CTA right
-- Links: `--color-text-inverse`, 14px, weight 500
-- Active link: `--color-teal` underline (2px, 4px below text)
-- Dropdown menus for Services (mega menu with icons + descriptions)
-- Height: 72px
-- Transition: shrink to 60px on scroll
-
-#### Mobile Nav
-- Hamburger icon (animated to X on open)
-- Full-screen overlay, `--color-navy` background
-- Links stacked, 48px touch targets
-- Services accordion expand
-- CTA button at bottom
-
-#### Services Mega Menu (desktop)
-- Full-width dropdown, max 1280px
-- 3-column grid:
-  - Col 1: Core Services (with icons)
-  - Col 2: Financial & Protection
-  - Col 3: Community & Platform
-- Each item: icon (24px) + name + one-line description
-- Featured callout for Rate Intelligence and Compliance Passport (teal background strip)
-
-### 5.4 Badges
-
-```css
-.badge {
-  font-size: 12px;
-  font-weight: 600;
-  padding: 4px 10px;
-  border-radius: 100px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-.badge-teal { background: rgba(0,196,180,0.12); color: #00C4B4; }
-.badge-gold { background: rgba(245,166,35,0.12); color: #F5A623; }
-.badge-success { background: rgba(16,185,129,0.12); color: #10B981; }
-.badge-navy { background: rgba(10,22,40,0.08); color: #0A1628; }
-```
-
-Uses: "AI-Powered", "New", "Premium", "Verified", "Popular", "Coming Soon"
-
-### 5.5 Stats / Metrics Display
-
-#### Inline Stat Row
-```
-[Icon] 2,400+ | [Icon] 18 Countries | [Icon] £12M+ Saved | [Icon] 98% Retention
-```
-- Horizontal on desktop, 2×2 grid on mobile
-- Numbers in `--text-stat` or `--text-h2` weight 800
-- Labels in `--text-body-sm`
-- Optional counting animation on scroll-in
-
-#### Dashboard Stat Card
-- Mini chart/sparkline background (decorative)
-- Large number
-- Trend arrow + percentage
-- Period label ("vs last quarter")
-
-### 5.6 Accordion / FAQ
-
-```css
-.accordion-item {
-  border-bottom: 1px solid var(--color-border);
-  padding: 24px 0;
-}
-.accordion-trigger {
-  font-family: var(--font-heading);
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--color-navy);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-  width: 100%;
-}
-.accordion-icon {
-  transition: transform 0.3s ease;
-  color: var(--color-teal);
-}
-.accordion-item[open] .accordion-icon {
-  transform: rotate(45deg);
-}
-.accordion-content {
-  padding-top: 16px;
-  color: var(--color-text-secondary);
-  line-height: 1.7;
-  max-width: 680px;
-}
-```
-
-### 5.7 Forms
-
-#### Input Fields
-```css
-.input {
-  font-family: var(--font-body);
-  font-size: 15px;
-  padding: 14px 16px;
-  border: 1.5px solid var(--color-border);
-  border-radius: 3px;
-  background: var(--color-surface);
-  color: var(--color-navy);
-  transition: border-color 0.2s ease;
-  width: 100%;
-}
-.input:focus {
-  border-color: var(--color-teal);
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(0,196,180,0.1);
-}
-.input::placeholder {
-  color: var(--color-text-muted);
-}
-```
-
-#### Form Layout
-- Labels above inputs, `--text-body-sm`, weight 600
-- Error messages below in `--color-error`, `--text-caption`
-- Required indicator: teal asterisk
-- Form groups spaced `--space-6` apart
-
-### 5.8 Process / Timeline
-
-#### Horizontal Steps (desktop)
-```
-[1]——————[2]——————[3]——————[4]
-Company    Bank     Insurance   You're
-Formation  Account  Setup       Live
-```
-- Numbered circles (40px, teal border, navy fill when complete)
-- Connecting line (2px, teal gradient)
-- Step title + description below each
-
-#### Vertical Timeline (mobile / editorial)
-- Left-aligned dots with connecting line
-- Content cards to the right
-- Alternating left/right on desktop for editorial feel
-
-### 5.9 Comparison Tables
-
-#### Feature Comparison
-| Feature | Without iGroup | With iGroup |
-| --- | ❌ / ⚠️ | ✅ / ⭐ |
-
-- "Without" column: muted, grey
-- "With iGroup" column: teal highlight, bold
-- Mobile: stacks to cards, each row = card
-
-#### Pricing Comparison
-- Column-based
-- Highlighted/recommended tier with teal top border and "Most Popular" badge
-- Toggle for monthly/annual (if applicable)
-
-### 5.10 Tooltips & Popovers
-- Dark background (`--color-navy`), white text
-- 8px radius, max-width 280px
-- Arrow pointing to trigger
-- 200ms fade-in
-
-### 5.11 Section Dividers
-
-#### Wave Divider
-SVG wave between dark→light and light→dark sections. Subtle, 60px height.
-
-#### Gradient Fade
-CSS gradient from one section colour to the next. 120px transition zone.
-
-#### Angled Cut
-CSS clip-path with 2-3° angle for dynamic section transitions.
+- Background: #1A1A2E (dark)
+- "iGROUP" mega text: special font, ~12rem, very faint white (opacity ~0.03)
+- 4-column link grid
+- Social icons: LinkedIn, Twitter/X, Facebook, Instagram
+- Copyright bar at bottom
 
 ---
 
-## 6. Animation System
+## Animation System (GSAP/Webflow IX2)
 
-### Philosophy
-Animations serve comprehension, not decoration. Every animation should either:
-1. Guide the eye to important content
-2. Provide spatial context (where did this come from?)
-3. Create a feeling of quality and polish
+### Engine
+The homepage uses Webflow's IX2 interaction engine (webflow.js) with GSAP 3.14.2:
+- `gsap.min.js`
+- `ScrollTrigger.min.js`
+- `SplitText.min.js`
 
-### GSAP ScrollTrigger (keep from current build)
+IX2 binds via `data-w-id` attributes on elements. The `data-wf-page` and `data-wf-site` attributes on `<html>` are REQUIRED for animations to fire.
 
-```javascript
-// Standard fade-up for content blocks
-gsap.from('.animate-up', {
-  scrollTrigger: {
-    trigger: '.animate-up',
-    start: 'top 85%',
-    toggleActions: 'play none none none'
-  },
-  y: 40,
-  opacity: 0,
-  duration: 0.8,
-  ease: 'power2.out'
-});
-```
+### Animation Patterns Used
 
-### Animation Patterns by Type
+1. **Letter-by-Letter Reveal** — `.gsap_split_letter` class. SplitText splits heading into chars, each fades in with 0.02s stagger. Triggered on scroll.
+2. **Word-by-Word Reveal** — `.gsap_split_word` class. Same but word-level.
+3. **Section Fade-Up** — Elements start opacity:0, translateY(40px). Animate to visible on scroll entry. Stagger: 0.1s.
+4. **Counter Animation** — Stat numbers count from 0 to target over ~1.5s on scroll.
+5. **Card Hover Lift** — translateY(-4px) + shadow increase on hover, 250ms ease.
+6. **Carousel** — Horizontal scroll for service cards.
+7. **Accordion Expand** — max-height + opacity for FAQ items.
+8. **Hero Image Crossfade** — 4 rotating images, 5-second interval, opacity transition 1.2s ease-in-out.
+9. **Navbar Transition** — transparent → solid background on scroll.
 
-#### Hero Animations
-- **Text**: Staggered word/line reveal (clip-path or y-translate), 0.1s stagger
-- **Background**: Subtle parallax on scroll (0.3x speed)
-- **Video**: Fade-in on load, slow Ken Burns effect
-- **Stats**: Count-up animation on entry (countUp.js or GSAP)
-- **CTA**: Slight delay (0.6s) after text reveals, scale from 0.95
+### For New Pages
 
-#### Card Grid Animations
-- **Staggered entry**: Cards fade-up with 0.1s stagger per card
-- **Hover**: translateY(-2px) + shadow increase, 0.3s ease
-- **Mobile**: Simpler — opacity fade only, no stagger (performance)
-
-#### Data/Dashboard Animations
-- **Charts**: Draw-in animation (SVG path length)
-- **Numbers**: Count-up from 0 to value over 1.5s
-- **Progress bars**: Width animation from 0% to target
-- **Data points**: Sequential dot-reveal with connecting lines
-
-#### Page Transitions
-- Content fades in from slight translateY(20px) on route change
-- Skeleton placeholders for dynamic content areas
-- Nav stays fixed, content scrolls underneath
-
-#### Scroll-Linked
-- **Parallax layers**: Background elements at 0.2-0.5x scroll speed
-- **Progress indicator**: Teal bar at top of page showing read progress
-- **Sticky elements**: Service nav, pricing table header
-
-### Reduced Motion
-```css
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-```
-
-### Performance Rules
-1. Use `will-change` sparingly — only on actively animating elements
-2. Prefer `transform` and `opacity` (GPU-composited)
-3. Debounce scroll handlers (16ms / requestAnimationFrame)
-4. Lazy-load GSAP ScrollTrigger instances outside viewport
-5. Mobile: reduce particle counts, disable parallax, simplify stagger
-
----
-
-## 7. Responsive Strategy
-
-### Breakpoints
-
-| Token | Width | Target |
-|-------|-------|--------|
-| `--bp-sm` | 640px | Large phones landscape |
-| `--bp-md` | 768px | Tablets portrait |
-| `--bp-lg` | 1024px | Tablets landscape, small laptops |
-| `--bp-xl` | 1280px | Desktops |
-| `--bp-2xl` | 1536px | Large screens |
-
-### Mobile-First Approach
-All CSS written mobile-first. `min-width` media queries to progressively enhance.
-
-### Layout Patterns by Breakpoint
-
-| Component | Mobile (<768) | Tablet (768-1024) | Desktop (1024+) |
-|-----------|---------------|-------------------|-----------------|
-| Nav | Hamburger overlay | Hamburger overlay | Full links + mega menu |
-| Hero text | Full-width, stacked | Full-width, stacked | Split or centered |
-| Card grid | 1 column | 2 columns | 3-4 columns |
-| Stats row | 2×2 grid | 4 across | 4 across |
-| Comparison table | Stacked cards | Horizontal scroll | Full table |
-| Process steps | Vertical timeline | Horizontal | Horizontal |
-| Footer | Stacked sections | 2-column | 4-column |
-| Pricing grid | Stacked, swipeable | 2 across | 3 across |
-
-### Touch Targets
-- Minimum 44px × 44px for all interactive elements on mobile
-- 48px for primary CTAs
-- 12px minimum spacing between touch targets
-
-### Mobile-Specific Patterns
-- **Sticky CTA bar**: Fixed bottom bar on service pages ("Get Started" / "Join Free")
-- **Swipeable cards**: Horizontal scroll for card groups on mobile
-- **Collapsible sections**: Auto-collapse long content sections
-- **Bottom sheet**: Mobile mega menu and filters
-
----
-
-## 8. Image & Asset Guidelines
-
-### Photography Direction
-- **Real people**: Diverse, global, professional but approachable
-- **Environments**: Modern offices, co-working spaces, home offices, cityscapes (London, Dubai, Singapore, Sydney, New York)
-- **Mood**: Confident, focused, successful — never stock-photo cheesy
-- **Treatment**: Slight desaturation, navy overlay for dark sections
-- **NO**: Generic handshakes, people pointing at screens, "business meeting" clichés
-
-### Video
-- **Hero backgrounds**: 15-30 second loops, muted, ambient
-- **Format**: MP4 (H.264), WebM fallback
-- **Loading**: Poster image first, lazy-load video
-- **Mobile**: Static image fallback (save bandwidth)
-- **Content**: Global cityscapes with people working, time-lapses, aerial shots
-
-### Image Formats & Sizes
-```
-Hero images: 1920×1080 max, WebP + JPEG fallback
-Card thumbnails: 400×300, WebP
-Avatars/testimonials: 96×96, WebP
-Blog featured: 800×450, WebP
-Icons/illustrations: SVG only
-OG/social cards: 1200×630
-```
-
-### Dashboard Mockups
-- Use Figma or similar to create realistic portal/dashboard screenshots
-- Match the iGroup colour palette in the mockup UI
-- Show real-looking (but fictional) data — rates, charts, compliance status
-- Both desktop and mobile mockup variants
-- Apply subtle perspective transform + shadow for hero display
-
-### Illustration Style (if used)
-- Geometric, minimal, line-based
-- Teal + gold accent colours on navy
-- Consistent stroke width (1.5-2px)
-- No cartoon/childish styles — keep it fintech-grade
-
----
-
-## 9. Icon System
-
-### Library: Lucide Icons
-**Replace all Ikonik icons with [Lucide](https://lucide.dev/)** — open source, MIT licensed, consistent 24×24 grid, 1.5px stroke.
-
-### Usage
+New pages should use GSAP ScrollTrigger directly (NOT webflow.js — that's homepage-specific). Replicate the same patterns:
 
 ```html
-<!-- Inline SVG (preferred for animation control) -->
-<svg class="icon icon-md" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-  <!-- path data -->
-</svg>
+<!-- Load in every page -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/ScrollTrigger.min.js"></script>
 ```
 
-### Icon Sizes
-
-| Token | Size | Usage |
-|-------|------|-------|
-| `icon-sm` | 16px | Inline with text, badges |
-| `icon-md` | 24px | Default, nav, buttons |
-| `icon-lg` | 32px | Feature cards, service items |
-| `icon-xl` | 48px | Hero features, section headers |
-
-### Icon Containers
-For feature cards, wrap icons in a coloured container:
-```css
-.icon-container {
-  width: 48px;
-  height: 48px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.icon-container-teal {
-  background: rgba(0,196,180,0.1);
-  color: var(--color-teal);
-}
-.icon-container-gold {
-  background: rgba(245,166,35,0.1);
-  color: var(--color-gold);
-}
-.icon-container-navy {
-  background: rgba(10,22,40,0.08);
-  color: var(--color-navy);
-}
-```
-
-### Service Icon Mapping
-
-| Service | Lucide Icon |
-|---------|-------------|
-| Rate Intelligence | `trending-up` or `bar-chart-3` |
-| Company Formation | `building-2` |
-| Compliance Review | `file-check` |
-| IR35 Support | `shield-check` |
-| Income Optimisation | `wallet` |
-| CV Services | `file-text` |
-| Career Intelligence | `compass` |
-| Contractor Portal | `layout-dashboard` |
-| Relationship Management | `users` |
-| Market Intelligence | `newspaper` |
-| Sign-Up Bonus | `gift` |
-| Mortgage Brokering | `home` |
-| Pension Planning | `piggy-bank` |
-| Insurance | `umbrella` |
-| Banking Partnerships | `landmark` |
-| Registered Office | `map-pin` |
-| Compliance Passport | `badge-check` |
-| Reference Management | `star` |
-| Credibility Score | `award` |
-| Co-working | `coffee` |
-| Professional Bodies | `graduation-cap` |
-| Software/Hardware | `laptop` |
-| Networking | `network` |
-| Mental Health | `heart` |
+Implement fade-ups, letter reveals, and counters with vanilla GSAP ScrollTrigger. Match timing and easing from the homepage.
 
 ---
 
-## 10. Shadow System
+## Responsive Breakpoints
 
-### Elevation Levels
+| Breakpoint | Width | Target |
+|-----------|-------|--------|
+| Desktop | 992px+ | Full layout |
+| Tablet | 768px–991px | 2-col grids, reduced padding |
+| Mobile landscape | 480px–767px | Single column, hamburger nav |
+| Mobile portrait | <480px | Compact, stacked |
 
-```css
-/* Resting state — cards, containers */
---shadow-sm: 0 1px 3px rgba(10,22,40,0.06), 0 1px 2px rgba(10,22,40,0.04);
-
-/* Hover state — interactive cards */
---shadow-md: 0 4px 12px rgba(10,22,40,0.08), 0 2px 4px rgba(10,22,40,0.04);
-
-/* Elevated — dropdowns, modals, sticky nav */
---shadow-lg: 0 12px 24px rgba(10,22,40,0.1), 0 4px 8px rgba(10,22,40,0.06);
-
-/* Prominent — hero cards, featured content */
---shadow-xl: 0 20px 40px rgba(10,22,40,0.12), 0 8px 16px rgba(10,22,40,0.06);
-
-/* Teal glow — CTAs, active elements */
---shadow-teal: 0 4px 16px rgba(0,196,180,0.25);
-
-/* Gold glow — premium elements */
---shadow-gold: 0 4px 16px rgba(245,166,35,0.25);
-```
+### Key Responsive Rules
+- Hero text scales down via CSS clamp or media queries
+- Card grids: 3-col → 2-col → 1-col
+- Navigation: full bar → hamburger at ≤991px
+- Section padding: 120px → 80px vertical
+- Images: lazy-load all below fold
+- Tables: stack to cards on mobile
 
 ---
 
-## 11. Dark Section Patterns
+## Icon System
 
-Many pages alternate between light and dark sections. Rules for dark sections:
+### Current: Custom SVGs (Ikonik-derived, replaced)
+All icons are inline SVGs in the `/images/` directory. Current set:
 
-### On `--color-navy` or `--color-navy-mid` backgrounds:
-- Headings: `#FFFFFF`
-- Body text: `#A0B0C4`
-- Cards: `rgba(255,255,255,0.05)` background, `rgba(255,255,255,0.08)` border
-- Dividers: `rgba(255,255,255,0.08)`
-- Links/accents: `--color-teal` (stays the same)
-- Buttons: Primary teal works. Ghost variant for secondary.
-- Decorative: Use `--gradient-glow-teal` or `--gradient-glow-gold` as background decoration
+| Icon File | Represents | Used In |
+|-----------|-----------|---------|
+| icon_farm_white.svg | Shield / Compliance | Stats sections |
+| icon_tractor_white.svg | Briefcase / Business | Solution stats |
+| icon_leaf_green.svg | Checkmark / Verified | About badges |
+| icon_brain_green.svg | Chart / Analytics | About badges |
+| icon_rocket_green.svg | Globe / Global (teal) | About badges |
+| icon_rocket_white.svg | Globe / Global (white) | Dark sections |
+| icon_map_white.svg | Document / Contract | Multiple sections |
+| icon_right*.svg | Arrow right | Buttons, links |
+| icon_arrow_white.svg | Arrow diagonal | CTA links |
+| icon_play/pause.svg | Media controls | Hero video |
 
----
-
-## 12. Motion & Interaction Tokens
-
-```css
-/* Timing */
---duration-fast: 150ms;
---duration-normal: 300ms;
---duration-slow: 500ms;
---duration-entrance: 800ms;
-
-/* Easing */
---ease-default: cubic-bezier(0.4, 0, 0.2, 1);
---ease-in: cubic-bezier(0.4, 0, 1, 1);
---ease-out: cubic-bezier(0, 0, 0.2, 1);
---ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
-
-/* Standard transition */
---transition-default: all var(--duration-normal) var(--ease-default);
-```
+### For New Pages: Lucide Icons
+Use Lucide (https://lucide.dev) for any new icons needed. Download as individual SVGs, match the 2px stroke weight, set `stroke="currentColor"` for theming. Colour via CSS or inline `fill`/`stroke` matching #0D7377 (teal) or white.
 
 ---
 
-## 13. Code Architecture Notes
+## Image Guidelines
 
-### CSS Custom Properties
-Define all tokens as CSS custom properties on `:root`. This enables:
-- Theme switching (future dark mode toggle)
-- Component-level overrides
-- Easy maintenance
+### Photography
+- Diverse, international professionals
+- Cities: London, Dubai, New York, Singapore, Sydney
+- Industries: IT, engineering, finance, energy, construction, pharma
+- Tone: confident, global, purposeful
+- Source: AI-generated (Nano Banana Pro) or stock (Unsplash)
 
-### File Structure (suggested)
+### Formats
+- Hero images: JPG, max 400KB, loaded eager
+- Card thumbnails: JPG/WebP, max 100KB
+- Icons/logos: SVG always
+- Dashboard mockups: PNG or WebP
+
+### Existing Hero Images (Reusable)
+- `hero-it-developer-london.jpg` — IT contractor in London
+- `hero-arab-businessman.jpg` — Business professional
+- `hero-oil-rig-manager.jpg` — Engineering/energy
+- `hero-engineer-woman.jpg` — Female engineer on site
+
+---
+
+## File Structure (Multi-Page)
+
 ```
-styles/
-├── _variables.css      /* All tokens */
-├── _reset.css          /* Normalize + base reset */
-├── _typography.css     /* Type scale, font loading */
-├── _layout.css         /* Grid, container, spacing */
-├── _buttons.css        /* All button variants */
-├── _cards.css          /* All card variants */
-├── _forms.css          /* Inputs, selects, checkboxes */
-├── _nav.css            /* Navigation + mega menu */
-├── _accordion.css      /* FAQ + collapsible */
-├── _badges.css         /* Badge variants */
-├── _animations.css     /* Keyframes + GSAP setup */
-├── _utilities.css      /* Helper classes */
-└── pages/
-    ├── _home.css
-    ├── _about.css
-    ├── _services.css
-    └── ...
+/
+├── index.html                    (Homepage — DO NOT CHANGE DESIGN)
+├── about.html
+├── services.html
+├── rate-intelligence.html
+├── compliance-passport.html
+├── portal.html
+├── company-formation.html
+├── career-intelligence.html
+├── insurance.html
+├── mortgage-finance.html
+├── insights.html
+├── contact.html
+├── join.html
+├── pricing.html
+├── css/
+│   ├── normalize.css             (Shared)
+│   ├── webflow.css               (Shared)
+│   ├── ig2-c49518.webflow.css    (Shared — contains all design tokens)
+│   └── pages.css                 (NEW — any page-specific overrides)
+├── js/
+│   ├── webflow.js                (Homepage IX2 — DO NOT MODIFY)
+│   ├── gsap.min.js               (CDN or local)
+│   ├── ScrollTrigger.min.js      (CDN or local)
+│   └── pages.js                  (NEW — GSAP animations for inner pages)
+├── images/                       (All images, icons, logos)
+└── videos/                       (Video backgrounds if used)
 ```
 
-### Naming Convention
-BEM-inspired but not strict:
-```css
-.card { }
-.card-feature { }
-.card-feature__icon { }
-.card-feature__title { }
-.card-feature--highlighted { }
+### Critical Rule
+New pages load the SAME CSS files (normalize.css, webflow.css, ig2-c49518.webflow.css) to inherit all design tokens, typography, spacing, component styles. They add `pages.css` for any overrides. They do NOT load webflow.js (that's homepage IX2 only) — they use GSAP directly via `pages.js`.
+
+---
+
+## Page Template
+
+Every new page should follow this HTML skeleton:
+
+```html
+<!DOCTYPE html>
+<html lang="en" data-wf-page="" data-wf-site="">
+<head>
+  <meta charset="utf-8">
+  <title>[Page Title] | iGroup</title>
+  <meta name="description" content="[Page description]">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/normalize.css" rel="stylesheet">
+  <link href="css/webflow.css" rel="stylesheet">
+  <link href="css/ig2-c49518.webflow.css" rel="stylesheet">
+  <link href="css/pages.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar (same as homepage) -->
+  <!-- Page sections -->
+  <!-- Footer (same as homepage) -->
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/ScrollTrigger.min.js"></script>
+  <script src="js/pages.js"></script>
+</body>
+</html>
 ```
 
 ---
 
-## 14. Accessibility
-
-### Requirements
-- WCAG 2.1 AA compliance minimum
-- Keyboard navigation for all interactive elements
-- Focus indicators: 2px teal outline, 2px offset
-- Screen reader text for icon-only buttons
-- `aria-expanded` on accordions
-- `aria-current="page"` on active nav links
-- Skip-to-content link (hidden until focused)
-- Alt text on all images
-- Captions for video content (where applicable)
-
-### Focus Ring
-```css
-:focus-visible {
-  outline: 2px solid var(--color-teal);
-  outline-offset: 2px;
-}
-```
-
----
-
-*This design system is the single source of truth for iGroup's web presence. Every component, colour, and animation decision should reference this document. When in doubt, choose the option that makes the contractor feel confident, informed, and valued.*
+*This is the source of truth for how the iGroup website looks. Match this. Don't improvise.*

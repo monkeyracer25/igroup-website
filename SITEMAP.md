@@ -5,7 +5,7 @@
 
 ## Navigation Structure
 
-**Primary Nav:** About | Services ▾ | Insights | Pricing | Contact | [Join iGroup — Gold CTA]
+**Primary Nav:** About | Services ▾ | Insights | Pricing | Contact | [Join iGroup — Teal CTA]
 
 **Services Dropdown (mega-menu):**
 | Column 1: Intelligence | Column 2: Business | Column 3: Protection | Column 4: Platform |
@@ -17,28 +17,28 @@
 ---
 
 ## Page 1: Homepage
-**URL:** `/` (index.html — exists, needs brand update)
-**Template:** SaaS Product Page
-**Purpose:** First impression. Establish iGroup as a premium, global, AI-powered platform. Drive sign-ups.
+**URL:** `/` (index.html — ALREADY BUILT, DO NOT REDESIGN)
+**Template:** Verdentix Webflow export with iGroup content
+**Status:** ✅ COMPLETE (v10.6 deployed)
 
-### Required Brand Updates (v10 → v11)
-- Swap colour palette from Verdentix (teal #0D7377 / cream #F5F0E8) to iGroup brand (navy #0A1628 / teal #00C4B4 / gold #F5A623)
-- Replace Manrope with Be Vietnam Pro (headings) + Inter (body)
-- Update navigation to include multi-page links with Services mega-menu
-- Add gold "Join iGroup" CTA button to nav
-- Update footer with proper page links, offices, social
+### What Exists (Keep All)
+- Hero with 4 rotating contractor images, crossfade transitions, stats card
+- About section with badges, stats (500+, 15+, 98%, 100%), Values cards
+- Innovation section — 3 service cards (IR35 Compliance, Rate Intelligence, Career Strategy)
+- Solutions section — dark background, numbered list 01-05, solution images + stats
+- Blog section — 4 article cards
+- FAQ — 5 questions with accordion
+- CTA — testimonial, "Get in touch with iGroup"
+- Footer — "iGROUP" mega text, social links
+- GSAP IX2 animations via webflow.js — all working
 
-### Sections (8)
-1. **Hero** — KEEP rotating contractor images. Update headline: "Your Career. Our Intelligence." Subline: "AI-powered rate benchmarking, compliance management, and career strategy — built exclusively for professional contractors." Two CTAs: [Explore the Platform — teal] [Join Free — gold]
-2. **Trust Bar** — Animated logo carousel. Replace current text logos with actual sector logos (engineering, IT, finance, energy firms). "Trusted by contractors across 15+ sectors"
-3. **The Problem** — NEW section. Three pain-point cards: "Underpaid and don't know it" / "Drowning in compliance" / "Career on autopilot". Dark navy background. Each card flips to reveal iGroup solution.
-4. **Platform Overview** — Dashboard mockup (floating) with teal UI elements. Feature bullets: Rate Intelligence, Compliance Passport, Career Dashboard, Contract Review. Link to /services/portal
-5. **Service Highlights** — 3 featured cards (Rate Intelligence, Compliance Passport, Career Intelligence). Hover → teal border, expand detail. "See all services →" link
-6. **Social Proof** — Stats bar (navy background): "500+ contractors" / "15+ sectors" / "98% retention" / "£12M+ in rate uplifts identified". Counter animation.
-7. **Testimonials** — Horizontal scroll carousel. 3-4 contractor testimonials. Photo, name, role, sector, quote.
-8. **CTA** — Full-width navy section. "Join 500+ contractors who refuse to leave money on the table." Gold "Join iGroup — It's Free" button. Mention £250 bonus.
+### Copy Updates Only
+- Update nav links to point to new pages (about.html, services.html, etc.)
+- Update footer links to include all new pages
+- Review and sharpen headline/body copy where needed
+- Add Services mega-menu to nav
+- NO design changes, NO colour changes, NO font changes
 
-### Unique Animation: Hero image crossfade (preserved), pain-point card 3D flip, dashboard mockup float
 ### SEO: "iGroup | AI-Powered Contractor Intelligence Platform" / "Global workforce management for professional contractors. Rate intelligence, compliance passport, career strategy — all in one platform."
 
 ---
@@ -58,9 +58,9 @@
 2. **The Mission** — Full-width teal gradient banner. Large quote: "Every contractor deserves the same intelligence and support that Fortune 500 companies give their permanent workforce." — iGroup
 3. **Timeline** — Vertical timeline with milestones. KEY: these are aspirational/brand-building, not real dates. "Idea born" → "First 100 contractors" → "AI platform launch" → "Global expansion" → "10,000 contractors" (future). Step reveal animation on scroll.
 4. **Values Grid** — 2x3 grid of value cards (light background). Each: icon + title + 2 sentences. Values: Independence / Intelligence / Integrity / Innovation / Inclusion / Impact
-5. **Global Presence** — Interactive-style map (stylised, not Google Maps). Four office pins with teal pulse: Isle of Man (HQ), London, Guernsey, Dubai. Each shows address on hover. Dark navy background.
+5. **Global Presence** — Manropeactive-style map (stylised, not Google Maps). Four office pins with teal pulse: Isle of Man (HQ), London, Guernsey, Dubai. Each shows address on hover. Dark navy background.
 6. **The Team** — "Led by industry veterans" section. If we have team photos, grid of headshots with name/role. If not, use text-based bios with decorative icons. 4-6 people max.
-7. **CTA** — "Your career is the constant. Let us handle the rest." → [Join iGroup] gold button
+7. **CTA** — "Your career is the constant. Let us handle the rest." → [Join iGroup] teal button
 
 ### Unique Animation: Parallax story scroll, timeline step reveal with connecting line draw, map office pulses
 ### SEO: "About iGroup | Global Contractor Intelligence Platform" / "Founded by contractors, for contractors. iGroup provides AI-powered rate intelligence, compliance management, and career support across 4 global offices."
@@ -93,7 +93,7 @@
 
 5. **Stickiness Visualisation** — Concentric circles graphic. Contractor at centre. Each ring = another service. Visual shows how services wrap around the contractor. "The more you use, the stronger your position."
 
-6. **CTA** — "Ready to take control of your contracting career?" [See Pricing] teal + [Join Free] gold
+6. **CTA** — "Ready to take control of your contracting career?" [See Pricing] teal + [Join Free] teal
 
 ### Unique Animation: Category blocks slide in from alternate sides, lifecycle timeline draws path, comparison table rows highlight on scroll
 ### SEO: "Contractor Services | iGroup" / "Rate intelligence, compliance passport, company formation, insurance, career strategy — 24 services designed exclusively for professional contractors."
@@ -109,7 +109,7 @@
 - Eyebrow: "AI-POWERED RATE INTELLIGENCE"
 - Headline: "Know Your Worth. Down to the Postcode."
 - Subline: "Our AI continuously analyses thousands of job listings across every sector and geography — delivering hyper-personalised rate benchmarks directly to you."
-- CTA: [See Your Rate — gold] [How It Works — ghost]
+- CTA: [See Your Rate — teal] [How It Works — ghost]
 - Dashboard mockup shows: rate graph trending up, sector comparison bar chart, geographic heat map, "Your rate: £550/day — Top 12% for your sector" callout
 
 ### Sections (7)
@@ -129,7 +129,7 @@
 
 6. **FAQ** — 5 questions: How often are rates updated? / Which sectors do you cover? / How personalised is the analysis? / Do I need to share my current rate? / Is rate intelligence included in my membership?
 
-7. **CTA** — "Stop guessing. Start knowing." [Join iGroup — See Your Rate] gold button. Mention: free to join, rate report within 48 hours of sign-up.
+7. **CTA** — "Stop guessing. Start knowing." [Join iGroup — See Your Rate] teal button. Mention: free to join, rate report within 48 hours of sign-up.
 
 ### Unique Animation: Dashboard mockup float with subtle data point animations (numbers ticking, chart bars growing), rate ticker continuous scroll, feature sections fade-in alternating sides
 ### SEO: "AI Rate Intelligence for Contractors | iGroup" / "Know your market rate down to the postcode. iGroup's AI analyses thousands of listings to deliver personalised rate benchmarks for professional contractors."
@@ -145,14 +145,14 @@
 - Eyebrow: "COMPLIANCE PASSPORT"
 - Headline: "One Credential. Every Assignment. Zero Friction."
 - Subline: "A single verified digital credential proving your right to work, insurance, certifications, clearances, and compliance status. Hand it to any client and start immediately."
-- CTA: [Get Your Passport — gold] [See How It Works — teal outline]
+- CTA: [Get Your Passport — teal] [See How It Works — teal outline]
 
 ### Sections (7)
 1. **The Pain** — "Average contractor onboarding: 3-4 weeks. With Compliance Passport: same day." Split comparison: left (red-tinted) shows pile of documents, emails, delays. Right (teal-tinted) shows single passport card = done.
 
 2. **What's Inside** — Passport card explodes into component parts (scroll animation): Right to Work ✓ / PI Insurance ✓ / PL Insurance ✓ / Professional Certifications ✓ / Security Clearances ✓ / Companies House Status ✓ / Tax Compliance ✓ / Training Records ✓. Each verified with green checkmark animation.
 
-3. **How It Builds** — Timeline showing passport growing over time: Month 1 (basic) → Month 6 (comprehensive) → Year 1 (gold standard). "The longer you're with iGroup, the more powerful your passport becomes." Lock-in messaging framed as value.
+3. **How It Builds** — Timeline showing passport growing over time: Month 1 (basic) → Month 6 (comprehensive) → Year 1 (top tier). "The longer you're with iGroup, the more powerful your passport becomes." Lock-in messaging framed as value.
 
 4. **For Clients & Agencies** — "When your new client asks 'are they compliant?', the answer is one click." Shows agency/client view of passport verification. Emphasises speed and trust.
 
@@ -160,7 +160,7 @@
 
 6. **Credibility Score Preview** — Teaser for the connected Credibility Score. "Your passport feeds your Contractor Credibility Score — a trust signal that grows with every completed assignment." Link to learn more.
 
-7. **CTA** — "Start building your Compliance Passport today." [Join iGroup — It's Free] gold. "Your first passport section is verified within 7 days of joining."
+7. **CTA** — "Start building your Compliance Passport today." [Join iGroup — It's Free] teal. "Your first passport section is verified within 7 days of joining."
 
 ### Unique Animation: Passport card 3D rotation in hero, component explosion on scroll (parts fly out from card), timeline builds progressively, checkmark animations
 ### SEO: "Compliance Passport for Contractors | iGroup" / "One verified digital credential for every assignment. iGroup's Compliance Passport proves your right to work, insurance, certifications, and compliance — reducing onboarding from weeks to minutes."
@@ -176,10 +176,10 @@
 - Eyebrow: "THE CONTRACTOR PORTAL"
 - Headline: "Your Entire Contracting Career. One Dashboard."
 - Subline: "Rate intelligence, compliance tracking, CV management, market insights, and career strategy — all in one place."
-- CTA: [Join the Waitlist — gold] [Take the Tour — teal outline]
+- CTA: [Join the Waitlist — teal] [Take the Tour — teal outline]
 
 ### Sections (6)
-1. **Feature Tabs** — Interactive tabbed interface showing 6 portal sections:
+1. **Feature Tabs** — Manropeactive tabbed interface showing 6 portal sections:
    - **Dashboard** — Overview with key stats, upcoming dates, rate position, compliance status
    - **Rate Intelligence** — Personalised rate charts, sector comparisons, geographic data
    - **Documents** — Compliance passport, contracts, insurance certificates, vault
@@ -194,9 +194,9 @@
 
 4. **Roadmap** — What's coming next. 3 cards: Q2 2026 (Rate Intelligence v2), Q3 2026 (Mobile App), Q4 2026 (API & Integrations). Shows active development. Builds confidence.
 
-5. **Early Adopter Benefits** — "Join now and shape the product." Gold-tinted section. Benefits: priority access, feature requests, founding member badge, rate lock on pricing.
+5. **Early Adopter Benefits** — "Join now and shape the product." Teal-tinted section. Benefits: priority access, feature requests, founding member badge, rate lock on pricing.
 
-6. **CTA** — "The smartest contractors are already on the waitlist." [Join the Waitlist — gold] Counter showing "487 contractors already signed up" (aspirational).
+6. **CTA** — "The smartest contractors are already on the waitlist." [Join the Waitlist — teal] Counter showing "487 contractors already signed up" (aspirational).
 
 ### Unique Animation: Tab content cross-fade (300ms), dashboard elements animate in on tab switch, phone mockup parallax tilt on scroll, roadmap cards stagger in
 ### SEO: "Contractor Portal & Dashboard | iGroup" / "One dashboard for your entire contracting career. Rate intelligence, compliance tracking, CV management, and career strategy — powered by AI."
@@ -212,7 +212,7 @@
 - Eyebrow: "COMPANY FORMATION"
 - Headline: "Your Limited Company. Set Up in Days, Not Weeks."
 - Subline: "We handle the paperwork, the bank accounts, the registrations — so you can focus on what you're actually good at."
-- CTA: [Start Your Company — gold] [What's Involved? — scroll down]
+- CTA: [Start Your Company — teal] [What's Involved? — scroll down]
 
 ### Sections (6)
 1. **Why Go Limited?** — 3 benefit cards (light background): "Tax Efficiency" (keep more of what you earn), "Professional Credibility" (clients and agencies prefer PSCs), "Career Control" (you're the director, you choose your assignments). Simple icons, 2-3 sentences each.
@@ -231,7 +231,7 @@
 
 5. **Testimonial** — "I'd been putting off going limited for 2 years. iGroup had my company set up in 3 days and I saved £8,000 in the first year." Contractor photo, name, sector.
 
-6. **CTA** — "Ready to keep more of what you earn?" [Start Your Company — gold] "Free consultation. No obligation. No hard sell."
+6. **CTA** — "Ready to keep more of what you earn?" [Start Your Company — teal] "Free consultation. No obligation. No hard sell."
 
 ### Unique Animation: Stepper timeline reveal (steps connect with animated line), checklist items check-animate sequentially, concern accordion smooth expand
 ### SEO: "Limited Company Formation for Contractors | iGroup" / "Set up your limited company in days. iGroup handles Companies House, bank accounts, HMRC registration, and compliance — so you can start contracting faster."
@@ -252,7 +252,7 @@
 ### Sections (6)
 1. **Skills Gap Analysis** — Split section: left shows radar chart mockup of contractor's skills vs market demand. Right: "Find out exactly which certifications, skills, and experience will increase your rate the most. Our AI analyses real market data to show you the fastest path to higher earnings." Example: "Adding AWS Solutions Architect = +£75/day based on current market data"
 
-2. **Benchmarking** — "Where do you sit?" Interactive-feeling section showing contractor position in their sector. Bar chart mockup: "You: Top 15% for Structural Engineers in the South East". Breakdown by experience, certifications, sector.
+2. **Benchmarking** — "Where do you sit?" Manropeactive-feeling section showing contractor position in their sector. Bar chart mockup: "You: Top 15% for Structural Engineers in the South East". Breakdown by experience, certifications, sector.
 
 3. **Retirement Modelling** — Warm, aspirational section. Timeline graphic showing: current earnings → projected savings → retirement date. "At your current trajectory, you could step back at 55. Add one certification and bring that forward to 53." Calculator mockup.
 
@@ -260,7 +260,7 @@
 
 5. **Diversification Advisory** — "Don't put all your eggs in one sector." Portfolio-style visualisation showing assignment diversification. Risk/reward visual. "Contractors with 2+ sector experience command 18% higher rates on average."
 
-6. **CTA** — "Your career deserves a strategy." [Get Your Career Report — gold] "Your personalised career intelligence report, delivered within 7 days of joining."
+6. **CTA** — "Your career deserves a strategy." [Get Your Career Report — teal] "Your personalised career intelligence report, delivered within 7 days of joining."
 
 ### Unique Animation: Radar chart draws on scroll, bar chart grows, retirement timeline fills, scenario cards flip to reveal strategies
 ### SEO: "Career Intelligence for Contractors | iGroup" / "Skills gap analysis, market benchmarking, retirement modelling, and negotiation coaching. Data-driven career strategy for professional contractors."
@@ -276,7 +276,7 @@
 - Eyebrow: "INSURANCE & PROTECTION"
 - Headline: "Corporate-Level Cover. Contractor-Level Pricing."
 - Subline: "Group buying power means you pay less for more. PI, PL, income protection, cyber, health, and life insurance — all at rates you can't get alone."
-- CTA: [See Group Rates — teal] [Get a Quote — gold]
+- CTA: [See Group Rates — teal] [Get a Quote — teal]
 
 ### Sections (6)
 1. **The Group Advantage** — Stat callout: "iGroup members save an average of 35% on insurance premiums vs individual policies." Explanation of group buying power.
@@ -295,7 +295,7 @@
 
 5. **Partner Logos** — "We partner with leading insurers." Logo strip of insurance providers (generic/unnamed if needed).
 
-6. **CTA** — "Better cover. Lower cost. Zero hassle." [Get Your Group Rate Quote — gold]
+6. **CTA** — "Better cover. Lower cost. Zero hassle." [Get Your Group Rate Quote — teal]
 
 ### Unique Animation: Comparison table rows slide in with savings amounts counting up, insurance cards stagger in on scroll, savings total counter animation
 ### SEO: "Group Insurance for Contractors | iGroup" / "PI, PL, income protection, cyber, health, and life insurance at group rates. iGroup members save an average of 35% on premiums."
@@ -311,7 +311,7 @@
 - Eyebrow: "MORTGAGE & FINANCE"
 - Headline: "Getting a Mortgage Shouldn't Be This Hard."
 - Subline: "Contractors are turned down more than any other professional group. We change that."
-- CTA: [Talk to a Specialist — gold] [How We Help — scroll]
+- CTA: [Talk to a Specialist — teal] [How We Help — scroll]
 
 ### Sections (7)
 1. **The Pain** — "Sound familiar?" Three scenario cards (dark background):
@@ -330,7 +330,7 @@
 
 6. **Testimonial** — "After being rejected by 3 high street banks, iGroup's mortgage broker got me approved in 2 weeks. I'm in my first home." Contractor photo, name.
 
-7. **CTA** — "Your income is legitimate. Your mortgage should be too." [Connect with a Mortgage Specialist — gold] "Free initial consultation. No obligation."
+7. **CTA** — "Your income is legitimate. Your mortgage should be too." [Connect with a Mortgage Specialist — teal] "Free initial consultation. No obligation."
 
 ### Unique Animation: Pain cards fade in with subtle shake effect (empathy), scattered pensions animate → consolidation animation (dots merge), retirement calculator fills on scroll
 ### SEO: "Contractor Mortgage & Finance | iGroup" / "Specialist mortgage brokers, pension consolidation, and financial planning for professional contractors. Stop being rejected by high street banks."
@@ -397,11 +397,11 @@
 **Template:** Conversion / Sign-Up Flow
 **Purpose:** THE conversion page. Maximum focus, minimum distraction. Get the sign-up.
 
-### Hero Style: Gold-tinted, celebration feel
+### Hero Style: Teal-tinted, celebration feel
 - Eyebrow: "JOIN iGROUP"
 - Headline: "Welcome to the Smart Side of Contracting."
 - Subline: "Free to join. £250 welcome bonus. AI-powered intelligence from day one."
-- CTA: [Start Your Application — large gold button]
+- CTA: [Start Your Application — large teal button]
 - Social proof: "Join 500+ contractors already on the platform"
 
 ### Sections (5)
@@ -423,14 +423,14 @@
    - Primary sector (dropdown: IT & Technology / Engineering / Finance / Energy & Utilities / Construction / Pharma & Life Sciences / Other)
    - Current day rate (optional — "helps us prepare your rate report")
    - "How did you hear about us?" (dropdown)
-   - [Submit Application — gold button]
+   - [Submit Application — teal button]
    - Small print: "No commitment. No obligation. We'll call within 24 hours."
 
-4. **£250 Bonus Callout** — Gold-tinted card: "Your £250 Welcome Bonus". Mockup of pre-paid card. "Loaded within 7 days of your first assignment through the iGroup network. Our way of saying thank you for choosing intelligent contracting."
+4. **£250 Bonus Callout** — Teal-tinted card: "Your £250 Welcome Bonus". Mockup of pre-paid card. "Loaded within 7 days of your first assignment through the iGroup network. Our way of saying thank you for choosing intelligent contracting."
 
 5. **Trust Signals** — Bottom strip: "GDPR Compliant" / "Data Encrypted" / "No Hidden Fees" / "Cancel Anytime" — with small icons. Final reassurance.
 
-### Unique Animation: Progress steps light up on scroll, form inputs have teal focus glow, submit button has subtle pulse, bonus card has gold shimmer
+### Unique Animation: Progress steps light up on scroll, form inputs have teal focus glow, submit button has subtle pulse, bonus card has teal glow
 ### SEO: "Join iGroup | Free Contractor Intelligence Platform" / "Join iGroup for free. £250 welcome bonus, AI rate intelligence, compliance passport, and career support — all from day one."
 
 ---
@@ -446,7 +446,7 @@
 - Subline: "No hidden fees. No lock-in. Start free, upgrade when you're ready."
 
 ### Sections (5)
-1. **Pricing Tiers** — 3 cards, centre one highlighted (gold border):
+1. **Pricing Tiers** — 3 cards, centre one highlighted (teal border):
 
    **Starter (Free)**
    - Rate intelligence (quarterly report)
@@ -464,7 +464,7 @@
    - Contract review (2/year)
    - Group insurance access
    - Dedicated relationship manager
-   - [Start Professional — gold button]
+   - [Start Professional — teal button]
    - "Most popular" badge
 
    **Enterprise (Custom)**
@@ -481,11 +481,11 @@
 
 3. **FAQ** — Pricing-specific: Can I change tiers? / Is there a contract? / What's the £250 bonus about? / Do I pay VAT? / Can my company expense it? / What if I'm between assignments?
 
-4. **ROI Calculator** — Interactive element: "What's iGroup worth to you?" Slider inputs: current day rate, days worked per year. Output: "If iGroup's rate intelligence increases your rate by just £25/day, you'd earn an extra £X,XXX per year. That's Xx your membership cost." Makes Professional tier feel like a no-brainer.
+4. **ROI Calculator** — Manropeactive element: "What's iGroup worth to you?" Slider inputs: current day rate, days worked per year. Output: "If iGroup's rate intelligence increases your rate by just £25/day, you'd earn an extra £X,XXX per year. That's Xx your membership cost." Makes Professional tier feel like a no-brainer.
 
-5. **CTA** — "Still not sure? Start free. See the value. Upgrade when you're ready." [Join Free — gold]
+5. **CTA** — "Still not sure? Start free. See the value. Upgrade when you're ready." [Join Free — teal]
 
-### Unique Animation: Tier cards fan out from centre, feature comparison table rows slide in, ROI calculator numbers animate on slider input, recommended tier has subtle gold pulse
+### Unique Animation: Tier cards fan out from centre, feature comparison table rows slide in, ROI calculator numbers animate on slider input, recommended tier has subtle teal pulse
 ### SEO: "Pricing | iGroup Contractor Platform" / "Free to join with £250 welcome bonus. Upgrade to Professional for monthly rate intelligence, full compliance passport, and dedicated career support."
 
 ---
@@ -493,7 +493,7 @@
 ## Cross-Page Navigation Rules
 
 1. **Every page has a sticky nav** — transparent over hero, solid navy on scroll
-2. **Every page ends with a CTA section** — varied copy, always includes gold "Join" button
+2. **Every page ends with a CTA section** — varied copy, always includes teal "Join" button
 3. **Breadcrumbs on service pages** — Home > Services > [Page Name]
 4. **Related services** — bottom of each service page, 3 related service cards
 5. **Footer is consistent** — all pages, full link grid, offices, social, newsletter

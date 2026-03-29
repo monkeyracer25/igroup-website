@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Rate Intelligence — iGroup | Know Your Worth</title>
+  <meta name="description" content="iGroup's AI-powered Rate Intelligence gives you hyper-personalised rate benchmarks — down to the postcode. Stop negotiating blind. Know your market value.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/ig2-c49518.webflow.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { font-family: 'Manrope', sans-serif; color: #1A1A2E; -webkit-font-smoothing: antialiased; margin: 0; }
+
+    /* ── NAV ── */
+    .page-navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+    .page-navbar.scrolled { background: #fff !important; box-shadow: 0 1px 20px rgba(0,0,0,0.08); }
+    .page-navbar .navbar-inner { padding: 0 24px; }
+    .page-navbar .global-container { max-width: 1280px; margin: 0 auto; }
+    .page-navbar .navbar-island { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .page-navbar .navbar-left a { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 22px; color: #fff; letter-spacing: -0.5px; text-decoration: none; }
+    .page-navbar.scrolled .navbar-left a { color: #0D7377; }
+    .page-navbar .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; margin: 0; padding: 0; }
+    .page-navbar .nav-links a { font-family: 'Manrope', sans-serif; font-size: 0.9rem; font-weight: 400; color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.2s; }
+    .page-navbar .nav-links a:hover { color: #fff; }
+    .page-navbar.scrolled .nav-links a { color: #1A1A2E; }
+    .page-navbar.scrolled .nav-links a:hover { color: #0D7377; }
+    .nav-cta { background: #0D7377; color: #fff !important; padding: 10px 22px; border-radius: 100vw; font-weight: 500 !important; font-size: 0.875rem !important; transition: background 0.2s, transform 0.2s !important; }
+    .nav-cta:hover { background: #0a5f63 !important; transform: translateY(-1px); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; color: #fff; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: currentColor; transition: 0.3s; }
+    .page-navbar.scrolled .hamburger { color: #1A1A2E; }
+    .mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; background: #fff; padding: 20px 24px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); z-index: 999; }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a { display: block; padding: 12px 0; font-size: 1rem; color: #1A1A2E; text-decoration: none; border-bottom: 1px solid #f0f0f0; }
+    .mobile-menu a:last-child { border-bottom: none; }
+
+    /* ── BUTTONS ── */
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: #0D7377; color: #fff; padding: 14px 28px; border-radius: 100vw; font-family: 'Manrope',sans-serif; font-weight: 500; font-size: 0.95rem; text-decoration: none; transition: background 0.2s, transform 0.2s; }
+    .btn-primary:hover { background: #0a5f63; transform: translateY(-2px); }
+    .btn-outline-light { display: inline-flex; align-items: center; gap: 8px; border: 1.5px solid rgba(255,255,255,0.5); color: #fff; padding: 14px 28px; border-radius: 100vw; font-family: 'Manrope',sans-serif; font-weight: 500; font-size: 0.95rem; text-decoration: none; transition: border-color 0.2s, transform 0.2s; background: transparent; }
+    .btn-outline-light:hover { border-color: #fff; transform: translateY(-2px); }
+    .btn-white { display: inline-flex; align-items: center; gap: 8px; background: #fff; color: #1A1A2E; padding: 14px 28px; border-radius: 100vw; font-family: 'Manrope',sans-serif; font-weight: 500; font-size: 0.95rem; text-decoration: none; transition: background 0.2s, transform 0.2s; }
+    .btn-white:hover { background: #f0f0f0; transform: translateY(-2px); }
+
+    /* ── SECTIONS ── */
+    .section-page { padding: 120px 48px; }
+    @media (max-width: 768px) { .section-page { padding: 80px 24px; } }
+    .section-cream { background: #F5F0E8; }
+    .section-white { background: #fff; }
+    .section-dark { background: #1A1A2E; }
+    .section-teal { background: #0D7377; }
+    .container { max-width: 1280px; margin: 0 auto; }
+
+    .eyebrow { font-size: 0.72rem; font-weight: 600; color: #0D7377; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 16px; display: block; }
+    .eyebrow-white { color: rgba(255,255,255,0.6); }
+    .eyebrow-teal { color: #0D7377; }
+
+    .section-heading { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 500; color: #1A1A2E; letter-spacing: -0.02em; line-height: 1.2; margin: 0 0 20px; }
+    .section-heading.invert { color: #fff; }
+    .section-subtext { font-size: 1.15rem; color: #555; line-height: 1.6; max-width: 640px; }
+    .section-subtext.invert { color: rgba(255,255,255,0.7); }
+
+    /* ── HERO ── */
+    .ri-hero {
+      position: relative; min-height: 100vh; display: flex; align-items: center;
+      background: #1A1A2E; overflow: hidden; padding-top: 72px;
+    }
+    .ri-hero-bg {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(13,115,119,0.2) 0%, transparent 60%),
+                  linear-gradient(135deg, #1A1A2E 0%, #0f0f22 100%);
+    }
+    .ri-hero-grid-pattern {
+      position: absolute; inset: 0; opacity: 0.04;
+      background-image: linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .ri-hero-inner {
+      position: relative; z-index: 2; width: 100%; max-width: 1280px; margin: 0 auto;
+      padding: 80px 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .ri-hero h1 {
+      font-size: clamp(2.2rem, 4.5vw, 4rem); font-weight: 500; color: #fff;
+      letter-spacing: -0.03em; line-height: 1.1; margin: 0 0 24px;
+    }
+    .ri-hero h1 span { color: #0D7377; }
+    .ri-hero-sub { font-size: 1.2rem; color: rgba(255,255,255,0.72); line-height: 1.65; margin: 0 0 36px; max-width: 520px; }
+    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+    .ri-hero-visual { position: relative; }
+    .ri-hero-img {
+      width: 100%; border-radius: 20px; box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+      display: block;
+      animation: floatY 4s ease-in-out infinite;
+    }
+    @keyframes floatY {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-14px); }
+    }
+
+    /* ── STAT CARDS ── */
+    .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+    .stat-card {
+      background: #fff; border-radius: 16px; padding: 36px 32px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06); text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .stat-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,0.12); }
+    .stat-number { font-size: 3rem; font-weight: 700; color: #0D7377; letter-spacing: -0.04em; line-height: 1; margin-bottom: 12px; }
+    .stat-desc { font-size: 1rem; color: #555; line-height: 1.5; }
+    .stat-source { font-size: 0.8rem; color: #aaa; margin-top: 32px; text-align: center; }
+
+    /* ── HOW IT WORKS 3 STEPS ── */
+    .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+    .step-card {
+      background: #F5F0E8; border-radius: 16px; padding: 36px 32px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .step-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
+    .step-number { font-size: 3.5rem; font-weight: 700; color: #0D7377; opacity: 0.2; line-height: 1; letter-spacing: -0.04em; margin-bottom: -8px; }
+    .step-title { font-size: 1.3rem; font-weight: 500; color: #1A1A2E; margin: 12px 0 12px; }
+    .step-body { font-size: 1rem; color: #555; line-height: 1.6; }
+
+    /* ── FEATURE ALTERNATING ── */
+    .feature-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+      padding: 100px 48px;
+    }
+    .feature-row .container-inner { max-width: 1280px; margin: 0 auto; }
+    .feature-img { border-radius: 16px; overflow: hidden; }
+    .feature-img img { width: 100%; height: 460px; object-fit: cover; display: block; }
+    .feature-text .eyebrow { margin-bottom: 16px; }
+    .feature-text h3 { font-size: clamp(1.6rem, 2.5vw, 2.2rem); font-weight: 500; letter-spacing: -0.02em; line-height: 1.25; margin: 0 0 20px; }
+    .feature-text h3.invert { color: #fff; }
+    .feature-text p { font-size: 1.1rem; line-height: 1.7; color: #555; }
+    .feature-text p.invert { color: rgba(255,255,255,0.72); }
+
+    /* ── SECTORS ── */
+    .sector-tags { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px; }
+    .sector-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fff; border: 1.5px solid #e3e8f0; color: #1A1A2E;
+      padding: 10px 20px; border-radius: 100vw; font-size: 0.9rem; font-weight: 500;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .sector-tag:hover { border-color: #0D7377; color: #0D7377; }
+    .sector-tag-dot { width: 8px; height: 8px; background: #0D7377; border-radius: 50%; }
+    .sector-more { font-size: 0.95rem; color: #888; margin-top: 20px; }
+
+    /* ── TESTIMONIAL ── */
+    .testi-card {
+      background: #fff; border-radius: 24px; padding: 56px; max-width: 800px; margin: 0 auto;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.07); text-align: center;
+    }
+    .testi-quote-mark { font-size: 6rem; color: #0D7377; line-height: 0.7; font-family: Georgia, serif; display: block; margin-bottom: 20px; }
+    .testi-text { font-size: 1.4rem; color: #1A1A2E; font-weight: 400; line-height: 1.6; letter-spacing: -0.01em; margin: 0 0 32px; }
+    .testi-avatar { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; margin: 0 auto 12px; display: block; }
+    .testi-name { font-size: 1rem; font-weight: 600; color: #1A1A2E; }
+    .testi-role { font-size: 0.9rem; color: #888; }
+
+    /* ── FAQ ACCORDION ── */
+    .faq-list { margin-top: 48px; max-width: 760px; margin-left: auto; margin-right: auto; }
+    .faq-item { border-bottom: 1px solid #e3e8f0; }
+    .faq-question {
+      display: flex; align-items: center; justify-content: space-between; gap: 20px;
+      padding: 20px 0; cursor: pointer; list-style: none;
+    }
+    .faq-question-text { font-size: 1.1rem; font-weight: 500; color: #1A1A2E; }
+    .faq-toggle { width: 28px; height: 28px; flex-shrink: 0; background: rgba(13,115,119,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: #0D7377; transition: transform 0.3s; }
+    .faq-item.open .faq-toggle { transform: rotate(45deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; }
+    .faq-answer-inner { padding: 0 0 20px; font-size: 1rem; color: #555; line-height: 1.7; }
+    .faq-item.open .faq-answer { max-height: 300px; }
+
+    /* ── CTA BAND ── */
+    .cta-band { text-align: center; }
+    .cta-band h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 500; color: #fff; letter-spacing: -0.02em; margin: 0 0 16px; }
+    .cta-band p { font-size: 1.2rem; color: rgba(255,255,255,0.8); margin: 0 0 36px; }
+
+    /* ── FOOTER ── */
+    .page-footer { background: #1A1A2E; padding: 80px 48px 40px; position: relative; overflow: hidden; }
+    .footer-inner { max-width: 1280px; margin: 0 auto; }
+    .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.5fr; gap: 48px; margin-bottom: 60px; }
+    .footer-logo { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 26px; color: #fff; letter-spacing: -0.5px; text-decoration: none; display: block; margin-bottom: 16px; }
+    .footer-tagline { font-size: 0.95rem; color: rgba(255,255,255,0.55); line-height: 1.6; margin-bottom: 24px; }
+    .footer-social { display: flex; gap: 12px; }
+    .footer-social a { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+    .footer-social a:hover { background: rgba(255,255,255,0.15); }
+    .footer-social img { width: 18px; height: 18px; }
+    .footer-col-title { font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.4); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; }
+    .footer-links { display: flex; flex-direction: column; gap: 12px; }
+    .footer-links a { font-size: 0.9rem; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: #fff; }
+    .footer-newsletter-form { display: flex; gap: 8px; }
+    .footer-newsletter-form input { flex: 1; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 100vw; padding: 12px 16px; color: #fff; font-family: 'Manrope',sans-serif; font-size: 0.875rem; outline: none; }
+    .footer-newsletter-form input::placeholder { color: rgba(255,255,255,0.4); }
+    .footer-newsletter-form button { background: #0D7377; color: #fff; border: none; border-radius: 100vw; padding: 12px 20px; font-family: 'Manrope',sans-serif; font-size: 0.875rem; font-weight: 500; cursor: pointer; transition: background 0.2s; white-space: nowrap; }
+    .footer-newsletter-form button:hover { background: #0a5f63; }
+    .footer-divider { height: 1px; background: rgba(255,255,255,0.08); margin-bottom: 28px; }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; }
+    .footer-copy { font-size: 0.85rem; color: rgba(255,255,255,0.4); }
+    .footer-mega { position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); font-size: clamp(80px,10vw,160px); font-weight: 800; color: rgba(255,255,255,0.03); white-space: nowrap; letter-spacing: -0.04em; pointer-events: none; font-family: 'Manrope',sans-serif; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 991px) {
+      .ri-hero-inner { grid-template-columns: 1fr; gap: 48px; padding: 60px 32px; }
+      .ri-hero-visual { max-width: 540px; margin: 0 auto; }
+      .stat-grid { grid-template-columns: repeat(3, 1fr); }
+      .steps-grid { grid-template-columns: 1fr; }
+      .feature-row { grid-template-columns: 1fr; gap: 40px; padding: 80px 32px; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+    @media (max-width: 767px) {
+      .page-navbar .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .stat-grid { grid-template-columns: 1fr; }
+      .feature-row { padding: 60px 20px; }
+      .footer-top { grid-template-columns: 1fr; }
+      .testi-card { padding: 36px 24px; }
+    }
+    @media (max-width: 479px) {
+      .ri-hero-inner { padding: 40px 20px; }
+      .ri-hero h1 { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="page-navbar on-dark" id="pageNav">
+    <div class="navbar-inner">
+      <div class="global-container">
+        <div class="navbar-island">
+          <div class="navbar-left">
+            <a href="index.html">iGroup</a>
+          </div>
+          <ul class="nav-links">
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="rate-intelligence.html" style="color:#0D7377;font-weight:500">Rate Intelligence</a></li>
+            <li><a href="compliance-passport.html">Compliance Passport</a></li>
+            <li><a href="portal.html">Portal</a></li>
+            <li><a href="join.html" class="nav-cta">Join Free →</a></li>
+          </ul>
+          <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="rate-intelligence.html">Rate Intelligence</a>
+    <a href="compliance-passport.html">Compliance Passport</a>
+    <a href="portal.html">Portal</a>
+    <a href="join.html">Join Free →</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="ri-hero">
+    <div class="ri-hero-bg"></div>
+    <div class="ri-hero-grid-pattern"></div>
+    <div class="ri-hero-inner">
+      <div class="ri-hero-text">
+        <span class="eyebrow eyebrow-white">AI-POWERED RATE INTELLIGENCE</span>
+        <h1>Know Your Worth.<br><span>Down to the Postcode.</span></h1>
+        <p class="ri-hero-sub">Our AI continuously analyses thousands of job listings across every sector and geography — delivering hyper-personalised rate benchmarks directly to you.</p>
+        <div class="hero-btns">
+          <a href="join.html" class="btn-primary">See Your Rate →</a>
+          <a href="#how-it-works" class="btn-outline-light">How It Works ↓</a>
+        </div>
+      </div>
+      <div class="ri-hero-visual">
+        <img src="images/dashboard-mockup.jpg" alt="Rate Intelligence Dashboard" class="ri-hero-img" loading="eager">
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: THE PROBLEM -->
+  <section class="section-page section-cream">
+    <div class="container">
+      <div class="section-header animate-in">
+        <span class="eyebrow">THE PROBLEM</span>
+        <h2 class="section-heading">Most Contractors Negotiate Blind.</h2>
+        <p class="section-subtext">The data gap between what contractors earn and what they could earn is staggering. You deserve better.</p>
+      </div>
+      <div class="stat-grid">
+        <div class="stat-card animate-in">
+          <div class="stat-number" data-count="68">0%</div>
+          <p class="stat-desc">of contractors are below market rate for their skills and location</p>
+        </div>
+        <div class="stat-card animate-in">
+          <div class="stat-number" data-count-prefix="£" data-count="23000" data-count-comma="true">£0</div>
+          <p class="stat-desc">average annual underpayment identified across our contractor network</p>
+        </div>
+        <div class="stat-card animate-in">
+          <div class="stat-number" data-count="11">0%</div>
+          <p class="stat-desc">of contractors use any form of data to negotiate their rate</p>
+        </div>
+      </div>
+      <p class="stat-source animate-in">iGroup Market Analysis 2026</p>
+    </div>
+  </section>
+
+  <!-- SECTION 3: HOW IT WORKS -->
+  <section class="section-page section-white" id="how-it-works">
+    <div class="container">
+      <div class="section-header animate-in" style="text-align:center;max-width:640px;margin:0 auto 0;">
+        <span class="eyebrow">PROCESS</span>
+        <h2 class="section-heading">Three Steps to Knowing Your Market Value.</h2>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card animate-in">
+          <div class="step-number">01</div>
+          <h3 class="step-title">We Scrape</h3>
+          <p class="step-body">Our AI analyses thousands of listings daily across 50+ job boards, covering every sector and geography in the UK.</p>
+        </div>
+        <div class="step-card animate-in">
+          <div class="step-number">02</div>
+          <h3 class="step-title">We Personalise</h3>
+          <p class="step-body">Your sector, skills, geography, experience level, and certifications — all factored into your personalised benchmark.</p>
+        </div>
+        <div class="step-card animate-in">
+          <div class="step-number">03</div>
+          <h3 class="step-title">We Deliver</h3>
+          <p class="step-body">Regular reports with actionable rate recommendations. Know exactly where you stand and what to ask for.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE A: GEOGRAPHIC ARBITRAGE (DARK) -->
+  <div class="section-dark">
+    <div class="feature-row" style="max-width:1280px;margin:0 auto;">
+      <div class="feature-img animate-in">
+        <img src="images/sector-rail-worker.jpg" alt="Rail worker in hi-vis — geographic rate intelligence" loading="lazy">
+      </div>
+      <div class="feature-text animate-in">
+        <span class="eyebrow eyebrow-white">GEOGRAPHIC INTELLIGENCE</span>
+        <h3 class="invert">Same Role. Different Postcode. £50/Day More.</h3>
+        <p class="invert">Our geographic rate mapping shows you exactly where demand outstrips supply. A structural engineer in Brighton might be on £400/day — but the same role in St Albans pays £450 because fewer contractors are competing for more positions. We find these opportunities automatically.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURE B: SECTOR BENCHMARKING (CREAM) -->
+  <div class="section-cream">
+    <div class="feature-row" style="max-width:1280px;margin:0 auto;">
+      <div class="feature-text animate-in">
+        <span class="eyebrow">SECTOR BENCHMARKING</span>
+        <h3>Know Where You Sit. Top 5%? Or Leaving Money on the Table?</h3>
+        <p>See exactly where your rate positions you within your sector. Are you in the top quartile? The bottom? Our benchmarking shows your precise position and — critically — what it would take to move up.</p>
+      </div>
+      <div class="feature-img animate-in">
+        <img src="images/sector-it-developer.jpg" alt="IT developer benchmarking their rate" loading="lazy">
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURE C: TREND ALERTS (WHITE) -->
+  <div class="section-white">
+    <div class="feature-row" style="max-width:1280px;margin:0 auto;">
+      <div class="feature-img animate-in">
+        <img src="images/sector-nhs-nurse.jpg" alt="NHS nurse — real-time rate alerts" loading="lazy">
+      </div>
+      <div class="feature-text animate-in">
+        <span class="eyebrow">REAL-TIME ALERTS</span>
+        <h3>Your Sector Rate Just Jumped 12%. Time to Renegotiate.</h3>
+        <p>Markets move. Budgets shift. New projects launch. When rates in your sector and geography change significantly, you'll know about it before your next contract renewal — not after.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURE D: NEGOTIATION AMMUNITION (DARK) -->
+  <div class="section-dark">
+    <div class="feature-row" style="max-width:1280px;margin:0 auto;">
+      <div class="feature-text animate-in">
+        <span class="eyebrow eyebrow-white">NEGOTIATION SUPPORT</span>
+        <h3 class="invert">Walk Into Your Next Rate Review With Data, Not Hope.</h3>
+        <p class="invert">We generate evidence packs showing current market rates, sector trends, and your competitive position. When an agency says 'the budget is fixed,' you'll have the data to challenge that.</p>
+      </div>
+      <div class="feature-img animate-in">
+        <img src="images/sector-energy.jpg" alt="Energy worker — negotiate with data" loading="lazy">
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: SECTORS WE COVER -->
+  <section class="section-page section-cream">
+    <div class="container">
+      <div class="section-header animate-in" style="text-align:center;max-width:640px;margin:0 auto 0;">
+        <span class="eyebrow">COVERAGE</span>
+        <h2 class="section-heading">15+ Sectors. Thousands of Data Points.</h2>
+        <p class="section-subtext">Every major contracting sector in the UK — and growing.</p>
+      </div>
+      <div class="sector-tags animate-in" style="justify-content:center;margin-top:48px;">
+        <span class="sector-tag"><span class="sector-tag-dot"></span>IT &amp; Technology</span>
+        <span class="sector-tag"><span class="sector-tag-dot"></span>Engineering</span>
+        <span class="sector-tag"><span class="sector-tag-dot"></span>Finance &amp; Banking</span>
+        <span class="sector-tag"><span class="sector-tag-dot"></span>Energy &amp; Utilities</span>
+        <span class="sector-tag"><span class="sector-tag-dot"></span>Construction</span>
+        <span class="sector-tag"><span class="sector-tag-dot"></span>Pharma &amp; Life Sciences</span>
+        <span class="sector-tag"><span class="sector-tag-dot"></span>NHS &amp; Healthcare</span>
+        <span class="sector-tag"><span class="sector-tag-dot"></span>Social Care</span>
+        <span class="sector-tag"><span class="sector-tag-dot"></span>Rail &amp; Transport</span>
+        <span class="sector-tag"><span class="sector-tag-dot"></span>Defence &amp; Security</span>
+        <span class="sector-tag"><span class="sector-tag-dot"></span>Telecoms</span>
+        <span class="sector-tag"><span class="sector-tag-dot"></span>Oil &amp; Gas</span>
+        <span class="sector-tag"><span class="sector-tag-dot"></span>Manufacturing</span>
+        <span class="sector-tag"><span class="sector-tag-dot"></span>Public Sector</span>
+        <span class="sector-tag"><span class="sector-tag-dot"></span>Professional Services</span>
+      </div>
+      <p class="sector-more animate-in" style="text-align:center;">And growing. New sectors added monthly.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 6: TESTIMONIAL -->
+  <section class="section-page section-white">
+    <div class="container">
+      <div class="testi-card animate-in">
+        <span class="testi-quote-mark">"</span>
+        <p class="testi-text">iGroup's rate data got me a £75/day increase on my last renewal. That's £19,500 a year I was leaving on the table.</p>
+        <img src="images/hero-engineer-woman.jpg" alt="Sarah Mitchell" class="testi-avatar">
+        <p class="testi-name">Sarah Mitchell</p>
+        <p class="testi-role">IT Programme Manager, London</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: FAQ -->
+  <section class="section-page section-cream">
+    <div class="container">
+      <div class="section-header animate-in" style="text-align:center;max-width:640px;margin:0 auto 0;">
+        <span class="eyebrow">FAQ</span>
+        <h2 class="section-heading">Frequently Asked Questions</h2>
+      </div>
+      <div class="faq-list animate-in">
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-question-text">How often are rate reports updated?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Your personalised rate intelligence is updated monthly, with real-time alerts for significant market movements in your sector and geography.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-question-text">Which sectors do you cover?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">We currently cover 15+ sectors including IT, engineering, finance, healthcare, energy, construction, rail, pharma, and more. New sectors are added monthly.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-question-text">How personalised is the analysis?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Completely. We factor in your specific sector, skills, certifications, experience level, and exact geographic area — not just broad regional averages.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-question-text">Do I need to share my current rate?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">It helps us give you a more accurate benchmark, but it's not required. We can still deliver valuable market intelligence based on your sector and location.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-question-text">Is rate intelligence included in my membership?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">All iGroup members receive quarterly rate reports. Professional and Enterprise members receive monthly reports plus real-time alerts.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: CTA -->
+  <section class="section-page section-teal">
+    <div class="container">
+      <div class="cta-band animate-in">
+        <h2>Stop Guessing. Start Knowing.</h2>
+        <p>Your personalised rate report, delivered within 48 hours of joining.</p>
+        <a href="join.html" class="btn-white">Join iGroup — It's Free →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="page-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <a href="index.html" class="footer-logo">iGroup</a>
+          <p class="footer-tagline">Professional contractor management — intelligence, compliance, and career strategy.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/" target="_blank"><img src="images/social_instagram.svg" alt="Instagram"></a>
+            <a href="https://x.com/" target="_blank"><img src="images/social_twitter.svg" alt="Twitter"></a>
+            <a href="https://www.facebook.com/" target="_blank"><img src="images/social_facebook.svg" alt="Facebook"></a>
+            <a href="https://www.linkedin.com/" target="_blank"><img src="images/social_linkedin.svg" alt="LinkedIn"></a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Products</div>
+          <div class="footer-links">
+            <a href="rate-intelligence.html">Rate Intelligence</a>
+            <a href="compliance-passport.html">Compliance Passport</a>
+            <a href="portal.html">Contractor Portal</a>
+            <a href="services.html">All Services</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <div class="footer-links">
+            <a href="about.html">About Us</a>
+            <a href="join.html">Join iGroup</a>
+            <a href="index.html#section-blogs">Blog</a>
+            <a href="index.html#section-contact">Contact</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Newsletter</div>
+          <div class="footer-newsletter-form">
+            <input type="email" placeholder="Your email address">
+            <button type="submit">Subscribe</button>
+          </div>
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-bottom">
+        <span class="footer-copy">©2026. iGroup All Rights Reserved</span>
+        <span class="footer-copy">Powered by <a href="https://webflow.com/" target="_blank" style="color:rgba(255,255,255,0.4)">Webflow</a></span>
+      </div>
+    </div>
+    <div class="footer-mega">iGROUP</div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/ScrollTrigger.min.js"></script>
+  <script>
+    // Mobile menu
+    document.getElementById('hamburger').addEventListener('click', function() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    });
+
+    // GSAP
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Navbar scroll behaviour
+    const nav = document.getElementById('pageNav');
+    ScrollTrigger.create({
+      trigger: '.ri-hero',
+      start: 'top top',
+      end: 'bottom top',
+      onLeave: () => { nav.classList.remove('on-dark'); nav.classList.add('scrolled'); },
+      onEnterBack: () => { nav.classList.add('on-dark'); nav.classList.remove('scrolled'); }
+    });
+
+    // Fade-up animations
+    gsap.utils.toArray('.animate-in').forEach(el => {
+      gsap.from(el, {
+        opacity: 0, y: 40, duration: 0.85, ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' }
+      });
+    });
+
+    // Stagger stat cards
+    gsap.from('.stat-card', {
+      opacity: 0, y: 30, duration: 0.65, stagger: 0.15, ease: 'power2.out',
+      scrollTrigger: { trigger: '.stat-grid', start: 'top 82%' }
+    });
+
+    // Stagger step cards
+    gsap.from('.step-card', {
+      opacity: 0, y: 30, duration: 0.65, stagger: 0.15, ease: 'power2.out',
+      scrollTrigger: { trigger: '.steps-grid', start: 'top 82%' }
+    });
+
+    // Counter animations
+    function animateCounter(el) {
+      const target = parseInt(el.getAttribute('data-count'));
+      const prefix = el.getAttribute('data-count-prefix') || '';
+      const comma = el.getAttribute('data-count-comma');
+      let start = 0;
+      const duration = 1500;
+      const step = (timestamp) => {
+        if (!start) start = timestamp;
+        const progress = Math.min((timestamp - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const value = Math.round(eased * target);
+        const display = comma ? value.toLocaleString() : value;
+        const suffix = el.textContent.includes('%') ? '%' : '';
+        el.textContent = prefix + display + (el.getAttribute('data-count').toString().includes('000') ? '' : '%');
+        if (progress < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }
+
+    // Proper counters
+    document.querySelectorAll('[data-count]').forEach(el => {
+      const isPercent = !el.getAttribute('data-count-prefix') && !el.getAttribute('data-count-comma');
+      ScrollTrigger.create({
+        trigger: el,
+        start: 'top 85%',
+        once: true,
+        onEnter: () => {
+          const target = parseInt(el.getAttribute('data-count'));
+          const prefix = el.getAttribute('data-count-prefix') || '';
+          const comma = el.getAttribute('data-count-comma');
+          const suffix = isPercent ? '%' : '';
+          gsap.to({ val: 0 }, {
+            val: target,
+            duration: 1.8,
+            ease: 'power2.out',
+            onUpdate: function() {
+              const v = Math.round(this.targets()[0].val);
+              const disp = comma ? v.toLocaleString() : v;
+              el.textContent = prefix + disp + suffix;
+            }
+          });
+        }
+      });
+    });
+
+    // Sector tags stagger
+    gsap.from('.sector-tag', {
+      opacity: 0, scale: 0.9, duration: 0.4, stagger: 0.05, ease: 'back.out(1.2)',
+      scrollTrigger: { trigger: '.sector-tags', start: 'top 85%' }
+    });
+
+    // FAQ
+    function toggleFaq(questionEl) {
+      const item = questionEl.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+  </script>
+</body>
+</html>

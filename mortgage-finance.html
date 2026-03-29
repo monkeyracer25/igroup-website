@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mortgage &amp; Finance — iGroup | Getting a Mortgage Shouldn't Be This Hard</title>
+  <link href="css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/ig2-c49518.webflow.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { font-family: 'Manrope', sans-serif; color: #1A1A2E; -webkit-font-smoothing: antialiased; margin: 0; }
+    .page-navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; transition: background 0.3s ease, box-shadow 0.3s ease; }
+    .page-navbar.scrolled { background: #fff !important; box-shadow: 0 1px 20px rgba(0,0,0,0.08); }
+    .page-navbar .navbar-inner { padding: 0 24px; }
+    .page-navbar .global-container { max-width: 1280px; margin: 0 auto; }
+    .page-navbar .navbar-island { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .page-navbar .navbar-left a { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 22px; color: #fff; letter-spacing: -0.5px; text-decoration: none; }
+    .page-navbar.scrolled .navbar-left a { color: #0D7377; }
+    .page-navbar .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; margin: 0; padding: 0; }
+    .page-navbar .nav-links a { font-family: 'Manrope', sans-serif; font-size: 0.9rem; font-weight: 400; color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.2s; }
+    .page-navbar .nav-links a:hover { color: #fff; }
+    .page-navbar.scrolled .nav-links a { color: #1A1A2E; }
+    .page-navbar.scrolled .nav-links a:hover { color: #0D7377; }
+    .nav-cta { background: #0D7377; color: #fff !important; padding: 10px 22px; border-radius: 100vw; font-weight: 500 !important; font-size: 0.875rem !important; transition: background 0.2s, transform 0.2s !important; }
+    .nav-cta:hover { background: #0a5f63 !important; transform: translateY(-1px); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; color: #fff; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: currentColor; transition: 0.3s; }
+    .page-navbar.scrolled .hamburger { color: #1A1A2E; }
+    .mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; background: #fff; padding: 20px 24px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); z-index: 999; }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a { display: block; padding: 12px 0; font-size: 1rem; color: #1A1A2E; text-decoration: none; border-bottom: 1px solid #f0f0f0; }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: #0D7377; color: #fff; padding: 14px 28px; border-radius: 100vw; font-family: 'Manrope',sans-serif; font-weight: 500; font-size: 0.95rem; text-decoration: none; transition: background 0.2s, transform 0.2s; }
+    .btn-primary:hover { background: #0a5f63; transform: translateY(-2px); }
+    .btn-outline-light { display: inline-flex; align-items: center; gap: 8px; border: 1.5px solid rgba(255,255,255,0.5); color: #fff; padding: 14px 28px; border-radius: 100vw; font-family: 'Manrope',sans-serif; font-weight: 500; font-size: 0.95rem; text-decoration: none; transition: border-color 0.2s, transform 0.2s; background: transparent; }
+    .btn-outline-light:hover { border-color: #fff; transform: translateY(-2px); }
+    .btn-white { display: inline-flex; align-items: center; gap: 8px; background: #fff; color: #1A1A2E; padding: 14px 28px; border-radius: 100vw; font-family: 'Manrope',sans-serif; font-weight: 500; font-size: 0.95rem; text-decoration: none; transition: background 0.2s, transform 0.2s; }
+    .btn-white:hover { background: #f0f0f0; transform: translateY(-2px); }
+    .section-page { padding: 120px 48px; }
+    .section-cream { background: #F5F0E8; }
+    .section-white { background: #fff; }
+    .section-dark { background: #1A1A2E; }
+    .section-teal { background: #0D7377; }
+    .container { max-width: 1280px; margin: 0 auto; }
+    .eyebrow { font-size: 0.72rem; font-weight: 600; color: #0D7377; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 16px; display: block; }
+    .section-heading { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 500; color: #1A1A2E; letter-spacing: -0.02em; line-height: 1.2; margin: 0 0 20px; }
+    .section-heading.invert { color: #fff; }
+    .section-subtext { font-size: 1.15rem; color: #555; line-height: 1.6; max-width: 640px; }
+    .section-subtext.invert { color: rgba(255,255,255,0.7); }
+    .page-footer { background: #1A1A2E; padding: 80px 48px 40px; position: relative; overflow: hidden; }
+    .footer-inner { max-width: 1280px; margin: 0 auto; }
+    .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 60px; }
+    .footer-logo { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 26px; color: #fff; letter-spacing: -0.5px; text-decoration: none; display: block; margin-bottom: 16px; }
+    .footer-tagline { font-size: 0.95rem; color: rgba(255,255,255,0.55); line-height: 1.6; margin-bottom: 24px; }
+    .footer-social { display: flex; gap: 12px; }
+    .footer-social a { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+    .footer-social a:hover { background: rgba(255,255,255,0.15); }
+    .footer-social img { width: 18px; height: 18px; }
+    .footer-col-title { font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.4); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; }
+    .footer-links { display: flex; flex-direction: column; gap: 12px; list-style: none; padding: 0; margin: 0; }
+    .footer-links a { font-size: 0.9rem; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: #fff; }
+    .footer-divider { height: 1px; background: rgba(255,255,255,0.08); margin-bottom: 28px; }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; }
+    .footer-copy { font-size: 0.85rem; color: rgba(255,255,255,0.4); }
+    .footer-mega { position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); font-size: clamp(80px,10vw,160px); font-weight: 800; color: rgba(255,255,255,0.03); white-space: nowrap; letter-spacing: -0.04em; pointer-events: none; font-family: 'Manrope',sans-serif; }
+
+    /* =====================================================
+       HERO SECTION
+       ===================================================== */
+    .mortgage-hero {
+      background-image: url('images/about-story.jpg');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      padding-top: 72px;
+    }
+    .mortgage-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(180deg, rgba(26,26,46,0.92) 0%, rgba(26,26,46,0.85) 50%, rgba(26,26,46,0.88) 100%);
+      z-index: 1;
+    }
+    .mortgage-hero .container {
+      position: relative;
+      z-index: 2;
+    }
+    .mortgage-hero .eyebrow {
+      color: rgba(255,255,255,0.7);
+    }
+    .mortgage-hero h1 {
+      font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin: 0 0 20px;
+      max-width: 700px;
+    }
+    .mortgage-hero p {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.6;
+      max-width: 560px;
+      margin: 0 0 36px;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* =====================================================
+       SECTION 2 — PAIN POINTS
+       ===================================================== */
+    .pain-point-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 40px;
+      max-width: 760px;
+    }
+    .pain-point-card {
+      background: #fff;
+      border-left: 4px solid #dc3545;
+      border-radius: 0 16px 16px 0;
+      padding: 28px;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #1A1A2E;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .pain-point-card:hover {
+      transform: translateX(4px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    .pain-point-reassurance {
+      text-align: center;
+      color: #0D7377;
+      font-weight: 500;
+      margin-top: 32px;
+      font-size: 1.1rem;
+    }
+
+    /* =====================================================
+       SECTION 3 — SPECIALIST BROKERS SPLIT
+       ===================================================== */
+    .specialist-split {
+      display: grid;
+      grid-template-columns: 55% 45%;
+      gap: 48px;
+      align-items: center;
+    }
+    .specialist-blocks {
+      margin-top: 40px;
+    }
+    .specialist-block {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+    .specialist-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #0D7377;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .specialist-icon svg {
+      width: 22px;
+      height: 22px;
+      color: #fff;
+    }
+    .specialist-block h5 {
+      font-weight: 600;
+      margin: 0 0 8px;
+      font-size: 1rem;
+      color: #1A1A2E;
+    }
+    .specialist-block p {
+      color: #555;
+      margin: 0;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+    .specialist-image {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+      display: block;
+    }
+
+    /* =====================================================
+       SECTION 4 — PENSION STEPS
+       ===================================================== */
+    .pension-steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .pension-step-card {
+      background: rgba(255,255,255,0.05);
+      border-left: 3px solid #0D7377;
+      border-radius: 16px;
+      padding: 32px;
+      transition: transform 0.2s, background 0.2s;
+    }
+    .pension-step-card:hover {
+      transform: translateY(-4px);
+      background: rgba(255,255,255,0.08);
+    }
+    .pension-step-card h4 {
+      color: #fff;
+      margin: 0 0 12px;
+      font-size: 1.15rem;
+      font-weight: 600;
+    }
+    .pension-step-card p {
+      color: rgba(255,255,255,0.65);
+      margin: 0;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+    .pension-image {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      border-radius: 16px;
+      margin-top: 40px;
+      display: block;
+    }
+
+    /* =====================================================
+       SECTION 5 — BANKING PARTNERS
+       ===================================================== */
+    .banking-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .banking-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+    }
+    .banking-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    }
+    .banking-card h4 {
+      font-weight: 600;
+      margin: 0 0 12px;
+      color: #1A1A2E;
+      font-size: 1.1rem;
+    }
+    .banking-card p {
+      color: #555;
+      line-height: 1.6;
+      margin: 0;
+      font-size: 0.95rem;
+    }
+    .banking-card-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(13,115,119,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      color: #0D7377;
+    }
+    .banking-card-icon svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    /* =====================================================
+       SECTION 6 — TESTIMONIAL
+       ===================================================== */
+    .testimonial-block {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .testimonial-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 24px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    .testimonial-block blockquote {
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: #1A1A2E;
+      line-height: 1.6;
+      margin: 0 0 24px;
+      font-style: italic;
+      position: relative;
+      padding: 0 20px;
+    }
+    .testimonial-block blockquote::before {
+      content: '\201C';
+      font-size: 4rem;
+      color: #0D7377;
+      position: absolute;
+      top: -24px;
+      left: -10px;
+      font-family: Georgia, serif;
+      line-height: 1;
+      opacity: 0.3;
+    }
+    .testimonial-block cite {
+      font-size: 0.9rem;
+      font-style: normal;
+      color: #888;
+      font-weight: 500;
+    }
+
+    /* =====================================================
+       CTA SECTION
+       ===================================================== */
+    .cta-section {
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 500;
+      color: #fff;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin: 0 0 32px;
+    }
+
+    /* =====================================================
+       FAQ SECTION
+       ===================================================== */
+    .faq-list {
+      max-width: 800px;
+      margin: 48px auto 0;
+    }
+    .faq-item {
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 1.1rem;
+      color: #fff;
+      user-select: none;
+    }
+    .faq-question::after {
+      content: '+';
+      font-size: 1.5rem;
+      color: #0D7377;
+      transition: transform 0.3s;
+      flex-shrink: 0;
+      margin-left: 16px;
+    }
+    .faq-item.open .faq-question::after {
+      content: '\2212';
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 200px;
+    }
+    .faq-answer p {
+      padding-bottom: 20px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* =====================================================
+       ADDITIONAL SECTION STYLES
+       ===================================================== */
+    .mortgage-why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .mortgage-why-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+      transition: transform 0.2s, background 0.2s;
+    }
+    .mortgage-why-card:hover {
+      transform: translateY(-4px);
+      background: rgba(255,255,255,0.08);
+    }
+    .mortgage-why-card h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #fff;
+      margin: 0 0 12px;
+    }
+    .mortgage-why-card p {
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.6;
+      margin: 0;
+    }
+    .mortgage-why-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(13,115,119,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      color: #0D7377;
+    }
+    .mortgage-why-icon svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    /* =====================================================
+       STAT HIGHLIGHT
+       ===================================================== */
+    .stat-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin-top: 48px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: rgba(13,115,119,0.06);
+    }
+    .stat-bar-item {
+      padding: 28px 24px;
+      text-align: center;
+      border-right: 1px solid rgba(13,115,119,0.12);
+    }
+    .stat-bar-item:last-child {
+      border-right: none;
+    }
+    .stat-bar-number {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #0D7377;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .stat-bar-label {
+      font-size: 0.82rem;
+      color: #888;
+      line-height: 1.4;
+    }
+
+    /* =====================================================
+       PROCESS TIMELINE
+       ===================================================== */
+    .mortgage-process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .mortgage-process-step {
+      text-align: center;
+      padding: 32px 20px;
+      position: relative;
+    }
+    .mortgage-process-step::after {
+      content: '';
+      position: absolute;
+      top: 44px;
+      right: -12px;
+      width: 24px;
+      height: 2px;
+      background: rgba(13,115,119,0.3);
+    }
+    .mortgage-process-step:last-child::after {
+      display: none;
+    }
+    .process-step-number {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #0D7377;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin: 0 auto 20px;
+    }
+    .mortgage-process-step h4 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #1A1A2E;
+      margin: 0 0 10px;
+    }
+    .mortgage-process-step p {
+      font-size: 0.92rem;
+      color: #666;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* =====================================================
+       RESPONSIVE — TABLET
+       ===================================================== */
+    @media (max-width: 991px) {
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .section-page { padding: 80px 32px; }
+      .specialist-split { grid-template-columns: 1fr; gap: 40px; }
+      .pension-steps-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+      .pension-steps-grid .pension-step-card:last-child {
+        grid-column: 1 / -1;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+      .banking-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+      .banking-grid .banking-card:last-child {
+        grid-column: 1 / -1;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+      .mortgage-hero h1 { font-size: clamp(2rem, 4vw, 2.8rem); }
+      .mortgage-why-grid { grid-template-columns: repeat(2, 1fr); }
+      .mortgage-why-grid .mortgage-why-card:last-child {
+        grid-column: 1 / -1;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+      .stat-bar { grid-template-columns: repeat(2, 1fr); }
+      .stat-bar-item { border-bottom: 1px solid rgba(13,115,119,0.12); }
+      .stat-bar-item:nth-child(2) { border-right: none; }
+      .stat-bar-item:nth-child(3),
+      .stat-bar-item:nth-child(4) { border-bottom: none; }
+      .mortgage-process-grid { grid-template-columns: repeat(2, 1fr); }
+      .mortgage-process-step::after { display: none; }
+    }
+
+    /* =====================================================
+       RESPONSIVE — MOBILE
+       ===================================================== */
+    @media (max-width: 767px) {
+      .page-navbar .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .footer-top { grid-template-columns: 1fr; }
+      .section-page { padding: 60px 20px; }
+      .specialist-split { grid-template-columns: 1fr; gap: 32px; }
+      .pension-steps-grid { grid-template-columns: 1fr; gap: 16px; }
+      .pension-steps-grid .pension-step-card:last-child {
+        grid-column: auto;
+        max-width: none;
+      }
+      .banking-grid { grid-template-columns: 1fr; gap: 16px; }
+      .banking-grid .banking-card:last-child {
+        grid-column: auto;
+        max-width: none;
+      }
+      .hero-buttons { flex-direction: column; align-items: flex-start; }
+      .mortgage-hero { min-height: 70vh; }
+      .mortgage-hero h1 { font-size: clamp(1.6rem, 5vw, 2.2rem); }
+      .mortgage-hero p { font-size: 1rem; }
+      .testimonial-block blockquote { font-size: 1.05rem; padding: 0; }
+      .testimonial-block blockquote::before { display: none; }
+      .faq-question { font-size: 1rem; }
+      .mortgage-why-grid { grid-template-columns: 1fr; }
+      .mortgage-why-grid .mortgage-why-card:last-child {
+        grid-column: auto;
+        max-width: none;
+      }
+      .stat-bar { grid-template-columns: repeat(2, 1fr); }
+      .mortgage-process-grid { grid-template-columns: 1fr; }
+      .mortgage-process-step::after { display: none; }
+      .pain-point-card { padding: 20px; font-size: 0.95rem; }
+      .pension-image { height: 240px; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+    }
+
+    /* =====================================================
+       RESPONSIVE — SMALL MOBILE
+       ===================================================== */
+    @media (max-width: 479px) {
+      .section-page { padding: 48px 16px; }
+      .mortgage-hero { min-height: 65vh; padding-left: 16px; padding-right: 16px; }
+      .mortgage-hero h1 { font-size: 1.6rem; }
+      .pain-point-card { padding: 18px; font-size: 0.9rem; }
+      .banking-card { padding: 24px; }
+      .pension-step-card { padding: 24px; }
+      .cta-section h2 { font-size: 1.5rem; }
+      .stat-bar { grid-template-columns: 1fr 1fr; }
+      .pension-image { height: 200px; }
+      .mortgage-process-step { padding: 20px 12px; }
+    }
+
+    /* =====================================================
+       ANIMATE-IN BASE
+       ===================================================== */
+    .animate-in {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav class="page-navbar on-dark" id="pageNav">
+    <div class="navbar-inner"><div class="global-container"><div class="navbar-island">
+      <div class="navbar-left"><a href="index.html">iGroup</a></div>
+      <ul class="nav-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="insights.html">Insights</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="join.html" class="nav-cta">Join iGroup &rarr;</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div></div></div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a>
+    <a href="insights.html">Insights</a><a href="pricing.html">Pricing</a><a href="contact.html">Contact</a>
+    <a href="join.html">Join iGroup &rarr;</a>
+  </div>
+
+  <!-- ============================================================
+       SECTION 1 — HERO (DARK, 90VH)
+       ============================================================ -->
+  <section class="mortgage-hero">
+    <div class="container">
+      <span class="eyebrow animate-in">MORTGAGE &amp; FINANCE</span>
+      <h1 class="animate-in">Getting a Mortgage Shouldn't Be This Hard.</h1>
+      <p class="animate-in">Contractors are turned down more than any other professional group. We change that.</p>
+      <div class="hero-buttons animate-in">
+        <a href="join.html" class="btn-primary">Talk to a Specialist</a>
+        <a href="#help" class="btn-outline-light">How We Help &darr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 2 — SOUND FAMILIAR? (CREAM)
+       ============================================================ -->
+  <section class="section-page section-cream" id="help">
+    <div class="container">
+      <h2 class="section-heading animate-in">Sound Familiar?</h2>
+      <div class="pain-point-cards">
+        <div class="pain-point-card animate-in">
+          Your mortgage application was rejected because you don't have 3 years of accounts
+        </div>
+        <div class="pain-point-card animate-in">
+          The bank doesn't understand contractor income and wants payslips you don't have
+        </div>
+        <div class="pain-point-card animate-in">
+          You've been told to wait until you've been trading for 2 years
+        </div>
+      </div>
+      <p class="pain-point-reassurance animate-in">We hear this every day. There's a better way.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 3 — SPECIALIST BROKERS (WHITE)
+       ============================================================ -->
+  <section class="section-page section-white">
+    <div class="container">
+      <div class="specialist-split">
+        <div>
+          <h2 class="section-heading animate-in">Specialist Brokers Who Understand Contractors.</h2>
+          <div class="specialist-blocks">
+
+            <div class="specialist-block animate-in">
+              <div class="specialist-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 3v18h18"/>
+                  <path d="M18 17V9"/>
+                  <path d="M13 17V5"/>
+                  <path d="M8 17v-3"/>
+                </svg>
+              </div>
+              <div>
+                <h5>Rate Data Proves Income</h5>
+                <p>Your iGroup rate intelligence report demonstrates stable, verifiable contractor income that lenders trust.</p>
+              </div>
+            </div>
+
+            <div class="specialist-block animate-in">
+              <div class="specialist-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <polyline points="9 12 11 14 15 10"/>
+                </svg>
+              </div>
+              <div>
+                <h5>Compliance Passport Proves Status</h5>
+                <p>Professional verification that lenders recognise and trust. No more explaining what contracting means.</p>
+              </div>
+            </div>
+
+            <div class="specialist-block animate-in">
+              <div class="specialist-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+              </div>
+              <div>
+                <h5>Specialist Brokers Who Speak Contractor</h5>
+                <p>Our network of specialist mortgage brokers understands day rates, IR35, and limited company income.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="animate-in">
+          <img src="images/sector-social-care.jpg" alt="Specialist mortgage broker consultation for contractors" class="specialist-image">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 4 — PENSION POTS (DARK)
+       ============================================================ -->
+  <section class="section-page section-dark">
+    <div class="container">
+      <h2 class="section-heading invert animate-in">You've Got Pension Pots Everywhere.</h2>
+      <p class="animate-in" style="color:rgba(255,255,255,0.7);max-width:640px;margin-bottom:40px;line-height:1.6;font-size:1.1rem;">Multiple umbrellas, scattered contributions, lost track. We help you find, consolidate, and plan for the retirement you deserve.</p>
+
+      <div class="pension-steps-grid">
+        <div class="pension-step-card animate-in">
+          <h4>Find</h4>
+          <p>We trace every pension pot from every umbrella company and employer you've ever worked through.</p>
+        </div>
+        <div class="pension-step-card animate-in">
+          <h4>Consolidate</h4>
+          <p>Bring them together into a single, well-managed pension that works harder for your retirement.</p>
+        </div>
+        <div class="pension-step-card animate-in">
+          <h4>Plan</h4>
+          <p>Model different retirement scenarios based on your current rate, savings, and lifestyle goals.</p>
+        </div>
+      </div>
+
+      <img src="images/sector-energy.jpg" alt="Retirement planning and pension consolidation for contractors" class="pension-image animate-in">
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 5 — BUSINESS BANKING (CREAM)
+       ============================================================ -->
+  <section class="section-page section-cream">
+    <div class="container">
+      <h2 class="section-heading animate-in">Business Banking That Actually Works.</h2>
+      <p class="section-subtext animate-in">Preferential rates and terms negotiated by iGroup for our members. Get set up in minutes.</p>
+
+      <div class="banking-grid">
+        <div class="banking-card animate-in">
+          <div class="banking-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+              <line x1="1" y1="10" x2="23" y2="10"/>
+            </svg>
+          </div>
+          <h4>Tide Business Banking</h4>
+          <p>Free business account with built-in invoicing, expense management, and instant notifications.</p>
+        </div>
+        <div class="banking-card animate-in">
+          <div class="banking-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="16 12 12 8 8 12"/>
+              <line x1="12" y1="16" x2="12" y2="8"/>
+            </svg>
+          </div>
+          <h4>Starling Bank</h4>
+          <p>Award-winning digital business banking with smart spending insights and easy integration.</p>
+        </div>
+        <div class="banking-card animate-in">
+          <div class="banking-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+          </div>
+          <h4>Lloyds Business</h4>
+          <p>Traditional banking with dedicated business support and preferential iGroup member rates.</p>
+        </div>
+      </div>
+
+      <!-- Statistics bar -->
+      <div class="stat-bar animate-in">
+        <div class="stat-bar-item">
+          <span class="stat-bar-number">2,400+</span>
+          <span class="stat-bar-label">Members using iGroup banking partners</span>
+        </div>
+        <div class="stat-bar-item">
+          <span class="stat-bar-number">5 min</span>
+          <span class="stat-bar-label">Average account setup time</span>
+        </div>
+        <div class="stat-bar-item">
+          <span class="stat-bar-number">0%</span>
+          <span class="stat-bar-label">Monthly account fees for iGroup members</span>
+        </div>
+        <div class="stat-bar-item">
+          <span class="stat-bar-number">24/7</span>
+          <span class="stat-bar-label">Digital banking access and support</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 6 — TESTIMONIAL (WHITE)
+       ============================================================ -->
+  <section class="section-page section-white">
+    <div class="container">
+      <div class="testimonial-block animate-in">
+        <img src="images/sector-nhs-nurse.jpg" alt="David Chen, DevOps Engineer" class="testimonial-avatar">
+        <blockquote>After being rejected by 3 high street banks, iGroup's mortgage broker got me approved in 2 weeks. The rate was better than anything I found independently.</blockquote>
+        <cite><span style="font-weight:600;color:#0D7377;">David Chen</span>, DevOps Engineer, Bristol</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 7 — MORTGAGE PROCESS (WHITE, CONTINUED)
+       ============================================================ -->
+  <section class="section-page section-white" style="padding-top:0;">
+    <div class="container">
+      <span class="eyebrow animate-in">HOW IT WORKS</span>
+      <h2 class="section-heading animate-in">From Rejected to Approved in Four Steps</h2>
+      <p class="section-subtext animate-in">Our specialist brokers handle everything. You focus on contracting. We focus on getting you the mortgage you deserve, at the rate you should be paying.</p>
+
+      <div class="mortgage-process-grid">
+        <div class="mortgage-process-step animate-in">
+          <div class="process-step-number">1</div>
+          <h4>Initial Assessment</h4>
+          <p>We review your contractor income, IR35 status, trading history, and existing documentation to understand your position and identify the right lending approach.</p>
+        </div>
+        <div class="mortgage-process-step animate-in">
+          <div class="process-step-number">2</div>
+          <h4>Lender Matching</h4>
+          <p>We match you with lenders who specifically understand and welcome contractor income structures. No more explaining your business model to people who don't understand it.</p>
+        </div>
+        <div class="mortgage-process-step animate-in">
+          <div class="process-step-number">3</div>
+          <h4>Application Support</h4>
+          <p>Your iGroup rate data and compliance passport are packaged with your application to present the strongest possible case to underwriters and lending panels.</p>
+        </div>
+        <div class="mortgage-process-step animate-in">
+          <div class="process-step-number">4</div>
+          <h4>Completion</h4>
+          <p>We manage the entire process through to completion, liaising with solicitors, surveyors, and lenders on your behalf so you never have to chase anything yourself.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 8 — WHY CONTRACTORS STRUGGLE (DARK)
+       ============================================================ -->
+  <section class="section-page section-dark">
+    <div class="container">
+      <span class="eyebrow animate-in" style="color:rgba(255,255,255,0.5);">THE CONTRACTOR MORTGAGE PROBLEM</span>
+      <h2 class="section-heading invert animate-in">Why Contractors Get Rejected</h2>
+      <p class="section-subtext invert animate-in">High street banks use automated systems designed for employed applicants. These systems fail to understand contractor income, leading to unnecessary rejections and frustration.</p>
+
+      <div class="mortgage-why-grid">
+        <div class="mortgage-why-card animate-in">
+          <div class="mortgage-why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="15" y1="9" x2="9" y2="15"/>
+              <line x1="9" y1="9" x2="15" y2="15"/>
+            </svg>
+          </div>
+          <h4>Income Misunderstood</h4>
+          <p>Banks assess limited company directors on salary plus dividends, ignoring the true earnings potential of retained profits and consistent day rates that demonstrate real income far beyond what appears on a P60 or basic tax return.</p>
+        </div>
+        <div class="mortgage-why-card animate-in">
+          <div class="mortgage-why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="9" y1="15" x2="15" y2="15"/>
+            </svg>
+          </div>
+          <h4>Trading History Demands</h4>
+          <p>Most high street lenders demand 2 to 3 years of accounts, which excludes newer contractors and those who have recently changed their trading structure from umbrella to limited company even if they have years of experience.</p>
+        </div>
+        <div class="mortgage-why-card animate-in">
+          <div class="mortgage-why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+          </div>
+          <h4>IR35 Confusion</h4>
+          <p>Many lenders still do not understand how IR35 status affects contractor income. Some reject applications simply because the applicant is a contractor, regardless of their actual financial position or the strength of their income evidence.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 9 — FAQ (DARK)
+       ============================================================ -->
+  <section class="section-page section-dark" style="padding-top:0;">
+    <div class="container">
+      <span class="eyebrow animate-in" style="color:rgba(255,255,255,0.5);">FREQUENTLY ASKED QUESTIONS</span>
+      <h2 class="section-heading invert animate-in">Common Questions About Contractor Mortgages</h2>
+      <p class="section-subtext invert animate-in">Everything you need to know about getting a mortgage as a contractor. Our specialist team is always available to discuss your individual circumstances in detail.</p>
+
+      <div class="faq-list">
+        <div class="faq-item animate-in">
+          <div class="faq-question">Can I get a mortgage with less than 2 years of accounts?</div>
+          <div class="faq-answer">
+            <p>Yes. Our specialist lenders can work with as little as one year of accounts, and in some cases even less. Your iGroup rate data and compliance passport provide the additional income evidence that lenders need to make a decision with confidence.</p>
+          </div>
+        </div>
+
+        <div class="faq-item animate-in">
+          <div class="faq-question">Do I need to use my salary and dividends as income?</div>
+          <div class="faq-answer">
+            <p>Not necessarily. Some of our specialist lenders will assess your income based on your day rate multiplied by your working weeks, giving a much more accurate picture of your true earning capacity than salary plus dividends alone. This often means you can borrow significantly more.</p>
+          </div>
+        </div>
+
+        <div class="faq-item animate-in">
+          <div class="faq-question">Does IR35 status affect my mortgage application?</div>
+          <div class="faq-answer">
+            <p>It can, but our brokers know exactly which lenders are comfortable with both inside and outside IR35 contractors. We match you with the right lender based on your specific IR35 position to maximise your chances of approval and the amount you can borrow.</p>
+          </div>
+        </div>
+
+        <div class="faq-item animate-in">
+          <div class="faq-question">How much does your mortgage service cost?</div>
+          <div class="faq-answer">
+            <p>The initial consultation and assessment is completely free for iGroup members. Our mortgage brokers are paid by the lender on completion, so there is no upfront cost to you. Some specialist cases may carry a small broker fee, which will always be disclosed upfront before you proceed.</p>
+          </div>
+        </div>
+
+        <div class="faq-item animate-in">
+          <div class="faq-question">Can you help with remortgaging too?</div>
+          <div class="faq-answer">
+            <p>Absolutely. Many contractors find themselves on poor rates because their existing lender does not offer competitive deals to self-employed borrowers. We regularly help members remortgage to better rates, often saving hundreds of pounds per month on their repayments.</p>
+          </div>
+        </div>
+
+        <div class="faq-item animate-in">
+          <div class="faq-question">What about buy-to-let mortgages for contractors?</div>
+          <div class="faq-answer">
+            <p>Yes, we can help with buy-to-let applications as well. Many contractors build property portfolios as part of their long-term wealth strategy. Our brokers have access to specialist buy-to-let lenders who understand contractor income structures and can offer competitive rates.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CTA SECTION (TEAL)
+       ============================================================ -->
+  <section class="section-page section-teal cta-section">
+    <div class="container">
+      <h2 class="animate-in">Your income is legitimate. Your mortgage should be too.</h2>
+      <p class="animate-in" style="font-size:1.1rem;color:rgba(255,255,255,0.7);max-width:560px;margin:0 auto 36px;line-height:1.6;">Stop being treated like a risk. iGroup's specialist mortgage brokers have helped thousands of contractors secure the mortgages they deserve, at rates that reflect their true income. Your free consultation takes less than fifteen minutes.</p>
+      <div class="animate-in">
+        <a href="join.html" class="btn-white">Connect with a Mortgage Specialist &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="page-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <a href="index.html" class="footer-logo">iGroup</a>
+          <p class="footer-tagline">Professional contractor management — intelligence, compliance, and career strategy.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/" target="_blank"><img src="images/social_instagram.svg" alt="Instagram"></a>
+            <a href="https://x.com/" target="_blank"><img src="images/social_twitter.svg" alt="Twitter"></a>
+            <a href="https://www.facebook.com/" target="_blank"><img src="images/social_facebook.svg" alt="Facebook"></a>
+            <a href="https://www.linkedin.com/" target="_blank"><img src="images/social_linkedin.svg" alt="LinkedIn"></a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <div class="footer-links">
+            <a href="about.html">About Us</a><a href="contact.html">Contact</a>
+            <a href="pricing.html">Pricing</a><a href="join.html">Join iGroup</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Services</div>
+          <div class="footer-links">
+            <a href="rate-intelligence.html">Rate Intelligence</a>
+            <a href="compliance-passport.html">Compliance Passport</a>
+            <a href="portal.html">Contractor Portal</a>
+            <a href="company-formation.html">Company Formation</a>
+            <a href="career-intelligence.html">Career Intelligence</a>
+            <a href="insurance.html">Insurance</a>
+            <a href="mortgage-finance.html">Mortgage &amp; Finance</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Resources</div>
+          <div class="footer-links">
+            <a href="insights.html">Insights &amp; Blog</a><a href="insights.html">Market Reports</a>
+            <a href="insights.html">IR35 Guide</a><a href="contact.html">FAQ</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2026 iGroup. All Rights Reserved</span>
+        <span class="footer-copy">Powered by <a href="https://webflow.com/" target="_blank" style="color:rgba(255,255,255,0.5)">Webflow</a></span>
+      </div>
+    </div>
+    <div class="footer-mega">iGROUP</div>
+  </footer>
+
+  <!-- ============================================================
+       SCRIPTS
+       ============================================================ -->
+  <script src="https://cdn.prod.website-files.com/gsap/3.14.2/gsap.min.js"></script>
+  <script src="https://cdn.prod.website-files.com/gsap/3.14.2/ScrollTrigger.min.js"></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+    const nav = document.getElementById('pageNav');
+    ScrollTrigger.create({ start: 'top -80', onUpdate: (self) => {
+      if (self.progress > 0) { nav.classList.remove('on-dark'); nav.classList.add('scrolled'); }
+      else { nav.classList.add('on-dark'); nav.classList.remove('scrolled'); }
+    }});
+    document.getElementById('hamburger').addEventListener('click', function() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    });
+    gsap.utils.toArray('.animate-in').forEach(el => {
+      gsap.from(el, { opacity: 0, y: 40, duration: 0.85, ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' }
+      });
+    });
+
+    /* FAQ Accordion */
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', function() {
+        const item = this.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    /* Smooth scroll for anchor links */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    /* Close mobile menu when clicking a link */
+    document.querySelectorAll('#mobileMenu a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        document.getElementById('mobileMenu').classList.remove('open');
+      });
+    });
+
+    /* Parallax effect on hero background */
+    ScrollTrigger.create({
+      trigger: '.mortgage-hero',
+      start: 'top top',
+      end: 'bottom top',
+      scrub: true,
+      onUpdate: function(self) {
+        const heroSection = document.querySelector('.mortgage-hero');
+        if (heroSection) {
+          heroSection.style.backgroundPositionY = (self.progress * 40) + '%';
+        }
+      }
+    });
+
+    /* Animate pain point cards with stagger */
+    gsap.utils.toArray('.pain-point-card').forEach(function(card, index) {
+      gsap.from(card, {
+        opacity: 0,
+        x: -30,
+        duration: 0.7,
+        delay: index * 0.15,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 90%',
+          toggleActions: 'play none none none'
+        }
+      });
+    });
+
+    /* Animate pension step cards with stagger */
+    gsap.utils.toArray('.pension-step-card').forEach(function(card, index) {
+      gsap.from(card, {
+        opacity: 0,
+        y: 30,
+        duration: 0.7,
+        delay: index * 0.15,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 88%',
+          toggleActions: 'play none none none'
+        }
+      });
+    });
+
+    /* Animate banking cards with stagger */
+    gsap.utils.toArray('.banking-card').forEach(function(card, index) {
+      gsap.from(card, {
+        opacity: 0,
+        y: 30,
+        duration: 0.7,
+        delay: index * 0.15,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 88%',
+          toggleActions: 'play none none none'
+        }
+      });
+    });
+
+    /* Animate mortgage process steps with stagger */
+    gsap.utils.toArray('.mortgage-process-step').forEach(function(step, index) {
+      gsap.from(step, {
+        opacity: 0,
+        y: 30,
+        duration: 0.7,
+        delay: index * 0.12,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: step,
+          start: 'top 88%',
+          toggleActions: 'play none none none'
+        }
+      });
+    });
+
+    /* Animate why cards with stagger */
+    gsap.utils.toArray('.mortgage-why-card').forEach(function(card, index) {
+      gsap.from(card, {
+        opacity: 0,
+        y: 30,
+        duration: 0.7,
+        delay: index * 0.15,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 88%',
+          toggleActions: 'play none none none'
+        }
+      });
+    });
+
+    /* Specialist block icon hover pulse */
+    document.querySelectorAll('.specialist-icon').forEach(function(icon) {
+      icon.closest('.specialist-block').addEventListener('mouseenter', function() {
+        gsap.to(icon, { scale: 1.1, duration: 0.3, ease: 'power2.out' });
+      });
+      icon.closest('.specialist-block').addEventListener('mouseleave', function() {
+        gsap.to(icon, { scale: 1, duration: 0.3, ease: 'power2.out' });
+      });
+    });
+
+    /* Banking card icon hover rotation */
+    document.querySelectorAll('.banking-card').forEach(function(card) {
+      const icon = card.querySelector('.banking-card-icon');
+      if (icon) {
+        card.addEventListener('mouseenter', function() {
+          gsap.to(icon, { scale: 1.1, rotation: 5, duration: 0.3, ease: 'power2.out' });
+        });
+        card.addEventListener('mouseleave', function() {
+          gsap.to(icon, { scale: 1, rotation: 0, duration: 0.3, ease: 'power2.out' });
+        });
+      }
+    });
+
+    /* Pension image parallax */
+    ScrollTrigger.create({
+      trigger: '.pension-image',
+      start: 'top 90%',
+      end: 'bottom 10%',
+      scrub: true,
+      onUpdate: function(self) {
+        const img = document.querySelector('.pension-image');
+        if (img) {
+          img.style.objectPosition = 'center ' + (40 + self.progress * 20) + '%';
+        }
+      }
+    });
+
+    /* Testimonial quote fade-in with scale */
+    ScrollTrigger.create({
+      trigger: '.testimonial-block',
+      start: 'top 85%',
+      once: true,
+      onEnter: function() {
+        gsap.from('.testimonial-avatar', { opacity: 0, scale: 0.8, duration: 0.6, ease: 'back.out(1.5)' });
+        gsap.from('.testimonial-block blockquote', { opacity: 0, y: 20, duration: 0.7, delay: 0.2, ease: 'power2.out' });
+        gsap.from('.testimonial-block cite', { opacity: 0, y: 10, duration: 0.5, delay: 0.4, ease: 'power2.out' });
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Insurance &amp; Protection — iGroup | Corporate-Level Cover, Contractor Pricing</title>
+  <link href="css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/ig2-c49518.webflow.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { font-family: 'Manrope', sans-serif; color: #1A1A2E; -webkit-font-smoothing: antialiased; margin: 0; }
+    .page-navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; transition: background 0.3s ease, box-shadow 0.3s ease; }
+    .page-navbar.scrolled { background: #fff !important; box-shadow: 0 1px 20px rgba(0,0,0,0.08); }
+    .page-navbar .navbar-inner { padding: 0 24px; }
+    .page-navbar .global-container { max-width: 1280px; margin: 0 auto; }
+    .page-navbar .navbar-island { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .page-navbar .navbar-left a { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 22px; color: #fff; letter-spacing: -0.5px; text-decoration: none; }
+    .page-navbar.scrolled .navbar-left a { color: #0D7377; }
+    .page-navbar .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; margin: 0; padding: 0; }
+    .page-navbar .nav-links a { font-family: 'Manrope', sans-serif; font-size: 0.9rem; font-weight: 400; color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.2s; }
+    .page-navbar .nav-links a:hover { color: #fff; }
+    .page-navbar.scrolled .nav-links a { color: #1A1A2E; }
+    .page-navbar.scrolled .nav-links a:hover { color: #0D7377; }
+    .nav-cta { background: #0D7377; color: #fff !important; padding: 10px 22px; border-radius: 100vw; font-weight: 500 !important; font-size: 0.875rem !important; transition: background 0.2s, transform 0.2s !important; }
+    .nav-cta:hover { background: #0a5f63 !important; transform: translateY(-1px); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; color: #fff; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: currentColor; transition: 0.3s; }
+    .page-navbar.scrolled .hamburger { color: #1A1A2E; }
+    .mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; background: #fff; padding: 20px 24px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); z-index: 999; }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a { display: block; padding: 12px 0; font-size: 1rem; color: #1A1A2E; text-decoration: none; border-bottom: 1px solid #f0f0f0; }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: #0D7377; color: #fff; padding: 14px 28px; border-radius: 100vw; font-family: 'Manrope',sans-serif; font-weight: 500; font-size: 0.95rem; text-decoration: none; transition: background 0.2s, transform 0.2s; }
+    .btn-primary:hover { background: #0a5f63; transform: translateY(-2px); }
+    .btn-outline-light { display: inline-flex; align-items: center; gap: 8px; border: 1.5px solid rgba(255,255,255,0.5); color: #fff; padding: 14px 28px; border-radius: 100vw; font-family: 'Manrope',sans-serif; font-weight: 500; font-size: 0.95rem; text-decoration: none; transition: border-color 0.2s, transform 0.2s; background: transparent; }
+    .btn-outline-light:hover { border-color: #fff; transform: translateY(-2px); }
+    .btn-white { display: inline-flex; align-items: center; gap: 8px; background: #fff; color: #1A1A2E; padding: 14px 28px; border-radius: 100vw; font-family: 'Manrope',sans-serif; font-weight: 500; font-size: 0.95rem; text-decoration: none; transition: background 0.2s, transform 0.2s; }
+    .btn-white:hover { background: #f0f0f0; transform: translateY(-2px); }
+    .section-page { padding: 120px 48px; }
+    .section-cream { background: #F5F0E8; }
+    .section-white { background: #fff; }
+    .section-dark { background: #1A1A2E; }
+    .section-teal { background: #0D7377; }
+    .container { max-width: 1280px; margin: 0 auto; }
+    .eyebrow { font-size: 0.72rem; font-weight: 600; color: #0D7377; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 16px; display: block; }
+    .section-heading { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 500; color: #1A1A2E; letter-spacing: -0.02em; line-height: 1.2; margin: 0 0 20px; }
+    .section-heading.invert { color: #fff; }
+    .section-subtext { font-size: 1.15rem; color: #555; line-height: 1.6; max-width: 640px; }
+    .section-subtext.invert { color: rgba(255,255,255,0.7); }
+    .page-footer { background: #1A1A2E; padding: 80px 48px 40px; position: relative; overflow: hidden; }
+    .footer-inner { max-width: 1280px; margin: 0 auto; }
+    .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 60px; }
+    .footer-logo { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 26px; color: #fff; letter-spacing: -0.5px; text-decoration: none; display: block; margin-bottom: 16px; }
+    .footer-tagline { font-size: 0.95rem; color: rgba(255,255,255,0.55); line-height: 1.6; margin-bottom: 24px; }
+    .footer-social { display: flex; gap: 12px; }
+    .footer-social a { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+    .footer-social a:hover { background: rgba(255,255,255,0.15); }
+    .footer-social img { width: 18px; height: 18px; }
+    .footer-col-title { font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.4); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; }
+    .footer-links { display: flex; flex-direction: column; gap: 12px; list-style: none; padding: 0; margin: 0; }
+    .footer-links a { font-size: 0.9rem; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: #fff; }
+    .footer-divider { height: 1px; background: rgba(255,255,255,0.08); margin-bottom: 28px; }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; }
+    .footer-copy { font-size: 0.85rem; color: rgba(255,255,255,0.4); }
+    .footer-mega { position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); font-size: clamp(80px,10vw,160px); font-weight: 800; color: rgba(255,255,255,0.03); white-space: nowrap; letter-spacing: -0.04em; pointer-events: none; font-family: 'Manrope',sans-serif; }
+
+    /* =====================================================
+       HERO SECTION
+       ===================================================== */
+    .insurance-hero {
+      background-image: url('images/hero-engineer-woman.jpg');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      padding-top: 72px;
+    }
+    .insurance-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(26,26,46,0.82);
+      z-index: 1;
+    }
+    .insurance-hero .container {
+      position: relative;
+      z-index: 2;
+    }
+    .insurance-hero .eyebrow {
+      color: rgba(255,255,255,0.7);
+    }
+    .insurance-hero h1 {
+      font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin: 0 0 20px;
+      max-width: 700px;
+    }
+    .insurance-hero p {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.6;
+      max-width: 560px;
+      margin: 0 0 36px;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* =====================================================
+       SECTION 2 — SAVINGS SPLIT
+       ===================================================== */
+    .savings-split {
+      display: grid;
+      grid-template-columns: 55% 45%;
+      gap: 64px;
+      align-items: center;
+    }
+    .savings-stat {
+      font-size: 4rem;
+      font-weight: 700;
+      color: #0D7377;
+      display: block;
+      margin-bottom: 12px;
+      line-height: 1;
+    }
+    .savings-label {
+      font-size: 1.2rem;
+      color: #555;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+    .savings-description {
+      font-size: 1rem;
+      color: #666;
+      line-height: 1.7;
+      max-width: 500px;
+    }
+    .savings-image {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+      display: block;
+    }
+
+    /* =====================================================
+       SECTION 3 — COVER CARDS
+       ===================================================== */
+    .cover-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .cover-card {
+      background: #fff;
+      border: 1px solid #f0f0f0;
+      border-radius: 16px;
+      padding: 32px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+    }
+    .cover-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    }
+    .cover-card-icon {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 20px;
+      color: #0D7377;
+    }
+    .cover-card h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #1A1A2E;
+      margin: 0 0 12px;
+    }
+    .cover-card p {
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.6;
+      margin: 0 0 16px;
+    }
+    .cover-card .cover-price {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #0D7377;
+    }
+
+    /* =====================================================
+       SECTION 4 — COMPARISON TABLE
+       ===================================================== */
+    .comparison-table-wrapper {
+      margin-top: 40px;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .comparison-table th {
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.6);
+      padding: 16px 20px;
+      text-align: left;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+    .comparison-table td {
+      padding: 16px 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.8);
+      font-size: 0.95rem;
+    }
+    .comparison-table .saving {
+      color: #0D7377;
+      font-weight: 600;
+    }
+    .comparison-table .total-row td {
+      background: #0D7377;
+      color: #fff;
+      font-weight: 700;
+      border-bottom: none;
+    }
+    .comparison-table .strikethrough {
+      text-decoration: line-through;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* =====================================================
+       SECTION 5 — PROCESS STEPS
+       ===================================================== */
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 48px;
+    }
+    .process-step {
+      text-align: center;
+      padding: 32px;
+    }
+    .step-number {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #0D7377;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin: 0 auto 20px;
+    }
+    .process-step h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #1A1A2E;
+      margin: 0 0 12px;
+    }
+    .process-step p {
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* =====================================================
+       SECTION 6 — TESTIMONIAL
+       ===================================================== */
+    .testimonial-block {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .testimonial-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 28px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    .testimonial-block blockquote {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #1A1A2E;
+      line-height: 1.7;
+      margin: 0 0 24px;
+      font-style: italic;
+      position: relative;
+      padding: 0 20px;
+    }
+    .testimonial-block blockquote::before {
+      content: '\201C';
+      font-size: 4rem;
+      color: #0D7377;
+      position: absolute;
+      top: -24px;
+      left: -10px;
+      font-family: Georgia, serif;
+      line-height: 1;
+      opacity: 0.3;
+    }
+    .testimonial-block cite {
+      font-size: 0.9rem;
+      font-style: normal;
+      color: #888;
+      font-weight: 500;
+    }
+
+    /* =====================================================
+       SECTION 7 — FAQ
+       ===================================================== */
+    .faq-list {
+      max-width: 800px;
+      margin: 48px auto 0;
+    }
+    .faq-item {
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 1.1rem;
+      color: #fff;
+      user-select: none;
+    }
+    .faq-question::after {
+      content: '+';
+      font-size: 1.5rem;
+      color: #0D7377;
+      transition: transform 0.3s;
+      flex-shrink: 0;
+      margin-left: 16px;
+    }
+    .faq-item.open .faq-question::after {
+      content: '\2212';
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 200px;
+    }
+    .faq-answer p {
+      padding-bottom: 20px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* =====================================================
+       CTA SECTION
+       ===================================================== */
+    .cta-section {
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 500;
+      color: #fff;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin: 0 0 32px;
+    }
+
+    /* =====================================================
+       RESPONSIVE — TABLET
+       ===================================================== */
+    @media (max-width: 991px) {
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .section-page { padding: 80px 32px; }
+      .savings-split { grid-template-columns: 1fr; gap: 40px; }
+      .cover-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+      .process-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+      .process-step:last-child {
+        grid-column: 1 / -1;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+      .comparison-table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .comparison-table { min-width: 600px; }
+      .insurance-hero h1 { font-size: clamp(2rem, 4vw, 2.8rem); }
+    }
+
+    /* =====================================================
+       RESPONSIVE — MOBILE
+       ===================================================== */
+    @media (max-width: 767px) {
+      .page-navbar .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .footer-top { grid-template-columns: 1fr; }
+      .section-page { padding: 60px 20px; }
+      .savings-split { grid-template-columns: 1fr; gap: 32px; }
+      .savings-stat { font-size: 3rem; }
+      .cover-grid { grid-template-columns: 1fr; gap: 16px; }
+      .process-grid { grid-template-columns: 1fr; gap: 20px; }
+      .process-step:last-child { grid-column: auto; }
+      .hero-buttons { flex-direction: column; align-items: flex-start; }
+      .insurance-hero { min-height: 70vh; }
+      .insurance-hero h1 { font-size: clamp(1.6rem, 5vw, 2.2rem); }
+      .insurance-hero p { font-size: 1rem; }
+      .testimonial-block blockquote { font-size: 1.05rem; padding: 0; }
+      .testimonial-block blockquote::before { display: none; }
+      .faq-question { font-size: 1rem; }
+      .comparison-table th { font-size: 0.7rem; padding: 12px 14px; }
+      .comparison-table td { font-size: 0.85rem; padding: 12px 14px; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+    }
+
+    /* =====================================================
+       RESPONSIVE — SMALL MOBILE
+       ===================================================== */
+    @media (max-width: 479px) {
+      .section-page { padding: 48px 16px; }
+      .insurance-hero { min-height: 65vh; padding-left: 16px; padding-right: 16px; }
+      .insurance-hero h1 { font-size: 1.6rem; }
+      .savings-stat { font-size: 2.5rem; }
+      .cover-card { padding: 24px; }
+      .process-step { padding: 20px; }
+      .cta-section h2 { font-size: 1.5rem; }
+    }
+
+    /* =====================================================
+       ADDITIONAL UTILITY STYLES
+       ===================================================== */
+    .insurance-benefits-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin-top: 48px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.05);
+    }
+    .benefit-bar-item {
+      padding: 28px 24px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .benefit-bar-item:last-child {
+      border-right: none;
+    }
+    .benefit-bar-number {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #0D7377;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .benefit-bar-label {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.4;
+    }
+
+    @media (max-width: 767px) {
+      .insurance-benefits-bar {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .benefit-bar-item {
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+      }
+      .benefit-bar-item:nth-child(2) { border-right: none; }
+      .benefit-bar-item:nth-child(3),
+      .benefit-bar-item:nth-child(4) { border-bottom: none; }
+    }
+
+    @media (max-width: 479px) {
+      .insurance-benefits-bar {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* =====================================================
+       TRUST LOGOS / PARTNERS BAR
+       ===================================================== */
+    .trust-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      padding: 48px 0;
+      flex-wrap: wrap;
+    }
+    .trust-bar-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .trust-bar-icon {
+      width: 48px;
+      height: 48px;
+      color: #0D7377;
+      opacity: 0.6;
+    }
+    .trust-bar-text {
+      font-size: 0.78rem;
+      color: #888;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* =====================================================
+       ANIMATED COUNTER STYLES
+       ===================================================== */
+    .stat-highlight {
+      display: inline-block;
+      position: relative;
+    }
+    .stat-highlight::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: rgba(13,115,119,0.15);
+      border-radius: 4px;
+      z-index: -1;
+    }
+
+    /* =====================================================
+       SECTION DIVIDER DECORATION
+       ===================================================== */
+    .section-wave {
+      position: relative;
+    }
+    .section-wave::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: inherit;
+    }
+
+    /* =====================================================
+       CARD BADGE STYLES
+       ===================================================== */
+    .cover-card-badge {
+      display: inline-block;
+      background: rgba(13,115,119,0.08);
+      color: #0D7377;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 100vw;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 16px;
+    }
+
+    /* =====================================================
+       TABLE RESPONSIVE ENHANCEMENTS
+       ===================================================== */
+    .table-note {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.4);
+      margin-top: 16px;
+      font-style: italic;
+    }
+
+    /* =====================================================
+       ADDITIONAL INSURANCE-SPECIFIC STYLES
+       ===================================================== */
+    .insurance-info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+      margin-top: 40px;
+    }
+    .insurance-info-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 28px;
+    }
+    .insurance-info-card h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      margin: 0 0 10px;
+    }
+    .insurance-info-card p {
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    @media (max-width: 767px) {
+      .insurance-info-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+
+    /* =====================================================
+       QUOTE FORM TEASER STYLES
+       ===================================================== */
+    .quote-teaser {
+      background: rgba(13,115,119,0.06);
+      border: 1px solid rgba(13,115,119,0.12);
+      border-radius: 16px;
+      padding: 32px;
+      margin-top: 48px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .quote-teaser-icon {
+      width: 64px;
+      height: 64px;
+      flex-shrink: 0;
+      color: #0D7377;
+    }
+    .quote-teaser h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #1A1A2E;
+      margin: 0 0 8px;
+    }
+    .quote-teaser p {
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.6;
+      margin: 0 0 16px;
+    }
+
+    @media (max-width: 767px) {
+      .quote-teaser {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav class="page-navbar on-dark" id="pageNav">
+    <div class="navbar-inner"><div class="global-container"><div class="navbar-island">
+      <div class="navbar-left"><a href="index.html">iGroup</a></div>
+      <ul class="nav-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="insights.html">Insights</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="join.html" class="nav-cta">Join iGroup &rarr;</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div></div></div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a>
+    <a href="insights.html">Insights</a><a href="pricing.html">Pricing</a><a href="contact.html">Contact</a>
+    <a href="join.html">Join iGroup &rarr;</a>
+  </div>
+
+  <!-- ============================================================
+       SECTION 1 — HERO
+       ============================================================ -->
+  <section class="insurance-hero">
+    <div class="container">
+      <span class="eyebrow animate-in">INSURANCE &amp; PROTECTION</span>
+      <h1 class="animate-in">Corporate-Level Cover.<br>Contractor-Level Pricing.</h1>
+      <p class="animate-in">Group buying power means you pay less for more. Access premium insurance through iGroup's collective agreements.</p>
+      <div class="hero-buttons animate-in">
+        <a href="#group-rates" class="btn-primary">See Group Rates &darr;</a>
+        <a href="join.html" class="btn-outline-light">Get a Quote &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 2 — SAVINGS SPLIT (CREAM)
+       ============================================================ -->
+  <section class="section-page section-cream" id="group-rates">
+    <div class="container">
+      <div class="savings-split">
+        <div class="animate-in">
+          <span class="savings-stat">35%</span>
+          <p class="savings-label">average savings on insurance premiums vs individual policies</p>
+          <p class="savings-description">By pooling hundreds of contractors into group policies, iGroup negotiates rates that individual contractors simply cannot access. The savings are real, the cover is superior.</p>
+          <p class="savings-description" style="margin-top:16px;">Our insurance partners know they are dealing with vetted professionals operating through a structured collective. This lower risk profile directly translates into lower premiums for every iGroup member, without compromising on the breadth or quality of cover provided.</p>
+        </div>
+        <div class="animate-in">
+          <img src="images/sector-pharma.jpg" alt="Professional contractor reviewing insurance documents" class="savings-image">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 3 — SIX TYPES OF COVER (WHITE)
+       ============================================================ -->
+  <section class="section-page section-white">
+    <div class="container">
+      <span class="eyebrow animate-in">COMPREHENSIVE COVER</span>
+      <h2 class="section-heading animate-in">Six Types of Cover. One Group Rate.</h2>
+      <p class="section-subtext animate-in">Every policy is negotiated at scale, so you benefit from corporate-grade terms at a fraction of the cost. Select the cover you need — or bundle them all for maximum protection and maximum savings.</p>
+
+      <div class="cover-grid">
+
+        <!-- Card 1: Professional Indemnity -->
+        <div class="cover-card animate-in">
+          <svg class="cover-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          <h4>Professional Indemnity</h4>
+          <p>Required by most clients. We negotiate bulk terms that protect you fully against claims of professional negligence, errors, and omissions in your work.</p>
+          <span class="cover-price">From &pound;12/month</span>
+        </div>
+
+        <!-- Card 2: Public Liability -->
+        <div class="cover-card animate-in">
+          <svg class="cover-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          <h4>Public Liability</h4>
+          <p>On-site work covered. Group policy, individual protection. Essential for any contractor who visits client premises or interacts with the public as part of their role.</p>
+          <span class="cover-price">From &pound;8/month</span>
+        </div>
+
+        <!-- Card 3: Income Protection -->
+        <div class="cover-card animate-in">
+          <svg class="cover-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+          <h4>Income Protection</h4>
+          <p>If you can't work, your income doesn't stop. Covers up to 70% of your income during illness or injury, giving you time to recover without financial stress.</p>
+          <span class="cover-price">From &pound;35/month</span>
+        </div>
+
+        <!-- Card 4: Cyber Insurance -->
+        <div class="cover-card animate-in">
+          <svg class="cover-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            <circle cx="12" cy="16" r="1"/>
+          </svg>
+          <h4>Cyber Insurance</h4>
+          <p>Increasingly required for IT contractors. Data breaches, ransomware, liability. Comprehensive cyber cover protects you and your clients from digital threats.</p>
+          <span class="cover-price">From &pound;18/month</span>
+        </div>
+
+        <!-- Card 5: Private Health -->
+        <div class="cover-card animate-in">
+          <svg class="cover-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="16"/>
+            <line x1="8" y1="12" x2="16" y2="12"/>
+          </svg>
+          <h4>Private Health</h4>
+          <p>Corporate-grade private medical insurance. No waiting lists, full specialist access. Stay healthy and productive with rapid diagnostics and treatment.</p>
+          <span class="cover-price">From &pound;55/month</span>
+        </div>
+
+        <!-- Card 6: Life & Critical Illness -->
+        <div class="cover-card animate-in">
+          <svg class="cover-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M23 12a11.05 11.05 0 0 0-22 0zm0 0a11.05 11.05 0 0 1-22 0"/>
+            <line x1="12" y1="2" x2="12" y2="22"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+          <h4>Life &amp; Critical Illness</h4>
+          <p>Protect your family at group rates. Peace of mind for pennies per day. Comprehensive coverage for life events and critical illness diagnoses.</p>
+          <span class="cover-price">From &pound;15/month</span>
+        </div>
+
+      </div>
+
+      <!-- Quote Teaser -->
+      <div class="quote-teaser animate-in">
+        <svg class="quote-teaser-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+          <line x1="12" y1="17" x2="12.01" y2="17"/>
+        </svg>
+        <div>
+          <h4>Not Sure What Cover You Need?</h4>
+          <p>Our insurance specialists will review your current situation, sector, and client requirements to recommend exactly the right combination of policies. No obligation, no pressure.</p>
+          <a href="contact.html" class="btn-primary" style="padding:10px 22px;font-size:0.85rem;">Speak to an Advisor &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 4 — COMPARISON TABLE (DARK)
+       ============================================================ -->
+  <section class="section-page section-dark">
+    <div class="container">
+      <span class="eyebrow animate-in" style="color:rgba(255,255,255,0.5);">PRICE COMPARISON</span>
+      <h2 class="section-heading invert animate-in">Individual vs iGroup Group Rates</h2>
+      <p class="section-subtext invert animate-in">See exactly how much you save by accessing insurance through iGroup's group buying power. These are real rates from our current group policies.</p>
+
+      <div class="comparison-table-wrapper animate-in">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Coverage Type</th>
+              <th>Individual Market</th>
+              <th>iGroup Rate</th>
+              <th>Annual Saving</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Professional Indemnity</td>
+              <td class="strikethrough">&pound;28/month</td>
+              <td>&pound;12/month</td>
+              <td class="saving">&pound;192/year</td>
+            </tr>
+            <tr>
+              <td>Public Liability</td>
+              <td class="strikethrough">&pound;19/month</td>
+              <td>&pound;8/month</td>
+              <td class="saving">&pound;132/year</td>
+            </tr>
+            <tr>
+              <td>Income Protection</td>
+              <td class="strikethrough">&pound;68/month</td>
+              <td>&pound;35/month</td>
+              <td class="saving">&pound;396/year</td>
+            </tr>
+            <tr>
+              <td>Cyber Insurance</td>
+              <td class="strikethrough">&pound;42/month</td>
+              <td>&pound;18/month</td>
+              <td class="saving">&pound;288/year</td>
+            </tr>
+            <tr>
+              <td>Private Health</td>
+              <td class="strikethrough">&pound;95/month</td>
+              <td>&pound;55/month</td>
+              <td class="saving">&pound;480/year</td>
+            </tr>
+            <tr>
+              <td>Life &amp; Critical Illness</td>
+              <td class="strikethrough">&pound;34/month</td>
+              <td>&pound;15/month</td>
+              <td class="saving">&pound;228/year</td>
+            </tr>
+            <tr class="total-row">
+              <td>Total Annual Saving</td>
+              <td></td>
+              <td></td>
+              <td>&pound;1,716/year</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note animate-in">Rates shown are indicative and based on standard contractor profiles. Your individual quote may vary based on sector, experience, and coverage level required.</p>
+
+      <!-- Benefits Bar -->
+      <div class="insurance-benefits-bar animate-in">
+        <div class="benefit-bar-item">
+          <span class="benefit-bar-number">1,400+</span>
+          <span class="benefit-bar-label">Contractors covered through our group policies</span>
+        </div>
+        <div class="benefit-bar-item">
+          <span class="benefit-bar-number">98%</span>
+          <span class="benefit-bar-label">Claims processed within 48 hours</span>
+        </div>
+        <div class="benefit-bar-item">
+          <span class="benefit-bar-number">6</span>
+          <span class="benefit-bar-label">Insurance types available at group rates</span>
+        </div>
+        <div class="benefit-bar-item">
+          <span class="benefit-bar-number">A+</span>
+          <span class="benefit-bar-label">Rated insurers and underwriters only</span>
+        </div>
+      </div>
+
+      <!-- Additional Info Cards -->
+      <div class="insurance-info-grid animate-in" style="margin-top:48px;">
+        <div class="insurance-info-card">
+          <h4>Tailored to Contractors</h4>
+          <p>Unlike generic small business insurance, our policies are specifically designed for the unique risks and requirements that professional contractors face. From IR35 disputes to project overruns, you are covered for the scenarios that actually matter in your working life.</p>
+        </div>
+        <div class="insurance-info-card">
+          <h4>No Lock-In Periods</h4>
+          <p>Your circumstances change, and your insurance should adapt with you. Our group policies offer flexible terms with monthly rolling options, so you are never stuck paying for cover you no longer need. Scale up or down as your contracts evolve.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 5 — PROCESS STEPS (CREAM)
+       ============================================================ -->
+  <section class="section-page section-cream">
+    <div class="container">
+      <span class="eyebrow animate-in">HOW IT WORKS</span>
+      <h2 class="section-heading animate-in">Simple to Set Up. Even Simpler to Claim.</h2>
+      <p class="section-subtext animate-in">Getting insured through iGroup takes minutes, not hours. Our team handles the complexity so you can focus on what you do best.</p>
+
+      <div class="process-grid">
+        <div class="process-step animate-in">
+          <div class="step-number">1</div>
+          <h4>Choose Your Cover</h4>
+          <p>Select the policies you need from our full range. Mix and match to build your perfect package. Our advisors can help you identify exactly what cover your contracts require, ensuring you are never under-insured or paying for unnecessary extras.</p>
+        </div>
+        <div class="process-step animate-in">
+          <div class="step-number">2</div>
+          <h4>We Handle the Admin</h4>
+          <p>Our team manages the paperwork, renewals, and communications with insurers. You never have to chase. From initial setup through to annual renewals, every administrative burden is lifted from your shoulders and handled by our dedicated insurance team.</p>
+        </div>
+        <div class="process-step animate-in">
+          <div class="step-number">3</div>
+          <h4>Pay Less, Worry Less</h4>
+          <p>Enjoy superior cover at group rates. We remind you before every renewal so you are always protected. No nasty surprises, no auto-renewal traps. Just transparent, affordable insurance that works for independent professionals.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 6 — TESTIMONIAL (WHITE)
+       ============================================================ -->
+  <section class="section-page section-white">
+    <div class="container">
+      <div class="testimonial-block animate-in">
+        <img src="images/sector-energy.jpg" alt="Rachel Morrison, IT Consultant" class="testimonial-avatar">
+        <blockquote>I was paying nearly &pound;200 a month for professional indemnity and public liability individually. Through iGroup, I'm paying &pound;85 for better cover. The savings paid for my membership in the first month.</blockquote>
+        <cite>Rachel Morrison, IT Consultant, Edinburgh</cite>
+      </div>
+
+      <!-- Trust Bar -->
+      <div class="trust-bar animate-in" style="margin-top:64px;">
+        <div class="trust-bar-item">
+          <svg class="trust-bar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <polyline points="9 12 11 14 15 10"/>
+          </svg>
+          <span class="trust-bar-text">FCA Regulated</span>
+        </div>
+        <div class="trust-bar-item">
+          <svg class="trust-bar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="16 12 12 8 8 12"/>
+            <line x1="12" y1="16" x2="12" y2="8"/>
+          </svg>
+          <span class="trust-bar-text">A+ Rated Insurers</span>
+        </div>
+        <div class="trust-bar-item">
+          <svg class="trust-bar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+            <line x1="8" y1="21" x2="16" y2="21"/>
+            <line x1="12" y1="17" x2="12" y2="21"/>
+          </svg>
+          <span class="trust-bar-text">Online Portal Access</span>
+        </div>
+        <div class="trust-bar-item">
+          <svg class="trust-bar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+          <span class="trust-bar-text">Claims Support Team</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 7 — FAQ (DARK)
+       ============================================================ -->
+  <section class="section-page section-dark">
+    <div class="container">
+      <span class="eyebrow animate-in" style="color:rgba(255,255,255,0.5);">FREQUENTLY ASKED QUESTIONS</span>
+      <h2 class="section-heading invert animate-in">Common Questions About Insurance</h2>
+      <p class="section-subtext invert animate-in">Everything you need to know about accessing group insurance through iGroup. If your question is not answered here, our team is always happy to help.</p>
+
+      <div class="faq-list">
+        <div class="faq-item animate-in">
+          <div class="faq-question">Do I need all six types of cover?</div>
+          <div class="faq-answer">
+            <p>No. Most contractors start with Professional Indemnity and Public Liability, then add cover as their needs grow. Our advisors can help you identify exactly what is required based on your sector and client contracts. There is no pressure to take more than you need.</p>
+          </div>
+        </div>
+
+        <div class="faq-item animate-in">
+          <div class="faq-question">Can I keep my existing policies?</div>
+          <div class="faq-answer">
+            <p>Yes. We can review your current cover and only replace policies where we can offer better terms. Many contractors find that switching even one or two policies to our group rates delivers significant annual savings while maintaining or improving their level of protection.</p>
+          </div>
+        </div>
+
+        <div class="faq-item animate-in">
+          <div class="faq-question">How do claims work?</div>
+          <div class="faq-answer">
+            <p>You contact our team directly. We manage the entire claims process with the insurer on your behalf. From initial notification through to settlement, our dedicated claims team handles all communications and paperwork so you can focus on your work.</p>
+          </div>
+        </div>
+
+        <div class="faq-item animate-in">
+          <div class="faq-question">Are pre-existing conditions covered?</div>
+          <div class="faq-answer">
+            <p>For health insurance, pre-existing conditions are reviewed on a case-by-case basis. We work to find the best terms available. Our group policies often provide more favourable terms for pre-existing conditions than individual policies on the open market.</p>
+          </div>
+        </div>
+
+        <div class="faq-item animate-in">
+          <div class="faq-question">Can I add my family?</div>
+          <div class="faq-answer">
+            <p>Yes. Private health and life insurance can be extended to cover partners and dependents at group rates. Family cover through iGroup is significantly more affordable than purchasing individual family policies, and our team can help you find the right level of cover for everyone.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CTA SECTION (TEAL)
+       ============================================================ -->
+  <section class="section-page section-teal cta-section">
+    <div class="container">
+      <h2 class="animate-in">Better cover. Lower cost. Zero hassle.</h2>
+      <p class="animate-in" style="font-size:1.1rem;color:rgba(255,255,255,0.7);max-width:560px;margin:0 auto 36px;line-height:1.6;">Join over 1,400 contractors already saving on insurance through iGroup's collective buying power. Your personalised quote takes less than two minutes.</p>
+      <div class="animate-in">
+        <a href="join.html" class="btn-white">Get Your Group Rate Quote &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="page-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <a href="index.html" class="footer-logo">iGroup</a>
+          <p class="footer-tagline">Professional contractor management — intelligence, compliance, and career strategy.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/" target="_blank"><img src="images/social_instagram.svg" alt="Instagram"></a>
+            <a href="https://x.com/" target="_blank"><img src="images/social_twitter.svg" alt="Twitter"></a>
+            <a href="https://www.facebook.com/" target="_blank"><img src="images/social_facebook.svg" alt="Facebook"></a>
+            <a href="https://www.linkedin.com/" target="_blank"><img src="images/social_linkedin.svg" alt="LinkedIn"></a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <div class="footer-links">
+            <a href="about.html">About Us</a><a href="contact.html">Contact</a>
+            <a href="pricing.html">Pricing</a><a href="join.html">Join iGroup</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Services</div>
+          <div class="footer-links">
+            <a href="rate-intelligence.html">Rate Intelligence</a>
+            <a href="compliance-passport.html">Compliance Passport</a>
+            <a href="portal.html">Contractor Portal</a>
+            <a href="company-formation.html">Company Formation</a>
+            <a href="career-intelligence.html">Career Intelligence</a>
+            <a href="insurance.html">Insurance</a>
+            <a href="mortgage-finance.html">Mortgage &amp; Finance</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Resources</div>
+          <div class="footer-links">
+            <a href="insights.html">Insights &amp; Blog</a><a href="insights.html">Market Reports</a>
+            <a href="insights.html">IR35 Guide</a><a href="contact.html">FAQ</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2026 iGroup. All Rights Reserved</span>
+        <span class="footer-copy">Powered by <a href="https://webflow.com/" target="_blank" style="color:rgba(255,255,255,0.5)">Webflow</a></span>
+      </div>
+    </div>
+    <div class="footer-mega">iGROUP</div>
+  </footer>
+
+  <!-- ============================================================
+       SCRIPTS
+       ============================================================ -->
+  <script src="https://cdn.prod.website-files.com/gsap/3.14.2/gsap.min.js"></script>
+  <script src="https://cdn.prod.website-files.com/gsap/3.14.2/ScrollTrigger.min.js"></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+    const nav = document.getElementById('pageNav');
+    ScrollTrigger.create({ start: 'top -80', onUpdate: (self) => {
+      if (self.progress > 0) { nav.classList.remove('on-dark'); nav.classList.add('scrolled'); }
+      else { nav.classList.add('on-dark'); nav.classList.remove('scrolled'); }
+    }});
+    document.getElementById('hamburger').addEventListener('click', function() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    });
+    gsap.utils.toArray('.animate-in').forEach(el => {
+      gsap.from(el, { opacity: 0, y: 40, duration: 0.85, ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' }
+      });
+    });
+
+    /* FAQ Accordion */
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', function() {
+        const item = this.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    /* Smooth scroll for anchor links */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    /* Close mobile menu when clicking a link */
+    document.querySelectorAll('#mobileMenu a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        document.getElementById('mobileMenu').classList.remove('open');
+      });
+    });
+
+    /* Animate stats on scroll (savings stat) */
+    ScrollTrigger.create({
+      trigger: '.savings-stat',
+      start: 'top 85%',
+      once: true,
+      onEnter: function() {
+        const statEl = document.querySelector('.savings-stat');
+        if (statEl) {
+          let current = 0;
+          const target = 35;
+          const duration = 1200;
+          const startTime = performance.now();
+          function updateCounter(timestamp) {
+            const elapsed = timestamp - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            current = Math.round(eased * target);
+            statEl.textContent = current + '%';
+            if (progress < 1) {
+              requestAnimationFrame(updateCounter);
+            }
+          }
+          requestAnimationFrame(updateCounter);
+        }
+      }
+    });
+
+    /* Animate benefits bar numbers */
+    ScrollTrigger.create({
+      trigger: '.insurance-benefits-bar',
+      start: 'top 85%',
+      once: true,
+      onEnter: function() {
+        const numbers = document.querySelectorAll('.benefit-bar-number');
+        numbers.forEach(function(el) {
+          const finalText = el.textContent.trim();
+          const numericMatch = finalText.match(/[\d,]+/);
+          if (numericMatch) {
+            const targetNum = parseInt(numericMatch[0].replace(/,/g, ''));
+            const suffix = finalText.replace(numericMatch[0], '');
+            const prefix = finalText.indexOf(numericMatch[0]) > 0 ? finalText.substring(0, finalText.indexOf(numericMatch[0])) : '';
+            let current = 0;
+            const duration = 1400;
+            const startTime = performance.now();
+            function animateNumber(timestamp) {
+              const elapsed = timestamp - startTime;
+              const progress = Math.min(elapsed / duration, 1);
+              const eased = 1 - Math.pow(1 - progress, 3);
+              current = Math.round(eased * targetNum);
+              if (targetNum >= 1000) {
+                el.textContent = prefix + current.toLocaleString() + suffix;
+              } else {
+                el.textContent = prefix + current + suffix;
+              }
+              if (progress < 1) {
+                requestAnimationFrame(animateNumber);
+              } else {
+                el.textContent = finalText;
+              }
+            }
+            requestAnimationFrame(animateNumber);
+          }
+        });
+      }
+    });
+
+    /* Parallax effect on hero background */
+    ScrollTrigger.create({
+      trigger: '.insurance-hero',
+      start: 'top top',
+      end: 'bottom top',
+      scrub: true,
+      onUpdate: function(self) {
+        const heroSection = document.querySelector('.insurance-hero');
+        if (heroSection) {
+          heroSection.style.backgroundPositionY = (self.progress * 40) + '%';
+        }
+      }
+    });
+
+    /* Card hover sound-like interaction (visual pulse) */
+    document.querySelectorAll('.cover-card').forEach(function(card) {
+      card.addEventListener('mouseenter', function() {
+        const icon = this.querySelector('.cover-card-icon');
+        if (icon) {
+          icon.style.transition = 'transform 0.3s ease';
+          icon.style.transform = 'scale(1.1)';
+        }
+      });
+      card.addEventListener('mouseleave', function() {
+        const icon = this.querySelector('.cover-card-icon');
+        if (icon) {
+          icon.style.transform = 'scale(1)';
+        }
+      });
+    });
+
+    /* Intersection observer for staggered card animations */
+    if ('IntersectionObserver' in window) {
+      const cardObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry, index) {
+          if (entry.isIntersecting) {
+            entry.target.style.transitionDelay = (index * 0.08) + 's';
+            entry.target.classList.add('card-visible');
+            cardObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.cover-card').forEach(function(card) {
+        cardObserver.observe(card);
+      });
+    }
+
+    /* Dynamic year update in footer */
+    (function() {
+      var yearSpans = document.querySelectorAll('.footer-copy');
+      yearSpans.forEach(function(span) {
+        if (span.textContent.indexOf('2026') !== -1) {
+          span.innerHTML = span.innerHTML.replace('2026', new Date().getFullYear());
+        }
+      });
+    })();
+
+    /* Scroll progress indicator */
+    (function() {
+      var progressBar = document.createElement('div');
+      progressBar.style.cssText = 'position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#0D7377,#0a9fa4);z-index:9999;transition:width 0.1s linear;width:0%;pointer-events:none;';
+      document.body.appendChild(progressBar);
+      ScrollTrigger.create({
+        start: 'top top',
+        end: 'bottom bottom',
+        onUpdate: function(self) {
+          progressBar.style.width = (self.progress * 100) + '%';
+        }
+      });
+    })();
+
+    /* Keyboard navigation for FAQ */
+    document.querySelectorAll('.faq-question').forEach(function(question) {
+      question.setAttribute('tabindex', '0');
+      question.setAttribute('role', 'button');
+      question.setAttribute('aria-expanded', 'false');
+      question.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+
+    /* Update aria-expanded on FAQ toggle */
+    var faqObserverConfig = { attributes: true, attributeFilter: ['class'] };
+    document.querySelectorAll('.faq-item').forEach(function(item) {
+      var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          var question = mutation.target.querySelector('.faq-question');
+          if (question) {
+            question.setAttribute('aria-expanded', mutation.target.classList.contains('open'));
+          }
+        });
+      });
+      observer.observe(item, faqObserverConfig);
+    });
+  </script>
+
+</body>
+</html>

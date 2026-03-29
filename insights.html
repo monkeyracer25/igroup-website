@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Insights &amp; Intelligence &mdash; iGroup | Market Intelligence Delivered</title>
+  <meta name="description" content="Rate trends, regulatory updates, sector analysis, and career advice from the team that lives and breathes contractor intelligence.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/ig2-c49518.webflow.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <style>
+    /* =========================================
+       BASE STYLES
+       ========================================= */
+    *, *::before, *::after { box-sizing: border-box; }
+    body { font-family: 'Manrope', sans-serif; color: #1A1A2E; -webkit-font-smoothing: antialiased; margin: 0; }
+
+    /* =========================================
+       NAVBAR
+       ========================================= */
+    .page-navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; transition: background 0.3s ease, box-shadow 0.3s ease; }
+    .page-navbar.scrolled { background: #fff !important; box-shadow: 0 1px 20px rgba(0,0,0,0.08); }
+    .page-navbar .navbar-inner { padding: 0 24px; }
+    .page-navbar .global-container { max-width: 1280px; margin: 0 auto; }
+    .page-navbar .navbar-island { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .page-navbar .navbar-left a { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 22px; color: #fff; letter-spacing: -0.5px; text-decoration: none; }
+    .page-navbar.scrolled .navbar-left a { color: #0D7377; }
+    .page-navbar .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; margin: 0; padding: 0; }
+    .page-navbar .nav-links a { font-family: 'Manrope', sans-serif; font-size: 0.9rem; font-weight: 400; color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.2s; }
+    .page-navbar .nav-links a:hover { color: #fff; }
+    .page-navbar.scrolled .nav-links a { color: #1A1A2E; }
+    .page-navbar.scrolled .nav-links a:hover { color: #0D7377; }
+    .nav-cta { background: #0D7377; color: #fff !important; padding: 10px 22px; border-radius: 100vw; font-weight: 500 !important; font-size: 0.875rem !important; transition: background 0.2s, transform 0.2s !important; }
+    .nav-cta:hover { background: #0a5f63 !important; transform: translateY(-1px); }
+
+    /* =========================================
+       HAMBURGER & MOBILE MENU
+       ========================================= */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; color: #fff; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: currentColor; transition: 0.3s; }
+    .page-navbar.scrolled .hamburger { color: #1A1A2E; }
+    .mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; background: #fff; padding: 20px 24px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); z-index: 999; }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a { display: block; padding: 12px 0; font-size: 1rem; color: #1A1A2E; text-decoration: none; border-bottom: 1px solid #f0f0f0; }
+    .mobile-menu a:last-child { border-bottom: none; }
+
+    /* =========================================
+       BUTTONS
+       ========================================= */
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: #0D7377; color: #fff; padding: 14px 28px; border-radius: 100vw; font-family: 'Manrope',sans-serif; font-weight: 500; font-size: 0.95rem; text-decoration: none; transition: background 0.2s, transform 0.2s; }
+    .btn-primary:hover { background: #0a5f63; transform: translateY(-2px); }
+    .btn-outline-light { display: inline-flex; align-items: center; gap: 8px; border: 1.5px solid rgba(255,255,255,0.5); color: #fff; padding: 14px 28px; border-radius: 100vw; font-family: 'Manrope',sans-serif; font-weight: 500; font-size: 0.95rem; text-decoration: none; transition: border-color 0.2s, transform 0.2s; background: transparent; }
+    .btn-outline-light:hover { border-color: #fff; transform: translateY(-2px); }
+    .btn-white { display: inline-flex; align-items: center; gap: 8px; background: #fff; color: #1A1A2E; padding: 14px 28px; border-radius: 100vw; font-family: 'Manrope',sans-serif; font-weight: 500; font-size: 0.95rem; text-decoration: none; transition: background 0.2s, transform 0.2s; }
+    .btn-white:hover { background: #f0f0f0; transform: translateY(-2px); }
+
+    /* =========================================
+       SECTIONS & LAYOUT
+       ========================================= */
+    .section-page { padding: 120px 48px; }
+    .section-cream { background: #F5F0E8; }
+    .section-white { background: #fff; }
+    .section-dark { background: #1A1A2E; }
+    .section-teal { background: #0D7377; }
+    .container { max-width: 1280px; margin: 0 auto; }
+
+    /* =========================================
+       TYPOGRAPHY HELPERS
+       ========================================= */
+    .eyebrow { font-size: 0.72rem; font-weight: 600; color: #0D7377; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 16px; display: block; }
+    .section-heading { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 500; color: #1A1A2E; letter-spacing: -0.02em; line-height: 1.2; margin: 0 0 20px; }
+    .section-heading.invert { color: #fff; }
+    .section-subtext { font-size: 1.15rem; color: #555; line-height: 1.6; max-width: 640px; }
+    .section-subtext.invert { color: rgba(255,255,255,0.7); }
+
+    /* =========================================
+       HERO — INSIGHTS
+       ========================================= */
+    .hero-insights {
+      background:
+        repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(255,255,255,0.04) 59px, rgba(255,255,255,0.04) 60px),
+        repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(255,255,255,0.04) 59px, rgba(255,255,255,0.04) 60px),
+        radial-gradient(ellipse at 30% 50%, rgba(13,115,119,0.15) 0%, transparent 60%),
+        linear-gradient(135deg, #1A1A2E 0%, #0f0f22 100%);
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      padding-top: 72px;
+      text-align: center;
+    }
+    .hero-insights .container {
+      width: 100%;
+    }
+
+    /* =========================================
+       FEATURED ARTICLE
+       ========================================= */
+    .featured-article {
+      display: flex;
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+    .featured-img {
+      width: 40%;
+      object-fit: cover;
+    }
+    .featured-content {
+      width: 60%;
+      padding: 48px;
+    }
+
+    /* =========================================
+       BADGES
+       ========================================= */
+    .badge {
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 100vw;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .badge-teal {
+      background: #0D7377;
+      color: #fff;
+    }
+    .badge-grey {
+      background: #e8e8e8;
+      color: #555;
+    }
+
+    /* =========================================
+       ARTICLE META
+       ========================================= */
+    .article-meta {
+      font-size: 0.85rem;
+      color: #888;
+      margin-top: 16px;
+    }
+
+    /* =========================================
+       FILTER BAR
+       ========================================= */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 40px;
+    }
+    .filter-btn {
+      display: inline-flex;
+      padding: 8px 20px;
+      border-radius: 100vw;
+      border: 1.5px solid #0D7377;
+      background: #fff;
+      color: #0D7377;
+      cursor: pointer;
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover {
+      background: rgba(13,115,119,0.08);
+    }
+    .filter-btn.active {
+      background: #0D7377;
+      color: #fff;
+    }
+
+    /* =========================================
+       ARTICLE GRID
+       ========================================= */
+    .article-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .article-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .article-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+    .article-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .article-card-body {
+      padding: 24px;
+    }
+    .article-card h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 0 0 12px;
+      line-height: 1.3;
+    }
+    .article-card p {
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.5;
+      margin: 0 0 12px;
+    }
+
+    /* =========================================
+       NEWSLETTER
+       ========================================= */
+    .newsletter-form {
+      display: flex;
+      gap: 12px;
+      max-width: 500px;
+      margin: 24px auto 0;
+    }
+    .newsletter-input {
+      flex: 1;
+      padding: 14px 20px;
+      border: none;
+      border-radius: 100vw;
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.95rem;
+      outline: none;
+    }
+    .newsletter-btn {
+      background: #fff;
+      color: #0D7377;
+      padding: 14px 28px;
+      border: none;
+      border-radius: 100vw;
+      font-family: 'Manrope', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .newsletter-btn:hover {
+      background: #f0f0f0;
+    }
+
+    /* =========================================
+       FOOTER
+       ========================================= */
+    .page-footer { background: #1A1A2E; padding: 80px 48px 40px; position: relative; overflow: hidden; }
+    .footer-inner { max-width: 1280px; margin: 0 auto; }
+    .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 60px; }
+    .footer-logo { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 26px; color: #fff; letter-spacing: -0.5px; text-decoration: none; display: block; margin-bottom: 16px; }
+    .footer-tagline { font-size: 0.95rem; color: rgba(255,255,255,0.55); line-height: 1.6; margin-bottom: 24px; }
+    .footer-social { display: flex; gap: 12px; }
+    .footer-social a { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+    .footer-social a:hover { background: rgba(255,255,255,0.15); }
+    .footer-social img { width: 18px; height: 18px; }
+    .footer-col-title { font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.4); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; }
+    .footer-links { display: flex; flex-direction: column; gap: 12px; list-style: none; padding: 0; margin: 0; }
+    .footer-links a { font-size: 0.9rem; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: #fff; }
+    .footer-divider { height: 1px; background: rgba(255,255,255,0.08); margin-bottom: 28px; }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; }
+    .footer-copy { font-size: 0.85rem; color: rgba(255,255,255,0.4); }
+    .footer-mega { position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); font-size: clamp(80px,10vw,160px); font-weight: 800; color: rgba(255,255,255,0.03); white-space: nowrap; letter-spacing: -0.04em; pointer-events: none; font-family: 'Manrope',sans-serif; }
+
+    /* =========================================
+       RESPONSIVE -- TABLET (max-width: 991px)
+       ========================================= */
+    @media (max-width: 991px) {
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+      .section-page {
+        padding: 80px 32px;
+      }
+      .featured-article {
+        flex-direction: column;
+      }
+      .featured-img {
+        width: 100%;
+        height: 300px;
+      }
+      .featured-content {
+        width: 100%;
+        padding: 32px;
+      }
+      .article-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* =========================================
+       RESPONSIVE -- MOBILE (max-width: 767px)
+       ========================================= */
+    @media (max-width: 767px) {
+      .page-navbar .nav-links {
+        display: none;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .footer-top {
+        grid-template-columns: 1fr;
+      }
+      .section-page {
+        padding: 60px 20px;
+      }
+      .hero-insights {
+        min-height: 60vh;
+        padding-top: 72px;
+      }
+      .article-grid {
+        grid-template-columns: 1fr;
+      }
+      .newsletter-form {
+        flex-direction: column;
+        max-width: 100%;
+      }
+      .newsletter-input {
+        width: 100%;
+      }
+      .newsletter-btn {
+        width: 100%;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav class="page-navbar on-dark" id="pageNav">
+    <div class="navbar-inner">
+      <div class="global-container">
+        <div class="navbar-island">
+          <div class="navbar-left"><a href="index.html">iGroup</a></div>
+          <ul class="nav-links">
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="insights.html">Insights</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="join.html" class="nav-cta">Join iGroup &rarr;</a></li>
+          </ul>
+          <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="insights.html">Insights</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="contact.html">Contact</a>
+    <a href="join.html">Join iGroup &rarr;</a>
+  </div>
+
+
+  <!-- ============================================================
+       SECTION 1 -- HERO (Dark, typographic, no image)
+       ============================================================ -->
+  <section class="hero-insights">
+    <div class="container">
+      <span class="eyebrow animate-in" style="color:rgba(255,255,255,0.7)">INSIGHTS &amp; INTELLIGENCE</span>
+      <h1 class="animate-in" style="font-size:clamp(2.2rem,4.5vw,3.5rem);font-weight:500;color:#fff;letter-spacing:-0.03em;line-height:1.1;margin:0 auto 24px;max-width:720px">Market Intelligence. Delivered.</h1>
+      <p class="animate-in" style="font-size:1.2rem;color:rgba(255,255,255,0.7);line-height:1.6;max-width:600px;margin:0 auto">Rate trends, regulatory updates, sector analysis, and career advice &mdash; from the team that lives and breathes contractor intelligence.</p>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 2 -- FEATURED ARTICLE (Cream)
+       ============================================================ -->
+  <section class="section-page section-cream">
+    <div class="container">
+      <h2 class="section-heading animate-in" style="margin-bottom:32px">Featured</h2>
+
+      <div class="featured-article animate-in">
+        <img class="featured-img" src="images/services-hero.jpg" alt="IR35 Guide">
+        <div class="featured-content">
+          <span class="badge badge-teal">IR35</span>
+          <h3 style="font-size:1.5rem;font-weight:600;margin:0 0 16px">IR35 in 2026: What Every Contractor Needs to Know</h3>
+          <p style="color:#555;line-height:1.6;margin:0 0 20px">The rules have changed again. Here&rsquo;s everything you need to know about IR35 status, determination, and what it means for your day rate and take-home pay. The latest HMRC guidance introduces new obligations for end clients and agencies, alongside revised CEST tool criteria that affect thousands of contractors across the UK. Whether you operate through a limited company or an umbrella, this guide walks you through the practical implications, the steps you should take right now, and the strategies that contractors are using to maintain their independence while staying fully compliant. We cover the recent tribunal outcomes, the updated best-practice approaches to status determination statements, and the role of mutuality of obligation in the latest case law. If you only read one article about IR35 this year, make it this one.</p>
+          <p class="article-meta">March 2026 &middot; 8 min read</p>
+          <a href="#" class="btn-primary" style="margin-top:16px">Read Article &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 3 -- FILTERS + ARTICLE GRID (White)
+       ============================================================ -->
+  <section class="section-page section-white">
+    <div class="container">
+      <h2 class="section-heading animate-in">Latest Insights</h2>
+
+      <!-- Filter Bar -->
+      <div class="filter-bar animate-in">
+        <button class="filter-btn active" data-category="all">All</button>
+        <button class="filter-btn" data-category="rate-trends">Rate Trends</button>
+        <button class="filter-btn" data-category="regulatory">Regulatory</button>
+        <button class="filter-btn" data-category="sector-analysis">Sector Analysis</button>
+        <button class="filter-btn" data-category="career-advice">Career Advice</button>
+        <button class="filter-btn" data-category="ir35">IR35</button>
+        <button class="filter-btn" data-category="tax-updates">Tax Updates</button>
+      </div>
+
+      <!-- Article Grid -->
+      <div class="article-grid">
+
+        <!-- Card 1: Regulatory -->
+        <div class="article-card animate-in" data-category="regulatory">
+          <img src="images/sector-nhs-nurse.jpg" alt="Joint and Several Liability">
+          <div class="article-card-body">
+            <span class="badge badge-teal">Regulatory</span>
+            <h4>Chapter 11: What Joint &amp; Several Liability Means for You</h4>
+            <p>The introduction of joint and several liability changes everything for umbrella workers and contractors. This landmark legislative change means that end clients, agencies, and umbrella companies now share responsibility for ensuring correct tax deductions. If your umbrella company fails to pay the right amount of tax, HMRC can pursue the entire supply chain &mdash; including the end client. For contractors, this means increased due diligence requirements, more scrutiny of umbrella arrangements, and a fundamental shift in how compliant supply chains are structured. We break down exactly what this means for your working arrangements and what steps you should be taking right now to protect yourself.</p>
+            <p class="article-meta">Feb 2026 &middot; 5 min read</p>
+          </div>
+        </div>
+
+        <!-- Card 2: Rate Trends -->
+        <div class="article-card animate-in" data-category="rate-trends">
+          <img src="images/sector-it-developer.jpg" alt="Contractor Rates Q1 2026">
+          <div class="article-card-body">
+            <span class="badge badge-grey">Rate Trends</span>
+            <h4>Contractor Rates Q1 2026: The Sectors Paying Most</h4>
+            <p>IT infrastructure, pharma, and rail contractors are commanding the highest premiums. Here&rsquo;s where the money is. Our quarterly rate analysis draws on data from over 45,000 contractor placements across the United Kingdom, providing unmatched visibility into which sectors, regions, and skill sets are seeing the strongest demand. Cloud architects and DevOps engineers continue to lead the charge with average day rates exceeding &pound;750, while rail signalling specialists have seen a remarkable 22% year-on-year increase. We also identify emerging opportunities in AI implementation and green energy compliance that are creating entirely new rate brackets for contractors with the right qualifications.</p>
+            <p class="article-meta">Jan 2026 &middot; 6 min read</p>
+          </div>
+        </div>
+
+        <!-- Card 3: Career Advice -->
+        <div class="article-card animate-in" data-category="career-advice">
+          <img src="images/sector-rail-worker.jpg" alt="Certifications for Day Rate">
+          <div class="article-card-body">
+            <span class="badge badge-grey">Career Advice</span>
+            <h4>5 Certifications That Will Increase Your Day Rate</h4>
+            <p>From AWS to PRINCE2, these qualifications move the needle. We rank them by return on investment. Not all certifications are created equal &mdash; some add &pound;50 to your day rate within weeks of completion, while others gather dust on your CV. We analysed rate data from our membership base to identify the five certifications that deliver the highest and fastest return on investment. Whether you are in IT, project management, finance, or engineering, there is at least one certification on this list that could transform your earning potential. We include the cost, the time commitment, the expected rate uplift, and the sectors where each certification carries the most weight.</p>
+            <p class="article-meta">Jan 2026 &middot; 7 min read</p>
+          </div>
+        </div>
+
+        <!-- Card 4: Sector Analysis -->
+        <div class="article-card animate-in" data-category="sector-analysis">
+          <img src="images/about-story.jpg" alt="Mortgage Success for Contractors">
+          <div class="article-card-body">
+            <span class="badge badge-grey">Sector Analysis</span>
+            <h4>Mortgage Success: How Contractors Are Getting Approved</h4>
+            <p>Three strategies that have helped our members get mortgage approval, even without traditional payslips. Securing a mortgage as a contractor has historically been one of the most frustrating aspects of self-employment. High street lenders often don&rsquo;t understand contract income, and many contractors find themselves rejected despite earning significantly more than their permanently employed peers. In this in-depth guide, we share the three proven strategies that iGroup members have used to secure competitive mortgage rates, including which lenders understand contractor income, how to present your earnings in the most favourable light, and why your day rate is actually your strongest asset when applying for a mortgage.</p>
+            <p class="article-meta">Dec 2025 &middot; 5 min read</p>
+          </div>
+        </div>
+
+        <!-- Card 5: Sector Analysis -->
+        <div class="article-card animate-in" data-category="sector-analysis">
+          <img src="images/dashboard-mockup.jpg" alt="AI in Contractor Management">
+          <div class="article-card-body">
+            <span class="badge badge-grey">Sector Analysis</span>
+            <h4>The Rise of AI in Contractor Management</h4>
+            <p>How artificial intelligence is changing the way contractors are sourced, managed, and paid. The contractor management landscape is undergoing a fundamental transformation driven by artificial intelligence and machine learning. From automated compliance checking that can verify a contractor&rsquo;s IR35 status in seconds, to predictive analytics that forecast rate movements months in advance, AI is reshaping every aspect of the contractor supply chain. We explore how the leading agencies and managed service providers are deploying these technologies, what it means for contractor rates and working practices, and how forward-thinking contractors are leveraging AI tools to gain a competitive advantage in an increasingly data-driven market.</p>
+            <p class="article-meta">Dec 2025 &middot; 9 min read</p>
+          </div>
+        </div>
+
+        <!-- Card 6: Career Advice -->
+        <div class="article-card animate-in" data-category="career-advice">
+          <img src="images/sector-social-care.jpg" alt="Pension Planning for Contractors">
+          <div class="article-card-body">
+            <span class="badge badge-grey">Career Advice</span>
+            <h4>Pension Planning: Don&rsquo;t Leave It Until It&rsquo;s Too Late</h4>
+            <p>Contractors retire with significantly less than they should. Here&rsquo;s how to fix that, starting today. The average UK contractor has a pension pot that is 40% smaller than their permanently employed equivalent, despite typically earning 30-50% more during their working years. The reason is simple: without employer auto-enrolment and without the structure of a company pension scheme, pension contributions fall to the bottom of the to-do list. In this comprehensive guide, we walk through exactly how much you should be saving based on your age and target retirement income, the most tax-efficient vehicles for contractor pension contributions, and the simple automated strategies that our highest-saving members use to build substantial retirement funds without thinking about it.</p>
+            <p class="article-meta">Nov 2025 &middot; 6 min read</p>
+          </div>
+        </div>
+
+      </div>
+      <!-- End Article Grid -->
+
+
+      <!-- ============================================================
+           ADDITIONAL ARTICLES -- EXPANDED CONTENT
+           ============================================================ -->
+
+      <!-- Spacer for visual separation between primary and secondary article blocks -->
+      <div style="margin-top:64px">
+        <h3 class="section-heading animate-in" style="font-size:clamp(1.4rem,2.5vw,1.8rem);margin-bottom:32px">More From the Archive</h3>
+      </div>
+
+      <div class="article-grid">
+
+        <!-- Card 7: IR35 -->
+        <div class="article-card animate-in" data-category="ir35">
+          <img src="images/blog_replacement_1.jpg" alt="CEST Tool Accuracy">
+          <div class="article-card-body">
+            <span class="badge badge-teal">IR35</span>
+            <h4>Why the CEST Tool Still Gets It Wrong &mdash; and What to Do About It</h4>
+            <p>HMRC&rsquo;s Check Employment Status for Tax tool remains controversial. We commissioned an independent analysis of over 3,000 CEST determinations and compared them against tribunal outcomes from the past three years. The results are stark: CEST correctly predicted the tribunal outcome in only 62% of cases, with a significant bias toward finding employment status. For contractors operating through limited companies, this inaccuracy creates real risk. We explain the specific questions where CEST most frequently diverges from tribunal reasoning, the alternative approaches that specialist tax advisors recommend, and the documentation strategies that provide the strongest defence in the event of an HMRC enquiry. This is essential reading for any contractor who has relied on CEST as their primary status determination tool.</p>
+            <p class="article-meta">Nov 2025 &middot; 10 min read</p>
+          </div>
+        </div>
+
+        <!-- Card 8: Tax Updates -->
+        <div class="article-card animate-in" data-category="tax-updates">
+          <img src="images/blog_replacement_2.jpg" alt="Spring Budget for Contractors">
+          <div class="article-card-body">
+            <span class="badge badge-grey">Tax Updates</span>
+            <h4>Spring Budget 2026: What Changed for Contractors</h4>
+            <p>The Chancellor&rsquo;s Spring Budget introduced several measures that directly affect the UK contractor workforce. From changes to dividend taxation thresholds to revised Corporation Tax small profits rate, the fiscal landscape for limited company contractors has shifted once again. Our tax team has analysed every relevant measure from the Budget documents, including the changes that received less media attention but could have a material impact on contractor take-home pay. We provide worked examples showing the exact impact on a typical contractor earning &pound;500 per day through a limited company, including strategies for mitigating the impact of the new dividend tax allowance reduction. Whether you operate through a limited company, an umbrella, or a sole trader arrangement, this article covers the changes that matter to you.</p>
+            <p class="article-meta">Oct 2025 &middot; 8 min read</p>
+          </div>
+        </div>
+
+        <!-- Card 9: Rate Trends -->
+        <div class="article-card animate-in" data-category="rate-trends">
+          <img src="images/blog_replacement_3.jpg" alt="Remote Work Rate Impact">
+          <div class="article-card-body">
+            <span class="badge badge-grey">Rate Trends</span>
+            <h4>The Remote Work Premium: How Location Flexibility Affects Your Rate</h4>
+            <p>Three years after the post-pandemic return to office mandates, the data tells a surprising story about contractor rates and remote working. Contrary to expectations, fully remote contractors in certain sectors are now commanding a premium over their office-based counterparts &mdash; not a discount. Our analysis of Q4 2025 placement data reveals that remote-first contractors in cloud engineering, data science, and cybersecurity are earning between 8% and 15% more than those accepting hybrid or on-site requirements. We examine why this reversal has occurred, which sectors still penalise remote working, and how contractors can position their working arrangement preferences to maximise their earning potential regardless of whether they prefer working from home, from a client site, or a combination of both.</p>
+            <p class="article-meta">Oct 2025 &middot; 7 min read</p>
+          </div>
+        </div>
+
+        <!-- Card 10: Regulatory -->
+        <div class="article-card animate-in" data-category="regulatory">
+          <img src="images/sector-pharma-lab.jpg" alt="Umbrella Company Regulation">
+          <div class="article-card-body">
+            <span class="badge badge-teal">Regulatory</span>
+            <h4>Umbrella Company Regulation: What the New Rules Mean</h4>
+            <p>The government has finally announced its framework for regulating the umbrella company sector, and the implications are far-reaching. After years of campaigning by contractor groups including iGroup, the new regulatory framework introduces mandatory registration, minimum service standards, and transparent fee disclosure requirements for all umbrella companies operating in the UK. For contractors currently working through an umbrella, this is overwhelmingly positive news &mdash; but there are transitional challenges to be aware of. Some smaller umbrella companies may not meet the new registration requirements, potentially leaving contractors needing to find alternative arrangements at short notice. We outline the timeline for implementation, the key requirements that umbrellas will need to meet, and the steps that contractors should take now to ensure a smooth transition to the new regulatory environment.</p>
+            <p class="article-meta">Sep 2025 &middot; 6 min read</p>
+          </div>
+        </div>
+
+        <!-- Card 11: Career Advice -->
+        <div class="article-card animate-in" data-category="career-advice">
+          <img src="images/sector-energy-worker.jpg" alt="Contract Negotiation Strategies">
+          <div class="article-card-body">
+            <span class="badge badge-grey">Career Advice</span>
+            <h4>The Art of Contract Negotiation: 7 Strategies That Work</h4>
+            <p>Negotiation is the single highest-value skill a contractor can develop, yet most contractors accept the first rate offered to them without discussion. Our research shows that contractors who negotiate effectively earn an average of &pound;12,000 more per year than those who do not, with top negotiators achieving uplifts of &pound;25,000 or more. In this practical guide, we share the seven negotiation strategies that our Career Intelligence coaches use with iGroup members, including the anchoring technique that works in 80% of rate discussions, the walk-away framework that paradoxically increases your chances of getting hired, and the portfolio approach to contract terms that lets you optimise your total package beyond just the headline day rate. Each strategy includes real-world examples from successful negotiations and actionable scripts that you can adapt for your next rate discussion.</p>
+            <p class="article-meta">Sep 2025 &middot; 11 min read</p>
+          </div>
+        </div>
+
+        <!-- Card 12: Tax Updates -->
+        <div class="article-card animate-in" data-category="tax-updates">
+          <img src="images/about-hero.jpg" alt="Corporation Tax Planning Guide">
+          <div class="article-card-body">
+            <span class="badge badge-grey">Tax Updates</span>
+            <h4>Corporation Tax Planning: Year-End Strategies for Limited Company Contractors</h4>
+            <p>Your company year-end is one of the most important dates in the contractor calendar, yet many contractors leave tax planning until the last minute and miss out on legitimate savings. With Corporation Tax at 25% for profits over &pound;250,000 and the small profits rate of 19% applying to profits under &pound;50,000, the marginal relief band between these thresholds creates planning opportunities that are often overlooked. In this detailed guide, our accountancy partners walk through the year-end strategies that can reduce your overall tax liability, including optimal salary and dividend combinations, the timing of capital expenditure, pension contributions, research and development relief for eligible activities, and the often-misunderstood flat rate VAT scheme. We include worked examples at three different profit levels and a downloadable checklist that you can use in your year-end planning meeting with your accountant.</p>
+            <p class="article-meta">Aug 2025 &middot; 9 min read</p>
+          </div>
+        </div>
+
+      </div>
+      <!-- End Additional Article Grid -->
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 4 -- NEWSLETTER SIGNUP (Teal)
+       ============================================================ -->
+  <section class="section-page section-teal" style="text-align:center">
+    <div class="container">
+      <h2 class="section-heading invert animate-in">Get the weekly intelligence briefing. Every Monday.</h2>
+      <p class="section-subtext invert animate-in" style="margin:0 auto 8px;text-align:center;max-width:560px">Rate movements, regulatory changes, and actionable career insights delivered to your inbox before the working week begins. No spam, no fluff &mdash; just the intelligence that matters to your contracting career.</p>
+      <div class="newsletter-form animate-in">
+        <input class="newsletter-input" type="email" placeholder="Your email address">
+        <button class="newsletter-btn">Subscribe</button>
+      </div>
+      <p class="animate-in" style="color:rgba(255,255,255,0.7);font-size:0.9rem;margin-top:16px">Join 12,000+ contractors who get our Monday briefing.</p>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 5 -- WHY READ OUR INSIGHTS (Cream)
+       ============================================================ -->
+  <section class="section-page section-cream">
+    <div class="container">
+      <span class="eyebrow animate-in" style="text-align:center;display:block">WHY iGROUP INSIGHTS</span>
+      <h2 class="section-heading animate-in" style="text-align:center">Intelligence That Gives You an Edge.</h2>
+      <p class="section-subtext animate-in" style="text-align:center;margin:0 auto 48px;max-width:640px">Our insights team combines real placement data with deep sector expertise to produce intelligence that actually moves the needle for contractors. Here is what makes our content different from the noise.</p>
+
+      <div class="article-grid">
+
+        <div class="article-card animate-in">
+          <div class="article-card-body" style="padding:32px">
+            <div style="width:48px;height:48px;background:rgba(13,115,119,0.1);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0D7377" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+            </div>
+            <h4 style="font-size:1.15rem;font-weight:600;margin:0 0 12px;color:#1A1A2E">Data-Driven, Not Opinion-Based</h4>
+            <p>Every insight we publish is backed by real data from our network of 45,000+ contractor placements. We do not speculate about rate movements or regulatory impacts &mdash; we measure them. Our proprietary Rate Intelligence engine processes thousands of new data points every week, giving our editorial team access to market intelligence that simply is not available anywhere else. When we say a particular sector is seeing rate increases, we can quantify exactly how much, in which regions, and for which specific skill sets. This commitment to evidence-based content means you can make career and financial decisions with confidence, knowing that the intelligence you are reading reflects what is actually happening in the market, not what someone thinks might be happening.</p>
+          </div>
+        </div>
+
+        <div class="article-card animate-in">
+          <div class="article-card-body" style="padding:32px">
+            <div style="width:48px;height:48px;background:rgba(13,115,119,0.1);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0D7377" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            </div>
+            <h4 style="font-size:1.15rem;font-weight:600;margin:0 0 12px;color:#1A1A2E">Expert Contributors</h4>
+            <p>Our articles are written and reviewed by practising accountants, tax advisors, employment lawyers, and career coaches who work with contractors every single day. This is not generic business content repurposed for a contractor audience &mdash; it is specialist intelligence created by people who understand the nuances of contracting. Our tax content is reviewed by chartered accountants with specific contractor expertise. Our legal analysis is produced in collaboration with employment law specialists who have represented contractors at tribunal. And our career advice comes from coaches who have collectively helped thousands of contractors increase their earnings, improve their working arrangements, and build more sustainable careers. When you read an iGroup insight, you are getting the distilled expertise of the UK&rsquo;s leading contractor services team.</p>
+          </div>
+        </div>
+
+        <div class="article-card animate-in">
+          <div class="article-card-body" style="padding:32px">
+            <div style="width:48px;height:48px;background:rgba(13,115,119,0.1);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0D7377" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <h4 style="font-size:1.15rem;font-weight:600;margin:0 0 12px;color:#1A1A2E">Actionable, Not Abstract</h4>
+            <p>We have a simple editorial rule: every article must leave the reader with at least one concrete action they can take immediately. We do not publish thought leadership for the sake of it, and we do not write 2,000-word articles that conclude with vague suggestions to &ldquo;consider your options&rdquo;. If we are writing about a tax change, we include worked examples showing the exact financial impact. If we are covering a new certification, we include the cost, the time commitment, and the expected rate uplift. If we are analysing a regulatory development, we provide a step-by-step action plan for affected contractors. This commitment to practical, actionable content is why our Monday briefing has a 68% open rate &mdash; more than three times the industry average &mdash; and why contractors tell us that iGroup Insights is the one email they actually read every week.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 6 -- POPULAR TOPICS (White)
+       ============================================================ -->
+  <section class="section-page section-white">
+    <div class="container">
+      <span class="eyebrow animate-in" style="text-align:center;display:block">EXPLORE BY TOPIC</span>
+      <h2 class="section-heading animate-in" style="text-align:center">Popular Topics</h2>
+      <p class="section-subtext animate-in" style="text-align:center;margin:0 auto 48px;max-width:600px">Deep dives into the subjects that matter most to UK contractors. Each topic area is regularly updated with the latest data, analysis, and expert commentary.</p>
+
+      <div class="article-grid">
+
+        <div class="article-card animate-in">
+          <div class="article-card-body" style="padding:32px">
+            <span class="badge badge-teal" style="margin-bottom:20px">12 Articles</span>
+            <h4 style="font-size:1.15rem;font-weight:600;margin:0 0 12px;color:#1A1A2E">IR35 &amp; Employment Status</h4>
+            <p>Comprehensive coverage of IR35 legislation, tribunal outcomes, CEST tool analysis, and practical strategies for demonstrating outside-IR35 status. Our IR35 content is reviewed by employment status specialists and updated whenever new case law emerges. Whether you are inside IR35 looking to maximise your take-home pay, or outside IR35 looking to strengthen your position, our guides provide the clarity and confidence you need to navigate this complex area of employment law.</p>
+            <a href="#" style="display:inline-block;margin-top:12px;color:#0D7377;font-weight:500;text-decoration:none;font-size:0.9rem">Browse IR35 articles &rarr;</a>
+          </div>
+        </div>
+
+        <div class="article-card animate-in">
+          <div class="article-card-body" style="padding:32px">
+            <span class="badge badge-teal" style="margin-bottom:20px">18 Articles</span>
+            <h4 style="font-size:1.15rem;font-weight:600;margin:0 0 12px;color:#1A1A2E">Rate Intelligence &amp; Market Data</h4>
+            <p>Quarterly rate reports, sector-by-sector analysis, regional comparisons, and forward-looking rate forecasts powered by our proprietary data engine. Understand what your skills are worth in today&rsquo;s market, identify the sectors and regions with the strongest demand, and track rate trends over time to make informed decisions about your next contract. Our rate intelligence content is the most comprehensive and data-rich resource available to UK contractors.</p>
+            <a href="#" style="display:inline-block;margin-top:12px;color:#0D7377;font-weight:500;text-decoration:none;font-size:0.9rem">Browse rate articles &rarr;</a>
+          </div>
+        </div>
+
+        <div class="article-card animate-in">
+          <div class="article-card-body" style="padding:32px">
+            <span class="badge badge-teal" style="margin-bottom:20px">15 Articles</span>
+            <h4 style="font-size:1.15rem;font-weight:600;margin:0 0 12px;color:#1A1A2E">Tax &amp; Financial Planning</h4>
+            <p>Dividend strategies, Corporation Tax planning, pension optimisation, year-end checklists, and Budget analysis. Our financial content is produced in partnership with specialist contractor accountants who understand the unique tax planning opportunities &mdash; and pitfalls &mdash; that come with operating through a limited company. From maximising your tax-free allowances to structuring your remuneration for optimal efficiency, these articles provide the financial intelligence that directly impacts your bottom line.</p>
+            <a href="#" style="display:inline-block;margin-top:12px;color:#0D7377;font-weight:500;text-decoration:none;font-size:0.9rem">Browse tax articles &rarr;</a>
+          </div>
+        </div>
+
+        <div class="article-card animate-in">
+          <div class="article-card-body" style="padding:32px">
+            <span class="badge badge-teal" style="margin-bottom:20px">9 Articles</span>
+            <h4 style="font-size:1.15rem;font-weight:600;margin:0 0 12px;color:#1A1A2E">Compliance &amp; Regulation</h4>
+            <p>Umbrella regulation, supply chain compliance, HMRC enforcement updates, and anti-avoidance guidance. The regulatory landscape for contractors is changing faster than ever, and staying compliant requires constant vigilance. Our compliance content tracks every significant regulatory development affecting the contractor workforce, providing plain-English explanations of what has changed, who is affected, and what action you need to take. Essential reading for contractors, agencies, and hiring managers alike.</p>
+            <a href="#" style="display:inline-block;margin-top:12px;color:#0D7377;font-weight:500;text-decoration:none;font-size:0.9rem">Browse compliance articles &rarr;</a>
+          </div>
+        </div>
+
+        <div class="article-card animate-in">
+          <div class="article-card-body" style="padding:32px">
+            <span class="badge badge-teal" style="margin-bottom:20px">11 Articles</span>
+            <h4 style="font-size:1.15rem;font-weight:600;margin:0 0 12px;color:#1A1A2E">Career Development</h4>
+            <p>Negotiation strategies, certification guidance, skills gap analysis, career transition advice, and retirement planning for contractors. Building a successful long-term contracting career requires more than just technical skills &mdash; it requires strategic thinking about your market positioning, your professional development, and your financial future. Our career content draws on the collective wisdom of our coaching team to help you make smarter decisions at every stage of your contracting journey, from your first contract to your eventual exit strategy.</p>
+            <a href="#" style="display:inline-block;margin-top:12px;color:#0D7377;font-weight:500;text-decoration:none;font-size:0.9rem">Browse career articles &rarr;</a>
+          </div>
+        </div>
+
+        <div class="article-card animate-in">
+          <div class="article-card-body" style="padding:32px">
+            <span class="badge badge-teal" style="margin-bottom:20px">7 Articles</span>
+            <h4 style="font-size:1.15rem;font-weight:600;margin:0 0 12px;color:#1A1A2E">Sector Spotlights</h4>
+            <p>In-depth analysis of specific sectors including NHS and healthcare, financial services, technology, rail and infrastructure, energy, and pharmaceuticals. Each sector spotlight examines the unique challenges and opportunities facing contractors in that industry, from sector-specific compliance requirements to emerging demand trends and rate benchmarks. If you work in a regulated industry or are considering a sector switch, these spotlights provide the intelligence you need to make an informed decision about where to focus your career.</p>
+            <a href="#" style="display:inline-block;margin-top:12px;color:#0D7377;font-weight:500;text-decoration:none;font-size:0.9rem">Browse sector spotlights &rarr;</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 7 -- CTA (Dark)
+       ============================================================ -->
+  <section class="section-page section-dark" style="text-align:center">
+    <div class="container">
+      <span class="eyebrow animate-in" style="color:rgba(255,255,255,0.5)">READY TO TAKE CONTROL?</span>
+      <h2 class="section-heading invert animate-in">Intelligence is just the beginning.</h2>
+      <p class="section-subtext invert animate-in" style="margin:0 auto 32px;text-align:center">Reading about rate trends is useful. Having real-time access to rate data, compliance tools, career coaching, and a community of 12,000 contractors is transformative. Join iGroup and turn intelligence into action.</p>
+      <div class="animate-in" style="display:flex;gap:16px;justify-content:center;margin-top:32px;flex-wrap:wrap">
+        <a href="join.html" class="btn-primary">Join iGroup Today</a>
+        <a href="services.html" class="btn-outline-light">Explore Services</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="page-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <a href="index.html" class="footer-logo">iGroup</a>
+          <p class="footer-tagline">Professional contractor management &mdash; intelligence, compliance, and career strategy.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/" target="_blank"><img src="images/social_instagram.svg" alt="Instagram"></a>
+            <a href="https://x.com/" target="_blank"><img src="images/social_twitter.svg" alt="Twitter"></a>
+            <a href="https://www.facebook.com/" target="_blank"><img src="images/social_facebook.svg" alt="Facebook"></a>
+            <a href="https://www.linkedin.com/" target="_blank"><img src="images/social_linkedin.svg" alt="LinkedIn"></a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <div class="footer-links">
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="join.html">Join iGroup</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Services</div>
+          <div class="footer-links">
+            <a href="rate-intelligence.html">Rate Intelligence</a>
+            <a href="compliance-passport.html">Compliance Passport</a>
+            <a href="portal.html">Contractor Portal</a>
+            <a href="company-formation.html">Company Formation</a>
+            <a href="career-intelligence.html">Career Intelligence</a>
+            <a href="insurance.html">Insurance</a>
+            <a href="mortgage-finance.html">Mortgage &amp; Finance</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Resources</div>
+          <div class="footer-links">
+            <a href="insights.html">Insights &amp; Blog</a>
+            <a href="insights.html">Market Reports</a>
+            <a href="insights.html">IR35 Guide</a>
+            <a href="contact.html">FAQ</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2026 iGroup. All Rights Reserved</span>
+        <span class="footer-copy">Powered by <a href="https://webflow.com/" target="_blank" style="color:rgba(255,255,255,0.5)">Webflow</a></span>
+      </div>
+    </div>
+    <div class="footer-mega">iGROUP</div>
+  </footer>
+
+
+  <!-- ============================================================
+       SCRIPTS
+       ============================================================ -->
+  <script src="https://cdn.prod.website-files.com/gsap/3.14.2/gsap.min.js"></script>
+  <script src="https://cdn.prod.website-files.com/gsap/3.14.2/ScrollTrigger.min.js"></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    /* ---- Navbar scroll behaviour ---- */
+    const nav = document.getElementById('pageNav');
+    ScrollTrigger.create({
+      start: 'top -80',
+      onUpdate: (self) => {
+        if (self.progress > 0) { nav.classList.remove('on-dark'); nav.classList.add('scrolled'); }
+        else { nav.classList.add('on-dark'); nav.classList.remove('scrolled'); }
+      }
+    });
+
+    /* ---- Mobile menu toggle ---- */
+    document.getElementById('hamburger').addEventListener('click', function() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    });
+
+    /* ---- GSAP scroll animations ---- */
+    gsap.utils.toArray('.animate-in').forEach(el => {
+      gsap.from(el, {
+        opacity: 0,
+        y: 40,
+        duration: 0.85,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 88%',
+          toggleActions: 'play none none none'
+        }
+      });
+    });
+
+    /* ---- Filter functionality ---- */
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        const cat = this.dataset.category;
+        document.querySelectorAll('.article-card').forEach(card => {
+          card.style.display = (cat === 'all' || card.dataset.category === cat) ? 'block' : 'none';
+        });
+      });
+    });
+
+    /* ---- Smooth scroll for anchor links ---- */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Company Formation — iGroup | Set Up Your Limited Company</title>
+  <meta name="description" content="Your limited company, set up in days not weeks. iGroup handles the paperwork, bank accounts, and registrations.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/ig2-c49518.webflow.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <style>
+    /* =========================================
+       BASE STYLES
+       ========================================= */
+    *, *::before, *::after { box-sizing: border-box; }
+    body { font-family: 'Manrope', sans-serif; color: #1A1A2E; -webkit-font-smoothing: antialiased; margin: 0; }
+
+    /* =========================================
+       NAVBAR
+       ========================================= */
+    .page-navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; transition: background 0.3s ease, box-shadow 0.3s ease; }
+    .page-navbar.scrolled { background: #fff !important; box-shadow: 0 1px 20px rgba(0,0,0,0.08); }
+    .page-navbar .navbar-inner { padding: 0 24px; }
+    .page-navbar .global-container { max-width: 1280px; margin: 0 auto; }
+    .page-navbar .navbar-island { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .page-navbar .navbar-left a { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 22px; color: #fff; letter-spacing: -0.5px; text-decoration: none; }
+    .page-navbar.scrolled .navbar-left a { color: #0D7377; }
+    .page-navbar .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; margin: 0; padding: 0; }
+    .page-navbar .nav-links a { font-family: 'Manrope', sans-serif; font-size: 0.9rem; font-weight: 400; color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.2s; }
+    .page-navbar .nav-links a:hover { color: #fff; }
+    .page-navbar.scrolled .nav-links a { color: #1A1A2E; }
+    .page-navbar.scrolled .nav-links a:hover { color: #0D7377; }
+    .nav-cta { background: #0D7377; color: #fff !important; padding: 10px 22px; border-radius: 100vw; font-weight: 500 !important; font-size: 0.875rem !important; transition: background 0.2s, transform 0.2s !important; }
+    .nav-cta:hover { background: #0a5f63 !important; transform: translateY(-1px); }
+
+    /* =========================================
+       HAMBURGER & MOBILE MENU
+       ========================================= */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; color: #fff; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: currentColor; transition: 0.3s; }
+    .page-navbar.scrolled .hamburger { color: #1A1A2E; }
+    .mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; background: #fff; padding: 20px 24px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); z-index: 999; }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a { display: block; padding: 12px 0; font-size: 1rem; color: #1A1A2E; text-decoration: none; border-bottom: 1px solid #f0f0f0; }
+    .mobile-menu a:last-child { border-bottom: none; }
+
+    /* =========================================
+       BUTTONS
+       ========================================= */
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: #0D7377; color: #fff; padding: 14px 28px; border-radius: 100vw; font-family: 'Manrope',sans-serif; font-weight: 500; font-size: 0.95rem; text-decoration: none; transition: background 0.2s, transform 0.2s; }
+    .btn-primary:hover { background: #0a5f63; transform: translateY(-2px); }
+    .btn-outline-light { display: inline-flex; align-items: center; gap: 8px; border: 1.5px solid rgba(255,255,255,0.5); color: #fff; padding: 14px 28px; border-radius: 100vw; font-family: 'Manrope',sans-serif; font-weight: 500; font-size: 0.95rem; text-decoration: none; transition: border-color 0.2s, transform 0.2s; background: transparent; }
+    .btn-outline-light:hover { border-color: #fff; transform: translateY(-2px); }
+    .btn-white { display: inline-flex; align-items: center; gap: 8px; background: #fff; color: #1A1A2E; padding: 14px 28px; border-radius: 100vw; font-family: 'Manrope',sans-serif; font-weight: 500; font-size: 0.95rem; text-decoration: none; transition: background 0.2s, transform 0.2s; }
+    .btn-white:hover { background: #f0f0f0; transform: translateY(-2px); }
+
+    /* =========================================
+       SECTIONS & LAYOUT
+       ========================================= */
+    .section-page { padding: 120px 48px; }
+    .section-cream { background: #F5F0E8; }
+    .section-white { background: #fff; }
+    .section-dark { background: #1A1A2E; }
+    .section-teal { background: #0D7377; }
+    .container { max-width: 1280px; margin: 0 auto; }
+
+    /* =========================================
+       TYPOGRAPHY HELPERS
+       ========================================= */
+    .eyebrow { font-size: 0.72rem; font-weight: 600; color: #0D7377; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 16px; display: block; }
+    .section-heading { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 500; color: #1A1A2E; letter-spacing: -0.02em; line-height: 1.2; margin: 0 0 20px; }
+    .section-heading.invert { color: #fff; }
+    .section-subtext { font-size: 1.15rem; color: #555; line-height: 1.6; max-width: 640px; }
+    .section-subtext.invert { color: rgba(255,255,255,0.7); }
+
+    /* =========================================
+       HERO SECTION
+       ========================================= */
+    .hero-formation {
+      background-image: linear-gradient(135deg, rgba(26,26,46,0.88) 0%, rgba(13,115,119,0.55) 100%), url('images/hero-arab-businessman.jpg');
+      background-size: cover;
+      background-position: center;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 72px;
+    }
+    .hero-formation .container {
+      width: 100%;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* =========================================
+       CARD GRID — REASONS SECTION
+       ========================================= */
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .reason-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 36px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .reason-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+    }
+    .reason-card h4 {
+      font-weight: 600;
+      margin: 0 0 12px;
+      font-size: 1.15rem;
+      color: #1A1A2E;
+    }
+    .reason-card p {
+      color: #555;
+      line-height: 1.6;
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    /* =========================================
+       STEPPER — PROCESS SECTION
+       ========================================= */
+    .stepper {
+      position: relative;
+      padding-left: 72px;
+      margin-top: 48px;
+      max-width: 800px;
+    }
+    .step-item {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 40px;
+      position: relative;
+    }
+    .step-item:last-child {
+      margin-bottom: 0;
+    }
+    .step-item:last-child .step-line {
+      display: none;
+    }
+    .step-circle {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #0D7377;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      position: absolute;
+      left: -72px;
+    }
+    .step-line {
+      position: absolute;
+      left: -49px;
+      top: 48px;
+      bottom: -40px;
+      width: 2px;
+      background: rgba(13,115,119,0.15);
+    }
+    .step-content h4 {
+      font-weight: 600;
+      margin: 0 0 8px;
+      font-size: 1.15rem;
+      color: #1A1A2E;
+    }
+    .step-content p {
+      color: #555;
+      line-height: 1.6;
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    /* =========================================
+       CHECKLIST — INCLUDES SECTION
+       ========================================= */
+    .includes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 48px;
+    }
+    .checklist-item {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
+      color: rgba(255,255,255,0.8);
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+    .check-icon {
+      color: #0D7377;
+      font-weight: 700;
+      flex-shrink: 0;
+      font-size: 1.1rem;
+    }
+    .includes-image {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 16px;
+      margin-top: 40px;
+    }
+
+    /* =========================================
+       FAQ ACCORDION
+       ========================================= */
+    .faq-container {
+      max-width: 760px;
+      margin: 40px auto 0;
+    }
+    .faq-item {
+      border-bottom: 1px solid #e3e8f0;
+    }
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 1.1rem;
+      color: #1A1A2E;
+      user-select: none;
+    }
+    .faq-question::after {
+      content: '+';
+      font-size: 1.5rem;
+      color: #0D7377;
+      transition: transform 0.3s;
+      flex-shrink: 0;
+      margin-left: 16px;
+    }
+    .faq-item.open .faq-question::after {
+      content: '\2212';
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 200px;
+    }
+    .faq-answer p {
+      padding-bottom: 20px;
+      color: #555;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* =========================================
+       TESTIMONIAL SECTION
+       ========================================= */
+    .testimonial-block {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .testimonial-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 24px;
+    }
+    .testimonial-block blockquote {
+      font-size: 1.25rem;
+      font-weight: 400;
+      line-height: 1.6;
+      color: #1A1A2E;
+      margin: 0 0 24px;
+      font-style: italic;
+    }
+    .testimonial-block cite {
+      font-style: normal;
+      font-weight: 600;
+      color: #0D7377;
+    }
+
+    /* =========================================
+       FOOTER
+       ========================================= */
+    .page-footer { background: #1A1A2E; padding: 80px 48px 40px; position: relative; overflow: hidden; }
+    .footer-inner { max-width: 1280px; margin: 0 auto; }
+    .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 60px; }
+    .footer-logo { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 26px; color: #fff; letter-spacing: -0.5px; text-decoration: none; display: block; margin-bottom: 16px; }
+    .footer-tagline { font-size: 0.95rem; color: rgba(255,255,255,0.55); line-height: 1.6; margin-bottom: 24px; }
+    .footer-social { display: flex; gap: 12px; }
+    .footer-social a { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+    .footer-social a:hover { background: rgba(255,255,255,0.15); }
+    .footer-social img { width: 18px; height: 18px; }
+    .footer-col-title { font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.4); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; }
+    .footer-links { display: flex; flex-direction: column; gap: 12px; list-style: none; padding: 0; margin: 0; }
+    .footer-links a { font-size: 0.9rem; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: #fff; }
+    .footer-divider { height: 1px; background: rgba(255,255,255,0.08); margin-bottom: 28px; }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; }
+    .footer-copy { font-size: 0.85rem; color: rgba(255,255,255,0.4); }
+    .footer-mega { position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); font-size: clamp(80px,10vw,160px); font-weight: 800; color: rgba(255,255,255,0.03); white-space: nowrap; letter-spacing: -0.04em; pointer-events: none; font-family: 'Manrope',sans-serif; }
+
+    /* =========================================
+       RESPONSIVE — TABLET (max-width: 991px)
+       ========================================= */
+    @media (max-width: 991px) {
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+      .section-page {
+        padding: 80px 32px;
+      }
+      .reasons-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      .includes-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+      .stepper {
+        padding-left: 64px;
+      }
+      .step-circle {
+        left: -64px;
+        width: 42px;
+        height: 42px;
+        font-size: 1rem;
+      }
+      .step-line {
+        left: -44px;
+        top: 42px;
+      }
+    }
+
+    /* =========================================
+       RESPONSIVE — MOBILE (max-width: 767px)
+       ========================================= */
+    @media (max-width: 767px) {
+      .page-navbar .nav-links {
+        display: none;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .footer-top {
+        grid-template-columns: 1fr;
+      }
+      .section-page {
+        padding: 60px 20px;
+      }
+      .reasons-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .includes-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .stepper {
+        padding-left: 56px;
+      }
+      .step-circle {
+        left: -56px;
+        width: 38px;
+        height: 38px;
+        font-size: 0.95rem;
+      }
+      .step-line {
+        left: -38px;
+        top: 38px;
+      }
+      .hero-formation {
+        min-height: 90vh;
+        padding-top: 72px;
+      }
+      .hero-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .faq-question {
+        font-size: 1rem;
+      }
+      .testimonial-block blockquote {
+        font-size: 1.1rem;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav class="page-navbar on-dark" id="pageNav">
+    <div class="navbar-inner">
+      <div class="global-container">
+        <div class="navbar-island">
+          <div class="navbar-left"><a href="index.html">iGroup</a></div>
+          <ul class="nav-links">
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="insights.html">Insights</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="join.html" class="nav-cta">Join iGroup &rarr;</a></li>
+          </ul>
+          <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="insights.html">Insights</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="contact.html">Contact</a>
+    <a href="join.html">Join iGroup &rarr;</a>
+  </div>
+
+
+  <!-- ============================================================
+       SECTION 1 — HERO
+       ============================================================ -->
+  <section class="hero-formation">
+    <div class="container">
+      <span class="eyebrow animate-in" style="color:rgba(255,255,255,0.7)">COMPANY FORMATION</span>
+      <h1 class="animate-in" style="font-size:clamp(2.2rem,4.5vw,3.5rem);font-weight:500;color:#fff;letter-spacing:-0.03em;line-height:1.1;margin:0 0 24px;max-width:700px">Your Limited Company. Set Up in Days, Not Weeks.</h1>
+      <p class="animate-in" style="font-size:1.2rem;color:rgba(255,255,255,0.75);line-height:1.6;max-width:560px;margin-bottom:40px">We handle the paperwork, the bank accounts, the registrations &mdash; so you can focus on what you&rsquo;re actually good at.</p>
+      <div class="hero-buttons animate-in">
+        <a href="join.html" class="btn-primary">Start Your Company</a>
+        <a href="#process" class="btn-outline-light">What&rsquo;s Involved? &darr;</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 2 — THREE REASONS (Cream)
+       ============================================================ -->
+  <section class="section-page section-cream">
+    <div class="container">
+      <h2 class="section-heading animate-in">Three Reasons to Make the Move.</h2>
+      <p class="section-subtext animate-in">Most contractors start under an umbrella because it feels simpler. But when you run the numbers and weigh the options, a limited company wins every time. Here&rsquo;s why.</p>
+
+      <div class="reasons-grid">
+
+        <!-- Card 1: Tax Efficiency -->
+        <div class="reason-card animate-in">
+          <h4>Tax Efficiency</h4>
+          <p>Keep more of what you earn. Limited company contractors typically take home 10&ndash;15% more than umbrella equivalents. That&rsquo;s not a rounding error &mdash; at a &pound;500/day rate, you could be looking at &pound;8,000&ndash;&pound;12,000 extra every year. The combination of salary and dividends, allowable expenses, and corporation tax rates creates a structure that rewards those who take ownership of their earnings.</p>
+          <p style="margin-top:12px;color:#555;line-height:1.6">Our team will walk you through the tax planning options available, so you understand exactly where the savings come from and how to maximise them legally and sustainably.</p>
+        </div>
+
+        <!-- Card 2: Professional Credibility -->
+        <div class="reason-card animate-in">
+          <h4>Professional Credibility</h4>
+          <p>Clients and agencies prefer working with PSCs. A limited company signals commitment and professionalism. When you invoice through your own company, you&rsquo;re not just another contractor &mdash; you&rsquo;re a business partner. This distinction matters when negotiating rates, securing longer engagements, and building relationships with procurement teams who have strict vendor requirements.</p>
+          <p style="margin-top:12px;color:#555;line-height:1.6">Many of the UK&rsquo;s largest employers require contractors to operate through a limited company. Having your PSC already established means you&rsquo;re ready for any opportunity that comes your way.</p>
+        </div>
+
+        <!-- Card 3: Career Control -->
+        <div class="reason-card animate-in">
+          <h4>Career Control</h4>
+          <p>You&rsquo;re the director. You choose your assignments, set your terms, and build equity in your own business. Unlike umbrella arrangements where you&rsquo;re effectively an employee of the umbrella company, running a limited company means you have genuine autonomy. You decide when to work, what projects to take, and how to structure your income.</p>
+          <p style="margin-top:12px;color:#555;line-height:1.6">Over time, your company builds a trading history, a balance sheet, and a reputation. This becomes an asset &mdash; useful for mortgage applications, business loans, and demonstrating financial stability to clients and partners alike.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 3 — PROCESS STEPPER (White)
+       ============================================================ -->
+  <section class="section-page section-white" id="process">
+    <div class="container">
+      <h2 class="section-heading animate-in">Five Steps. Five Days. Done.</h2>
+      <p class="section-subtext animate-in">We&rsquo;ve refined this process over hundreds of company formations. Every step is designed to be as frictionless as possible, so you spend minutes, not hours, on admin.</p>
+
+      <div class="stepper">
+
+        <!-- Step 1 -->
+        <div class="step-item animate-in">
+          <div class="step-circle">1</div>
+          <div class="step-line"></div>
+          <div class="step-content">
+            <h4>Initial Consultation</h4>
+            <p>We discuss your situation, your goals, and which company structure works best for you. Whether you&rsquo;re a first-time contractor or transitioning from an umbrella arrangement, we&rsquo;ll explain the options clearly. This typically takes 20&ndash;30 minutes and can be done over the phone or via video call. We&rsquo;ll cover everything from company naming conventions and SIC codes to your planned trading structure and any existing commitments you need to work around.</p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-item animate-in">
+          <div class="step-circle">2</div>
+          <div class="step-line"></div>
+          <div class="step-content">
+            <h4>Company Incorporation</h4>
+            <p>We file with Companies House and your company is typically live within 24 hours. You&rsquo;ll receive your certificate of incorporation, company number, and all founding documents. We handle the Memorandum and Articles of Association, appoint you as director and shareholder, and ensure everything is compliant from day one. If you have a preferred company name, we&rsquo;ll check availability and reserve it for you during the consultation.</p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-item animate-in">
+          <div class="step-circle">3</div>
+          <div class="step-line"></div>
+          <div class="step-content">
+            <h4>Bank Account Setup</h4>
+            <p>Introduction to our preferred banking partners with fast-track contractor accounts. Opening a business bank account can be one of the most frustrating parts of setting up a limited company. We&rsquo;ve partnered with banks that understand contractor businesses and can open accounts quickly, often within 48 hours. You&rsquo;ll have a fully functional business current account ready to receive your first invoice payment.</p>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="step-item animate-in">
+          <div class="step-circle">4</div>
+          <div class="step-line"></div>
+          <div class="step-content">
+            <h4>HMRC Registration</h4>
+            <p>Corporation Tax, VAT (if applicable), and PAYE registration &mdash; all handled by our team. We determine whether you need to be VAT registered based on your expected turnover and trading patterns, register you for Corporation Tax with HMRC, and set up your PAYE scheme so you can run payroll from day one. This step often catches people out when they try to do it themselves, but our team has the process down to a fine art.</p>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="step-item animate-in">
+          <div class="step-circle">5</div>
+          <div class="step-content">
+            <h4>Ready to Trade</h4>
+            <p>Your company is set up, your accounts are open, and you&rsquo;re ready to invoice your first client. At this point, you&rsquo;ll have everything you need: a live company, a business bank account, all HMRC registrations in place, and a clear understanding of your obligations. We&rsquo;ll also introduce you to the iGroup Compliance Passport, which keeps all your documentation current and audit-ready throughout the year.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 4 — WHAT'S INCLUDED (Dark)
+       ============================================================ -->
+  <section class="section-page section-dark">
+    <div class="container">
+      <h2 class="section-heading invert animate-in">Everything You Need. Nothing You Don&rsquo;t.</h2>
+      <p class="section-subtext invert animate-in" style="margin-bottom:8px">Our formation package covers every aspect of getting your limited company up and running. No surprise charges, no upsells, no hidden extras. Here&rsquo;s exactly what you get when you form your company through iGroup.</p>
+
+      <div class="includes-grid">
+
+        <!-- Column 1 -->
+        <div class="animate-in">
+          <div class="checklist-item">
+            <span class="check-icon">&check;</span>
+            <span>Companies House filing and incorporation</span>
+          </div>
+          <div class="checklist-item">
+            <span class="check-icon">&check;</span>
+            <span>Bank account introduction with fast-track setup</span>
+          </div>
+          <div class="checklist-item">
+            <span class="check-icon">&check;</span>
+            <span>Registered office address provided</span>
+          </div>
+          <div class="checklist-item">
+            <span class="check-icon">&check;</span>
+            <span>Insurance guidance and broker introductions</span>
+          </div>
+          <div class="checklist-item">
+            <span class="check-icon">&check;</span>
+            <span>SIC code selection and filing</span>
+          </div>
+          <div class="checklist-item">
+            <span class="check-icon">&check;</span>
+            <span>Director appointment and shareholder setup</span>
+          </div>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="animate-in">
+          <div class="checklist-item">
+            <span class="check-icon">&check;</span>
+            <span>Memorandum &amp; Articles of Association</span>
+          </div>
+          <div class="checklist-item">
+            <span class="check-icon">&check;</span>
+            <span>HMRC registrations (Corporation Tax, VAT, PAYE)</span>
+          </div>
+          <div class="checklist-item">
+            <span class="check-icon">&check;</span>
+            <span>First-year compliance setup and calendar</span>
+          </div>
+          <div class="checklist-item">
+            <span class="check-icon">&check;</span>
+            <span>Compliance Passport initiated and configured</span>
+          </div>
+          <div class="checklist-item">
+            <span class="check-icon">&check;</span>
+            <span>Confirmation statement preparation guidance</span>
+          </div>
+          <div class="checklist-item">
+            <span class="check-icon">&check;</span>
+            <span>Ongoing support for your first 90 days of trading</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Section image -->
+      <div class="animate-in" style="margin-top:48px">
+        <img src="images/sector-energy.jpg" alt="Professional contractor working in the energy sector" class="includes-image" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 5 — THE DETAIL (White, additional info section)
+       ============================================================ -->
+  <section class="section-page section-white">
+    <div class="container">
+      <h2 class="section-heading animate-in">Why Contractors Choose iGroup for Formation.</h2>
+      <p class="section-subtext animate-in">There are dozens of formation agents out there. Some charge &pound;12 and leave you to figure out the rest. Here&rsquo;s what makes our approach different.</p>
+
+      <div class="reasons-grid" style="margin-top:48px">
+
+        <div class="reason-card animate-in">
+          <h4>We Understand Contracting</h4>
+          <p>Generic formation agents set up companies. We set up contractor businesses. There&rsquo;s a difference. We know which SIC codes agencies look for, which bank accounts work best for contractor cashflow, and which compliance requirements you&rsquo;ll face in your first year. Every decision we make during the formation process is informed by years of experience working exclusively with contractors across the UK.</p>
+        </div>
+
+        <div class="reason-card animate-in">
+          <h4>End-to-End Support</h4>
+          <p>Formation is just the beginning. Once your company is live, you have access to the full iGroup ecosystem: Rate Intelligence to benchmark your earnings, the Compliance Passport to stay audit-ready, and the Contractor Portal for managing your business day-to-day. We don&rsquo;t just set you up and wave goodbye &mdash; we&rsquo;re with you for the long haul, providing ongoing support as your contracting career develops.</p>
+        </div>
+
+        <div class="reason-card animate-in">
+          <h4>No Hidden Costs</h4>
+          <p>Our formation service is included in your iGroup membership. That means no formation fees, no &ldquo;premium&rdquo; packages, no upsells for things that should be standard. You get everything listed in our inclusion checklist as part of your membership. We believe that setting up your company properly shouldn&rsquo;t be a profit centre &mdash; it should be the foundation of a long-term partnership.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 6 — COMPARISON TABLE (Cream)
+       ============================================================ -->
+  <section class="section-page section-cream">
+    <div class="container">
+      <h2 class="section-heading animate-in">Limited Company vs. Umbrella: The Numbers.</h2>
+      <p class="section-subtext animate-in">We hear the same question every week: &ldquo;Is it really worth going limited?&rdquo; Here&rsquo;s a simplified comparison based on a &pound;500/day rate, 220 working days per year.</p>
+
+      <div class="animate-in" style="margin-top:48px;overflow-x:auto">
+        <table style="width:100%;max-width:800px;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,0.06)">
+          <thead>
+            <tr style="background:#0D7377;color:#fff">
+              <th style="padding:16px 24px;text-align:left;font-weight:600;font-size:0.95rem"></th>
+              <th style="padding:16px 24px;text-align:center;font-weight:600;font-size:0.95rem">Umbrella</th>
+              <th style="padding:16px 24px;text-align:center;font-weight:600;font-size:0.95rem">Limited Company</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #f0f0f0">
+              <td style="padding:14px 24px;font-weight:500;color:#1A1A2E">Gross Annual Income</td>
+              <td style="padding:14px 24px;text-align:center;color:#555">&pound;110,000</td>
+              <td style="padding:14px 24px;text-align:center;color:#555">&pound;110,000</td>
+            </tr>
+            <tr style="border-bottom:1px solid #f0f0f0">
+              <td style="padding:14px 24px;font-weight:500;color:#1A1A2E">Employer NI / Margin</td>
+              <td style="padding:14px 24px;text-align:center;color:#555">&pound;14,200</td>
+              <td style="padding:14px 24px;text-align:center;color:#555">&pound;740</td>
+            </tr>
+            <tr style="border-bottom:1px solid #f0f0f0">
+              <td style="padding:14px 24px;font-weight:500;color:#1A1A2E">Income Tax &amp; Employee NI</td>
+              <td style="padding:14px 24px;text-align:center;color:#555">&pound;31,500</td>
+              <td style="padding:14px 24px;text-align:center;color:#555">&mdash;</td>
+            </tr>
+            <tr style="border-bottom:1px solid #f0f0f0">
+              <td style="padding:14px 24px;font-weight:500;color:#1A1A2E">Corporation Tax</td>
+              <td style="padding:14px 24px;text-align:center;color:#555">&mdash;</td>
+              <td style="padding:14px 24px;text-align:center;color:#555">&pound;16,900</td>
+            </tr>
+            <tr style="border-bottom:1px solid #f0f0f0">
+              <td style="padding:14px 24px;font-weight:500;color:#1A1A2E">Dividend Tax</td>
+              <td style="padding:14px 24px;text-align:center;color:#555">&mdash;</td>
+              <td style="padding:14px 24px;text-align:center;color:#555">&pound;8,400</td>
+            </tr>
+            <tr style="border-bottom:1px solid #f0f0f0">
+              <td style="padding:14px 24px;font-weight:500;color:#1A1A2E">Accountancy &amp; Admin</td>
+              <td style="padding:14px 24px;text-align:center;color:#555">Included</td>
+              <td style="padding:14px 24px;text-align:center;color:#555">&pound;1,200</td>
+            </tr>
+            <tr style="background:#F5F0E8">
+              <td style="padding:16px 24px;font-weight:700;color:#1A1A2E;font-size:1.05rem">Take-Home Pay</td>
+              <td style="padding:16px 24px;text-align:center;font-weight:700;color:#1A1A2E;font-size:1.05rem">&pound;64,300</td>
+              <td style="padding:16px 24px;text-align:center;font-weight:700;color:#0D7377;font-size:1.05rem">&pound;82,760</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="animate-in" style="margin-top:24px;font-size:0.85rem;color:#888;max-width:800px">* Figures are illustrative and based on 2025/26 tax rates. Individual circumstances vary. We recommend speaking with a qualified accountant for personalised tax advice. iGroup members receive introductions to specialist contractor accountants.</p>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 7 — FAQ ACCORDION (Cream)
+       ============================================================ -->
+  <section class="section-page section-cream" style="padding-top:0">
+    <div class="container">
+      <h2 class="section-heading animate-in">Questions We Hear Every Day.</h2>
+      <p class="section-subtext animate-in">If your question isn&rsquo;t answered here, get in touch. We&rsquo;re always happy to talk through the details.</p>
+
+      <div class="faq-container">
+
+        <!-- FAQ 1 -->
+        <div class="faq-item animate-in">
+          <div class="faq-question">Is it complicated?</div>
+          <div class="faq-answer">
+            <p>Not with us. We handle the paperwork. You sign where we tell you. The entire process has been designed to minimise the admin burden on you. Most contractors spend less than an hour on the whole formation process, and that includes the initial consultation call. We take care of Companies House filings, HMRC registrations, banking introductions, and all the documentation. You just need to review and approve.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item animate-in">
+          <div class="faq-question">How much does it cost?</div>
+          <div class="faq-answer">
+            <p>Our formation service is included in your iGroup membership. No hidden fees. While other providers charge &pound;50&ndash;&pound;200 for basic formation and then upsell you on every additional service, we include everything as part of your membership. That covers incorporation, registered office address, banking introductions, HMRC registrations, and ongoing support. The only external costs are standard Companies House filing fees.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item animate-in">
+          <div class="faq-question">What about IR35?</div>
+          <div class="faq-answer">
+            <p>We provide full IR35 status determination support. You&rsquo;ll know exactly where you stand before you start. Our team helps you understand the off-payroll working rules, reviews your contracts and working practices, and provides guidance on how to structure your engagements to ensure genuine compliance. We also connect you with specialist IR35 insurance providers for additional peace of mind.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item animate-in">
+          <div class="faq-question">Can I switch back to umbrella?</div>
+          <div class="faq-answer">
+            <p>Of course. But in our experience, once contractors see the difference, they never go back. The financial benefits, the professional credibility, and the sense of control that come with running your own limited company are compelling. If circumstances change &mdash; perhaps a contract falls inside IR35 &mdash; we can help you navigate your options, including umbrella arrangements for specific engagements while keeping your PSC active for outside-IR35 work.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item animate-in">
+          <div class="faq-question">How long does it take?</div>
+          <div class="faq-answer">
+            <p>Company live in 24 hours. Bank account in 3&ndash;5 days. Trading within a week. That&rsquo;s our standard timeline, and we hit it consistently. The Companies House filing is typically processed same-day or next-day. Banking introductions happen in parallel, so your account is usually ready by the time your HMRC registrations come through. We&rsquo;ve had contractors go from initial call to first invoice in under five working days.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 8 — TESTIMONIAL (White)
+       ============================================================ -->
+  <section class="section-page section-white" style="text-align:center">
+    <div class="container">
+      <div class="testimonial-block animate-in">
+        <img src="images/sector-energy.jpg" alt="James Hartley, Mechanical Engineer" class="testimonial-avatar" loading="lazy">
+        <blockquote>&ldquo;I&rsquo;d been putting off going limited for 2 years. iGroup had my company set up in 3 days and I saved &pound;8,000 in the first year.&rdquo;</blockquote>
+        <cite>James Hartley</cite><span style="color:#888;font-weight:400">, Mechanical Engineer, Manchester</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 9 — ADDITIONAL TESTIMONIALS (Cream)
+       ============================================================ -->
+  <section class="section-page section-cream">
+    <div class="container">
+      <h2 class="section-heading animate-in" style="text-align:center">What Our Members Say.</h2>
+      <p class="section-subtext animate-in" style="text-align:center;margin:0 auto 48px">Real feedback from contractors who formed their companies through iGroup.</p>
+
+      <div class="reasons-grid">
+
+        <div class="reason-card animate-in">
+          <p style="font-style:italic;color:#555;line-height:1.6;margin:0 0 16px">&ldquo;I was nervous about the paperwork, but the iGroup team made it completely painless. They handled everything and kept me updated at every step. I was invoicing my client within a week of my first call.&rdquo;</p>
+          <div style="display:flex;align-items:center;gap:12px;margin-top:16px">
+            <div>
+              <div style="font-weight:600;color:#1A1A2E">Sarah Mitchell</div>
+              <div style="font-size:0.85rem;color:#888">IT Project Manager, London</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reason-card animate-in">
+          <p style="font-style:italic;color:#555;line-height:1.6;margin:0 0 16px">&ldquo;The tax savings alone justified the switch. But what I didn&rsquo;t expect was how much more professional I felt dealing with clients. Having my own limited company changed the dynamic completely.&rdquo;</p>
+          <div style="display:flex;align-items:center;gap:12px;margin-top:16px">
+            <div>
+              <div style="font-weight:600;color:#1A1A2E">David Thompson</div>
+              <div style="font-size:0.85rem;color:#888">DevOps Engineer, Birmingham</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reason-card animate-in">
+          <p style="font-style:italic;color:#555;line-height:1.6;margin:0 0 16px">&ldquo;I&rsquo;d tried to set up a company myself before and gave up halfway through the HMRC registrations. iGroup sorted everything in days. The Compliance Passport is a brilliant bonus too.&rdquo;</p>
+          <div style="display:flex;align-items:center;gap:12px;margin-top:16px">
+            <div>
+              <div style="font-weight:600;color:#1A1A2E">Priya Patel</div>
+              <div style="font-size:0.85rem;color:#888">Data Analyst, Leeds</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 10 — GETTING STARTED GUIDE (White)
+       ============================================================ -->
+  <section class="section-page section-white">
+    <div class="container">
+      <h2 class="section-heading animate-in">What You&rsquo;ll Need to Get Started.</h2>
+      <p class="section-subtext animate-in">Before your consultation, it helps to have a few things ready. Don&rsquo;t worry if you&rsquo;re not sure about everything &mdash; we&rsquo;ll guide you through it.</p>
+
+      <div class="includes-grid" style="margin-top:48px">
+
+        <div class="animate-in">
+          <div style="background:#F5F0E8;border-radius:16px;padding:36px">
+            <h4 style="font-weight:600;margin:0 0 16px;font-size:1.15rem;color:#1A1A2E">Personal Details</h4>
+            <ul style="color:#555;line-height:1.8;padding-left:20px;margin:0">
+              <li>Full legal name and date of birth</li>
+              <li>Current residential address</li>
+              <li>National Insurance number</li>
+              <li>Proof of identity (passport or driving licence)</li>
+              <li>Proof of address (utility bill or bank statement)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="animate-in">
+          <div style="background:#F5F0E8;border-radius:16px;padding:36px">
+            <h4 style="font-weight:600;margin:0 0 16px;font-size:1.15rem;color:#1A1A2E">Business Details</h4>
+            <ul style="color:#555;line-height:1.8;padding-left:20px;margin:0">
+              <li>Preferred company name (we&rsquo;ll check availability)</li>
+              <li>Description of your contracting activity</li>
+              <li>Expected start date of trading</li>
+              <li>Details of your first contract or agency (if known)</li>
+              <li>Any existing company or umbrella arrangement details</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="animate-in" style="margin-top:32px;color:#555;line-height:1.6;max-width:640px">Don&rsquo;t have everything ready? That&rsquo;s fine. Book your consultation anyway and we&rsquo;ll let you know exactly what we need. Most of the information can be gathered during or after our initial call.</p>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 11 — COMPLIANCE INTEGRATION (Dark)
+       ============================================================ -->
+  <section class="section-page section-dark">
+    <div class="container">
+      <h2 class="section-heading invert animate-in">Formation Is Just the Start.</h2>
+      <p class="section-subtext invert animate-in">When you form your company through iGroup, you&rsquo;re not just getting a company &mdash; you&rsquo;re joining an ecosystem built specifically for contractors.</p>
+
+      <div class="reasons-grid" style="margin-top:48px">
+
+        <div style="background:rgba(255,255,255,0.05);border-radius:16px;padding:36px" class="animate-in">
+          <h4 style="font-weight:600;margin:0 0 12px;color:#fff;font-size:1.15rem">Compliance Passport</h4>
+          <p style="color:rgba(255,255,255,0.7);line-height:1.6;margin:0">Your compliance documentation &mdash; insurance, right to work, qualifications, and certifications &mdash; all managed in one place. Automatically flagged when renewals are due. Always audit-ready for your clients and agencies.</p>
+          <a href="compliance-passport.html" style="display:inline-block;margin-top:16px;color:#0D7377;font-weight:500;text-decoration:none;font-size:0.9rem">Learn more &rarr;</a>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.05);border-radius:16px;padding:36px" class="animate-in">
+          <h4 style="font-weight:600;margin:0 0 12px;color:#fff;font-size:1.15rem">Rate Intelligence</h4>
+          <p style="color:rgba(255,255,255,0.7);line-height:1.6;margin:0">Know your market value. Our rate benchmarking tool analyses real contractor rates across sectors, locations, and experience levels. Never undersell yourself again &mdash; negotiate with confidence backed by data.</p>
+          <a href="rate-intelligence.html" style="display:inline-block;margin-top:16px;color:#0D7377;font-weight:500;text-decoration:none;font-size:0.9rem">Learn more &rarr;</a>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.05);border-radius:16px;padding:36px" class="animate-in">
+          <h4 style="font-weight:600;margin:0 0 12px;color:#fff;font-size:1.15rem">Contractor Portal</h4>
+          <p style="color:rgba(255,255,255,0.7);line-height:1.6;margin:0">Your central dashboard for managing your contracting business. Timesheets, expenses, document storage, and communication &mdash; all in one place. Designed by contractors, for contractors, with the features that actually matter.</p>
+          <a href="portal.html" style="display:inline-block;margin-top:16px;color:#0D7377;font-weight:500;text-decoration:none;font-size:0.9rem">Learn more &rarr;</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 12 — INDUSTRIES WE SERVE (White)
+       ============================================================ -->
+  <section class="section-page section-white">
+    <div class="container">
+      <h2 class="section-heading animate-in">We Work With Contractors in Every Sector.</h2>
+      <p class="section-subtext animate-in">From IT and engineering to healthcare and finance, our formation service is tailored to the specific requirements of your industry.</p>
+
+      <div class="reasons-grid" style="margin-top:48px">
+
+        <div class="reason-card animate-in">
+          <h4>Technology &amp; IT</h4>
+          <p>Software developers, DevOps engineers, data scientists, architects, and project managers. The tech sector is the heartland of UK contracting, and we understand the specific compliance requirements, IR35 considerations, and rate dynamics that define this market. Whether you&rsquo;re working for a FTSE 100 or a funded startup, we&rsquo;ll get you set up correctly.</p>
+        </div>
+
+        <div class="reason-card animate-in">
+          <h4>Engineering &amp; Energy</h4>
+          <p>Mechanical, electrical, civil, and process engineers working across energy, infrastructure, and manufacturing. These sectors often have additional compliance requirements including sector-specific certifications, safety training records, and security clearances. Our formation process accounts for all of these from day one.</p>
+        </div>
+
+        <div class="reason-card animate-in">
+          <h4>Healthcare &amp; Pharma</h4>
+          <p>Clinical specialists, pharmacists, regulatory affairs professionals, and healthcare IT consultants. The healthcare sector has unique compliance demands, including DBS checks, professional registration verification, and mandatory training. We ensure your company formation includes the specific documentation your sector requires.</p>
+        </div>
+
+        <div class="reason-card animate-in">
+          <h4>Finance &amp; Banking</h4>
+          <p>Business analysts, risk managers, compliance officers, and fintech specialists. Financial services contracting requires careful attention to regulatory requirements and often involves enhanced vetting processes. Our formation service is designed to meet the standards expected by major banks and financial institutions.</p>
+        </div>
+
+        <div class="reason-card animate-in">
+          <h4>Rail &amp; Transport</h4>
+          <p>Signalling engineers, project controls specialists, and programme managers working across Network Rail and the wider transport sector. Rail contracting has specific security and safety requirements that need to be reflected in your company setup. We ensure your PSC meets all Sentinel and RISQS standards from the outset.</p>
+        </div>
+
+        <div class="reason-card animate-in">
+          <h4>Public Sector &amp; Defence</h4>
+          <p>Consultants, programme managers, and specialists working with government departments and defence contractors. Public sector work often involves security clearance requirements and specific procurement frameworks. Our team understands these requirements and ensures your company is set up to meet them.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 13 — CTA (Teal)
+       ============================================================ -->
+  <section class="section-page section-teal" style="text-align:center">
+    <div class="container">
+      <h2 class="section-heading invert animate-in">Ready to keep more of what you earn?</h2>
+      <p class="section-subtext invert animate-in" style="margin:0 auto 32px;text-align:center">Join hundreds of contractors who&rsquo;ve formed their limited companies through iGroup. It&rsquo;s faster, simpler, and included in your membership.</p>
+      <div class="animate-in" style="display:flex;gap:16px;justify-content:center;margin-top:32px;flex-wrap:wrap">
+        <a href="join.html" class="btn-white">Start Your Company</a>
+        <a href="join.html" class="btn-outline-light">Join iGroup &mdash; It&rsquo;s Free</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="page-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <a href="index.html" class="footer-logo">iGroup</a>
+          <p class="footer-tagline">Professional contractor management &mdash; intelligence, compliance, and career strategy.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/" target="_blank"><img src="images/social_instagram.svg" alt="Instagram"></a>
+            <a href="https://x.com/" target="_blank"><img src="images/social_twitter.svg" alt="Twitter"></a>
+            <a href="https://www.facebook.com/" target="_blank"><img src="images/social_facebook.svg" alt="Facebook"></a>
+            <a href="https://www.linkedin.com/" target="_blank"><img src="images/social_linkedin.svg" alt="LinkedIn"></a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <div class="footer-links">
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="join.html">Join iGroup</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Services</div>
+          <div class="footer-links">
+            <a href="rate-intelligence.html">Rate Intelligence</a>
+            <a href="compliance-passport.html">Compliance Passport</a>
+            <a href="portal.html">Contractor Portal</a>
+            <a href="company-formation.html">Company Formation</a>
+            <a href="career-intelligence.html">Career Intelligence</a>
+            <a href="insurance.html">Insurance</a>
+            <a href="mortgage-finance.html">Mortgage &amp; Finance</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Resources</div>
+          <div class="footer-links">
+            <a href="insights.html">Insights &amp; Blog</a>
+            <a href="insights.html">Market Reports</a>
+            <a href="insights.html">IR35 Guide</a>
+            <a href="contact.html">FAQ</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2026 iGroup. All Rights Reserved</span>
+        <span class="footer-copy">Powered by <a href="https://webflow.com/" target="_blank" style="color:rgba(255,255,255,0.5)">Webflow</a></span>
+      </div>
+    </div>
+    <div class="footer-mega">iGROUP</div>
+  </footer>
+
+
+  <!-- ============================================================
+       SCRIPTS
+       ============================================================ -->
+  <script src="https://cdn.prod.website-files.com/gsap/3.14.2/gsap.min.js"></script>
+  <script src="https://cdn.prod.website-files.com/gsap/3.14.2/ScrollTrigger.min.js"></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    /* ---- Navbar scroll behaviour ---- */
+    const nav = document.getElementById('pageNav');
+    ScrollTrigger.create({
+      start: 'top -80',
+      onUpdate: (self) => {
+        if (self.progress > 0) { nav.classList.remove('on-dark'); nav.classList.add('scrolled'); }
+        else { nav.classList.add('on-dark'); nav.classList.remove('scrolled'); }
+      }
+    });
+
+    /* ---- Mobile menu toggle ---- */
+    document.getElementById('hamburger').addEventListener('click', function() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    });
+
+    /* ---- GSAP scroll animations ---- */
+    gsap.utils.toArray('.animate-in').forEach(el => {
+      gsap.from(el, {
+        opacity: 0,
+        y: 40,
+        duration: 0.85,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 88%',
+          toggleActions: 'play none none none'
+        }
+      });
+    });
+
+    /* ---- FAQ accordion ---- */
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', function() {
+        const item = this.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    /* ---- Smooth scroll for anchor links ---- */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

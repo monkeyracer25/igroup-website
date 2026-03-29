@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Career Intelligence — iGroup | Stop Drifting, Start Strategising</title>
+  <meta name="description" content="Skills gap analysis, market benchmarking, retirement modelling, and negotiation coaching — powered by data, delivered by experts.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/ig2-c49518.webflow.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <style>
+    /* =========================================
+       BASE STYLES
+       ========================================= */
+    *, *::before, *::after { box-sizing: border-box; }
+    body { font-family: 'Manrope', sans-serif; color: #1A1A2E; -webkit-font-smoothing: antialiased; margin: 0; }
+
+    /* =========================================
+       NAVBAR
+       ========================================= */
+    .page-navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; transition: background 0.3s ease, box-shadow 0.3s ease; }
+    .page-navbar.scrolled { background: #fff !important; box-shadow: 0 1px 20px rgba(0,0,0,0.08); }
+    .page-navbar .navbar-inner { padding: 0 24px; }
+    .page-navbar .global-container { max-width: 1280px; margin: 0 auto; }
+    .page-navbar .navbar-island { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .page-navbar .navbar-left a { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 22px; color: #fff; letter-spacing: -0.5px; text-decoration: none; }
+    .page-navbar.scrolled .navbar-left a { color: #0D7377; }
+    .page-navbar .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; margin: 0; padding: 0; }
+    .page-navbar .nav-links a { font-family: 'Manrope', sans-serif; font-size: 0.9rem; font-weight: 400; color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.2s; }
+    .page-navbar .nav-links a:hover { color: #fff; }
+    .page-navbar.scrolled .nav-links a { color: #1A1A2E; }
+    .page-navbar.scrolled .nav-links a:hover { color: #0D7377; }
+    .nav-cta { background: #0D7377; color: #fff !important; padding: 10px 22px; border-radius: 100vw; font-weight: 500 !important; font-size: 0.875rem !important; transition: background 0.2s, transform 0.2s !important; }
+    .nav-cta:hover { background: #0a5f63 !important; transform: translateY(-1px); }
+
+    /* =========================================
+       HAMBURGER & MOBILE MENU
+       ========================================= */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; color: #fff; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: currentColor; transition: 0.3s; }
+    .page-navbar.scrolled .hamburger { color: #1A1A2E; }
+    .mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; background: #fff; padding: 20px 24px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); z-index: 999; }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a { display: block; padding: 12px 0; font-size: 1rem; color: #1A1A2E; text-decoration: none; border-bottom: 1px solid #f0f0f0; }
+    .mobile-menu a:last-child { border-bottom: none; }
+
+    /* =========================================
+       BUTTONS
+       ========================================= */
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: #0D7377; color: #fff; padding: 14px 28px; border-radius: 100vw; font-family: 'Manrope',sans-serif; font-weight: 500; font-size: 0.95rem; text-decoration: none; transition: background 0.2s, transform 0.2s; }
+    .btn-primary:hover { background: #0a5f63; transform: translateY(-2px); }
+    .btn-outline-light { display: inline-flex; align-items: center; gap: 8px; border: 1.5px solid rgba(255,255,255,0.5); color: #fff; padding: 14px 28px; border-radius: 100vw; font-family: 'Manrope',sans-serif; font-weight: 500; font-size: 0.95rem; text-decoration: none; transition: border-color 0.2s, transform 0.2s; background: transparent; }
+    .btn-outline-light:hover { border-color: #fff; transform: translateY(-2px); }
+    .btn-white { display: inline-flex; align-items: center; gap: 8px; background: #fff; color: #1A1A2E; padding: 14px 28px; border-radius: 100vw; font-family: 'Manrope',sans-serif; font-weight: 500; font-size: 0.95rem; text-decoration: none; transition: background 0.2s, transform 0.2s; }
+    .btn-white:hover { background: #f0f0f0; transform: translateY(-2px); }
+
+    /* =========================================
+       SECTIONS & LAYOUT
+       ========================================= */
+    .section-page { padding: 120px 48px; }
+    .section-cream { background: #F5F0E8; }
+    .section-white { background: #fff; }
+    .section-dark { background: #1A1A2E; }
+    .section-teal { background: #0D7377; }
+    .container { max-width: 1280px; margin: 0 auto; }
+
+    /* =========================================
+       TYPOGRAPHY HELPERS
+       ========================================= */
+    .eyebrow { font-size: 0.72rem; font-weight: 600; color: #0D7377; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 16px; display: block; }
+    .section-heading { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 500; color: #1A1A2E; letter-spacing: -0.02em; line-height: 1.2; margin: 0 0 20px; }
+    .section-heading.invert { color: #fff; }
+    .section-subtext { font-size: 1.15rem; color: #555; line-height: 1.6; max-width: 640px; }
+    .section-subtext.invert { color: rgba(255,255,255,0.7); }
+
+    /* =========================================
+       HERO — CAREER INTELLIGENCE
+       ========================================= */
+    .hero-career {
+      background:
+        repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(255,255,255,0.04) 59px, rgba(255,255,255,0.04) 60px),
+        repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(255,255,255,0.04) 59px, rgba(255,255,255,0.04) 60px),
+        radial-gradient(ellipse at 70% 50%, rgba(13,115,119,0.25) 0%, transparent 60%),
+        linear-gradient(135deg, #1A1A2E 0%, #0f0f22 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 72px;
+    }
+    .hero-career .container {
+      width: 100%;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .stat-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+      flex: 1;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.14);
+    }
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #0D7377;
+      margin: 0 0 8px;
+      line-height: 1;
+    }
+    .stat-label {
+      color: #555;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    /* =========================================
+       SPLIT LAYOUT — SECTION 2 & 3 & 6
+       ========================================= */
+    .split-grid {
+      display: grid;
+      gap: 48px;
+      align-items: center;
+    }
+    .split-55-45 {
+      grid-template-columns: 55% 45%;
+    }
+    .split-45-55 {
+      grid-template-columns: 45% 55%;
+    }
+    .split-60-40 {
+      grid-template-columns: 60% 40%;
+    }
+    .split-image {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    }
+    .split-image-flat {
+      width: 100%;
+      border-radius: 20px;
+    }
+    .callout-box {
+      border-left: 4px solid #0D7377;
+      padding: 20px;
+      background: rgba(13,115,119,0.06);
+      border-radius: 8px;
+      margin-top: 24px;
+    }
+    .callout-box p {
+      font-style: italic;
+      color: #555;
+      line-height: 1.6;
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    /* =========================================
+       BADGE PILLS — SECTION 3
+       ========================================= */
+    .badge-pills {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+    .badge-pill {
+      padding: 8px 20px;
+      border-radius: 100vw;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #fff;
+    }
+    .badge-teal { background: #0D7377; }
+    .badge-grey { background: #888; }
+    .badge-orange { background: #e67e22; }
+
+    /* =========================================
+       MILESTONE CARDS — SECTION 4
+       ========================================= */
+    .milestone-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .milestone-card {
+      background: rgba(255,255,255,0.05);
+      border-left: 3px solid #0D7377;
+      border-radius: 16px;
+      padding: 32px;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+    .milestone-card:hover {
+      transform: translateY(-4px);
+      background: rgba(255,255,255,0.08);
+    }
+    .milestone-card h4 {
+      font-weight: 600;
+      font-size: 1.15rem;
+      color: #fff;
+      margin: 0 0 12px;
+    }
+    .milestone-card p {
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+      margin: 0;
+      font-size: 0.95rem;
+    }
+    .section-image-wide {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      border-radius: 16px;
+      margin-top: 40px;
+    }
+
+    /* =========================================
+       SCENARIO CARDS — SECTION 5
+       ========================================= */
+    .scenario-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .scenario-card {
+      background: #fff;
+      border-top: 3px solid #0D7377;
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .scenario-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+    }
+    .scenario-card h4 {
+      font-weight: 600;
+      font-size: 1.15rem;
+      color: #1A1A2E;
+      margin: 0 0 12px;
+    }
+    .scenario-card p {
+      color: #555;
+      line-height: 1.6;
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    /* =========================================
+       SECTOR TAGS — SECTION 6
+       ========================================= */
+    .sector-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 24px;
+    }
+    .sector-tag {
+      border: 1.5px solid #0D7377;
+      color: #0D7377;
+      padding: 8px 16px;
+      border-radius: 100vw;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: background 0.2s, color 0.2s;
+    }
+    .sector-tag:hover {
+      background: #0D7377;
+      color: #fff;
+    }
+
+    /* =========================================
+       FOOTER
+       ========================================= */
+    .page-footer { background: #1A1A2E; padding: 80px 48px 40px; position: relative; overflow: hidden; }
+    .footer-inner { max-width: 1280px; margin: 0 auto; }
+    .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 60px; }
+    .footer-logo { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 26px; color: #fff; letter-spacing: -0.5px; text-decoration: none; display: block; margin-bottom: 16px; }
+    .footer-tagline { font-size: 0.95rem; color: rgba(255,255,255,0.55); line-height: 1.6; margin-bottom: 24px; }
+    .footer-social { display: flex; gap: 12px; }
+    .footer-social a { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+    .footer-social a:hover { background: rgba(255,255,255,0.15); }
+    .footer-social img { width: 18px; height: 18px; }
+    .footer-col-title { font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.4); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; }
+    .footer-links { display: flex; flex-direction: column; gap: 12px; list-style: none; padding: 0; margin: 0; }
+    .footer-links a { font-size: 0.9rem; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: #fff; }
+    .footer-divider { height: 1px; background: rgba(255,255,255,0.08); margin-bottom: 28px; }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; }
+    .footer-copy { font-size: 0.85rem; color: rgba(255,255,255,0.4); }
+    .footer-mega { position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); font-size: clamp(80px,10vw,160px); font-weight: 800; color: rgba(255,255,255,0.03); white-space: nowrap; letter-spacing: -0.04em; pointer-events: none; font-family: 'Manrope',sans-serif; }
+
+    /* =========================================
+       RESPONSIVE — TABLET (max-width: 991px)
+       ========================================= */
+    @media (max-width: 991px) {
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+      .section-page {
+        padding: 80px 32px;
+      }
+      .hero-stats {
+        flex-wrap: wrap;
+      }
+      .stat-card {
+        flex: 1 1 calc(50% - 12px);
+        min-width: 200px;
+      }
+      .split-55-45,
+      .split-45-55,
+      .split-60-40 {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .milestone-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      .scenario-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+    }
+
+    /* =========================================
+       RESPONSIVE — MOBILE (max-width: 767px)
+       ========================================= */
+    @media (max-width: 767px) {
+      .page-navbar .nav-links {
+        display: none;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .footer-top {
+        grid-template-columns: 1fr;
+      }
+      .section-page {
+        padding: 60px 20px;
+      }
+      .hero-career {
+        min-height: 90vh;
+        padding-top: 72px;
+      }
+      .hero-stats {
+        flex-direction: column;
+        gap: 16px;
+      }
+      .stat-card {
+        flex: 1 1 100%;
+      }
+      .split-55-45,
+      .split-45-55,
+      .split-60-40 {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .milestone-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .scenario-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .badge-pills {
+        flex-wrap: wrap;
+      }
+      .section-image-wide {
+        height: 220px;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav class="page-navbar on-dark" id="pageNav">
+    <div class="navbar-inner">
+      <div class="global-container">
+        <div class="navbar-island">
+          <div class="navbar-left"><a href="index.html">iGroup</a></div>
+          <ul class="nav-links">
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="insights.html">Insights</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="join.html" class="nav-cta">Join iGroup &rarr;</a></li>
+          </ul>
+          <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="insights.html">Insights</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="contact.html">Contact</a>
+    <a href="join.html">Join iGroup &rarr;</a>
+  </div>
+
+
+  <!-- ============================================================
+       SECTION 1 — HERO (Dark, no photo)
+       ============================================================ -->
+  <section class="hero-career">
+    <div class="container">
+      <span class="eyebrow animate-in" style="color:rgba(255,255,255,0.7)">CAREER INTELLIGENCE</span>
+      <h1 class="animate-in" style="font-size:clamp(2.2rem,4.5vw,3.5rem);font-weight:500;color:#fff;letter-spacing:-0.03em;line-height:1.1;margin:0 0 24px;max-width:720px">Stop Drifting. Start Strategising.</h1>
+      <p class="animate-in" style="font-size:1.2rem;color:rgba(255,255,255,0.75);line-height:1.6;max-width:620px;margin-bottom:40px">Skills gap analysis, market benchmarking, retirement modelling, and negotiation coaching &mdash; powered by data, delivered by experts.</p>
+
+      <div class="hero-stats animate-in">
+        <div class="stat-card">
+          <div class="stat-number">&pound;47K</div>
+          <p class="stat-label">average rate uplift for members</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">89%</div>
+          <p class="stat-label">of contractors have untapped earning potential</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">15+</div>
+          <p class="stat-label">sectors benchmarked in real time</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 2 — SKILLS GAP ANALYSIS (Cream, Split Layout)
+       ============================================================ -->
+  <section class="section-page section-cream">
+    <div class="container">
+      <div class="split-grid split-55-45">
+
+        <!-- Left: Content -->
+        <div>
+          <span class="eyebrow animate-in">SKILLS GAP ANALYSIS</span>
+          <h3 class="animate-in" style="font-size:1.6rem;font-weight:600;color:#1A1A2E;margin:0 0 16px;line-height:1.3">Find Your Fastest Path to Higher Earnings.</h3>
+          <p class="animate-in" style="font-size:1.05rem;color:#555;line-height:1.7;margin:0 0 0">Our AI analyses real market data to identify the certifications, skills, and experience gaps that are holding your rate back. We don&rsquo;t guess &mdash; we calculate exactly what the market is paying for, and show you the shortest route to get there. Every recommendation is backed by live contractor rate data across your sector, your region, and your experience level. Whether you&rsquo;re a cloud architect looking to break through the &pound;700/day ceiling or a project manager exploring a pivot into programme delivery, we map the precise steps that will deliver the highest return on your time and investment. Our analysis considers not just immediate rate uplift but long-term career trajectory, giving you a roadmap that compounds year after year.</p>
+
+          <div class="callout-box animate-in">
+            <p>&ldquo;Adding AWS Solutions Architect certification = +&pound;75/day based on current market data&rdquo;</p>
+          </div>
+
+          <p class="animate-in" style="font-size:0.95rem;color:#555;line-height:1.7;margin-top:24px">This is the kind of insight that transforms contracting careers. Instead of spending &pound;2,000 and three months on a certification that adds nothing to your rate, you invest in exactly the right credential at exactly the right time. Our members consistently report that this single feature pays for their iGroup membership many times over.</p>
+
+          <p class="animate-in" style="font-size:0.95rem;color:#555;line-height:1.7;margin-top:16px">The skills gap analysis is refreshed quarterly, so you always have an up-to-date picture of where the market is heading and what you need to do next. We track emerging technologies, shifting demand patterns, and regulatory changes that create new opportunities for contractors who are positioned correctly.</p>
+        </div>
+
+        <!-- Right: Image -->
+        <div class="animate-in">
+          <img src="images/sector-it-developer.jpg" alt="IT developer contractor working on code" class="split-image" loading="lazy">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 3 — MARKET BENCHMARKING (White, Split Reversed)
+       ============================================================ -->
+  <section class="section-page section-white">
+    <div class="container">
+      <div class="split-grid split-45-55">
+
+        <!-- Left: Image -->
+        <div class="animate-in">
+          <img src="images/sector-nhs-nurse.jpg" alt="NHS healthcare professional" class="split-image-flat" loading="lazy">
+        </div>
+
+        <!-- Right: Content -->
+        <div>
+          <span class="eyebrow animate-in">MARKET BENCHMARKING</span>
+          <h3 class="animate-in" style="font-size:1.6rem;font-weight:600;color:#1A1A2E;margin:0 0 16px;line-height:1.3">Know Where You Sit.</h3>
+          <p class="animate-in" style="font-size:1.05rem;color:#555;line-height:1.7;margin:0">See exactly where your rate positions you within your sector, your region, and your experience bracket. No more guessing. No more leaving money on the table. Our benchmarking engine processes thousands of live contract rates every week, giving you an always-current view of what the market is actually paying &mdash; not what recruiters tell you it&rsquo;s paying. You&rsquo;ll see your position relative to other contractors with similar skills, experience, and clearances, broken down by geography, sector, and contract type.</p>
+
+          <p class="animate-in" style="font-size:0.95rem;color:#555;line-height:1.7;margin-top:16px">Understanding your market position is the foundation of every successful rate negotiation. When you walk into a discussion knowing that you&rsquo;re in the top 25% of earners in your sector, you negotiate differently. When you know that contractors with one additional certification are commanding &pound;50&ndash;&pound;100 more per day, you make different investment decisions. This is the power of data-driven career management, and it&rsquo;s available to every iGroup member.</p>
+
+          <p class="animate-in" style="font-size:0.95rem;color:#555;line-height:1.7;margin-top:16px">We don&rsquo;t just show you a number. We show you the distribution, the trends, and the factors that separate the highest earners from the rest. You&rsquo;ll understand exactly what it takes to move up, and our career advisors are on hand to help you make that move with confidence and precision.</p>
+
+          <div class="badge-pills animate-in">
+            <span class="badge-pill badge-teal">Top 25% Earners</span>
+            <span class="badge-pill badge-grey">Mid-Range</span>
+            <span class="badge-pill badge-orange">Growth Zone</span>
+          </div>
+
+          <p class="animate-in" style="font-size:0.9rem;color:#888;line-height:1.6;margin-top:20px">Your personalised benchmarking report is generated automatically when you join iGroup and updated every quarter. It includes sector-specific insights, regional comparisons, and actionable recommendations tailored to your career stage.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 4 — RETIREMENT MODELLING (Dark)
+       ============================================================ -->
+  <section class="section-page section-dark">
+    <div class="container">
+      <span class="eyebrow animate-in" style="color:rgba(255,255,255,0.5)">RETIREMENT MODELLING</span>
+      <h3 class="section-heading invert animate-in" style="max-width:700px">When Could You Stop? What Do You Need to Save?</h3>
+      <p class="section-subtext invert animate-in" style="max-width:660px">At your current trajectory, you could step back at 55. Add one certification and bring that forward to 53. Our retirement modelling tool takes your real earnings data, your current savings rate, and your pension provisions to build a personalised projection that shows exactly when financial independence becomes achievable.</p>
+
+      <p class="animate-in" style="font-size:0.95rem;color:rgba(255,255,255,0.6);line-height:1.7;margin-top:16px;max-width:660px">Most contractors have never mapped this out. They know roughly what they earn and roughly what they spend, but the gap between &ldquo;roughly&rdquo; and &ldquo;precisely&rdquo; can mean the difference between retiring at 52 or working until 60. Our modelling tool closes that gap with hard numbers, stress-tested scenarios, and clear action steps.</p>
+
+      <p class="animate-in" style="font-size:0.95rem;color:rgba(255,255,255,0.6);line-height:1.7;margin-top:16px;max-width:660px">We factor in tax-efficient extraction strategies, ISA and pension allowances, property assets, and the impact of rate changes over time. The model updates dynamically as your circumstances change, so you always have an accurate picture of where you stand and what moves will make the biggest difference to your timeline.</p>
+
+      <div class="milestone-grid">
+        <!-- Card 1: Today -->
+        <div class="milestone-card animate-in">
+          <h4>Today</h4>
+          <p>Current rate, savings trajectory, and pension projections based on your real data. We start with where you are right now &mdash; your income, your outgoings, your existing investments and pension pots. This baseline assessment reveals exactly how your current financial position maps to your long-term goals, and it often surprises people. Many contractors are closer to financial independence than they think, while others discover blind spots that need addressing.</p>
+        </div>
+
+        <!-- Card 2: Year 5 -->
+        <div class="milestone-card animate-in">
+          <h4>Year 5</h4>
+          <p>Projected earnings with rate optimisation and strategic skill development applied. Five years of compound growth, informed by data, looks dramatically different from five years of drifting. We model the impact of certification investments, sector pivots, and rate negotiations to show you exactly what your financial position could look like. This isn&rsquo;t fantasy projecting &mdash; it&rsquo;s based on real market trajectories for contractors who follow our recommendations.</p>
+        </div>
+
+        <!-- Card 3: Retirement -->
+        <div class="milestone-card animate-in">
+          <h4>Retirement</h4>
+          <p>When you can stop, what you&rsquo;ll have, and what changes could accelerate it. The endgame isn&rsquo;t just a date on a calendar &mdash; it&rsquo;s a detailed picture of your post-contracting life. We model your income needs, your assets, and your desired lifestyle to give you a clear, achievable retirement target. More importantly, we show you the levers you can pull today to bring that date forward and increase your financial security.</p>
+        </div>
+      </div>
+
+      <div class="animate-in">
+        <img src="images/sector-social-care.jpg" alt="Social care professional supporting a service user" class="section-image-wide" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 5 — NEGOTIATION COACHING (Cream)
+       ============================================================ -->
+  <section class="section-page section-cream">
+    <div class="container">
+      <span class="eyebrow animate-in">NEGOTIATION COACHING</span>
+      <h3 class="section-heading animate-in">Walk In Prepared. Walk Out Paid.</h3>
+      <p class="section-subtext animate-in" style="max-width:660px">Every rate negotiation is different. Whether you&rsquo;re a first-time contractor finding your feet or a seasoned professional pushing for a rate increase, we prepare you with the data, the scripts, and the confidence to get the outcome you deserve. Our negotiation coaching combines real market intelligence with proven psychological techniques to help you navigate even the most challenging conversations.</p>
+
+      <p class="animate-in" style="font-size:0.95rem;color:#555;line-height:1.7;margin-top:16px;max-width:660px">We don&rsquo;t just tell you what rate to ask for. We prepare you for every possible response, every objection, and every counter-offer. Our coaches have collectively negotiated thousands of contractor rates and know exactly how hiring managers, procurement teams, and recruitment agencies operate. This inside knowledge gives you a significant advantage at the negotiation table.</p>
+
+      <div class="scenario-grid">
+        <!-- Scenario 1 -->
+        <div class="scenario-card animate-in">
+          <h4>First Rate Negotiation</h4>
+          <p>You&rsquo;re new to contracting. We prepare you with market data, comparable rates, and a negotiation script. Starting your contracting career on the right foot means setting a strong initial rate. Too many new contractors accept the first number offered because they don&rsquo;t know what the market pays. We ensure you walk into that first conversation with confidence, armed with specific data points, comparable rate examples from your sector, and a structured approach that feels natural. Our coaching covers everything from how to frame your experience, to when to pause, to exactly how to handle the &ldquo;what&rsquo;s your rate?&rdquo; question that catches so many contractors off guard. The difference between a well-prepared first negotiation and an unprepared one can be &pound;50&ndash;&pound;150 per day &mdash; that&rsquo;s &pound;12,000 to &pound;36,000 per year.</p>
+        </div>
+
+        <!-- Scenario 2 -->
+        <div class="scenario-card animate-in">
+          <h4>Renewal Discussion</h4>
+          <p>Your contract is up for renewal. We show you what others are earning and coach you through the conversation. Contract renewals are the most overlooked opportunity in contracting. Many contractors simply accept the same rate or a token increase, when the market may have moved significantly in their favour. We analyse current market conditions, your tenure value to the client, and comparable rates to determine the optimal rate to request. Our coaching covers timing, framing, and how to leverage your institutional knowledge and delivery track record. We also prepare you for the possibility that the client pushes back, with specific responses and fallback positions that protect your earning potential while maintaining the relationship.</p>
+        </div>
+
+        <!-- Scenario 3 -->
+        <div class="scenario-card animate-in">
+          <h4>Market Downturn</h4>
+          <p>Rates are falling. We help you position your skills in adjacent sectors where demand is still strong. Economic cycles affect every contractor, but they don&rsquo;t affect every sector equally. When your primary market softens, we identify adjacent sectors where your skills are transferable and demand remains robust. Our cross-sector analysis has helped hundreds of contractors maintain or increase their earnings during downturns by pivoting strategically. We prepare you with sector-specific talking points, help you reframe your experience for new audiences, and provide introductions where possible. The contractors who thrive in downturns are the ones who move first and move smartly &mdash; and that requires exactly the kind of intelligence we provide.</p>
+        </div>
+      </div>
+
+      <div class="animate-in" style="margin-top:40px">
+        <img src="images/hero-arab-businessman.jpg" alt="Professional businessman in a modern office environment" style="width:100%;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,0.12)" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 6 — SECTOR DIVERSIFICATION (White, Split Layout)
+       ============================================================ -->
+  <section class="section-page section-white">
+    <div class="container">
+      <div class="split-grid split-60-40">
+
+        <!-- Left (60%): Content -->
+        <div>
+          <span class="eyebrow animate-in">SECTOR DIVERSIFICATION</span>
+          <h3 class="animate-in" style="font-size:1.6rem;font-weight:600;color:#1A1A2E;margin:0 0 16px;line-height:1.3">Don&rsquo;t Put All Your Eggs in One Sector.</h3>
+          <p class="animate-in" style="font-size:1.05rem;color:#555;line-height:1.7;margin:0">Contractors with experience across 2+ sectors command 18% higher rates on average. That&rsquo;s not a coincidence. Cross-sector experience signals adaptability, breadth of perspective, and the ability to bring proven approaches from one industry to solve problems in another. Clients in every sector value contractors who can draw on diverse experience.</p>
+
+          <p class="animate-in" style="font-size:0.95rem;color:#555;line-height:1.7;margin-top:16px">Our sector diversification analysis looks at your current experience and identifies the sectors where your skills are most in demand, where rates are highest, and where the transition cost is lowest. We don&rsquo;t suggest random pivots &mdash; we identify strategic adjacencies that build on your existing strengths while opening new revenue streams.</p>
+
+          <p class="animate-in" style="font-size:0.95rem;color:#555;line-height:1.7;margin-top:16px">For example, an IT project manager with NHS experience might find that their understanding of governance and compliance frameworks makes them highly sought-after in pharma and financial services. A rail signalling engineer might discover that their safety-critical systems expertise translates directly to energy and defence. These cross-sector moves aren&rsquo;t just career insurance &mdash; they&rsquo;re career accelerators.</p>
+
+          <p class="animate-in" style="font-size:0.95rem;color:#555;line-height:1.7;margin-top:16px">We benchmark rates and demand across every sector we track, so you can make informed decisions about where to focus your next move. Our advisors can also help you position your CV and online profile to appeal to multiple sectors simultaneously, maximising your visibility and your options.</p>
+
+          <div class="sector-tags animate-in">
+            <span class="sector-tag">NHS</span>
+            <span class="sector-tag">Social Care</span>
+            <span class="sector-tag">IT &amp; Development</span>
+            <span class="sector-tag">Rail</span>
+            <span class="sector-tag">Pharma</span>
+            <span class="sector-tag">Energy</span>
+            <span class="sector-tag">Finance</span>
+            <span class="sector-tag">Legal</span>
+            <span class="sector-tag">Construction</span>
+            <span class="sector-tag">Engineering</span>
+          </div>
+        </div>
+
+        <!-- Right (40%): Image -->
+        <div class="animate-in">
+          <img src="images/sector-rail-worker.jpg" alt="Rail sector contractor on site" class="split-image-flat" loading="lazy">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 7 — HOW IT WORKS (Cream)
+       ============================================================ -->
+  <section class="section-page section-cream">
+    <div class="container">
+      <span class="eyebrow animate-in">HOW IT WORKS</span>
+      <h3 class="section-heading animate-in">From Data to Strategy in Four Steps.</h3>
+      <p class="section-subtext animate-in" style="max-width:660px">Career Intelligence isn&rsquo;t a one-off report &mdash; it&rsquo;s an ongoing service that evolves with your career. Here&rsquo;s how the process works from the moment you join iGroup through to your long-term career strategy.</p>
+
+      <div class="scenario-grid" style="margin-top:48px">
+
+        <div class="scenario-card animate-in">
+          <h4>1. Data Collection</h4>
+          <p>When you join iGroup, we gather your professional profile &mdash; your skills, certifications, experience history, current rate, and career aspirations. This information feeds into our Career Intelligence engine, which begins building your personalised analysis immediately. The more complete your profile, the more accurate and actionable your insights will be. Most members complete their profile in under fifteen minutes, and many tell us the process itself is valuable because it forces them to think systematically about their career for the first time.</p>
+        </div>
+
+        <div class="scenario-card animate-in">
+          <h4>2. Analysis &amp; Benchmarking</h4>
+          <p>Our AI analyses your profile against live market data from thousands of contractor engagements across the UK. Within 24 hours of joining, you receive your first Career Intelligence report, including your market position, skills gap analysis, and preliminary retirement modelling. This report is reviewed by a human career advisor before it reaches you, ensuring that every recommendation makes sense in the context of your specific situation and goals. We combine quantitative data analysis with qualitative expert judgement to deliver insights you can genuinely act on.</p>
+        </div>
+
+        <div class="scenario-card animate-in">
+          <h4>3. Strategy &amp; Coaching</h4>
+          <p>Based on your report, you&rsquo;ll have a one-to-one session with a career advisor who specialises in your sector. Together, you&rsquo;ll develop a career strategy that covers the next twelve months: which certifications to pursue, what rate to target at your next renewal, and how to position yourself for the opportunities that align with your goals. This isn&rsquo;t generic advice &mdash; it&rsquo;s a specific, actionable plan built on your data. Our advisors are former contractors themselves, so they understand the practical realities of implementing career changes while maintaining active contracts.</p>
+        </div>
+
+      </div>
+
+      <div class="animate-in" style="margin-top:40px">
+        <div class="scenario-card" style="border-top:3px solid #0D7377">
+          <h4>4. Ongoing Support &amp; Quarterly Reviews</h4>
+          <p>Your Career Intelligence profile is updated continuously as market conditions change and your career progresses. Every quarter, you receive an updated report showing how your market position has shifted, what new opportunities have emerged, and whether your retirement timeline has changed. You also have access to on-demand negotiation coaching whenever you&rsquo;re preparing for a rate discussion, and our team is always available to provide guidance on career decisions as they arise. This isn&rsquo;t a product you use once &mdash; it&rsquo;s a partnership that grows more valuable over time as we accumulate more data about your career and the markets you operate in.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 8 — WHAT MEMBERS SAY (White)
+       ============================================================ -->
+  <section class="section-page section-white">
+    <div class="container">
+      <span class="eyebrow animate-in" style="text-align:center;display:block">MEMBER STORIES</span>
+      <h3 class="section-heading animate-in" style="text-align:center">Real Results From Real Contractors.</h3>
+      <p class="section-subtext animate-in" style="text-align:center;margin:0 auto 48px">Career Intelligence isn&rsquo;t theoretical. These are the outcomes our members have achieved by making data-driven career decisions.</p>
+
+      <div class="scenario-grid">
+
+        <div class="scenario-card animate-in">
+          <p style="font-style:italic;color:#555;line-height:1.6;margin:0 0 16px">&ldquo;I was billing &pound;450/day and thought that was decent for my experience level. Career Intelligence showed me I was in the bottom 30% for my sector and suggested two specific certifications. Six months later, I&rsquo;m at &pound;625/day. The data made all the difference.&rdquo;</p>
+          <div style="display:flex;align-items:center;gap:12px;margin-top:16px">
+            <div>
+              <div style="font-weight:600;color:#1A1A2E">Marcus Williams</div>
+              <div style="font-size:0.85rem;color:#888">Cloud Architect, London</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="scenario-card animate-in">
+          <p style="font-style:italic;color:#555;line-height:1.6;margin:0 0 16px">&ldquo;The negotiation coaching was a game-changer. I was about to accept a renewal at the same rate when my advisor showed me the market had moved 15% in my favour. With their coaching, I secured a &pound;75/day increase. That&rsquo;s an extra &pound;18,000 a year I would have left on the table.&rdquo;</p>
+          <div style="display:flex;align-items:center;gap:12px;margin-top:16px">
+            <div>
+              <div style="font-weight:600;color:#1A1A2E">Samira Khatun</div>
+              <div style="font-size:0.85rem;color:#888">Programme Manager, Birmingham</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="scenario-card animate-in">
+          <p style="font-style:italic;color:#555;line-height:1.6;margin:0 0 16px">&ldquo;The retirement modelling tool showed me I could stop at 53 if I made two specific changes to my savings strategy. I&rsquo;m 44 now. For the first time in my career, I have a clear finish line and a plan to get there. That peace of mind is worth more than any rate increase.&rdquo;</p>
+          <div style="display:flex;align-items:center;gap:12px;margin-top:16px">
+            <div>
+              <div style="font-weight:600;color:#1A1A2E">Robert Chen</div>
+              <div style="font-size:0.85rem;color:#888">DevOps Engineer, Manchester</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 9 — DEEPER DETAIL (Dark)
+       ============================================================ -->
+  <section class="section-page section-dark">
+    <div class="container">
+      <span class="eyebrow animate-in" style="color:rgba(255,255,255,0.5)">THE IGROUP DIFFERENCE</span>
+      <h3 class="section-heading invert animate-in" style="max-width:700px">Career Intelligence Built for Contractors, by Contractors.</h3>
+      <p class="section-subtext invert animate-in" style="max-width:660px">The consulting world is full of generic career advice. We built Career Intelligence specifically for the unique challenges and opportunities that contractors face.</p>
+
+      <div class="milestone-grid" style="margin-top:48px">
+
+        <div class="milestone-card animate-in">
+          <h4>Contractor-Specific Data</h4>
+          <p>Our data comes from real contractor engagements &mdash; not job board salary surveys, not recruiter estimates, not averaged industry reports. We track actual rates paid to actual contractors in actual engagements across every sector we cover. This means the insights you receive are grounded in reality, not approximation. When we tell you that your rate is in the 75th percentile for your sector, that figure is based on thousands of verified data points from contractors working in similar roles.</p>
+        </div>
+
+        <div class="milestone-card animate-in">
+          <h4>Human + AI Intelligence</h4>
+          <p>Our AI processes the data. Our human advisors interpret it. Every Career Intelligence report is reviewed by a career advisor with real-world contracting experience before it reaches you. This hybrid approach ensures that our recommendations account for the nuances that pure algorithmic analysis can miss &mdash; things like client culture, sector politics, and the practical challenges of implementing career changes while maintaining active contracts and financial commitments.</p>
+        </div>
+
+        <div class="milestone-card animate-in">
+          <h4>Integrated Ecosystem</h4>
+          <p>Career Intelligence doesn&rsquo;t exist in isolation. It connects seamlessly with every other iGroup service &mdash; your Compliance Passport ensures your certifications are always up to date, Rate Intelligence provides the market data that powers your benchmarking, and the Contractor Portal gives you a central place to track your progress and manage your career strategy. This integration means that acting on your Career Intelligence insights is frictionless and immediate.</p>
+        </div>
+
+      </div>
+
+      <div class="animate-in" style="margin-top:48px">
+        <div class="split-grid split-45-55" style="gap:32px">
+          <div>
+            <img src="images/sector-pharma.jpg" alt="Pharmaceutical sector laboratory professional" style="width:100%;border-radius:16px;object-fit:cover;height:300px" loading="lazy">
+          </div>
+          <div>
+            <img src="images/sector-energy.jpg" alt="Energy sector professional on site" style="width:100%;border-radius:16px;object-fit:cover;height:300px" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 10 — FAQ (White)
+       ============================================================ -->
+  <section class="section-page section-white">
+    <div class="container">
+      <span class="eyebrow animate-in" style="text-align:center;display:block">FREQUENTLY ASKED QUESTIONS</span>
+      <h3 class="section-heading animate-in" style="text-align:center">Questions About Career Intelligence.</h3>
+      <p class="section-subtext animate-in" style="text-align:center;margin:0 auto 8px">Everything you need to know about how Career Intelligence works and what it can do for your contracting career.</p>
+
+      <div style="max-width:760px;margin:40px auto 0">
+
+        <!-- FAQ 1 -->
+        <div class="faq-item animate-in">
+          <div class="faq-question">Is Career Intelligence included in my membership?</div>
+          <div class="faq-answer">
+            <p>Yes. Career Intelligence is included in every iGroup membership. There are no additional charges for benchmarking reports, skills gap analysis, or retirement modelling. Negotiation coaching sessions are also included &mdash; you can book as many as you need ahead of rate discussions or contract renewals. We believe that career strategy should be accessible to every contractor, not just those who can afford expensive career consultants.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item animate-in">
+          <div class="faq-question">How accurate is the market benchmarking data?</div>
+          <div class="faq-answer">
+            <p>Our data is sourced from verified contractor engagements across the UK. We process thousands of data points every week, covering all major sectors, regions, and experience levels. The data is validated against multiple sources including agency rate cards, client procurement data, and direct contractor reports. Our benchmarking figures are consistently more accurate than publicly available salary surveys because we focus exclusively on contractor rates rather than mixing permanent and temporary employment data.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item animate-in">
+          <div class="faq-question">How often is my Career Intelligence report updated?</div>
+          <div class="faq-answer">
+            <p>Your full Career Intelligence report is updated quarterly, but the underlying market data is refreshed weekly. This means your benchmarking position, skills gap analysis, and retirement projections always reflect current market conditions. You&rsquo;ll receive a notification when your quarterly report is ready, along with a summary of what has changed since the previous update. Between quarterly reports, you have access to the live dashboard where you can explore the latest market data for your sector and region at any time.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item animate-in">
+          <div class="faq-question">Can I get advice for a sector change?</div>
+          <div class="faq-answer">
+            <p>Absolutely. Sector diversification is one of the most impactful career moves a contractor can make, and our advisors specialise in helping members navigate cross-sector transitions. We analyse the transferability of your skills, identify the sectors with the highest demand for your experience profile, and help you position yourself effectively for new markets. Many of our most successful members operate across two or three sectors, and our data shows they consistently out-earn single-sector contractors.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item animate-in">
+          <div class="faq-question">What if I&rsquo;m just starting out as a contractor?</div>
+          <div class="faq-answer">
+            <p>Career Intelligence is especially valuable for new contractors. Setting the right initial rate, choosing the right first contract, and understanding your market position from day one can save years of trial and error. Our new-contractor programme includes a dedicated onboarding session with a career advisor, a comprehensive market briefing for your sector, and preparation for your first rate negotiation. Many new contractors report that this support alone justified their iGroup membership.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 11 — RELATED SERVICES (Cream)
+       ============================================================ -->
+  <section class="section-page section-cream">
+    <div class="container">
+      <span class="eyebrow animate-in" style="text-align:center;display:block">EXPLORE MORE</span>
+      <h3 class="section-heading animate-in" style="text-align:center">Career Intelligence Works Best With These.</h3>
+      <p class="section-subtext animate-in" style="text-align:center;margin:0 auto 48px">Career Intelligence is one part of the iGroup ecosystem. Combine it with these services for maximum impact on your contracting career.</p>
+
+      <div class="scenario-grid">
+
+        <div class="scenario-card animate-in">
+          <h4>Rate Intelligence</h4>
+          <p>Real-time rate data across sectors, regions, and experience levels. Rate Intelligence powers the benchmarking that drives Career Intelligence, giving you always-current visibility of what the market pays for your skills. Together, these services ensure you never unknowingly accept a below-market rate and always negotiate from a position of informed strength. Our members consistently report rate uplifts of 15&ndash;25% within their first year of using both services together.</p>
+          <a href="rate-intelligence.html" style="display:inline-block;margin-top:16px;color:#0D7377;font-weight:500;text-decoration:none;font-size:0.9rem">Learn more &rarr;</a>
+        </div>
+
+        <div class="scenario-card animate-in">
+          <h4>Compliance Passport</h4>
+          <p>Keep all your certifications, qualifications, and compliance documentation in one place &mdash; always current, always audit-ready. When Career Intelligence recommends a new certification, your Compliance Passport tracks the progress, stores the credential, and ensures it is visible to clients and agencies who need to verify your qualifications. The integration means that investing in your career development is seamless and fully documented from start to finish.</p>
+          <a href="compliance-passport.html" style="display:inline-block;margin-top:16px;color:#0D7377;font-weight:500;text-decoration:none;font-size:0.9rem">Learn more &rarr;</a>
+        </div>
+
+        <div class="scenario-card animate-in">
+          <h4>Contractor Portal</h4>
+          <p>Your central hub for managing your contracting business. The Contractor Portal brings together timesheets, expenses, documents, and communications in one place. Your Career Intelligence dashboard lives here too, giving you a single login for everything you need to run and grow your contracting career. Track your progress against your career plan, review your quarterly reports, and book coaching sessions &mdash; all from one clean, intuitive interface designed by contractors for contractors.</p>
+          <a href="portal.html" style="display:inline-block;margin-top:16px;color:#0D7377;font-weight:500;text-decoration:none;font-size:0.9rem">Learn more &rarr;</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 12 — CTA (Teal)
+       ============================================================ -->
+  <section class="section-page section-teal" style="text-align:center">
+    <div class="container">
+      <h2 class="section-heading invert animate-in">Your career deserves a strategy.</h2>
+      <p class="section-subtext invert animate-in" style="margin:0 auto 32px;text-align:center">Stop guessing. Start making data-driven decisions about your contracting career. Career Intelligence gives you the clarity, the confidence, and the coaching to earn more, save smarter, and retire sooner.</p>
+      <div class="animate-in" style="display:flex;gap:16px;justify-content:center;margin-top:32px;flex-wrap:wrap">
+        <a href="join.html" class="btn-white">Get Your Career Report</a>
+        <a href="join.html" class="btn-outline-light">Join iGroup</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="page-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <a href="index.html" class="footer-logo">iGroup</a>
+          <p class="footer-tagline">Professional contractor management &mdash; intelligence, compliance, and career strategy.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/" target="_blank"><img src="images/social_instagram.svg" alt="Instagram"></a>
+            <a href="https://x.com/" target="_blank"><img src="images/social_twitter.svg" alt="Twitter"></a>
+            <a href="https://www.facebook.com/" target="_blank"><img src="images/social_facebook.svg" alt="Facebook"></a>
+            <a href="https://www.linkedin.com/" target="_blank"><img src="images/social_linkedin.svg" alt="LinkedIn"></a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <div class="footer-links">
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="join.html">Join iGroup</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Services</div>
+          <div class="footer-links">
+            <a href="rate-intelligence.html">Rate Intelligence</a>
+            <a href="compliance-passport.html">Compliance Passport</a>
+            <a href="portal.html">Contractor Portal</a>
+            <a href="company-formation.html">Company Formation</a>
+            <a href="career-intelligence.html">Career Intelligence</a>
+            <a href="insurance.html">Insurance</a>
+            <a href="mortgage-finance.html">Mortgage &amp; Finance</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Resources</div>
+          <div class="footer-links">
+            <a href="insights.html">Insights &amp; Blog</a>
+            <a href="insights.html">Market Reports</a>
+            <a href="insights.html">IR35 Guide</a>
+            <a href="contact.html">FAQ</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2026 iGroup. All Rights Reserved</span>
+        <span class="footer-copy">Powered by <a href="https://webflow.com/" target="_blank" style="color:rgba(255,255,255,0.5)">Webflow</a></span>
+      </div>
+    </div>
+    <div class="footer-mega">iGROUP</div>
+  </footer>
+
+
+  <!-- ============================================================
+       SCRIPTS
+       ============================================================ -->
+  <script src="https://cdn.prod.website-files.com/gsap/3.14.2/gsap.min.js"></script>
+  <script src="https://cdn.prod.website-files.com/gsap/3.14.2/ScrollTrigger.min.js"></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    /* ---- Navbar scroll behaviour ---- */
+    const nav = document.getElementById('pageNav');
+    ScrollTrigger.create({
+      start: 'top -80',
+      onUpdate: (self) => {
+        if (self.progress > 0) { nav.classList.remove('on-dark'); nav.classList.add('scrolled'); }
+        else { nav.classList.add('on-dark'); nav.classList.remove('scrolled'); }
+      }
+    });
+
+    /* ---- Mobile menu toggle ---- */
+    document.getElementById('hamburger').addEventListener('click', function() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    });
+
+    /* ---- GSAP scroll animations ---- */
+    gsap.utils.toArray('.animate-in').forEach(el => {
+      gsap.from(el, {
+        opacity: 0,
+        y: 40,
+        duration: 0.85,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 88%',
+          toggleActions: 'play none none none'
+        }
+      });
+    });
+
+    /* ---- FAQ accordion ---- */
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', function() {
+        const item = this.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    /* ---- Smooth scroll for anchor links ---- */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

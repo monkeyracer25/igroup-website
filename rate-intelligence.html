@@ -8,6 +8,83 @@
   <link href="css/normalize.css" rel="stylesheet" type="text/css">
   <link href="css/webflow.css" rel="stylesheet" type="text/css">
   <link href="css/ig2-c49518.webflow.css" rel="stylesheet" type="text/css">
+  <style>
+/* MEGA MENU */
+.nav-menu-item { position: relative; }
+.mega-menu-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1A1A2E;
+  border-radius: 12px;
+  padding: 28px;
+  min-width: 620px;
+  z-index: 9999;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.nav-menu-item:hover .mega-menu-dropdown {
+  display: block;
+  opacity: 1;
+}
+.mega-menu-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+}
+.mega-menu-col-title {
+  color: #00d4c8;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.mega-menu-item {
+  display: block;
+  color: #fff !important;
+  text-decoration: none;
+  padding: 8px 0;
+  font-size: 14px;
+  transition: color 0.15s ease;
+}
+.mega-menu-item:hover { color: #00d4c8 !important; }
+.mega-menu-footer {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.mega-menu-footer a {
+  color: #00d4c8;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+.mega-menu-footer a:hover { text-decoration: underline; }
+@media (max-width: 991px) {
+  .mega-menu-dropdown {
+    display: none !important;
+    position: static;
+    transform: none;
+    min-width: unset;
+    width: 100%;
+    border-radius: 0;
+    padding: 12px 16px;
+    box-shadow: none;
+    opacity: 1 !important;
+  }
+  .nav-menu-item.mobile-open .mega-menu-dropdown {
+    display: block !important;
+  }
+  .mega-menu-inner { grid-template-columns: 1fr; gap: 0; }
+  .mega-menu-col-title { margin-top: 12px; }
+}
+  </style>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
   <style>
@@ -240,7 +317,7 @@
         <div class="navbar-island">
           <div class="navbar-wrapper">
             <div class="navbar-left">
-              <a aria-label="Liftline" href="index.html" aria-current="page" class="navbar-brand w-nav-brand w--current"><span style="font-family:'Manrope',sans-serif;font-weight:800;font-size:22px;color:#0D7377;letter-spacing:-0.5px">iGroup</span></a>
+              <a aria-label="Liftline" href="index.html" class="navbar-brand w-nav-brand"><span style="font-family:'Manrope',sans-serif;font-weight:800;font-size:22px;color:#0D7377;letter-spacing:-0.5px">iGroup</span></a>
             </div>
             <nav role="navigation" class="navbar-center w-nav-menu">
               <ul role="list" class="nav-menu w-list-unstyled">
@@ -253,6 +330,31 @@
                   <a data-w-id="b8acdcb8-57d5-31ff-392d-3ee1e984d67a" href="services.html" class="nav-link w-inline-block">
                     <div class="nav-link-text">Services</div>
                   </a>
+                  <div class="mega-menu-dropdown">
+                    <div class="mega-menu-inner">
+                      <div class="mega-menu-col">
+                        <div class="mega-menu-col-title">Intelligence</div>
+                        <a class="mega-menu-item" href="rate-intelligence.html">📊 Rate Intelligence</a>
+                        <a class="mega-menu-item" href="career-intelligence.html">📈 Career Intelligence</a>
+                        <a class="mega-menu-item" href="portal.html">💼 Contractor Portal</a>
+                      </div>
+                      <div class="mega-menu-col">
+                        <div class="mega-menu-col-title">Protection</div>
+                        <a class="mega-menu-item" href="compliance-passport.html">🛡️ Compliance Passport</a>
+                        <a class="mega-menu-item" href="services.html#contract-review">📄 Contract Review</a>
+                        <a class="mega-menu-item" href="insurance.html">🏥 Insurance</a>
+                      </div>
+                      <div class="mega-menu-col">
+                        <div class="mega-menu-col-title">Career</div>
+                        <a class="mega-menu-item" href="career-intelligence.html#cv">📋 CV Optimisation</a>
+                        <a class="mega-menu-item" href="company-formation.html">🎯 Company Formation</a>
+                        <a class="mega-menu-item" href="mortgage-finance.html">🏠 Mortgage & Finance</a>
+                      </div>
+                    </div>
+                    <div class="mega-menu-footer">
+                      <a href="services.html">Explore all services →</a>
+                    </div>
+                  </div>
                 </li>
                 <li class="nav-menu-item">
                   <a data-w-id="c0d29f78-819e-e378-9b89-0ce4c7638e55" href="insights.html" class="nav-link w-inline-block">
@@ -393,7 +495,7 @@
   <div class="section-dark">
     <div class="feature-row" style="max-width:1280px;margin:0 auto;">
       <div class="feature-img animate-in">
-        <img src="images/sector-rail-worker.jpg" alt="Rail worker in hi-vis — geographic rate intelligence" loading="lazy">
+        <img src="images/rate-map-heatmap.jpg" alt="UK regional contractor rate heatmap showing DevOps rates by region" loading="lazy">
       </div>
       <div class="feature-text animate-in">
         <span class="eyebrow eyebrow-white">GEOGRAPHIC INTELLIGENCE</span>
@@ -421,7 +523,7 @@
   <div class="section-white">
     <div class="feature-row" style="max-width:1280px;margin:0 auto;">
       <div class="feature-img animate-in">
-        <img src="images/sector-nhs-nurse.jpg" alt="NHS nurse — real-time rate alerts" loading="lazy">
+        <img src="images/rate-trend-graph.jpg" alt="IT contractor day rate trends over 12 months showing £450-£650 range" loading="lazy">
       </div>
       <div class="feature-text animate-in">
         <span class="eyebrow">REAL-TIME ALERTS</span>

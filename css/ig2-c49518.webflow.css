@@ -3411,7 +3411,7 @@ figcaption {
 }
 
 /* Fix solution-track gap when ScrollTrigger pin doesn't fire */
-/* solution-track: restore 300vh for proper ScrollTrigger pin */
+/* solution-track height managed by webflow.js IX3 */
 
 /* Hide agriculture videos in innovation cards, show poster image instead */
 .innovation-video-thumbnail video {

@@ -75,31 +75,6 @@
 }
 .mega-menu-footer a:hover { text-decoration: underline; }
 
-/* Solutions section: sticky dark background while scrolling through items */
-.solution-track {
-  position: relative !important;
-  height: 200vh !important;
-}
-.solution-box {
-  position: sticky !important;
-  top: 0 !important;
-  height: 100vh !important;
-  overflow: hidden !important;
-}
-.solution-inner {
-  height: 100% !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-}
-/* Ensure solution items are visible */
-.solution-item, .solution-heading-wrapper, .solution-grid {
-  opacity: 1 !important;
-}
-.section-chip-wrapper, .section-heading.invert {
-  opacity: 1 !important;
-}
-
 /* Footer tightening */
 .footer .section-inner { padding-top: 40px !important; padding-bottom: 20px !important; }
 .footer-upper { padding-bottom: 24px !important; }
@@ -1099,42 +1074,6 @@
   <script src="https://cdn.prod.website-files.com/gsap/3.14.2/gsap.min.js" type="text/javascript"></script>
   <script src="https://cdn.prod.website-files.com/gsap/3.14.2/ScrollTrigger.min.js" type="text/javascript"></script>
   <script src="https://cdn.prod.website-files.com/gsap/3.14.2/SplitText.min.js" type="text/javascript"></script>
-  <script>
-  // Custom ScrollTrigger pin for solutions section
-  document.addEventListener('DOMContentLoaded', function() {
-    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-      gsap.registerPlugin(ScrollTrigger);
-      
-      // Pin the solutions section while scrolling through all 5 items
-      var solutionTrack = document.querySelector('.solution-track');
-      if (solutionTrack) {
-        ScrollTrigger.create({
-          trigger: solutionTrack,
-          start: 'top top',
-          end: 'bottom bottom',
-          pin: '.solution-box',
-          pinSpacing: false
-        });
-        
-        // Animate each solution item as you scroll through
-        var items = document.querySelectorAll('.solution-item');
-        items.forEach(function(item, i) {
-          gsap.fromTo(item, 
-            { opacity: 0, y: 30 },
-            {
-              opacity: 1, y: 0, duration: 0.5,
-              scrollTrigger: {
-                trigger: item,
-                start: 'top 80%',
-                end: 'top 40%',
-                scrub: 1
-              }
-            }
-          );
-        });
-      }
-    }
-  });
-  </script>
+
 </body>
 </html>

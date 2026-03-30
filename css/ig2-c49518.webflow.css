@@ -3411,10 +3411,7 @@ figcaption {
 }
 
 /* Fix solution-track gap when ScrollTrigger pin doesn't fire */
-.solution-track:not(.pin-spacer) {
-  height: auto !important;
-  min-height: 100vh;
-}
+/* solution-track: restore 300vh for proper ScrollTrigger pin */
 
 /* Hide agriculture videos in innovation cards, show poster image instead */
 .innovation-video-thumbnail video {

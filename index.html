@@ -75,6 +75,31 @@
 }
 .mega-menu-footer a:hover { text-decoration: underline; }
 
+/* Solutions section: sticky dark background while scrolling through items */
+.solution-track {
+  position: relative !important;
+  height: 300vh !important;
+}
+.solution-box {
+  position: sticky !important;
+  top: 0 !important;
+  height: 100vh !important;
+  overflow: hidden !important;
+}
+.solution-inner {
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+}
+/* Ensure solution items are visible */
+.solution-item, .solution-heading-wrapper, .solution-grid {
+  opacity: 1 !important;
+}
+.section-chip-wrapper, .section-heading.invert {
+  opacity: 1 !important;
+}
+
 /* Footer tightening */
 .footer .section-inner { padding-top: 40px !important; padding-bottom: 20px !important; }
 .footer-upper { padding-bottom: 24px !important; }
